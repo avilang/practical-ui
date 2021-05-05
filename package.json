@@ -1,5 +1,6 @@
 {
   "name": "practical-ui",
+  "description": "基于 React 的后台 UI 库",
   "version": "0.1.0",
   "scripts": {
     "docz:dev": "docz dev",
