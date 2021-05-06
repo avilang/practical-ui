@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-recess-order"
+  ],
+  "ignoreFiles": ["**/*.js"],
+  "rules": {
+    "order/properties-alphabetical-order": null
+  }
+}

@@ -4,6 +4,8 @@
 
 # files
 .DS_Store
+.eslintcache
+.stylelintcache
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

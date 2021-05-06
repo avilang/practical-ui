@@ -2,11 +2,13 @@
   margin: 0;
   overflow: visible;
   text-transform: none;
-  -webkit-appearance: button;
+  appearance: button;
+
   &::-moz-focus-inner {
-    border-style: none;
     padding: 0;
+    border-style: none;
   }
+
   &:-moz-focusring {
     outline: 1px dotted ButtonText;
   }
