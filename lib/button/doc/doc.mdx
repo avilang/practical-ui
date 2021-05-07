@@ -8,10 +8,28 @@ import { Button } from '../index';
 
 # Button
 
-## Basic usage
+## 按钮类型
 
 <Playground>
-  <Button type="submit">submit</Button>
-  <Button style={{ marginLeft: 8 }}>确认</Button>
-  <Button style={{ marginLeft: 8 }}>去首页</Button>
+  <Button>确认</Button>
+  <Button style={{ marginLeft: 8 }} theme="primary">
+    Primary Button
+  </Button>
+  <Button style={{ marginLeft: 8 }} theme="dashed">
+    Dashed Button
+  </Button>
+</Playground>
+
+## 危险按钮
+
+<Playground>
+  <Button theme="primary" danger>
+    Danger Primary Button
+  </Button>
+  <Button style={{ marginLeft: 8 }} danger>
+    Danger Default Button
+  </Button>
+  <Button style={{ marginLeft: 8 }} theme="dashed" danger>
+    Danger Dashed Button
+  </Button>
 </Playground>

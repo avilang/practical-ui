@@ -20,6 +20,7 @@
   height: 34px;
   padding: 5px 12px;
   overflow: hidden;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5715;
@@ -37,8 +38,49 @@
   outline: none;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
+  &,
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
   &:hover {
     color: #1890ff;
     border-color: #1890ff;
+  }
+
+  & > span {
+    display: inline-block;
+    margin-top: 1px;
+  }
+
+  &.practical-button-primary {
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+
+    &:hover {
+      background-color: #40a9ff;
+      border-color: #40a9ff;
+    }
+  }
+
+  &.practical-button-dashed {
+    border-style: dashed;
+  }
+
+  &.practical-button-danger {
+    color: #f5222d;
+    border-color: #f5222d;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &.practical-button-primary.practical-button-danger {
+    color: #fff;
+    background-color: #f5222d;
+    border-color: #f5222d;
   }
 }
