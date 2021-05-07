@@ -6,7 +6,7 @@
   ],
   "ignoreFiles": ["**/*.js"],
   "rules": {
-    "max-nesting-depth": 2,
+    "max-nesting-depth": 3,
     "order/properties-alphabetical-order": null,
     "scss/selector-no-redundant-nesting-selector": null
   }
