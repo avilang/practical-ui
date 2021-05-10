@@ -1,4 +1,4 @@
-@keyframes loadingCircle {
+@keyframes iconLoadingCircle {
   to {
     transform: rotate(1turn);
   }
@@ -9,5 +9,5 @@
 }
 
 .practical-icon-spin {
-  animation: loadingCircle 1s linear infinite;
+  animation: iconLoadingCircle 1s linear infinite;
 }

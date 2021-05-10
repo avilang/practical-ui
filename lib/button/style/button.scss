@@ -19,7 +19,6 @@
   display: inline-block;
   height: 34px;
   padding: 5px 12px;
-  overflow: hidden;
   font-family: inherit;
   font-size: 14px;
   font-weight: 400;
@@ -110,6 +109,26 @@
       &:hover {
         opacity: 1;
       }
+    }
+  }
+
+  &.practical-button-loading {
+    position: relative;
+    pointer-events: none;
+
+    &::before {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      left: -1px;
+      z-index: 1;
+      pointer-events: none;
+      content: '';
+      background: #fff;
+      border-radius: inherit;
+      opacity: 0.35;
+      transition: opacity 0.2s;
     }
   }
 }

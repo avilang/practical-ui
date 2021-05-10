@@ -35,18 +35,6 @@ import { Button } from '../index';
   </Button>
 </Playground>
 
-## 不可用状态
-
-<Playground>
-  <Button disabled>Disabled Default Button</Button>
-  <Button style={{ marginLeft: 8 }} theme="secondary" danger disabled>
-    Disabled Danger Secondary Button
-  </Button>
-  <Button style={{ marginLeft: 8 }} theme="dashed" disabled>
-    Disabled Dashed Button
-  </Button>
-</Playground>
-
 ## 图标按钮
 
 <Playground>
@@ -65,11 +53,26 @@ import { Button } from '../index';
   </Button>
 </Playground>
 
+## 不可用状态
+
+<Playground>
+  <Button disabled>Disabled Default Button</Button>
+  <Button style={{ marginLeft: 8 }} theme="secondary" danger disabled>
+    Disabled Danger Secondary Button
+  </Button>
+  <Button style={{ marginLeft: 8 }} theme="dashed" disabled>
+    Disabled Dashed Button
+  </Button>
+</Playground>
+
 ## 加载中状态
 
 <Playground>
   <Button loading>提交</Button>
-  <Button style={{ marginLeft: 8 }} icon="search">
+  <Button style={{ marginLeft: 8, width: 80 }} theme="primary" loading>
+    提交
+  </Button>
+  <Button style={{ marginLeft: 8, width: 120 }} danger loading>
     提交
   </Button>
 </Playground>
