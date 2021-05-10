@@ -1,0 +1,43 @@
+---
+name: Icon 图标
+route: /icon
+---
+
+import { Playground, Props } from 'docz';
+import { Icon } from '../index';
+
+export const inlineStyleForIconWrap = {
+  display: 'inline-block',
+  textAlign: 'center',
+  marginRight: 20
+};
+export const inlineStyleForIconBox = {
+  width: 30,
+  height: 30,
+  border: '1px solid #ccc',
+  borderRadius: '3px',
+  boxSizing: 'border-box',
+  display: 'inline-block'
+};
+export const inlineStyleForIconText = { display: 'block', fontSize: 14 };
+
+## 图标类型
+
+<Playground>
+  <div style={inlineStyleForIconWrap}>
+    <div style={inlineStyleForIconBox}>
+      <Icon type="loading" spin />
+    </div>
+    <span style={inlineStyleForIconText}>loading</span>
+  </div>
+  <div style={inlineStyleForIconWrap}>
+    <div style={inlineStyleForIconBox}>
+      <Icon type="search" />
+    </div>
+    <span style={inlineStyleForIconText}>search</span>
+  </div>
+</Playground>
+
+## API
+
+<Props of={Icon} />

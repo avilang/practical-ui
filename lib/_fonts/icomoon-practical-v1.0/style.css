@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'icomoon-practical';
+  src:  url('fonts/icomoon-practical.eot?9pi5bx');
+  src:  url('fonts/icomoon-practical.eot?9pi5bx#iefix') format('embedded-opentype'),
+    url('fonts/icomoon-practical.ttf?9pi5bx') format('truetype'),
+    url('fonts/icomoon-practical.woff?9pi5bx') format('woff'),
+    url('fonts/icomoon-practical.svg?9pi5bx#icomoon-practical') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-practical-"], [class*=" icon-practical-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon-practical' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-practical-search:before {
+  content: "\e901";
+}
+.icon-practical-loading:before {
+  content: "\e900";
+}

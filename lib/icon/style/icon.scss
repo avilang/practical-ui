@@ -1,0 +1,13 @@
+@keyframes loadingCircle {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.practical-icon {
+  display: inline-block;
+}
+
+.practical-icon-spin {
+  animation: loadingCircle 1s linear infinite;
+}

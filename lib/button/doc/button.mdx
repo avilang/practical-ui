@@ -9,7 +9,7 @@ import { Button } from '../index';
 ## 按钮类型
 
 <Playground>
-  <Button>确认</Button>
+  <Button htmlType="submit">确认</Button>
   <Button style={{ marginLeft: 8 }} theme="primary">
     Primary Button
   </Button>
@@ -45,6 +45,12 @@ import { Button } from '../index';
   <Button style={{ marginLeft: 8 }} theme="dashed" disabled>
     Disabled Dashed Button
   </Button>
+</Playground>
+
+## 加载中状态
+
+<Playground>
+  <Button loading>提交</Button>
 </Playground>
 
 ## API
