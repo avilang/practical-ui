@@ -47,10 +47,31 @@ import { Button } from '../index';
   </Button>
 </Playground>
 
+## 图标按钮
+
+<Playground>
+  <Button icon="search">提交</Button>
+  <Button style={{ marginLeft: 8 }} theme="primary" icon="search">
+    确认
+  </Button>
+  <Button style={{ marginLeft: 8 }} theme="secondary" icon="search" danger>
+    取消
+  </Button>
+  <Button style={{ marginLeft: 8 }} theme="secondary" icon="search" disabled>
+    搜索
+  </Button>
+  <Button style={{ marginLeft: 8 }} theme="dashed" icon="search">
+    增加
+  </Button>
+</Playground>
+
 ## 加载中状态
 
 <Playground>
   <Button loading>提交</Button>
+  <Button style={{ marginLeft: 8 }} icon="search">
+    提交
+  </Button>
 </Playground>
 
 ## API

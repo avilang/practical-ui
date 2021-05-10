@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon-practical';
-  src:  url('fonts/icomoon-practical.eot?9pi5bx');
-  src:  url('fonts/icomoon-practical.eot?9pi5bx#iefix') format('embedded-opentype'),
-    url('fonts/icomoon-practical.ttf?9pi5bx') format('truetype'),
-    url('fonts/icomoon-practical.woff?9pi5bx') format('woff'),
-    url('fonts/icomoon-practical.svg?9pi5bx#icomoon-practical') format('svg');
+  src:  url('fonts/icomoon-practical.eot?v7pcuk');
+  src:  url('fonts/icomoon-practical.eot?v7pcuk#iefix') format('embedded-opentype'),
+    url('fonts/icomoon-practical.ttf?v7pcuk') format('truetype'),
+    url('fonts/icomoon-practical.woff?v7pcuk') format('woff'),
+    url('fonts/icomoon-practical.svg?v7pcuk#icomoon-practical') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,9 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-practical-search:before {
-  content: "\e901";
-}
 .icon-practical-loading:before {
   content: "\e900";
+}
+.icon-practical-search:before {
+  content: "\e901";
 }
