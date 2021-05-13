@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'icomoon-practical';
-  src:  url('fonts/icomoon-practical.eot?v7pcuk');
-  src:  url('fonts/icomoon-practical.eot?v7pcuk#iefix') format('embedded-opentype'),
-    url('fonts/icomoon-practical.ttf?v7pcuk') format('truetype'),
-    url('fonts/icomoon-practical.woff?v7pcuk') format('woff'),
-    url('fonts/icomoon-practical.svg?v7pcuk#icomoon-practical') format('svg');
+  src:  url('fonts/icomoon-practical.eot?k3ocmb');
+  src:  url('fonts/icomoon-practical.eot?k3ocmb#iefix') format('embedded-opentype'),
+    url('fonts/icomoon-practical.ttf?k3ocmb') format('truetype'),
+    url('fonts/icomoon-practical.woff?k3ocmb') format('woff'),
+    url('fonts/icomoon-practical.svg?k3ocmb#icomoon-practical') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-practical-"], [class*=" icon-practical-"] {
+[class^="practical-icon-"], [class*=" practical-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon-practical' !important;
   speak: never;
@@ -25,9 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-practical-loading:before {
+.practical-icon-loading:before {
   content: "\e900";
 }
-.icon-practical-search:before {
+.practical-icon-search:before {
   content: "\e901";
 }
