@@ -1,13 +1,15 @@
+@import '../../variables';
+
 @keyframes iconLoadingCircle {
   to {
     transform: rotate(1turn);
   }
 }
 
-.practical-sign {
+.#{$prefix}-sign {
   display: inline-block;
 }
 
-.practical-sign-spin {
+.#{$prefix}-sign-spin {
   animation: iconLoadingCircle 1s linear infinite;
 }
