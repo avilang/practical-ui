@@ -1,6 +1,7 @@
 # directory
 /node_modules
 /.docz
+/dist
 
 # files
 .DS_Store
