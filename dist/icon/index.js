@@ -1,2 +1,3 @@
-export { I as Icon } from '../Icon-fc28c3bc.js';
+export { I as Icon } from '../Icon-0c1737de.js';
+import 'react';
 import 'prop-types';

@@ -1,7 +1,6 @@
-import { s as styleInject, _ as _objectWithoutProperties, c as classNames, a as _defineProperty, b as _extends, I as Icon, d as _typeof } from '../Icon-fc28c3bc.js';
+import { s as styleInject, _ as _objectWithoutProperties, c as classNames, a as _defineProperty, b as _extends, I as Icon, d as _typeof } from '../Icon-0c1737de.js';
 import PropTypes from 'prop-types';
-import * as React from 'react';
-import { useCallback, useRef, useEffect } from 'react';
+import React, { useCallback, useRef, useEffect } from 'react';
 
 function useThrottleFn(fn, delay) {
   var _useRef = useRef({

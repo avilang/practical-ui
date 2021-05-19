@@ -1,7 +1,7 @@
 {
   "name": "@avilang/practical-ui",
   "description": "基于 React 的后台 UI 库",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "build": "rimraf dist && rollup -c",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern lib/_fonts/* --ext .js lib",
