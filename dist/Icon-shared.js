@@ -146,39 +146,6 @@ var classnames = {exports: {}};
 
 var classNames = classnames.exports;
 
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var css_248z$1 = "@font-face {\n  font-family: 'icomoon-practical';\n  src:  url('fonts/icomoon-practical.eot?k3ocmb');\n  src:  url('fonts/icomoon-practical.eot?k3ocmb#iefix') format('embedded-opentype'),\n    url('fonts/icomoon-practical.ttf?k3ocmb') format('truetype'),\n    url('fonts/icomoon-practical.woff?k3ocmb') format('woff'),\n    url('fonts/icomoon-practical.svg?k3ocmb#icomoon-practical') format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n[class^=\"practical-icon-\"], [class*=\" practical-icon-\"] {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: 'icomoon-practical' !important;\n  speak: never;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n.practical-icon-loading:before {\n  content: \"\\e900\";\n}\n.practical-icon-search:before {\n  content: \"\\e901\";\n}\n";
-styleInject(css_248z$1);
-
-var css_248z = "@charset \"UTF-8\";\n/** 颜色 */\n/** 字体颜色 */\n@keyframes iconLoadingCircle {\n  to {\n    transform: rotate(1turn); } }\n\n.practical-sign {\n  display: inline-block; }\n\n.practical-sign-spin {\n  animation: iconLoadingCircle 1s linear infinite; }\n";
-styleInject(css_248z);
-
 function Icon(props) {
   var _classNames;
 
@@ -207,4 +174,4 @@ Icon.propTypes = {
   spin: PropTypes.bool
 };
 
-export { Icon as I, _objectWithoutProperties as _, _defineProperty as a, _extends as b, classNames as c, _typeof as d, styleInject as s };
+export { Icon as I, _objectWithoutProperties as _, _defineProperty as a, _extends as b, classNames as c, _typeof as d };

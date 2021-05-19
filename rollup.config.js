@@ -11,12 +11,13 @@ export default {
   output: {
     dir: 'dist',
     entryFileNames: '[name]/index.js',
+    chunkFileNames: '[name]-shared.js',
     format: 'es'
   },
   plugins: [
     nodeResolve(),
     commonjs({ include: /node_modules/ }),
-    postcss(),
+    postcss({ extract: 'index.css' }),
     babel({
       babelHelpers: 'bundled',
       presets: ['@babel/preset-env', '@babel/preset-react'],
