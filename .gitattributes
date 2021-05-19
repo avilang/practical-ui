@@ -1,0 +1,3 @@
+src/**/*.js text eol=lf
+lib/**/*.js text eol=lf
+lib/**/*.scss text eol=lf
