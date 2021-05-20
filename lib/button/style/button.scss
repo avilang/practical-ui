@@ -27,7 +27,6 @@
   line-height: 1.5715;
   color: $primary-text;
   text-align: center;
-  vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
   user-select: none;
@@ -101,6 +100,46 @@
     border-color: $red-6;
   }
 
+  &.#{$prefix}-button-text {
+    height: auto;
+    padding: 0;
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 0;
+
+    & > span {
+      margin-top: 0;
+    }
+
+    &:hover {
+      color: $primary-text;
+      background-color: transparent;
+      border-color: transparent;
+      opacity: 1;
+
+      & > span {
+        text-decoration: underline;
+      }
+    }
+
+    &.#{$prefix}-button-primary {
+      color: $blue-6;
+    }
+    &.#{$prefix}-button-secondary {
+      color: $green-6;
+    }
+    &.#{$prefix}-button-danger {
+      color: $red-6;
+    }
+
+    &.#{$prefix}-button-primary.#{$prefix}-button-danger,
+    &.#{$prefix}-button-secondary.#{$prefix}-button-danger {
+      color: $red-6;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
   &[disabled] {
     &,
     &:hover,
@@ -114,6 +153,22 @@
 
       &:hover {
         opacity: 1;
+      }
+    }
+
+    &.#{$prefix}-button-text,
+    &.#{$prefix}-button-danger.#{$prefix}-button-text {
+      color: $disable-text;
+      cursor: not-allowed;
+      background-color: transparent;
+      border-color: transparent;
+    }
+
+    &.#{$prefix}-button-text:hover {
+      opacity: 1;
+
+      & > span {
+        text-decoration: none;
       }
     }
   }

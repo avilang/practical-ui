@@ -23,6 +23,15 @@ import { Button } from '../index';
   <Button style={{ marginLeft: 8 }} theme="dashed">
     Dashed Button
   </Button>
+  <Button style={{ marginLeft: 8 }} text>
+    Default Text Button
+  </Button>
+  <Button style={{ marginLeft: 8 }} theme="primary" text>
+    Primary Text Button
+  </Button>
+  <Button style={{ marginLeft: 8 }} theme="secondary" text>
+    Secondary Text Button
+  </Button>
 </Playground>
 
 ## 危险按钮
@@ -36,6 +45,9 @@ import { Button } from '../index';
   </Button>
   <Button style={{ marginLeft: 8 }} theme="dashed" danger>
     Danger Dashed Button
+  </Button>
+  <Button style={{ marginLeft: 8 }} danger text>
+    Danger Default Text Button
   </Button>
 </Playground>
 
@@ -80,6 +92,9 @@ import { Button } from '../index';
   <Button style={{ marginLeft: 8 }} theme="dashed" disabled>
     Disabled Dashed Button
   </Button>
+  <Button style={{ marginLeft: 8 }} theme="primary" danger disabled text>
+    Disabled Danger Secondary Text Button
+  </Button>
 </Playground>
 
 ## 加载中状态
@@ -91,6 +106,9 @@ import { Button } from '../index';
   </Button>
   <Button style={{ marginLeft: 8, width: 120 }} danger loading>
     提交
+  </Button>
+  <Button style={{ marginLeft: 20 }} theme="secondary" autoInsertSpace={false} text loading>
+    保存
   </Button>
 </Playground>
 
