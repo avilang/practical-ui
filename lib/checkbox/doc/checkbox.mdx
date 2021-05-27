@@ -1,0 +1,82 @@
+---
+name: Checkbox 多选框
+route: /checkbox
+---
+
+import { Playground, Props } from 'docz';
+import { Checkbox } from '../index';
+
+# Checkbox 多选框
+
+## 基本用法
+
+<Playground>
+  {() => {
+    const [checked, setChecked] = React.useState(true);
+    return (
+      <>
+        <Checkbox
+          checked={checked}
+          onChange={(e, status) => {
+            setChecked(status);
+          }}
+        >
+          苹果
+        </Checkbox>
+        <Checkbox style={{ marginLeft: 16 }}>香蕉</Checkbox>
+        <Checkbox style={{ marginLeft: 16 }} />
+      </>
+    );
+  }}
+</Playground>
+
+## 不可用
+
+<Playground>
+  <Checkbox checked disabled>
+    香蕉
+  </Checkbox>
+  <Checkbox style={{ marginLeft: 16 }} disabled>
+    雪梨
+  </Checkbox>
+</Playground>
+
+## 全选
+
+在实现全选效果时，你可能会用到 indeterminate 属性。
+
+<Playground>
+  {() => {
+    const [checkedA, setCheckedA] = React.useState(true);
+    const [checkedB, setCheckedB] = React.useState(false);
+    return (
+      <>
+        <Checkbox indeterminate={checkedA || checkedB} checked={checkedA && checkedB}>
+          全部
+        </Checkbox>
+        <Checkbox
+          style={{ marginLeft: 16 }}
+          checked={checkedB}
+          onChange={(e, status) => {
+            setCheckedB(status);
+          }}
+        >
+          菠萝
+        </Checkbox>
+        <Checkbox
+          style={{ marginLeft: 16 }}
+          checked={checkedA}
+          onChange={(e, status) => {
+            setCheckedA(status);
+          }}
+        >
+          西瓜
+        </Checkbox>
+      </>
+    );
+  }}
+</Playground>
+
+## API
+
+<Props of={Checkbox} />

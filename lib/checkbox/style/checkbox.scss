@@ -1,0 +1,127 @@
+@import '../../variables';
+
+.#{$prefix}-checkbox {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: $line-height;
+  color: $primary-text;
+  list-style: none;
+  touch-action: manipulation;
+  cursor: pointer;
+
+  & > span {
+    vertical-align: middle;
+  }
+
+  &:hover {
+    .#{$prefix}-checkbox-sign {
+      border-color: $blue-6;
+    }
+  }
+}
+
+.#{$prefix}-checkbox-checked {
+  .#{$prefix}-checkbox-sign {
+    background-color: $blue-6;
+    border-color: $blue-6;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 22%;
+      box-sizing: border-box;
+      display: table;
+      width: 5.71428571px;
+      height: 9.14285714px;
+      content: ' ';
+      border: 2px solid #fff;
+      border-top: 0;
+      border-left: 0;
+      opacity: 1;
+      transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+      transform: rotate(45deg) scale(1) translate(-50%, -50%);
+    }
+  }
+}
+
+.#{$prefix}-checkbox-indeterminate {
+  .#{$prefix}-checkbox-sign {
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      box-sizing: border-box;
+      display: table;
+      width: 8px;
+      height: 8px;
+      content: ' ';
+      background-color: $blue-6;
+      border: 0;
+      border-radius: 2px;
+      opacity: 1;
+      transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+.#{$prefix}-checkbox-disabled {
+  color: $disable-text;
+  cursor: not-allowed;
+
+  .#{$prefix}-checkbox-sign {
+    background-color: $background-color;
+    border-color: $border-color;
+
+    &::after {
+      border-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &:hover {
+    .#{$prefix}-checkbox-sign {
+      border-color: $border-color;
+    }
+  }
+
+  &.#{$prefix}-checkbox-indeterminate {
+    .#{$prefix}-checkbox-sign {
+      &::after {
+        background-color: rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+}
+
+.#{$prefix}-checkbox-sign {
+  position: relative;
+  top: -1px;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  transition: all 0.3s;
+
+  & > input {
+    position: absolute;
+    top: 0;
+    left: -18px;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    outline: none;
+    opacity: 0;
+    appearance: auto;
+  }
+}
+
+.#{$prefix}-checkbox-text {
+  padding-left: 4px;
+}

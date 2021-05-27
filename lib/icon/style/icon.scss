@@ -8,6 +8,11 @@
 
 .#{$prefix}-sign {
   display: inline-block;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 0;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
 }
 
 .#{$prefix}-sign-spin {

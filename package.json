@@ -3,8 +3,8 @@
   "description": "基于 React 的后台 UI 库",
   "version": "0.1.4",
   "scripts": {
-    "build:css": "gulp",
-    "build": "rimraf dist && rollup -c && rimraf dist/index.css && yarn build:css",
+    "build:css": "rimraf dist/index.css && gulp",
+    "build": "rimraf dist && rollup -c && yarn build:css",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern lib/_fonts/* --ext .js lib",
     "lint:style": "stylelint --ignore-path .gitignore --fix lib/**/*.scss",
     "docz:dev": "rimraf .docz && docz dev",
