@@ -1,7 +1,7 @@
 {
   "name": "@avilang/practical-ui",
   "description": "基于 React 的后台 UI 库",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "scripts": {
     "build:css": "rimraf dist/index.css && gulp",
     "build": "rimraf dist && rollup -c && yarn build:css",

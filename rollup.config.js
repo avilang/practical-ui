@@ -6,7 +6,8 @@ import commonjs from '@rollup/plugin-commonjs';
 export default {
   input: {
     button: 'lib/button/index.js',
-    icon: 'lib/icon/index.js'
+    icon: 'lib/icon/index.js',
+    checkbox: 'lib/checkbox/index.js'
   },
   output: {
     dir: 'dist',
