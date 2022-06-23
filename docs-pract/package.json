@@ -4,8 +4,11 @@
   "private": true,
   "description": "Docs For Pract UI Library",
   "scripts": {
-    "docs:dev": "vuepress dev views",
+    "docs:dev": "scripty",
     "docs:build": "vuepress build views"
+  },
+  "scripty": {
+    "path": "../scripts/packages"
   },
   "volta": {
     "extends": "../package.json"

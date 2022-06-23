@@ -4,6 +4,12 @@
     "packages/*",
     "docs-pract"
   ],
+  "scripts": {
+    "pract:dev": "scripty"
+  },
+  "scripty": {
+    "path": "./scripts/workspaces"
+  },
   "engines": {
     "node": "16.15.1",
     "yarn": "1.22.18"
@@ -11,5 +17,8 @@
   "volta": {
     "node": "16.15.1",
     "yarn": "1.22.18"
+  },
+  "devDependencies": {
+    "scripty": "^2.1.0"
   }
 }
