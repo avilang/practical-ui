@@ -1,7 +1,8 @@
 {
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "docs-pract"
   ],
   "engines": {
     "node": "16.15.1",
