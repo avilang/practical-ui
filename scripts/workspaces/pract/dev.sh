@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd docs-pract
-vuepress dev views
+cd playground-pract
+yarn dev

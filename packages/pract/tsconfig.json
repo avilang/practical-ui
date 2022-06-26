@@ -4,6 +4,7 @@
     "moduleResolution": "Node",
     "useDefineForClassFields": true,
     "jsx": "preserve",
+    "isolatedModules": true,
     "noImplicitThis": true,
     "strict": true,
     "strictNullChecks": true,
