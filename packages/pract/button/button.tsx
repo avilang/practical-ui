@@ -1,6 +1,14 @@
 import { defineComponent } from "vue";
 
+const buttonProps = {
+  block: {
+    type: Boolean,
+    default: false
+  }
+} as const
+
 export default defineComponent({
+  props: buttonProps,
   setup() {
     return () => {
       return (
@@ -10,4 +18,4 @@ export default defineComponent({
       );
     };
   },
-});
+})
