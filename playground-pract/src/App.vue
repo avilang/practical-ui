@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { PButton } from "pract/button";
 </script>
 
 <template>
   <h1 :class="$style.title">Pract UI</h1>
+  <p-button />
 </template>
 
 <style module>
