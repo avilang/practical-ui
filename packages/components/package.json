@@ -1,0 +1,16 @@
+{
+  "name": "practical-ui",
+  "version": "0.0.1",
+  "description": "Practical UI components created based on vue3",
+  "main": "index.js",
+  "peerDependencies": {
+    "vue": "^3.5.10"
+  },
+  "keywords": [
+    "naive-ui",
+    "vue3",
+    "practical ui"
+  ],
+  "author": "avilang <1985945885@qq.com> (https://github.com/avilang)",
+  "license": "MIT"
+}
