@@ -1,6 +1,7 @@
 {
   "name": "playground",
   "private": true,
+  "type": "module",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -16,7 +17,8 @@
     "*.{css,less}": "prettier --check"
   },
   "dependencies": {
-    "vue": "^3.5.10"
+    "vue": "^3.5.10",
+    "practical-ui": "workspace:^"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",

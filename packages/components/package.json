@@ -1,9 +1,11 @@
 {
   "name": "practical-ui",
+  "type": "module",
   "version": "0.0.1",
   "description": "Practical UI components created based on vue3",
   "main": "index.js",
   "scripts": {
+    "build": "vite build",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix",
     "format": "prettier . --write",
     "prepare": "cd ../.. && husky packages/components/.husky"
@@ -22,6 +24,10 @@
   ],
   "peerDependencies": {
     "vue": "^3.5.10"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "vite": "^5.4.8"
   },
   "author": "avilang <1985945885@qq.com> (https://github.com/avilang)",
   "license": "MIT"

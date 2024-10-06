@@ -9,5 +9,5 @@ defineOptions({
   name: 'PButton'
 })
 
-const text = ref('Hello Button')
+const text = ref('Hello PButton')
 </script>
