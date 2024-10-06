@@ -3,5 +3,11 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+defineOptions({
+  name: 'PButton'
+})
+
 const text = ref('Hello Button')
 </script>

@@ -3,14 +3,26 @@
   "version": "0.0.1",
   "description": "Practical UI components created based on vue3",
   "main": "index.js",
-  "peerDependencies": {
-    "vue": "^3.5.10"
+  "scripts": {
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix",
+    "format": "prettier . --write",
+    "prepare": "cd ../.. && husky packages/components/.husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "eslint",
+      "prettier --check"
+    ],
+    "*.{css,less}": "prettier --check"
   },
   "keywords": [
     "naive-ui",
     "vue3",
     "practical ui"
   ],
+  "peerDependencies": {
+    "vue": "^3.5.10"
+  },
   "author": "avilang <1985945885@qq.com> (https://github.com/avilang)",
   "license": "MIT"
 }

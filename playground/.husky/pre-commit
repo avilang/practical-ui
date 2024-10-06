@@ -1,0 +1,4 @@
+# .husky/pre-commit
+
+cd playground
+npx lint-staged

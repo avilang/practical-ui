@@ -3,7 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "prepare": "cd .. && husky playground/.husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "eslint --ignore-path .gitignore",
+      "prettier --check"
+    ],
+    "*.{css,less}": "prettier --check"
   },
   "dependencies": {
     "vue": "^3.5.10"

@@ -1,0 +1,4 @@
+# .husky/pre-commit
+
+cd packages/components
+npx lint-staged

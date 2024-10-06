@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "cd playground && pnpm dev"
   },
@@ -11,6 +12,10 @@
     "node": "22.9.0"
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.23.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3"
   }
 }
