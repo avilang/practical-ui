@@ -1,13 +1,19 @@
 <template>
-  <div>{{ text }}</div>
+  <n-button attr-type="button" :focusable="false" :size="size" :type="type">
+    <slot></slot>
+  </n-button>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { NButton } from 'naive-ui'
 
 defineOptions({
-  name: 'PButton'
+  name: 'PButton',
+  inheritAttrs: false
 })
 
-const text = ref('Hello PButton')
+defineProps({
+  type: { type: String, default: 'primary' },
+  size: { type: String, default: 'medium' }
+})
 </script>

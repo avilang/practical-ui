@@ -1,12 +1,16 @@
 <script setup>
-import { PButton } from 'practical-ui'
+import { PConfigProvider, PButton } from 'practical-ui'
 </script>
 
 <template>
-  <div>
+  <p-config-provider>
     <h1>Hello Playground</h1>
-    <p-button />
-  </div>
+    <p-button>Hello PButton</p-button>
+  </p-config-provider>
 </template>
 
-<style scoped></style>
+<style>
+#app {
+  margin: 14px;
+}
+</style>
