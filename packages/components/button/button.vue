@@ -1,5 +1,13 @@
 <template>
-  <n-button attr-type="button" :focusable="false" :size="size" :type="type">
+  <n-button
+    attr-type="button"
+    :focusable="false"
+    :bordered="true"
+    :keyboard="false"
+    :size="size"
+    :type="type"
+    @click="handleClick"
+  >
     <slot></slot>
   </n-button>
 </template>
@@ -16,4 +24,8 @@ defineProps({
   type: { type: String, default: 'primary' },
   size: { type: String, default: 'medium' }
 })
+
+const handleClick = () => {
+  console.log('handleClick')
+}
 </script>
