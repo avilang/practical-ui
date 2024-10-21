@@ -1,11 +1,11 @@
 <script setup>
-import { PConfigProvider, PButton } from 'practical-ui'
+import { PConfigProvider } from 'practical-ui'
+import Button from './components/button.vue'
 </script>
 
 <template>
   <p-config-provider>
-    <h1>Hello Playground</h1>
-    <p-button>Hello PButton</p-button>
+    <Button />
   </p-config-provider>
 </template>
 
