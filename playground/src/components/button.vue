@@ -5,7 +5,6 @@
 </template>
 
 <script setup>
-import { PButton } from 'practical-ui'
 import BoxComponent from './box-component.vue'
 
 defineOptions({

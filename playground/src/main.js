@@ -1,4 +1,8 @@
 import { createApp } from 'vue'
+import practicalUI from 'practical-ui'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+app.use(practicalUI)
+app.mount('#app')

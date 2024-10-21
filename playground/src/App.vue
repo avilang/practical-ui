@@ -1,5 +1,4 @@
 <script setup>
-import { PConfigProvider } from 'practical-ui'
 import Button from './components/button.vue'
 </script>
 
