@@ -1,12 +1,19 @@
 <template>
-  <n-config-provider preflight-style-disabled abstract inline-theme-disabled :theme-overrides="themeOverrides">
+  <n-config-provider
+    preflight-style-disabled
+    abstract
+    inline-theme-disabled
+    :locale="zhCN"
+    :date-locale="dateZhCN"
+    :theme-overrides="themeOverrides"
+  >
     <slot></slot>
   </n-config-provider>
 </template>
 
 <script setup>
 import 'vfonts/Lato.css'
-import { NConfigProvider } from 'naive-ui'
+import { NConfigProvider, zhCN, dateZhCN } from 'naive-ui'
 
 defineOptions({
   name: 'PConfigProvider',

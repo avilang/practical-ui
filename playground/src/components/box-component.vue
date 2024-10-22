@@ -15,13 +15,14 @@ defineProps({
 
 <style scoped>
 .box {
-  padding: 14px;
+  padding: 0 14px 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  overflow: hidden;
 }
 
-.box.boxWithTitle {
-  padding-top: 9px;
+.box + .box {
+  margin-top: 14px;
 }
 
 .title {
@@ -32,6 +33,11 @@ defineProps({
   font-weight: 600;
   border-bottom: 1px solid #ccc;
   text-indent: 15px;
+  background-color: #eee;
+}
+
+.box.boxWithTitle .title {
+  padding-top: 9px;
 }
 
 .content {
