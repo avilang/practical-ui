@@ -3,6 +3,9 @@
     :input-props="{ autocomplete: 'off' }"
     :type="type"
     :value="value"
+    :maxlength="maxlength"
+    :show-count="showCount"
+    :count-graphemes="maxlength != null && maxlength > 0 && showCount ? countGraphemes : void 0"
     :placeholder="placeholder"
     :on-input="handleInput"
     @blur="handleBlur"
@@ -11,6 +14,7 @@
 
 <script setup>
 import { NInput } from 'naive-ui'
+import { countGraphemes } from '../utility/util'
 
 defineOptions({
   name: 'PInput',
@@ -20,6 +24,8 @@ defineOptions({
 const { trim } = defineProps({
   type: { type: String, default: 'text' },
   placeholder: { type: String, default: '' },
+  maxlength: { type: Number },
+  showCount: { type: Boolean, default: false },
   trim: { type: Boolean, default: true }
 })
 const value = defineModel({ type: String, default: '' })

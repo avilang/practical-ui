@@ -26,6 +26,7 @@
     "vue": "^3.5.10"
   },
   "dependencies": {
+    "grapheme-splitter": "1.0.4",
     "naive-ui": "2.40.1",
     "vfonts": "0.0.3"
   },
