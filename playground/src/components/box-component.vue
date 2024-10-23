@@ -1,7 +1,7 @@
 <template>
   <div :class="{ box: true, boxWithTitle: !!name }">
     <h2 v-if="name" class="title">{{ name }}</h2>
-    <div :class="{ content: true, contentNoTitle: !name }">
+    <div :class="{ content: true }">
       <slot></slot>
     </div>
   </div>
@@ -42,9 +42,5 @@ defineProps({
 
 .content {
   margin-top: 14px;
-}
-
-.content.contentNoTitle {
-  margin-top: 0;
 }
 </style>

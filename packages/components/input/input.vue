@@ -5,9 +5,9 @@
     :value="value"
     :maxlength="maxlength"
     :show-count="showCount"
-    :count-graphemes="maxlength != null && maxlength > 0 && showCount ? countGraphemes : void 0"
+    :count-graphemes="(maxlength != null && maxlength > 0) || showCount ? countGraphemes : void 0"
     :placeholder="placeholder"
-    :on-input="handleInput"
+    @input="handleInput"
     @blur="handleBlur"
   />
 </template>

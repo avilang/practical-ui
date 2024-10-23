@@ -1,5 +1,6 @@
 <template>
   <n-button
+    :class="`${attrs.class ? attrs.class : ''}`"
     attr-type="button"
     :focusable="false"
     :bordered="true"
@@ -14,6 +15,7 @@
 </template>
 
 <script setup>
+import { useAttrs } from 'vue'
 import { NButton } from 'naive-ui'
 import { debounce } from '../utility/throttle-debounce'
 
@@ -27,6 +29,8 @@ defineProps({
   size: { type: String, default: 'medium' },
   block: { type: Boolean, default: false }
 })
+
+const attrs = useAttrs()
 
 const emit = defineEmits(['click'])
 const handleClick = debounce(function () {
