@@ -1,5 +1,5 @@
 {
-  "name": "practical-ui",
+  "name": "@avilang/practical-ui",
   "type": "module",
   "version": "0.2.0",
   "description": "Practical UI components created based on vue3",
