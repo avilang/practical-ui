@@ -1,7 +1,7 @@
 {
   "name": "@avilang/practical-ui",
   "type": "module",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Practical UI components created based on vue3",
   "main": "dist/index.js",
   "files": [
@@ -39,5 +39,9 @@
     "vite": "^5.4.8"
   },
   "author": "avilang <1985945885@qq.com> (https://github.com/avilang)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avilang/practical-ui"
+  },
   "license": "MIT"
 }
