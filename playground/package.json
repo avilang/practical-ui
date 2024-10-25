@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "vue": "^3.5.10",
-    "practical-ui": "workspace:^"
+    "@avilang/practical-ui": "workspace:^"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",
