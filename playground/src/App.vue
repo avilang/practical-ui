@@ -1,12 +1,14 @@
 <script setup>
 import Button from './components/button.vue'
 import Input from './components/input.vue'
+import Form from './components/form.vue'
 </script>
 
 <template>
   <p-config-provider>
     <Button />
     <Input />
+    <Form />
   </p-config-provider>
 </template>
 

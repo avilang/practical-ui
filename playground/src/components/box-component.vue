@@ -37,6 +37,7 @@ defineProps({
 }
 
 .box.boxWithTitle .title {
+  margin-top: 0;
   padding-top: 9px;
 }
 
