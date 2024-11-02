@@ -1,3 +1,4 @@
+import { NIcon } from 'naive-ui'
 import { PConfigProvider } from './config-provider/index.js'
 import { PButton } from './button/index.js'
 import { PInput } from './input/index.js'
@@ -11,5 +12,6 @@ export default {
     app.component(`${prefix}-button`, PButton)
     app.component(`${prefix}-input`, PInput)
     app.component(`${prefix}-form`, PForm)
+    app.component(`${prefix}-icon`, NIcon)
   }
 }

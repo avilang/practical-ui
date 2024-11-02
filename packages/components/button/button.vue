@@ -1,7 +1,7 @@
 <template>
   <n-button
     :class="`${attrs.class ? attrs.class : ''}`"
-    attr-type="button"
+    :attr-type="attrType"
     :focusable="false"
     :bordered="true"
     :keyboard="false"
@@ -27,6 +27,7 @@ defineOptions({
 defineProps({
   type: { type: String, default: 'primary' },
   size: { type: String, default: 'medium' },
+  attrType: { type: String, default: 'button' },
   block: { type: Boolean, default: false }
 })
 

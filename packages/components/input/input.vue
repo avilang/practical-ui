@@ -10,11 +10,15 @@
     :placeholder="placeholder"
     @input="handleInput"
     @blur="handleBlur"
-  />
+  >
+    <template v-if="prefixIcon" #prefix>
+      <n-icon v-bind="prefixIcon" />
+    </template>
+  </n-input>
 </template>
 
 <script setup>
-import { NInput } from 'naive-ui'
+import { NInput, NIcon } from 'naive-ui'
 import { countGraphemes } from '../utility/util'
 
 defineOptions({
@@ -26,9 +30,10 @@ const { trim } = defineProps({
   type: { type: String, default: 'text' },
   placeholder: { type: String, default: '' },
   maxlength: { type: Number },
-  showPassword: { type: Boolean, default: false },
   showCount: { type: Boolean, default: false },
-  trim: { type: Boolean, default: true }
+  trim: { type: Boolean, default: true }, // 默认去除首尾空格
+  showPassword: { type: Boolean, default: false }, // 是否显示密码
+  prefixIcon: { type: Object } // 前缀图标 Icon Props
 })
 const value = defineModel({ type: String, default: '' })
 const emit = defineEmits(['blur', 'input'])
