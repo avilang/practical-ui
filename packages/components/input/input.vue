@@ -8,6 +8,9 @@
     :show-count="showCount"
     :count-graphemes="(maxlength != null && maxlength > 0) || showCount ? countGraphemes : void 0"
     :placeholder="placeholder"
+    :autofocus="autofocus"
+    :disabled="disabled"
+    :readonly="readonly"
     @input="handleInput"
     @blur="handleBlur"
   >
@@ -31,6 +34,9 @@ const { trim } = defineProps({
   placeholder: { type: String, default: '' },
   maxlength: { type: Number },
   showCount: { type: Boolean, default: false },
+  autofocus: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false },
+  readonly: { type: Boolean, default: false },
   trim: { type: Boolean, default: true }, // 默认去除首尾空格
   showPassword: { type: Boolean, default: false }, // 是否显示密码
   prefixIcon: { type: Object } // 前缀图标 Icon Props

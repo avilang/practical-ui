@@ -1,13 +1,51 @@
 <template>
   <box-component :name="`${name}`">
-    <p-form :model="model" :show-label="false" @submit="handleSubmit">
+    <p-form
+      :model="model"
+      :readonly="readonlyForm"
+      :rules="rules"
+      :show-label="true"
+      label-placement="top"
+      @submit="handleSubmit"
+    >
       <p-button block attr-type="submit">登录</p-button>
+    </p-form>
+  </box-component>
+
+  <box-component :name="`${name} - slot`">
+    <p-form :model="model2" :rules="rules2" :show-label="false" @submit="handleSubmit2">
+      <template #account>
+        <p-input-group>
+          <p-input-group-label>账号</p-input-group-label>
+          <p-input
+            placeholder="请输入账号"
+            v-model="account"
+            :maxlength="11"
+            :prefixIcon="{ component: UserOutlined, color: 'rgb(51, 54, 57)' }"
+          />
+        </p-input-group>
+      </template>
+      <template #password>
+        <p-input-group>
+          <p-input-group-label>密码</p-input-group-label>
+          <p-input
+            show-password
+            placeholder="请输入密码"
+            type="password"
+            v-model="model2[1].value"
+            :maxlength="30"
+            :trim="false"
+            :prefixIcon="{ component: LockOutlined, color: 'rgb(51, 54, 57)' }"
+          />
+        </p-input-group>
+      </template>
+      <p-button block type="warning" attr-type="submit">注册</p-button>
     </p-form>
   </box-component>
 </template>
 
 <script setup>
-import { ref, markRaw } from 'vue'
+import { ref } from 'vue'
 import { UserOutlined, LockOutlined } from '@vicons/antd'
 import BoxComponent from './box-component.vue'
 
@@ -16,7 +54,7 @@ defineOptions({
 })
 
 const name = 'PForm'
-const model = ref([
+const model = [
   {
     type: 'input',
     field: 'account',
@@ -24,27 +62,76 @@ const model = ref([
     props: {
       placeholder: '请输入账号',
       maxlength: 11,
-      prefixIcon: { component: markRaw(UserOutlined), color: 'rgb(51, 54, 57)' }
+      prefixIcon: { component: UserOutlined, color: 'rgb(51, 54, 57)' }
     },
     label: '账号'
   },
   {
     type: 'input',
     field: 'password',
-    value: '',
+    value: '123456',
     props: {
       type: 'password',
       placeholder: '请输入密码',
       trim: false,
       maxlength: 30,
       showPassword: true,
-      prefixIcon: { component: markRaw(LockOutlined), color: 'rgb(51, 54, 57)' }
+      prefixIcon: { component: LockOutlined, color: 'rgb(51, 54, 57)' }
     },
     label: '密码'
   }
-])
+]
+const rules = {
+  account: {
+    required: true,
+    message: '账号不能为空',
+    trigger: ['blur', 'input']
+  },
+  password: {
+    required: true,
+    message: '密码不能为空',
+    trigger: ['blur', 'input']
+  }
+}
 
-function handleSubmit(data) {
-  console.log('🚀 ~ handleSubmit ~ data:', data)
+const readonlyForm = ref(false)
+function handleSubmit({ formData, valid }) {
+  if (!valid) return
+  readonlyForm.value = true
+  console.log('🚀 ~ handleSubmit ~ formData:', formData)
+}
+
+const account = ref('')
+const model2 = ref([
+  {
+    field: 'account',
+    value: account,
+    slot: true
+  },
+  {
+    field: 'password',
+    value: '',
+    slot: true
+  }
+])
+const rules2 = {
+  account: {
+    validator: () => {
+      if (!account.value) return new Error('账号不能为空')
+      return true
+    }
+  },
+  password: {
+    validator: () => {
+      if (!model2.value[1].value) return new Error('密码不能为空')
+      if (model2.value[1].value.length < 6) return new Error('密码长度不能小于6位')
+      return true
+    }
+  }
+}
+
+function handleSubmit2({ formData, valid }) {
+  if (!valid) return
+  console.log('🚀 ~ handleSubmit2 ~ data:', formData)
 }
 </script>

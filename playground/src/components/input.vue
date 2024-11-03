@@ -10,7 +10,7 @@
   </box-component>
 
   <box-component :name="`${name} - 字数统计`">
-    <p-input placeholder="请输入" v-model="value3" :trim="false" :maxlength="20" show-count />
+    <p-input placeholder="请输入" v-model="value3" :trim="false" :autofocus="true" :maxlength="20" show-count />
   </box-component>
 </template>
 
