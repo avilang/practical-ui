@@ -17,6 +17,10 @@ import Form from './components/form.vue'
   margin: 14px;
 }
 
+.flex {
+  display: flex;
+}
+
 .ml-10 {
   margin-left: 10px;
 }

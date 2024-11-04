@@ -8,14 +8,19 @@
     :block="block"
     :size="size"
     :type="type"
+    :loading="loading"
+    icon-placement="left"
     @click="handleClick"
   >
-    <slot></slot>
+    <template v-if="$slots.icon" #icon>
+      <slots.icon />
+    </template>
+    <slots.default v-if="!loading" />
   </n-button>
 </template>
 
 <script setup>
-import { useAttrs } from 'vue'
+import { useAttrs, useSlots } from 'vue'
 import { NButton } from 'naive-ui'
 import { debounce } from '../utility/throttle-debounce'
 
@@ -28,10 +33,12 @@ defineProps({
   type: { type: String, default: 'primary' },
   size: { type: String, default: 'medium' },
   attrType: { type: String, default: 'button' },
-  block: { type: Boolean, default: false }
+  block: { type: Boolean, default: false },
+  loading: { type: Boolean, default: false }
 })
 
 const attrs = useAttrs()
+const slots = useSlots()
 
 const emit = defineEmits(['click'])
 const handleClick = debounce(function () {
