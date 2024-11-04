@@ -15,8 +15,8 @@
       <p-button :loading="loading" @click="handleLoading">Loading Primary Button</p-button>
       <p-button class="ml-10" type="success" :loading="loading" @click="handleLoading"
         ><template #icon>
-          <p-icon> <AlipayCircleOutlined /> </p-icon></template
-        >支付宝支付</p-button
+          <p-icon size="18"> <WechatOutlined /> </p-icon></template
+        >微信支付</p-button
       >
     </div>
     <p-button class="mt-10" type="error" block :loading="loading" @click="handleLoading"
@@ -27,7 +27,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { AlipayCircleOutlined } from '@vicons/antd'
+import { WechatOutlined } from '@vicons/antd'
 import BoxComponent from './box-component.vue'
 
 defineOptions({

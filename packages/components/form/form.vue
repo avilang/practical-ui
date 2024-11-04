@@ -64,7 +64,7 @@ const handleSubmit = debounce(function () {
   document.activeElement && document.activeElement.blur()
   form.value
     .validate((errors) => {
-      emit('submit', { formData: getFormValue(), valid: !errors || errors.length === 0 })
+      emit('submit', { formData: getFormValue(), valid: !errors || errors.length === 0, errors })
     })
     .catch(() => null)
 })
