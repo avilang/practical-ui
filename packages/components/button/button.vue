@@ -9,6 +9,7 @@
     :size="size"
     :type="type"
     :loading="loading"
+    :disabled="disabled"
     icon-placement="left"
     @click="handleClick"
   >
@@ -34,7 +35,8 @@ defineProps({
   size: { type: String, default: 'medium' },
   attrType: { type: String, default: 'button' },
   block: { type: Boolean, default: false },
-  loading: { type: Boolean, default: false }
+  loading: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false }
 })
 
 const attrs = useAttrs()
@@ -43,5 +45,5 @@ const slots = useSlots()
 const emit = defineEmits(['click'])
 const handleClick = debounce(function () {
   emit('click')
-})
+}, 300)
 </script>

@@ -7,12 +7,12 @@
   </box-component>
 
   <box-component :name="`${name} - 显示为块级`">
-    <p-button type="warning" size="large" block>Block Large Warning Button</p-button>
+    <p-button type="warning" size="large" block disabled>Block Large Warning Button</p-button>
   </box-component>
 
   <box-component :name="`${name} - loading`">
     <div class="flex">
-      <p-button :loading="loading" @click="handleLoading">Loading Primary Button</p-button>
+      <p-button :loading="loading" disabled @click="handleLoading">Loading Primary Button</p-button>
       <p-button class="ml-10" type="success" :loading="loading" @click="handleLoading"
         ><template #icon>
           <p-icon size="18"> <WechatOutlined /> </p-icon></template
@@ -38,6 +38,7 @@ const name = 'PButton'
 
 const loading = ref(false)
 function handleLoading() {
+  console.log('🚀 ~ handleLoading ~ handleLoading')
   loading.value = true
 }
 </script>
