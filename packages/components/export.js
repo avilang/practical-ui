@@ -1,1 +1,1 @@
-export { default as useDelayWaiting } from './composables/use-delay-waiting.js'
+export { default as useDelayLoading } from './composables/use-delay-loading.js'
