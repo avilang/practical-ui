@@ -9,7 +9,7 @@
     :size="size"
     :type="type"
     :loading="loading"
-    :disabled="disabled"
+    :disabled="disabled || waiting"
     icon-placement="left"
     @click="handleClick"
   >
@@ -36,7 +36,8 @@ defineProps({
   attrType: { type: String, default: 'button' },
   block: { type: Boolean, default: false },
   loading: { type: Boolean, default: false },
-  disabled: { type: Boolean, default: false }
+  disabled: { type: Boolean, default: false },
+  waiting: { type: Boolean, default: false }
 })
 
 const attrs = useAttrs()

@@ -17,3 +17,5 @@ export default {
     app.component(`${prefix}-input-group-label`, NInputGroupLabel)
   }
 }
+
+export * from './export.js'

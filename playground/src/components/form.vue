@@ -8,7 +8,7 @@
       label-placement="top"
       @submit="handleSubmit"
     >
-      <p-button block attr-type="submit">登录</p-button>
+      <p-button block :loading="waiting" attr-type="submit">登录</p-button>
     </p-form>
   </box-component>
 
@@ -46,6 +46,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useDelayWaiting } from '@avilang/practical-ui/index.js'
 import { UserOutlined, LockOutlined } from '@vicons/antd'
 import BoxComponent from './box-component.vue'
 
@@ -95,10 +96,16 @@ const rules = {
 }
 
 const readonlyForm = ref(false)
+const loading = ref(false)
+const waiting = useDelayWaiting(loading)
 function handleSubmit({ formData, valid }) {
   if (!valid) return
+  loading.value = true
   readonlyForm.value = true
-  console.log('🚀 ~ handleSubmit ~ formData:', formData)
+  setTimeout(() => {
+    loading.value = false
+    console.log('🚀 ~ handleSubmit ~ formData:', formData)
+  }, 100)
 }
 
 const account = ref('')
