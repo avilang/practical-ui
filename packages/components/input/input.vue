@@ -2,6 +2,7 @@
   <n-input
     :input-props="{ autocomplete: 'off' }"
     :type="type"
+    :size="size"
     :show-password-on="showPassword ? 'click' : void 0"
     :value="value"
     :maxlength="maxlength"
@@ -31,6 +32,7 @@ defineOptions({
 
 const { trim } = defineProps({
   type: { type: String, default: 'text' },
+  size: { type: String, default: 'medium' },
   placeholder: { type: String, default: '' },
   maxlength: { type: Number },
   showCount: { type: Boolean, default: false },

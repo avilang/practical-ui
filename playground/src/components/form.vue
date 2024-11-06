@@ -13,39 +13,50 @@
   </box-component>
 
   <box-component :name="`${name} - slot`">
-    <p-form :model="model2" :rules="rules2" :show-label="false" @submit="handleSubmit2">
+    <p-form
+      ref="form2"
+      :model="model2"
+      :rules="rules2"
+      feedback-size-class="s"
+      :show-label="false"
+      @submit="handleSubmit2"
+    >
       <template #account>
         <p-input-group>
-          <p-input-group-label>账号</p-input-group-label>
+          <p-input-group-label size="large">账号</p-input-group-label>
           <p-input
             placeholder="请输入账号"
+            size="large"
             v-model="account"
             :maxlength="11"
             :prefixIcon="{ component: UserOutlined, color: 'rgb(51, 54, 57)' }"
+            @input="handleInputAccount2('account')"
           />
         </p-input-group>
       </template>
       <template #password>
         <p-input-group>
-          <p-input-group-label>密码</p-input-group-label>
+          <p-input-group-label size="large">密码</p-input-group-label>
           <p-input
             show-password
             placeholder="请输入密码"
+            size="large"
             type="password"
             v-model="model2[1].value"
             :maxlength="30"
             :trim="false"
             :prefixIcon="{ component: LockOutlined, color: 'rgb(51, 54, 57)' }"
+            @input="handleInputAccount2('password')"
           />
         </p-input-group>
       </template>
-      <p-button block type="warning" attr-type="submit">注册</p-button>
+      <p-button block type="warning" size="large" attr-type="submit">注册</p-button>
     </p-form>
   </box-component>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, useTemplateRef } from 'vue'
 import { useDelayLoading } from '@avilang/practical-ui/index.js'
 import { UserOutlined, LockOutlined } from '@vicons/antd'
 import BoxComponent from './box-component.vue'
@@ -140,5 +151,10 @@ const rules2 = {
 function handleSubmit2({ formData, valid }) {
   if (!valid) return
   console.log('🚀 ~ handleSubmit2 ~ data:', formData)
+}
+
+const form2 = useTemplateRef('form2')
+function handleInputAccount2(field) {
+  form2.value.restoreValidation(field)
 }
 </script>
