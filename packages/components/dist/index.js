@@ -10275,8 +10275,7 @@ const jd = /* @__PURE__ */ Hd(Wd), Ld = new jd(), Nd = (t = "") => Ld.countGraph
       d && t.rules && t.rules[d] && (t.rules[d].trigger && t.rules[d].trigger.includes("input") || f(d));
     }
     return r({ restoreValidation: f }), (d, b) => (Xe(), ct(ve(Jh), {
-      ref_key: "form",
-      ref: l,
+      ref: "form",
       "show-label": t.showLabel,
       "label-placement": t.labelPlacement,
       "label-width": "auto",
@@ -10288,8 +10287,7 @@ const jd = /* @__PURE__ */ Hd(Wd), Ld = new jd(), Nd = (t = "") => Ld.countGraph
       default: At(() => [
         (Xe(!0), Vo(_r, null, qo(t.model, (D) => (Xe(), ct(ve(Md), {
           ref_for: !0,
-          ref_key: "formItem",
-          ref: u,
+          ref: "formItem",
           key: D.field,
           label: D.label,
           path: D.field,

@@ -69,24 +69,24 @@ function getFormValue() {
 }
 
 const emit = defineEmits(['submit'])
-const form = useTemplateRef('form')
+const formRef = useTemplateRef('form')
 const handleSubmit = debounce(function () {
   document.activeElement && document.activeElement.blur()
-  form.value
+  formRef.value
     .validate((errors) => {
       emit('submit', { formData: getFormValue(), valid: !errors || errors.length === 0, errors })
     })
     .catch(() => null)
 })
 
-const formItem = useTemplateRef('formItem')
+const formItemRef = useTemplateRef('formItem')
 function restoreValidation(path = '') {
   if (!path) {
-    form.value.restoreValidation()
+    formRef.value.restoreValidation()
     return
   }
 
-  const targetFormItem = formItem.value.find((item) => item.path === path)
+  const targetFormItem = formItemRef.value.find((item) => item.path === path)
   targetFormItem && targetFormItem.restoreValidation()
 }
 

@@ -153,8 +153,8 @@ function handleSubmit2({ formData, valid }) {
   console.log('🚀 ~ handleSubmit2 ~ data:', formData)
 }
 
-const form2 = useTemplateRef('form2')
+const form2Ref = useTemplateRef('form2')
 function handleInputAccount2(field) {
-  form2.value.restoreValidation(field)
+  form2Ref.value.restoreValidation(field)
 }
 </script>
