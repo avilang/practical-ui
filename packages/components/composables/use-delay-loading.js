@@ -20,11 +20,11 @@ export default ({ delay = 300, minPendingTime = 500, loadingValue = false } = {}
   const waiting = ref(!!loadingValue)
   const loading = ref(!!loadingValue)
 
-  let callBack = null
+  let resolveDone = null
   const done = () => {
     waiting.value = false
     return new Promise((resolve) => {
-      callBack = resolve
+      resolveDone = resolve
     })
   }
 
@@ -49,10 +49,16 @@ export default ({ delay = 300, minPendingTime = 500, loadingValue = false } = {}
 
           timer = setTimeout(() => {
             loading.value = status
-            callBack && callBack()
+            if (resolveDone) {
+              resolveDone()
+              resolveDone = null // 确保只调用一次
+            }
           }, spacingTime)
         } else {
-          callBack && callBack()
+          if (resolveDone) {
+            resolveDone()
+            resolveDone = null
+          }
         }
         initedTime = 0
       }
@@ -61,7 +67,7 @@ export default ({ delay = 300, minPendingTime = 500, loadingValue = false } = {}
   )
 
   onScopeDispose(() => {
-    callBack = null
+    resolveDone = null
     cleanTimer()
   })
 
