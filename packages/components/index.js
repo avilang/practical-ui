@@ -1,4 +1,4 @@
-import { NIconWrapper, NIcon, NInputGroup, NInputGroupLabel } from 'naive-ui'
+import { NIconWrapper, NIcon, NInputGroup, NInputGroupLabel, NTable, NPopover } from 'naive-ui'
 import { PConfigProvider } from './config-provider/index.js'
 import { PButton } from './button/index.js'
 import { PInput } from './input/index.js'
@@ -16,6 +16,8 @@ export default {
     app.component(`${prefix}-icon`, NIcon)
     app.component(`${prefix}-input-group`, NInputGroup)
     app.component(`${prefix}-input-group-label`, NInputGroupLabel)
+    app.component(`${prefix}-table`, NTable)
+    app.component(`${prefix}-popover`, NPopover)
   }
 }
 
