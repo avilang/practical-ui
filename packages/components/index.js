@@ -1,4 +1,15 @@
-import { NIconWrapper, NIcon, NInputGroup, NInputGroupLabel, NTable, NPopover, NSpin } from 'naive-ui'
+import {
+  NIconWrapper,
+  NIcon,
+  NInputGroup,
+  NInputGroupLabel,
+  NTable,
+  NPopover,
+  NSpin,
+  NCollapse,
+  NCollapseItem,
+  NDropdown
+} from 'naive-ui'
 import { PConfigProvider } from './config-provider/index.js'
 import { PButton } from './button/index.js'
 import { PInput } from './input/index.js'
@@ -19,6 +30,9 @@ export default {
     app.component(`${prefix}-table`, NTable)
     app.component(`${prefix}-popover`, NPopover)
     app.component(`${prefix}-spin`, NSpin)
+    app.component(`${prefix}-collapse`, NCollapse)
+    app.component(`${prefix}-collapse-item`, NCollapseItem)
+    app.component(`${prefix}-dropdown`, NDropdown)
   }
 }
 
