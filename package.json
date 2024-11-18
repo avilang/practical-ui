@@ -2,7 +2,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "cd playground && pnpm dev"
+    "dev": "cd playground && pnpm dev",
+    "build": "cd packages/components && pnpm build"
   },
   "engines": {
     "node": "22.9.0",

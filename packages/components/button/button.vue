@@ -9,6 +9,9 @@
     :size="size"
     :type="type"
     :loading="loading"
+    :ghost="ghost"
+    :secondary="secondary"
+    :text="text"
     :disabled="disabled || waiting"
     icon-placement="left"
     @click="handleClick"
@@ -36,6 +39,9 @@ defineProps({
   attrType: { type: String, default: 'button' },
   block: { type: Boolean, default: false },
   loading: { type: Boolean, default: false },
+  ghost: { type: Boolean, default: false },
+  secondary: { type: Boolean, default: false },
+  text: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
   waiting: { type: Boolean, default: false }
 })
