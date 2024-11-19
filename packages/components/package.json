@@ -1,7 +1,7 @@
 {
   "name": "@avilang/practical-ui",
   "type": "module",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Practical UI components created based on vue3",
   "main": "dist/index.js",
   "files": [

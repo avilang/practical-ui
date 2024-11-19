@@ -2,6 +2,7 @@
 import Button from './components/button.vue'
 import Input from './components/input.vue'
 import Form from './components/form.vue'
+import Table from './components/table.vue'
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import Form from './components/form.vue'
     <Button />
     <Input />
     <Form />
+    <Table />
   </p-config-provider>
 </template>
 

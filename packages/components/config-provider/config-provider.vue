@@ -27,6 +27,9 @@ const themeOverrides = {
     primaryColorHover: '#4098FCFF',
     primaryColorPressed: '#1060C9FF',
     primaryColorSuppl: '#4098FCFF'
+  },
+  Table: {
+    thColor: 'rgba(243, 243, 252, 1)'
   }
 }
 </script>

@@ -3,7 +3,6 @@ import {
   NIcon,
   NInputGroup,
   NInputGroupLabel,
-  NTable,
   NPopover,
   NSpin,
   NCollapse,
@@ -14,6 +13,7 @@ import { PConfigProvider } from './config-provider/index.js'
 import { PButton } from './button/index.js'
 import { PInput } from './input/index.js'
 import { PForm } from './form/index.js'
+import { PTable } from './table/index.js'
 
 export default {
   install: (app, options = {}) => {
@@ -23,11 +23,11 @@ export default {
     app.component(`${prefix}-button`, PButton)
     app.component(`${prefix}-input`, PInput)
     app.component(`${prefix}-form`, PForm)
+    app.component(`${prefix}-table`, PTable)
     app.component(`${prefix}-icon-wrapper`, NIconWrapper)
     app.component(`${prefix}-icon`, NIcon)
     app.component(`${prefix}-input-group`, NInputGroup)
     app.component(`${prefix}-input-group-label`, NInputGroupLabel)
-    app.component(`${prefix}-table`, NTable)
     app.component(`${prefix}-popover`, NPopover)
     app.component(`${prefix}-spin`, NSpin)
     app.component(`${prefix}-collapse`, NCollapse)
