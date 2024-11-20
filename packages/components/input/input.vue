@@ -33,7 +33,7 @@ defineOptions({
 const { trim } = defineProps({
   type: { type: String, default: 'text' },
   size: { type: String, default: 'medium' },
-  placeholder: { type: String, default: '' },
+  placeholder: { type: String, default: '请输入' },
   maxlength: { type: Number },
   showCount: { type: Boolean, default: false },
   autofocus: { type: Boolean, default: false },

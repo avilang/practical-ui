@@ -7,12 +7,15 @@ import {
   NSpin,
   NCollapse,
   NCollapseItem,
-  NDropdown
+  NDropdown,
+  NPopconfirm,
+  NTooltip
 } from 'naive-ui'
 import { PConfigProvider } from './config-provider/index.js'
-import { PButton } from './button/index.js'
-import { PInput } from './input/index.js'
 import { PForm } from './form/index.js'
+import { PInput } from './input/index.js'
+import { PSelect } from './select/index.js'
+import { PButton } from './button/index.js'
 import { PTable } from './table/index.js'
 
 export default {
@@ -20,9 +23,10 @@ export default {
     const { prefix = 'p' } = options
 
     app.component(`${prefix}-config-provider`, PConfigProvider)
-    app.component(`${prefix}-button`, PButton)
-    app.component(`${prefix}-input`, PInput)
     app.component(`${prefix}-form`, PForm)
+    app.component(`${prefix}-input`, PInput)
+    app.component(`${prefix}-select`, PSelect)
+    app.component(`${prefix}-button`, PButton)
     app.component(`${prefix}-table`, PTable)
     app.component(`${prefix}-icon-wrapper`, NIconWrapper)
     app.component(`${prefix}-icon`, NIcon)
@@ -33,6 +37,8 @@ export default {
     app.component(`${prefix}-collapse`, NCollapse)
     app.component(`${prefix}-collapse-item`, NCollapseItem)
     app.component(`${prefix}-dropdown`, NDropdown)
+    app.component(`${prefix}-popconfirm`, NPopconfirm)
+    app.component(`${prefix}-tooltip`, NTooltip)
   }
 }
 

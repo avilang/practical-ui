@@ -5,7 +5,7 @@
   </box-component>
 
   <box-component :name="`${name} - Not Trim`">
-    <p-input placeholder="请输入" v-model="value2" :trim="false" />
+    <p-input v-model="value2" :trim="false" />
     <div class="mt-10 pl-2">输入框值：[{{ value2 }}]</div>
   </box-component>
 
