@@ -19,14 +19,13 @@
         >微信支付</p-button
       >
     </div>
-    <p-button class="mt-10" type="error" block :loading="loading" @click="handleLoading"
-      >Loading Block Error Button</p-button
-    >
+    <p-button class="mt-10" type="error" block @click="handleLoadingBar">Loading Bar Block Error Button</p-button>
   </box-component>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { createDiscreteApi } from '@avilang/practical-ui/index.js'
 import { WechatOutlined } from '@vicons/antd'
 import BoxComponent from './box-component.vue'
 
@@ -40,5 +39,13 @@ const loading = ref(false)
 function handleLoading() {
   console.log('🚀 ~ handleLoading ~ handleLoading')
   loading.value = true
+}
+
+const { loadingBar } = createDiscreteApi(['loadingBar'])
+function handleLoadingBar() {
+  loadingBar.start()
+  setTimeout(() => {
+    loadingBar.finish()
+  }, 600)
 }
 </script>
