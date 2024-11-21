@@ -9,7 +9,8 @@ import {
   NCollapseItem,
   NDropdown,
   NPopconfirm,
-  NTooltip
+  NTooltip,
+  NLoadingBarProvider
 } from 'naive-ui'
 import { Practical } from './practical/index.js'
 import { PForm } from './form/index.js'
@@ -39,7 +40,9 @@ export default {
     app.component(`${prefix}-dropdown`, NDropdown)
     app.component(`${prefix}-popconfirm`, NPopconfirm)
     app.component(`${prefix}-tooltip`, NTooltip)
+    app.component(`${prefix}-loading-bar-provider`, NLoadingBarProvider)
   }
 }
 
+export { useLoadingBar } from 'naive-ui'
 export * from './export.js'
