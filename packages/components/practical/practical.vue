@@ -7,16 +7,18 @@
     :date-locale="dateZhCN"
     :theme-overrides="themeOverrides"
   >
-    <slot></slot>
+    <n-dialog-provider>
+      <slot></slot>
+    </n-dialog-provider>
   </n-config-provider>
 </template>
 
 <script setup>
 import 'vfonts/Lato.css'
-import { NConfigProvider, zhCN, dateZhCN } from 'naive-ui'
+import { NConfigProvider, NDialogProvider, zhCN, dateZhCN } from 'naive-ui'
 
 defineOptions({
-  name: 'PConfigProvider',
+  name: 'PPractical',
   inheritAttrs: false
 })
 

@@ -11,7 +11,7 @@ import {
   NPopconfirm,
   NTooltip
 } from 'naive-ui'
-import { PConfigProvider } from './config-provider/index.js'
+import { Practical } from './practical/index.js'
 import { PForm } from './form/index.js'
 import { PInput } from './input/index.js'
 import { PSelect } from './select/index.js'
@@ -22,7 +22,7 @@ export default {
   install: (app, options = {}) => {
     const { prefix = 'p' } = options
 
-    app.component(`${prefix}-config-provider`, PConfigProvider)
+    app.component(`${prefix}-practical`, Practical)
     app.component(`${prefix}-form`, PForm)
     app.component(`${prefix}-input`, PInput)
     app.component(`${prefix}-select`, PSelect)

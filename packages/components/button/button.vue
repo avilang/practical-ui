@@ -19,7 +19,7 @@
     <template v-if="$slots.icon" #icon>
       <slots.icon />
     </template>
-    <slots.default v-if="!loading" />
+    <slots.default v-if="!loading || (loading && !loadingWithoutText)" />
   </n-button>
 </template>
 
@@ -43,7 +43,8 @@ defineProps({
   secondary: { type: Boolean, default: false },
   text: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
-  waiting: { type: Boolean, default: false }
+  waiting: { type: Boolean, default: false },
+  loadingWithoutText: { type: Boolean, default: true }
 })
 
 const attrs = useAttrs()

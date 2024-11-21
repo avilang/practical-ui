@@ -1,5 +1,5 @@
 <template>
-  <p-config-provider>
+  <p-practical>
     <p-select
       class="mb-14"
       v-model="value"
@@ -11,7 +11,7 @@
       @change="handleChange"
     />
     <component :is="components[value]" />
-  </p-config-provider>
+  </p-practical>
 </template>
 
 <script setup>
@@ -20,18 +20,21 @@ import Button from './components/button.vue'
 import Input from './components/input.vue'
 import Form from './components/form.vue'
 import Table from './components/table.vue'
+import Dialog from './components/dialog.vue'
 
 const components = {
   button: Button,
   input: Input,
   form: Form,
-  table: Table
+  table: Table,
+  dialog: Dialog
 }
 const options = [
   { componentName: 'P-Button', componentKey: 'button' },
   { componentName: 'P-Input', componentKey: 'input' },
   { componentName: 'P-Form', componentKey: 'form' },
-  { componentName: 'P-Table', componentKey: 'table' }
+  { componentName: 'P-Table', componentKey: 'table' },
+  { componentName: 'Dialog', componentKey: 'dialog' }
 ]
 
 const localComponentKey = window.localStorage.getItem('componentKey') || options[0].componentKey
