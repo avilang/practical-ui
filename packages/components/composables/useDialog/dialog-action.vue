@@ -1,7 +1,13 @@
 <template>
-  <p-in-button v-if="negativeText" size="small" type="default" :disabled="loading" @click="handleNegative">{{
-    negativeText
-  }}</p-in-button>
+  <p-in-button
+    v-if="negativeText"
+    size="small"
+    type="default"
+    :default-type="type"
+    :disabled="loading"
+    @click="handleNegative"
+    >{{ negativeText }}</p-in-button
+  >
   <p-in-button
     v-if="positiveText"
     size="small"

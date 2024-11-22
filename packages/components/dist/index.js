@@ -22698,6 +22698,8 @@ const Da = function(e, n, r) {
       "p-popconfirm": !0,
       "p-popconfirm-none-action": e.positiveText == null && e.positiveText == null
     },
+    style: e.style,
+    placement: e.placement,
     showIcon: !1
   }, {
     default: r.default,
@@ -22730,6 +22732,14 @@ const Da = function(e, n, r) {
     type: {
       type: String,
       default: "primary"
+    },
+    placement: {
+      type: String,
+      default: "top"
+    },
+    style: {
+      type: String,
+      default: "max-width:300px"
     }
   }
 }), Gy = ({ delay: e = 300, minPendingTime: n = 500, loadingValue: r = !1 } = {}) => {
@@ -22803,6 +22813,7 @@ const Da = function(e, n, r) {
         key: 0,
         size: "small",
         type: "default",
+        "default-type": e.type,
         disabled: we(n),
         onClick: a
       }, {
@@ -22810,7 +22821,7 @@ const Da = function(e, n, r) {
           nn(ho(e.negativeText), 1)
         ]),
         _: 1
-      }, 8, ["disabled"])) : xr("", !0),
+      }, 8, ["default-type", "disabled"])) : xr("", !0),
       e.positiveText ? (rt(), vt(we(zr), {
         key: 1,
         size: "small",

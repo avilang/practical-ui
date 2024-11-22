@@ -20,6 +20,8 @@ export default defineComponent(
             'p-popconfirm': true,
             'p-popconfirm-none-action': props.positiveText == null && props.positiveText == null
           },
+          style: props.style,
+          placement: props.placement,
           showIcon: false
         },
         {
@@ -48,7 +50,9 @@ export default defineComponent(
     props: {
       positiveText: { type: String, default: '确认' },
       negativeText: { type: String, default: '取消' },
-      type: { type: String, default: 'primary' }
+      type: { type: String, default: 'primary' },
+      placement: { type: String, default: 'top' },
+      style: { type: String, default: 'max-width:300px' }
     }
   }
 )
