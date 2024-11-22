@@ -2,12 +2,14 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import libAssets from '@laynezh/vite-plugin-lib-assets'
 
 // READING https://github.com/vitejs/vite/issues/3295
 export default defineConfig({
   plugins: [
     vue(),
+    vueJsx(),
     libAssets({
       include: /\.woff2(\?.*)?$/,
       name: '[name].[ext]'

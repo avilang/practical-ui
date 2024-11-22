@@ -1,0 +1,24 @@
+.n-popover.p-popconfirm:not(.n-popover--raw):not(.n-popover--scrollable):not(.n-popover--show-header-or-footer) {
+    padding: 0
+}
+
+.n-popover.p-popconfirm .n-popconfirm__body {
+    min-width: 180px;
+    padding: 12px 12px 11px;
+    line-height: 1;
+    border-bottom: 1px solid rgb(224, 224, 230);
+}
+
+.n-popover.p-popconfirm .n-popconfirm__action {
+    margin-top: 0;
+    padding: 8px 12px;
+}
+
+.n-popover.p-popconfirm.p-popconfirm-none-action .n-popconfirm__body {
+    border-bottom: none;
+    min-width: auto;
+}
+
+.n-popover.p-popconfirm.p-popconfirm-none-action .n-popconfirm__action {
+    padding: 0;
+}

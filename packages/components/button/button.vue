@@ -1,12 +1,16 @@
 <template>
   <n-button
-    :class="`${attrs.class ? attrs.class : ''}`"
+    :class="[
+      attrs.class ? attrs.class : '',
+      size === 'xs' ? 'p-button-xs' : '',
+      type === 'default' && defaultType ? `p-button-default-${defaultType}` : ''
+    ]"
     :attr-type="attrType"
     :focusable="false"
     :bordered="true"
     :keyboard="false"
     :block="block"
-    :size="size"
+    :size="size === 'xs' ? 'small' : size"
     :type="type"
     :loading="loading"
     :ghost="ghost"
@@ -44,7 +48,8 @@ defineProps({
   text: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
   waiting: { type: Boolean, default: false },
-  loadingWithoutText: { type: Boolean, default: true }
+  loadingWithoutText: { type: Boolean, default: true },
+  defaultType: { type: String, default: '' }
 })
 
 const attrs = useAttrs()
@@ -55,3 +60,51 @@ const handleClick = debounce(function () {
   emit('click')
 }, 300)
 </script>
+
+<style>
+.n-button.n-button--small-type.p-button-xs {
+  height: 24px;
+}
+
+.n-button.n-button--default-type.p-button-default-success {
+  --n-ripple-color: #18a058;
+  --n-text-color: rgb(51, 54, 57);
+  --n-text-color-hover: #36ad6a;
+  --n-text-color-pressed: #0c7a43;
+  --n-text-color-focus: #36ad6a;
+  --n-text-color-disabled: rgb(51, 54, 57);
+  --n-border: 1px solid rgb(224, 224, 230);
+  --n-border-hover: 1px solid #36ad6a;
+  --n-border-pressed: 1px solid #0c7a43;
+  --n-border-focus: 1px solid #36ad6a;
+  --n-border-disabled: 1px solid rgb(224, 224, 230);
+}
+
+.n-button.n-button--default-type.p-button-default-warning {
+  --n-ripple-color: #f0a020;
+  --n-text-color: rgb(51, 54, 57);
+  --n-text-color-hover: #fcb040;
+  --n-text-color-pressed: #c97c10;
+  --n-text-color-focus: #fcb040;
+  --n-text-color-disabled: #f0a020;
+  --n-border: 1px solid rgb(224, 224, 230);
+  --n-border-hover: 1px solid #fcb040;
+  --n-border-pressed: 1px solid #c97c10;
+  --n-border-focus: 1px solid #fcb040;
+  --n-border-disabled: 1px solid #f0a020;
+}
+
+.n-button.n-button--default-type.p-button-default-error {
+  --n-ripple-color: #d03050;
+  --n-text-color: rgb(51, 54, 57);
+  --n-text-color-hover: #de576d;
+  --n-text-color-pressed: #ab1f3f;
+  --n-text-color-focus: #de576d;
+  --n-text-color-disabled: #d03050;
+  --n-border: 1px solid rgb(224, 224, 230);
+  --n-border-hover: 1px solid #de576d;
+  --n-border-pressed: 1px solid #ab1f3f;
+  --n-border-focus: 1px solid #de576d;
+  --n-border-disabled: 1px solid #d03050;
+}
+</style>

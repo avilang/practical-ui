@@ -3,6 +3,7 @@
     <p-button>Primary Button</p-button>
     <p-button class="ml-10" type="error" size="tiny">Tiny Error Button</p-button>
     <p-button class="ml-10" type="default" size="small">Small Default Button</p-button>
+    <p-button class="ml-10" type="error" size="xs">XS Error Button</p-button>
     <p-button class="ml-10" type="success" size="large">Large Success Button</p-button>
   </box-component>
 
