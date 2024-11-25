@@ -13,7 +13,9 @@
 
   <box-component :name="`${name} - loading`">
     <div class="flex">
-      <p-button :loading="loading" disabled @click="handleLoading">Loading Primary Button</p-button>
+      <p-button :loading="loading" :loadingWithoutText="false" disabled @click="handleLoading"
+        >Loading Primary Button</p-button
+      >
       <p-button class="ml-10" type="success" :loading="loading" @click="handleLoading"
         ><template #icon>
           <p-icon size="18"> <WechatOutlined /> </p-icon></template

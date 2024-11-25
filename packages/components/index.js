@@ -17,6 +17,7 @@ import { PSelect } from './select/index.js'
 import { PButton } from './button/index.js'
 import { PTable } from './table/index.js'
 import { PPopconfirm } from './popconfirm/index.js'
+import { PPromised } from './promised/index.js'
 
 export default {
   install: (app, options = {}) => {
@@ -29,6 +30,7 @@ export default {
     app.component(`${prefix}-button`, PButton)
     app.component(`${prefix}-table`, PTable)
     app.component(`${prefix}-popconfirm`, PPopconfirm)
+    app.component(`${prefix}-promised`, PPromised)
     app.component(`${prefix}-icon-wrapper`, NIconWrapper)
     app.component(`${prefix}-icon`, NIcon)
     app.component(`${prefix}-input-group`, NInputGroup)

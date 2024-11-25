@@ -38,6 +38,9 @@ importers:
       vue:
         specifier: ^3.5.10
         version: 3.5.10
+      vue-promised:
+        specifier: 2.2.0
+        version: 2.2.0(vue@3.5.10)
     devDependencies:
       '@laynezh/vite-plugin-lib-assets':
         specifier: ^0.5.24
@@ -1335,11 +1338,31 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  vue-demi@0.14.10:
+    resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==, tarball: https://registry.npmmirror.com/vue-demi/-/vue-demi-0.14.10.tgz}
+    engines: {node: '>=12'}
+    hasBin: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+
   vue-eslint-parser@9.4.3:
     resolution: {integrity: sha512-2rYRLWlIpaiN8xbPiDyXZXRgLGOtWxERV7ND5fFAv5qo1D2N9Fu9MNajBNc6o13lZ+24DAWCkQCvj4klgmcITg==, tarball: https://registry.npmmirror.com/vue-eslint-parser/-/vue-eslint-parser-9.4.3.tgz}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
+
+  vue-promised@2.2.0:
+    resolution: {integrity: sha512-qjJOEs8MQSYIRcKiQhC7wzyy9uja/NNXS4ZeftXU6BpIQ6Ao24Gmx2mY9exmPLagv9PdrO9zUQ3yIXnoVaag4g==, tarball: https://registry.npmmirror.com/vue-promised/-/vue-promised-2.2.0.tgz}
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0
+      vue: ^2.0.0 || >=3.0.0-0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
 
   vue@3.5.10:
     resolution: {integrity: sha512-Vy2kmJwHPlouC/tSnIgXVg03SG+9wSqT1xu1Vehc+ChsXsRd7jLkKgMltVEFOzUdBr3uFwBCG+41LJtfAcBRng==, tarball: https://registry.npmmirror.com/vue/-/vue-3.5.10.tgz}
@@ -2595,6 +2618,10 @@ snapshots:
       evtd: 0.2.4
       vue: 3.5.10
 
+  vue-demi@0.14.10(vue@3.5.10):
+    dependencies:
+      vue: 3.5.10
+
   vue-eslint-parser@9.4.3(eslint@8.57.1):
     dependencies:
       debug: 4.3.7
@@ -2607,6 +2634,11 @@ snapshots:
       semver: 7.6.3
     transitivePeerDependencies:
       - supports-color
+
+  vue-promised@2.2.0(vue@3.5.10):
+    dependencies:
+      vue: 3.5.10
+      vue-demi: 0.14.10(vue@3.5.10)
 
   vue@3.5.10:
     dependencies:
