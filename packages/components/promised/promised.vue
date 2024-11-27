@@ -138,6 +138,5 @@ function equalEmptyForData(data) {
   height: 100%;
   background-color: #fff;
   opacity: 0.5;
-  transition: background-color 0.3s;
 }
 </style>

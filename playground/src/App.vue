@@ -21,6 +21,7 @@ import Input from './components/input.vue'
 import Form from './components/form.vue'
 import Table from './components/table.vue'
 import Dialog from './components/dialog.vue'
+import Modal from './components/modal.vue'
 import Popconfirm from './components/popconfirm.vue'
 import Promised from './components/promised.vue'
 
@@ -30,6 +31,7 @@ const components = {
   form: Form,
   table: Table,
   dialog: Dialog,
+  modal: Modal,
   popconfirm: Popconfirm,
   promised: Promised
 }
@@ -40,7 +42,8 @@ const options = [
   { componentName: 'P-Table', componentKey: 'table' },
   { componentName: 'P-Popconfirm', componentKey: 'popconfirm' },
   { componentName: 'P-Promised', componentKey: 'promised' },
-  { componentName: 'Dialog', componentKey: 'dialog' }
+  { componentName: 'Dialog', componentKey: 'dialog' },
+  { componentName: 'Modal', componentKey: 'modal' }
 ]
 
 const localComponentKey = window.localStorage.getItem('componentKey') || options[0].componentKey

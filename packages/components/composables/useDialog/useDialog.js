@@ -27,27 +27,31 @@ export default () => {
   let warningDialog = null
   let errorDialog = null
   const dialog = useDialog()
+
+  // options 对应 dialog.create 方法的参数
+  // payload 扩展的参数
+  // type Dialog 类型 success, warning, error
   const create = (options = {}, payload = { width: 430 }, type) => {
     const config = {
-      'autoFocus': false,
-      'blockScroll': true,
-      'bordered': false,
-      'closable': true,
-      'transformOrigin': 'center',
-      'title': '提示',
-      'positiveText': '确定',
-      'negativeText': '取消',
+      autoFocus: false,
+      blockScroll: true,
+      bordered: false,
+      closable: true,
+      showIcon: false,
+      title: '提示',
+      positiveText: '确定',
+      negativeText: '取消',
       ...options,
-      'class': 'p-dialog',
-      'titleClass': 'p-dialog-title',
-      'content-class': 'p-dialog-content',
-      'actionClass': 'p-dialog-action'
+      transformOrigin: 'center',
+      class: 'p-dialog',
+      contentClass: 'p-dialog-content',
+      actionClass: 'p-dialog-action'
     }
 
     config.closeOnEsc = false
     config.maskClosable = false
-    config.showIcon = true
     config.iconPlacement = 'left'
+    config.titleClass = config.showIcon ? 'p-dialog-title' : 'p-dialog-title p-dialog-title-without-icon'
     config.style = 'width: ' + payload.width + 'px'
 
     if (type) config.type = type
@@ -100,6 +104,7 @@ export default () => {
     if (options['negativeText'] == null) options['negativeText'] = ''
     if (options['positiveText'] == null) options['positiveText'] = '我知道了'
     if (options.closable == null) options.closable = false
+    if (options.showIcon == null) options.showIcon = true
     const d = create(options, payload, 'success')
     successDialog = d
     return d
@@ -108,6 +113,7 @@ export default () => {
     if (options['negativeText'] == null) options['negativeText'] = ''
     if (options['positiveText'] == null) options['positiveText'] = '我知道了'
     if (options.closable == null) options.closable = false
+    if (options.showIcon == null) options.showIcon = true
     const d = create(options, payload, 'warning')
     warningDialog = d
     return d
@@ -116,6 +122,7 @@ export default () => {
     if (options['negativeText'] == null) options['negativeText'] = ''
     if (options['positiveText'] == null) options['positiveText'] = '我知道了'
     if (options.closable == null) options.closable = false
+    if (options.showIcon == null) options.showIcon = true
     const d = create(options, payload, 'error')
     errorDialog = d
     return d

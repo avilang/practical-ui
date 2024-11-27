@@ -3,16 +3,15 @@
   transition-duration: 0.15s;
 }
 
-.n-dialog.n-modal.p-dialog.p-dialog-loading {
-  &::after {
-    content: ' ';
-    position: absolute;
-    top: 8px;
-    right: 11px;
-    width: 30px;
-    height: 30px;
-    z-index: 3;
-  }
+.n-dialog.n-modal.p-dialog.p-dialog-loading::after {
+  content: ' ';
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 26px;
+  height: 26px;
+  z-index: 3;
+  cursor: not-allowed;
 }
 
 .n-dialog .n-dialog__title.p-dialog-title {
@@ -20,6 +19,10 @@
   font-size: 14px;
   padding: 0 16px 10px 14px;
   border-bottom: 1px solid rgb(224, 224, 230);
+}
+
+.n-dialog .n-dialog__title.p-dialog-title.p-dialog-title-without-icon {
+  padding-left: 16px;
 }
 
 .n-dialog .n-dialog__content.p-dialog-content {
@@ -31,7 +34,16 @@
 }
 
 .n-dialog.n-modal.p-dialog .n-dialog__close {
-  margin: 12px 15px 0 0;
+  margin: 12px 14px 0 0;
+  font-size: 16px;
+}
+
+.n-dialog.n-modal.p-dialog .n-dialog__close:hover {
+  color: rgb(31, 34, 37);
+}
+
+.n-dialog.n-modal.p-dialog .n-dialog__close:hover::before {
+  background-color: transparent;
 }
 
 .n-dialog.n-modal.p-dialog .n-dialog__icon {
@@ -43,7 +55,7 @@
   border-top: 1px solid rgb(224, 224, 230);
 }
 
-.n-dialog.n-modal.p-dialog .n-dialog__action > *:not(:last-child) {
+.n-dialog.n-modal.p-dialog .n-dialog__action>*:not(:last-child) {
   margin-right: 10px;
 }
 
