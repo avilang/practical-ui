@@ -21,6 +21,7 @@
           <p-icon size="18"> <WechatOutlined /> </p-icon></template
         >微信支付</p-button
       >
+      <p-button :waiting="waiting" class="ml-10" @click="handleWaiting">Waiting Primary Button</p-button>
     </div>
     <p-button class="mt-10" type="error" block @click="handleLoadingBar">Loading Bar Block Error Button</p-button>
   </box-component>
@@ -50,5 +51,11 @@ function handleLoadingBar() {
   setTimeout(() => {
     loadingBar.finish()
   }, 600)
+}
+
+const waiting = ref(false)
+function handleWaiting() {
+  waiting.value = true
+  console.log('🚀 ~ handleWaiting ~ handleWaiting')
 }
 </script>
