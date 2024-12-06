@@ -22789,8 +22789,8 @@ const Fd = ({ delay: e = 300, minPendingTime: n = 500, loadingValue: r = !1 } = 
     i && (clearTimeout(i), i = null);
   }, l = M(!!r), s = M(!!r);
   let u = null;
-  const d = () => (l.value = !1, new Promise((c) => {
-    u = c;
+  const d = (c) => (l.value = c, new Promise((f) => {
+    c === !0 ? f() : u = f;
   }));
   return Pe(
     l,
@@ -22813,7 +22813,7 @@ const Fd = ({ delay: e = 300, minPendingTime: n = 500, loadingValue: r = !1 } = 
     { immediate: !!r, deep: !1 }
   ), bs(() => {
     u = null, a();
-  }), { loading: s, waiting: l, doneLoading: d };
+  }), { loading: s, waiting: l, setLoadingStatus: d };
 }, Jy = {
   key: 1,
   class: "p-promised-loading"
@@ -22910,18 +22910,18 @@ const Fd = ({ delay: e = 300, minPendingTime: n = 500, loadingValue: r = !1 } = 
     onLoading: { type: Function }
   },
   setup(e) {
-    const { loading: n, waiting: r, doneLoading: o } = Fd();
+    const { loading: n, waiting: r, setLoadingStatus: o } = Fd();
     function i(s, u) {
       const d = s({
         done: function() {
-          return o().then(() => {
+          return o(!1).then(() => {
             e.onLoading(!1);
           });
         }
       });
       if (d !== !1)
         if (qy(d)) {
-          u === "positiveClick" && (r.value = !0, e.onLoading(!0));
+          u === "positiveClick" && (o(!0), e.onLoading(!0));
           return;
         } else
           e.onClose();

@@ -107,13 +107,14 @@ const rules = {
 }
 
 const readonlyForm = ref(false)
-const { waiting, loading, doneLoading } = useDelayLoading()
+const { loading, setLoadingStatus } = useDelayLoading()
 function handleSubmit({ formData, valid }) {
   if (!valid) return
-  waiting.value = true
+
+  setLoadingStatus(true)
   readonlyForm.value = true
   setTimeout(() => {
-    doneLoading().then(() => {
+    setLoadingStatus(false).then(() => {
       console.log('🚀 ~ handleSubmit ~ formData:', formData)
     })
   }, 350)

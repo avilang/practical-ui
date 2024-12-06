@@ -34,11 +34,11 @@ const { onClose, onPositiveClick, onNegativeClick, onLoading } = defineProps({
   onLoading: { type: Function }
 })
 
-const { loading, waiting, doneLoading } = useDelayLoading()
+const { loading, waiting, setLoadingStatus } = useDelayLoading()
 function callActionFn(fn, type) {
   const value = fn({
     done: function () {
-      return doneLoading().then(() => {
+      return setLoadingStatus(false).then(() => {
         onLoading(false)
       })
     }
@@ -47,7 +47,7 @@ function callActionFn(fn, type) {
     return
   } else if (isPromise(value)) {
     if (type === 'positiveClick') {
-      waiting.value = true
+      setLoadingStatus(true)
       onLoading(true)
     }
     return

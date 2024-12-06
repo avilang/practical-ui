@@ -7,7 +7,7 @@ import { ref, onScopeDispose, watch } from 'vue'
 // 返回值：
 // loading: 真正用于显示 loading 动画的值
 // waiting: 用于控制 loading 值
-// doneLoading: 隐藏 loading 的方法，返回一个 Promise，在 loading 为 false 后 resolve
+// setLoadingStatus: 控制 waiting 值的方法，返回一个 Promise，当设置为 true 时，立即 resolve。设置为 false 时， 需 loading 为 false 后 resolve
 export default ({ delay = 300, minPendingTime = 500, loadingValue = false } = {}) => {
   let initedTime = 0
   let timer = null
@@ -21,10 +21,14 @@ export default ({ delay = 300, minPendingTime = 500, loadingValue = false } = {}
   const loading = ref(!!loadingValue)
 
   let resolveDone = null
-  const done = () => {
-    waiting.value = false
+  const done = (status) => {
+    waiting.value = status
     return new Promise((resolve) => {
-      resolveDone = resolve
+      if (status === true) {
+        resolve()
+      } else {
+        resolveDone = resolve
+      }
     })
   }
 
@@ -71,5 +75,5 @@ export default ({ delay = 300, minPendingTime = 500, loadingValue = false } = {}
     cleanTimer()
   })
 
-  return { loading, waiting, doneLoading: done }
+  return { loading, waiting, setLoadingStatus: done }
 }
