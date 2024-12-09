@@ -15,7 +15,7 @@ import { PForm } from './form/index.js'
 import { PInput } from './input/index.js'
 import { PSelect } from './select/index.js'
 import { PButton } from './button/index.js'
-import { PTable } from './table/index.js'
+import { PDataTable } from './data-table/index.js'
 import { PPopconfirm } from './popconfirm/index.js'
 import { PPromised } from './promised/index.js'
 
@@ -28,7 +28,7 @@ export default {
     app.component(`${prefix}-input`, PInput)
     app.component(`${prefix}-select`, PSelect)
     app.component(`${prefix}-button`, PButton)
-    app.component(`${prefix}-table`, PTable)
+    app.component(`${prefix}-data-table`, PDataTable)
     app.component(`${prefix}-popconfirm`, PPopconfirm)
     app.component(`${prefix}-promised`, PPromised)
     app.component(`${prefix}-icon-wrapper`, NIconWrapper)

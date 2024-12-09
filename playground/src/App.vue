@@ -39,7 +39,7 @@ const options = [
   { componentName: 'P-Button', componentKey: 'button' },
   { componentName: 'P-Input', componentKey: 'input' },
   { componentName: 'P-Form', componentKey: 'form' },
-  { componentName: 'P-Table', componentKey: 'table' },
+  { componentName: 'P-Data-Table', componentKey: 'table' },
   { componentName: 'P-Popconfirm', componentKey: 'popconfirm' },
   { componentName: 'P-Promised', componentKey: 'promised' },
   { componentName: 'Dialog', componentKey: 'dialog' },

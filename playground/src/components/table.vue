@@ -1,32 +1,6 @@
 <template>
   <box-component :name="`${name}`">
-    <p-table striped>
-      <thead>
-        <tr>
-          <th>账号</th>
-          <th>昵称</th>
-          <th>状态</th>
-          <th>创建时间</th>
-          <th>最近修改时间</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>13698911289</td>
-          <td>avilang</td>
-          <td>正常</td>
-          <td>2024-11-06 21:21:16</td>
-          <td>2024-11-06 21:21:16</td>
-        </tr>
-        <tr>
-          <td>...</td>
-          <td>...</td>
-          <td>...</td>
-          <td>...</td>
-          <td>...</td>
-        </tr>
-      </tbody>
-    </p-table>
+    <p-data-table :columns="columns" :data="data" :striped="false" />
   </box-component>
 </template>
 
@@ -34,8 +8,82 @@
 import BoxComponent from './box-component.vue'
 
 defineOptions({
-  name: 'PTableWithBox'
+  name: 'PDataTableWithBox'
 })
 
-const name = 'PTable'
+const name = 'PDataTable'
+
+const columns = [
+  { title: '账号', key: 'account' },
+  { title: '昵称', key: 'name' },
+  { title: '状态', key: 'status' },
+  { title: '创建时间', key: 'cTime' },
+  { title: '最近修改时间', key: 'uTime' },
+  { title: '操作' }
+]
+const data = [
+  {
+    account: '1',
+    name: 'avilang',
+    status: '启用',
+    cTime: '2024-11-06 21:21:16',
+    uTime: '2024-11-06 21:21:16'
+  },
+  {
+    account: '2',
+    name: 'avilang',
+    status: '启用',
+    cTime: '2024-11-06 21:21:16',
+    uTime: '2024-11-06 21:21:16'
+  },
+  {
+    account: '3',
+    name: 'avilang',
+    status: '启用',
+    cTime: '2024-11-06 21:21:16',
+    uTime: '2024-11-06 21:21:16'
+  },
+  {
+    account: '4',
+    name: 'avilang',
+    status: '启用',
+    cTime: '2024-11-06 21:21:16',
+    uTime: '2024-11-06 21:21:16'
+  },
+  {
+    account: '5',
+    name: 'avilang',
+    status: '启用',
+    cTime: '2024-11-06 21:21:16',
+    uTime: '2024-11-06 21:21:16'
+  },
+  {
+    account: '6',
+    name: 'avilang',
+    status: '启用',
+    cTime: '2024-11-06 21:21:16',
+    uTime: '2024-11-06 21:21:16'
+  },
+  {
+    account: '7',
+    name: 'avilang',
+    status: '启用',
+    cTime: '2024-11-06 21:21:16',
+    uTime: '2024-11-06 21:21:16'
+  },
+  {
+    account: '8',
+    name: 'avilang',
+    status: '启用',
+    cTime: '2024-11-06 21:21:16',
+    uTime: '2024-11-06 21:21:16'
+  },
+  {
+    account: '9',
+    name: 'avilang',
+    status: '启用',
+    cTime: '2024-11-06 21:21:16',
+    uTime: '2024-11-06 21:21:16'
+  }
+]
 </script>

@@ -32,8 +32,10 @@ const themeOverrides = {
     primaryColorPressed: '#1060C9FF',
     primaryColorSuppl: '#4098FCFF'
   },
-  Table: {
-    thColor: 'rgba(243, 243, 252, 1)'
+  DataTable: {
+    thColor: 'rgba(243, 243, 252, 1)',
+    tdColorStriped: 'rgba(243, 243, 252, 1)',
+    tdColorHover: 'rgba(250, 250, 252, 1)'
   }
 }
 </script>
