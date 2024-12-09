@@ -90,6 +90,7 @@ function restoreValidation(path = '') {
   targetFormItem && targetFormItem.restoreValidation()
 }
 
+// 输入框若存在验证规则，且不包含input触发，则主动动触发一次验证
 function handleInput(path) {
   if (!path) return
   if (!rules) return
