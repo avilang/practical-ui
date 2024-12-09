@@ -22,6 +22,7 @@ import Form from './components/form.vue'
 import Table from './components/table.vue'
 import Dialog from './components/dialog.vue'
 import Modal from './components/modal.vue'
+import Pagination from './components/pagination.vue'
 import Popconfirm from './components/popconfirm.vue'
 import Promised from './components/promised.vue'
 
@@ -33,13 +34,15 @@ const components = {
   dialog: Dialog,
   modal: Modal,
   popconfirm: Popconfirm,
-  promised: Promised
+  promised: Promised,
+  pagination: Pagination
 }
 const options = [
   { componentName: 'P-Button', componentKey: 'button' },
   { componentName: 'P-Input', componentKey: 'input' },
   { componentName: 'P-Form', componentKey: 'form' },
   { componentName: 'P-Data-Table', componentKey: 'table' },
+  { componentName: 'P-Pagination', componentKey: 'pagination' },
   { componentName: 'P-Popconfirm', componentKey: 'popconfirm' },
   { componentName: 'P-Promised', componentKey: 'promised' },
   { componentName: 'Dialog', componentKey: 'dialog' },

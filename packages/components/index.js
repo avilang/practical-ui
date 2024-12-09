@@ -17,6 +17,7 @@ import { PSelect } from './select/index.js'
 import { PButton } from './button/index.js'
 import { PDataTable } from './data-table/index.js'
 import { PPopconfirm } from './popconfirm/index.js'
+import { PPagination } from './pagination/index.js'
 import { PPromised } from './promised/index.js'
 
 export default {
@@ -30,6 +31,7 @@ export default {
     app.component(`${prefix}-button`, PButton)
     app.component(`${prefix}-data-table`, PDataTable)
     app.component(`${prefix}-popconfirm`, PPopconfirm)
+    app.component(`${prefix}-pagination`, PPagination)
     app.component(`${prefix}-promised`, PPromised)
     app.component(`${prefix}-icon-wrapper`, NIconWrapper)
     app.component(`${prefix}-icon`, NIcon)
