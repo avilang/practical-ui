@@ -30,7 +30,7 @@ defineOptions({
 
 defineProps({
   total: { type: Number },
-  pageSlot: { type: Number, default: 7 },
+  pageSlot: { type: Number, default: 9 },
   showQuickJumper: { type: Boolean, default: true },
   showSizePicker: { type: Boolean, default: true },
   pageSizes: { type: Array, default: () => [10, 20, 30, 40] },
