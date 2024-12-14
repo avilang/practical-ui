@@ -8,6 +8,7 @@
       :total="56"
       :page-size="20"
       simple
+      style="justify-content: center"
       @changePage="handleChangePage"
       @changePageSize="handleChangePageSize"
     />

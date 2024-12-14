@@ -14,6 +14,7 @@
     :show-quick-jump-dropdown="false"
     :on-update:page="handleUpdatePage"
     :on-update:page-size="handleUpdatePageSize"
+    :style="attrs.style"
   >
     <template #prefix="{ itemCount }" v-if="!simple">共 {{ itemCount }} 条记录</template>
     <template #suffix v-if="showQuickJumper && !simple">页</template>
@@ -21,6 +22,7 @@
 </template>
 
 <script setup>
+import { useAttrs } from 'vue'
 import { NPagination } from 'naive-ui'
 
 defineOptions({
@@ -37,6 +39,7 @@ defineProps({
   simple: { type: Boolean, default: false }
 })
 
+const attrs = useAttrs()
 const page = defineModel('page', { type: Number, default: 1 })
 const pageSize = defineModel('pageSize', { type: Number, default: 10 })
 const emit = defineEmits(['changePage', 'changePageSize'])
@@ -53,6 +56,9 @@ function handleUpdatePageSize(size) {
 </script>
 
 <style>
+.n-pagination.p-pagination {
+  justify-content: end;
+}
 .n-pagination.p-pagination .n-pagination-prefix {
   margin-right: 0;
 }
