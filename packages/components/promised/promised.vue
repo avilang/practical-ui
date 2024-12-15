@@ -1,5 +1,5 @@
 <template>
-  <div :style="contentStyle">
+  <div :class="attrs.class ? attrs.class : ''" :style="contentStyle">
     <slot
       v-if="
         (!loading && !isPending && !error && !equalEmptyForData(data)) ||
@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import { toRef, computed, watch, ref } from 'vue'
+import { toRef, computed, watch, ref, useAttrs } from 'vue'
 import { usePromise } from 'vue-promised'
 import { NSpin, NEmpty } from 'naive-ui'
 import useDelayLoading from '../composables/useDelayLoading.js'
@@ -43,7 +43,6 @@ const { promise, loadingSize, loadingTop, dataField } = defineProps({
   errorDefaultDesc: { type: String, default: '系统异常' },
   contentStyle: { type: String, default: 'position:relative; min-height:72px;' } //  内容的最小高度，避免 loading/empty 状态下高度不确定导致抖动
 })
-
 const size = computed(() => {
   return ['small', 'medium', 'large'].includes(loadingSize) ? loadingSize : 'medium'
 })
@@ -69,6 +68,8 @@ const spinStyle = computed(() => {
 
   return style
 })
+const attrs = useAttrs()
+
 const promiseRef = toRef(() => promise)
 const { data, error, isPending, isDelayElapsed, isResolved, isRejected } = usePromise(promiseRef, 0)
 
@@ -127,6 +128,7 @@ function equalEmptyForData(data) {
   right: 0;
   bottom: 0;
   top: 0;
+  z-index: 9;
 }
 
 .p-promised-loading .p-promised-loading-mask {
