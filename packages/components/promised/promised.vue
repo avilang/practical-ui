@@ -11,12 +11,22 @@
       <n-spin :size="size" :style="spinStyle" />
       <div class="p-promised-loading-mask"></div>
     </div>
-    <n-empty v-if="!loading && !isPending && !error && equalEmptyForData(data)" :description="emptyDesc" size="medium">
+    <n-empty
+      v-if="!loading && !isPending && !error && equalEmptyForData(data)"
+      :class="emptyClass"
+      :description="emptyDesc"
+      size="medium"
+    >
       <template #extra v-if="$slots.emptyExtra">
         <slot name="emptyExtra"></slot>
       </template>
     </n-empty>
-    <n-empty v-if="!loading && !isPending && error" :description="error.message || errorDefaultDesc" size="medium" />
+    <n-empty
+      v-if="!loading && !isPending && error"
+      :class="emptyClass"
+      :description="error.message || errorDefaultDesc"
+      size="medium"
+    />
   </div>
 </template>
 
@@ -34,13 +44,14 @@ defineOptions({
 // 在开发环境下 promise 若 reject 时，会在控制台打印如下错误信息
 // [Vue warn]: Unhandled error during execution of watcher getter
 // 若想隐藏该错误信息，考虑使用 app.config.warnHandler 来处理
-const { promise, loadingSize, loadingTop, dataField } = defineProps({
+const { promise, loadingSize, loadingTop, dataField, nilType } = defineProps({
   promise: { default: null },
   dataField: { type: String },
   loadingSize: { type: String, default: 'medium' },
   loadingTop: { type: Number },
   emptyDesc: { type: String, default: '暂无数据' },
   errorDefaultDesc: { type: String, default: '系统异常' },
+  nilType: { type: String }, // 控制 empty 和 error 状态下的样式
   contentStyle: { type: String, default: 'position:relative; min-height:72px;' } //  内容的最小高度，避免 loading/empty 状态下高度不确定导致抖动
 })
 const size = computed(() => {
@@ -67,6 +78,11 @@ const spinStyle = computed(() => {
   }
 
   return style
+})
+const emptyClass = computed(() => {
+  if (nilType === 'border') return 'p-promised-empty-border'
+  if (nilType === 'line') return 'p-promised-empty-line'
+  return ''
 })
 const attrs = useAttrs()
 
@@ -140,5 +156,16 @@ function equalEmptyForData(data) {
   height: 100%;
   background-color: #fff;
   opacity: 0.5;
+}
+
+.p-promised-empty-border {
+  padding: 32px 0;
+  border-radius: 3px;
+  border: 1px solid rgba(239, 239, 245, 1);
+}
+
+.p-promised-empty-line {
+  padding: 24px 0;
+  border-top: 1px solid rgba(239, 239, 245, 1);
 }
 </style>

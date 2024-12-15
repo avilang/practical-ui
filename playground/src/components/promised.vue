@@ -31,7 +31,7 @@
   </box-component>
 
   <box-component :name="`${name} - 正确请求接口失败抛出错误信息`">
-    <p-promised :promise="promise3">
+    <p-promised :promise="promise3" nil-type="border">
       <template v-slot="{ data }">
         {{ data }}
       </template>
