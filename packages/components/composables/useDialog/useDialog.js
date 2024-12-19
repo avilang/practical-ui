@@ -100,30 +100,30 @@ export default () => {
     config.content = setDialogContent(options.content)
     return dialog.create(config)
   }
-  const success = (options, payload) => {
-    if (options['negativeText'] == null) options['negativeText'] = ''
-    if (options['positiveText'] == null) options['positiveText'] = '我知道了'
-    if (options.closable == null) options.closable = false
-    if (options.showIcon == null) options.showIcon = true
-    const d = create(options, payload, 'success')
+  const success = (options, payload = {}) => {
+    if (options['negativeText'] == null && !payload.useDefaultConf) options['negativeText'] = ''
+    if (options['positiveText'] == null && !payload.useDefaultConf) options['positiveText'] = '我知道了'
+    if (options.closable == null && !payload.useDefaultConf) options.closable = false
+    if (options.showIcon == null && !payload.useDefaultConf) options.showIcon = true
+    const d = create(options, { width: 430, ...payload }, 'success')
     successDialog = d
     return d
   }
-  const warning = (options, payload) => {
-    if (options['negativeText'] == null) options['negativeText'] = ''
-    if (options['positiveText'] == null) options['positiveText'] = '我知道了'
-    if (options.closable == null) options.closable = false
-    if (options.showIcon == null) options.showIcon = true
-    const d = create(options, payload, 'warning')
+  const warning = (options, payload = {}) => {
+    if (options['negativeText'] == null && !payload.useDefaultConf) options['negativeText'] = ''
+    if (options['positiveText'] == null && !payload.useDefaultConf) options['positiveText'] = '我知道了'
+    if (options.closable == null && !payload.useDefaultConf) options.closable = false
+    if (options.showIcon == null && !payload.useDefaultConf) options.showIcon = true
+    const d = create(options, { width: 430, ...payload }, 'warning')
     warningDialog = d
     return d
   }
-  const error = (options, payload) => {
-    if (options['negativeText'] == null) options['negativeText'] = ''
-    if (options['positiveText'] == null) options['positiveText'] = '我知道了'
-    if (options.closable == null) options.closable = false
-    if (options.showIcon == null) options.showIcon = true
-    const d = create(options, payload, 'error')
+  const error = (options, payload = {}) => {
+    if (options['negativeText'] == null && !payload.useDefaultConf) options['negativeText'] = ''
+    if (options['positiveText'] == null && !payload.useDefaultConf) options['positiveText'] = '我知道了'
+    if (options.closable == null && !payload.useDefaultConf) options.closable = false
+    if (options.showIcon == null && !payload.useDefaultConf) options.showIcon = true
+    const d = create(options, { width: 430, ...payload }, 'error')
     errorDialog = d
     return d
   }
