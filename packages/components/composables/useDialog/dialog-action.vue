@@ -40,6 +40,12 @@ function callActionFn(fn, type) {
     done: function () {
       return setLoadingStatus(false).then(() => {
         onLoading(false)
+        onClose()
+      })
+    },
+    hideLoading: function () {
+      return setLoadingStatus(false).then(() => {
+        onLoading(false)
       })
     }
   })

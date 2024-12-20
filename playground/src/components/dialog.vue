@@ -47,35 +47,29 @@ const handleOk = () => {
   })
 }
 const handleWarning = () => {
-  dialog.warning(
-    {
-      content: ['这是一个警告类型的弹出窗'],
-      onPositiveClick: ({ done }) => {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve()
-          }, 350)
-        }).then(() => {
-          done().then(() => {
-            console.log('点击了 warning 确定按钮')
-          })
+  dialog.warning({
+    content: ['这是一个警告类型的弹出窗'],
+    onPositiveClick: ({ hideLoading }) => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve()
+        }, 350)
+      }).then(() => {
+        hideLoading().then(() => {
+          console.log('loading 隐藏了，但窗口不关闭')
         })
-      }
-    },
-    { useDefaultConf: false }
-  )
+      })
+    }
+  })
 }
 const handleError = () => {
-  dialog.error(
-    {
-      content: ['这是一个错误类型的弹出窗'],
-      negativeText: '返回',
-      onNegativeClick: () => {
-        console.log('点击了 error 取消按钮')
-        return false
-      }
-    },
-    { useDefaultConf: true, width: 360 }
-  )
+  dialog.error({
+    content: ['这是一个错误类型的弹出窗'],
+    negativeText: '返回',
+    onNegativeClick: () => {
+      console.log('点击了 error 取消按钮')
+      return false
+    }
+  })
 }
 </script>

@@ -29008,6 +29008,11 @@ const Vc = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: r = !1 } = 
       const u = s({
         done: function() {
           return o(!1).then(() => {
+            e.onLoading(!1), e.onClose();
+          });
+        },
+        hideLoading: function() {
+          return o(!1).then(() => {
             e.onLoading(!1);
           });
         }
