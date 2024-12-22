@@ -69,7 +69,7 @@ const handleClick = debounce(function () {
 }
 
 .n-button.p-button-waiting {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .n-button.p-button-waiting:hover {
