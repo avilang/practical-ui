@@ -3,7 +3,8 @@
     :class="[
       attrs.class ? attrs.class : '',
       size === 'xs' ? 'p-button-xs' : '',
-      type === 'default' && defaultType ? `p-button-default-${defaultType}` : ''
+      type === 'default' && defaultType ? `p-button-default-${defaultType}` : '',
+      waiting ? 'p-button-waiting' : ''
     ]"
     :attr-type="attrType"
     :focusable="false"
@@ -16,7 +17,7 @@
     :ghost="ghost"
     :secondary="secondary"
     :text="text"
-    :disabled="disabled || waiting"
+    :disabled="disabled"
     icon-placement="left"
     @click="handleClick"
   >
@@ -37,7 +38,7 @@ defineOptions({
   inheritAttrs: false
 })
 
-defineProps({
+const { waiting } = defineProps({
   type: { type: String, default: 'primary' },
   size: { type: String, default: 'medium' },
   attrType: { type: String, default: 'button' },
@@ -57,6 +58,7 @@ const slots = useSlots()
 
 const emit = defineEmits(['click'])
 const handleClick = debounce(function () {
+  if (waiting) return
   emit('click')
 }, 300)
 </script>
@@ -64,6 +66,16 @@ const handleClick = debounce(function () {
 <style>
 .n-button.n-button--small-type.p-button-xs {
   height: 24px;
+}
+
+.n-button.p-button-waiting {
+  opacity: 0.7;
+}
+
+.n-button.p-button-waiting:hover {
+  cursor: initial;
+  background-color: var(--n-color);
+  color: var(--n-text-color);
 }
 
 .n-button.n-button--default-type.p-button-default-success {

@@ -28630,13 +28630,14 @@ const gl = function(e, t, r) {
   emits: ["click"],
   setup(e, { emit: t }) {
     const r = ti(), o = vd(), i = t, a = gl(function() {
-      i("click");
+      e.waiting || i("click");
     }, 300);
     return (l, s) => (gt(), $t(me(qn), {
       class: Hr([
         me(r).class ? me(r).class : "",
         e.size === "xs" ? "p-button-xs" : "",
-        e.type === "default" && e.defaultType ? `p-button-default-${e.defaultType}` : ""
+        e.type === "default" && e.defaultType ? `p-button-default-${e.defaultType}` : "",
+        e.waiting ? "p-button-waiting" : ""
       ]),
       "attr-type": e.attrType,
       focusable: !1,
@@ -28649,7 +28650,7 @@ const gl = function(e, t, r) {
       ghost: e.ghost,
       secondary: e.secondary,
       text: e.text,
-      disabled: e.disabled || e.waiting,
+      disabled: e.disabled,
       "icon-placement": "left",
       onClick: me(a)
     }, ei({
