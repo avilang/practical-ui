@@ -53,6 +53,17 @@
       <p-button block type="warning" size="large" attr-type="submit">注册</p-button>
     </p-form>
   </box-component>
+
+  <box-component :name="`${name} - 行内`">
+    <p-form
+      inline
+      :model="model3"
+      :rules="rules3"
+      :show-require-mark="false"
+      :inline-size="[2]"
+      feedback-size-class="s"
+    />
+  </box-component>
 </template>
 
 <script setup>
@@ -157,5 +168,58 @@ function handleSubmit2({ formData, valid }) {
 const form2Ref = useTemplateRef('form2')
 function handleInputAccount2(field) {
   form2Ref.value.restoreValidation(field)
+}
+
+const model3 = [
+  {
+    type: 'input',
+    field: 'account',
+    value: '',
+    props: {
+      placeholder: '请输入账号(手机号)',
+      maxlength: 11
+    },
+    label: '账号'
+  },
+  {
+    type: 'input',
+    field: 'nickName',
+    value: '',
+    props: {
+      placeholder: '请输入昵称',
+      maxlength: 20
+    },
+    label: '昵称'
+  },
+  {
+    type: 'input',
+    field: 'password',
+    value: '',
+    props: {
+      type: 'password',
+      placeholder: '请输入密码',
+      maxlength: 30
+    },
+    label: '密码'
+  },
+  {
+    type: '',
+    field: 'state',
+    value: '',
+    label: '状态'
+  }
+]
+
+const rules3 = {
+  account: {
+    required: true,
+    message: '账号不能为空',
+    trigger: ['blur', 'input']
+  },
+  password: {
+    required: true,
+    message: '密码不能为空',
+    trigger: ['blur', 'input']
+  }
 }
 </script>

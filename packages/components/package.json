@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "grapheme-splitter": "1.0.4",
-    "naive-ui": "2.40.3",
+    "naive-ui": "2.40.4",
     "vfonts": "0.0.3",
     "vue-promised": "2.2.0"
   },
