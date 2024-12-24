@@ -56,7 +56,7 @@
 
   <box-component :name="`${name} - 行内`">
     <p-form
-      inline
+      :inline="true"
       :model="model3"
       :rules="rules3"
       :show-require-mark="false"
@@ -203,10 +203,13 @@ const model3 = [
     label: '密码'
   },
   {
-    type: '',
+    type: 'switch',
     field: 'state',
-    value: '',
-    label: '状态'
+    value: true,
+    label: '状态',
+    props: {
+      style: 'margin-left: 2px;'
+    }
   }
 ]
 

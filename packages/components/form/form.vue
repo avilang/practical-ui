@@ -33,6 +33,12 @@
             v-bind.prop="{ disabled, readonly, ...item.props }"
             @input="handleInput(item.field)"
           />
+          <component
+            v-else-if="item.type === 'switch'"
+            :is="Switch"
+            v-model="formValue[item.field]"
+            v-bind.prop="{ disabled, readonly, ...item.props }"
+          />
         </template>
       </n-form-item>
     </template>
@@ -57,6 +63,12 @@
                 v-bind.prop="{ disabled, readonly, ...item.props }"
                 @input="handleInput(item.field)"
               />
+              <component
+                v-else-if="item.type === 'switch'"
+                :is="Switch"
+                v-model="formValue[item.field]"
+                v-bind.prop="{ disabled, readonly, ...item.props }"
+              />
             </template>
           </n-form-item>
           <div v-else style="flex: 1"></div>
@@ -71,6 +83,7 @@
 import { ref, toValue, useTemplateRef, computed } from 'vue'
 import { NForm, NFormItem } from 'naive-ui'
 import { PInput as Input } from '../input/index.js'
+import { PSwitch as Switch } from '../switch/index.js'
 import { debounce } from '../utility/throttle-debounce'
 
 defineOptions({

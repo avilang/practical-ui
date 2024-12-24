@@ -25,6 +25,7 @@ import Modal from './components/modal.vue'
 import Pagination from './components/pagination.vue'
 import Popconfirm from './components/popconfirm.vue'
 import Promised from './components/promised.vue'
+import Switch from './components/switch.vue'
 
 const components = {
   button: Button,
@@ -35,7 +36,8 @@ const components = {
   modal: Modal,
   popconfirm: Popconfirm,
   promised: Promised,
-  pagination: Pagination
+  pagination: Pagination,
+  switch: Switch
 }
 const options = [
   { componentName: 'P-Button', componentKey: 'button' },
@@ -45,6 +47,7 @@ const options = [
   { componentName: 'P-Pagination', componentKey: 'pagination' },
   { componentName: 'P-Popconfirm', componentKey: 'popconfirm' },
   { componentName: 'P-Promised', componentKey: 'promised' },
+  { componentName: 'P-Switch', componentKey: 'switch' },
   { componentName: 'Dialog', componentKey: 'dialog' },
   { componentName: 'Modal', componentKey: 'modal' }
 ]
