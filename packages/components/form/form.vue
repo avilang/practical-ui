@@ -231,7 +231,7 @@ function handleInput(path) {
   restoreValidation(path)
 }
 
-defineExpose({ restoreValidation })
+defineExpose({ restoreValidation, getFormValue })
 </script>
 
 <style>

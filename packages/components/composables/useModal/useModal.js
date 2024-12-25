@@ -71,7 +71,7 @@ export default () => {
       lock: function () {
         m.class = 'p-modal p-modal-lock'
       },
-      unLock: function () {
+      unlock: function () {
         m.class = 'p-modal'
       }
     }

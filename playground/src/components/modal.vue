@@ -47,7 +47,7 @@ function handleHeaderFooter() {
       footer: ModalFooter,
       footerProps: {
         onClose: () => {
-          m.unLock()
+          m.unlock()
           setTimeout(() => {
             m.instance.destroy()
           }, 1000)

@@ -29073,7 +29073,7 @@ const xi = function(e, t, r) {
     function p(b) {
       b && e.rules && e.rules[b] && (e.rules[b].trigger && e.rules[b].trigger.includes("input") || v(b));
     }
-    return t({ restoreValidation: v }), (b, h) => (_e(), Ct(de(aS), {
+    return t({ restoreValidation: v, getFormValue: l }), (b, h) => (_e(), Ct(de(aS), {
       ref: "form",
       class: xn([e.inline ? "p-form-inline" : ""]),
       "show-label": e.showLabel,
@@ -29772,7 +29772,7 @@ const P2 = () => {
       lock: function() {
         s.class = "p-modal p-modal-lock";
       },
-      unLock: function() {
+      unlock: function() {
         s.class = "p-modal";
       }
     };
