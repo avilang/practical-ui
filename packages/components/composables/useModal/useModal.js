@@ -36,12 +36,14 @@ export default () => {
     if (!config.title && !config.closable) config.titleClass = 'p-modal-title-hidden'
     if (!config.title && config.closable) config.titleClass = 'p-modal-title-closable'
 
-    if (config.title) {
-      config.contentStyle = 'padding: 16px'
-    } else if (!config.title && config.closable) {
-      config.contentStyle = 'padding: 0 16px 16px'
-    } else if (!config.title && !config.closable) {
-      config.contentStyle = 'padding: 16px'
+    if (!options.contentStyle) {
+      if (config.title) {
+        config.contentStyle = 'padding: 16px'
+      } else if (!config.title && config.closable) {
+        config.contentStyle = 'padding: 0 16px 16px'
+      } else if (!config.title && !config.closable) {
+        config.contentStyle = 'padding: 16px'
+      }
     }
 
     let modalStyle = []
