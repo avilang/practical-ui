@@ -201,13 +201,21 @@ function getFormValue() {
 
 const emit = defineEmits(['submit'])
 const formRef = useTemplateRef('form')
+const validate = () => {
+  return formRef.value
+    .validate((errors) => {
+      return { formData: getFormValue(), valid: !errors || errors.length === 0, errors }
+    })
+    .catch(() => {
+      return { anomalous: true }
+    })
+}
 const handleSubmit = debounce(function () {
   document.activeElement && document.activeElement.blur()
-  formRef.value
-    .validate((errors) => {
-      emit('submit', { formData: getFormValue(), valid: !errors || errors.length === 0, errors })
-    })
-    .catch(() => null)
+  validate().then((result) => {
+    if (result.anomalous === true) return
+    emit('submit', result)
+  })
 })
 
 const formItemRef = useTemplateRef('formItem')
@@ -231,7 +239,7 @@ function handleInput(path) {
   restoreValidation(path)
 }
 
-defineExpose({ restoreValidation, getFormValue })
+defineExpose({ validate, restoreValidation, getFormValue })
 </script>
 
 <style>
