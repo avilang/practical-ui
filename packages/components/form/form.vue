@@ -201,7 +201,10 @@ function getFormValue() {
 
 const emit = defineEmits(['submit'])
 const formRef = useTemplateRef('form')
-const validate = () => {
+const validate = (outOfFocus = true) => {
+  if (outOfFocus) {
+    document.activeElement && document.activeElement.blur()
+  }
   return formRef.value
     .validate()
     .then(() => {
@@ -212,8 +215,7 @@ const validate = () => {
     })
 }
 const handleSubmit = debounce(function () {
-  document.activeElement && document.activeElement.blur()
-  validate().then((result) => {
+  validate(true).then((result) => {
     emit('submit', result)
   })
 })
