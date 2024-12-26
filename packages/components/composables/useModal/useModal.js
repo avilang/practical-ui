@@ -10,8 +10,8 @@ export default () => {
     const config = {
       title: '',
       closable: true,
-      ...options,
       autoFocus: false,
+      ...options,
       blockScroll: true,
       preset: 'dialog',
       transformOrigin: 'center',

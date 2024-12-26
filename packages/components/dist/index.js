@@ -29740,8 +29740,8 @@ const P2 = () => {
     const i = {
       title: "",
       closable: !0,
-      ...r,
       autoFocus: !1,
+      ...r,
       blockScroll: !0,
       preset: "dialog",
       transformOrigin: "center",
