@@ -29057,9 +29057,9 @@ const xi = function(e, t, r) {
         g.slot && (h[g.field] = Rf(g.value));
       }), { ...i.value, ...h };
     }
-    const s = r, d = Sl("form"), u = () => d.value.validate((h) => ({ formData: l(), valid: !h || h.length === 0, errors: h })).catch(() => ({ anomalous: !0 })), c = xi(function() {
+    const s = r, d = Sl("form"), u = () => d.value.validate().then(() => ({ formData: l(), valid: !0 })).catch((h) => ({ formData: l(), valid: !1, errors: h })), c = xi(function() {
       document.activeElement && document.activeElement.blur(), u().then((h) => {
-        h.anomalous !== !0 && s("submit", h);
+        s("submit", h);
       });
     }), v = Sl("formItem");
     function p(h = "") {

@@ -13,14 +13,7 @@
   </box-component>
 
   <box-component :name="`${name} - slot`">
-    <p-form
-      ref="form2"
-      :model="model2"
-      :rules="rules2"
-      feedback-size-class="s"
-      :show-label="false"
-      @submit="handleSubmit2"
-    >
+    <p-form ref="form2" :model="model2" :rules="rules2" feedback-size-class="s" :show-label="false">
       <template #account>
         <p-input-group>
           <p-input-group-label size="large">账号</p-input-group-label>
@@ -50,7 +43,7 @@
           />
         </p-input-group>
       </template>
-      <p-button block type="warning" size="large" attr-type="submit">注册</p-button>
+      <p-button block type="warning" size="large" @click="handleSubmit2">注册</p-button>
     </p-form>
   </box-component>
 
@@ -160,12 +153,15 @@ const rules2 = {
   }
 }
 
-function handleSubmit2({ formData, valid }) {
-  if (!valid) return
-  console.log('🚀 ~ handleSubmit2 ~ data:', formData)
+const form2Ref = useTemplateRef('form2')
+function handleSubmit2() {
+  form2Ref.value.validate().then((result) => {
+    const { formData, valid } = result
+    if (!valid) return
+    console.log('🚀 ~ handleSubmit2 ~ data:', formData)
+  })
 }
 
-const form2Ref = useTemplateRef('form2')
 function handleInputAccount2(field) {
   form2Ref.value.restoreValidation(field)
 }

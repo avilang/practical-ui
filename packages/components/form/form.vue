@@ -203,17 +203,17 @@ const emit = defineEmits(['submit'])
 const formRef = useTemplateRef('form')
 const validate = () => {
   return formRef.value
-    .validate((errors) => {
-      return { formData: getFormValue(), valid: !errors || errors.length === 0, errors }
+    .validate()
+    .then(() => {
+      return { formData: getFormValue(), valid: true }
     })
-    .catch(() => {
-      return { anomalous: true }
+    .catch((errors) => {
+      return { formData: getFormValue(), valid: false, errors }
     })
 }
 const handleSubmit = debounce(function () {
   document.activeElement && document.activeElement.blur()
   validate().then((result) => {
-    if (result.anomalous === true) return
     emit('submit', result)
   })
 })
