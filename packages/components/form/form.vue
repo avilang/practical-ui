@@ -84,7 +84,7 @@
 </template>
 
 <script setup>
-import { ref, toValue, useTemplateRef, computed } from 'vue'
+import { ref, toValue, useTemplateRef, computed, onScopeDispose } from 'vue'
 import { NForm, NFormItem } from 'naive-ui'
 import { PInput as Input } from '../input/index.js'
 import { PSwitch as Switch } from '../switch/index.js'
@@ -245,7 +245,7 @@ function handleInput(path) {
   restoreValidation(path)
 }
 
-const child = {}
+let child = {}
 model.forEach((item) => {
   if (item.slot) return
   child[item.field] = useTemplateRef(`form-item-${item.field}`)
@@ -255,6 +255,10 @@ function getChild(field = '') {
   if (!field) return null
   return child[field] ? child[field].value[0] : null
 }
+
+onScopeDispose(() => {
+  child = null
+})
 
 defineExpose({ validate, restoreValidation, getFormValue, getChild })
 </script>
