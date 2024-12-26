@@ -1,5 +1,6 @@
 <template>
   <n-input
+    ref="input"
     :input-props="{ autocomplete: 'off' }"
     :type="type"
     :size="size"
@@ -22,6 +23,7 @@
 </template>
 
 <script setup>
+import { useTemplateRef } from 'vue'
 import { NInput, NIcon } from 'naive-ui'
 import { countGraphemes } from '../utility/util'
 
@@ -70,4 +72,11 @@ function handleInput(val) {
   }
   emit('input', { value: v })
 }
+
+const inputRef = useTemplateRef('input')
+const focus = () => {
+  inputRef.value && inputRef.value.focus()
+}
+
+defineExpose({ focus })
 </script>

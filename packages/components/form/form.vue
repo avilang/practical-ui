@@ -28,6 +28,7 @@
         <template v-else>
           <component
             v-if="item.type === 'input'"
+            :ref="`form-item-${item.field}`"
             :is="Input"
             v-model="formValue[item.field]"
             v-bind.prop="{ disabled, readonly, ...item.props }"
@@ -35,6 +36,7 @@
           />
           <component
             v-else-if="item.type === 'switch'"
+            :ref="`form-item-${item.field}`"
             :is="Switch"
             v-model="formValue[item.field]"
             v-bind.prop="{ disabled, readonly, ...item.props }"
@@ -58,6 +60,7 @@
             <template v-else>
               <component
                 v-if="item.type === 'input'"
+                :ref="`form-item-${item.field}`"
                 :is="Input"
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, readonly, ...item.props }"
@@ -65,6 +68,7 @@
               />
               <component
                 v-else-if="item.type === 'switch'"
+                :ref="`form-item-${item.field}`"
                 :is="Switch"
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, readonly, ...item.props }"
@@ -241,7 +245,18 @@ function handleInput(path) {
   restoreValidation(path)
 }
 
-defineExpose({ validate, restoreValidation, getFormValue })
+const child = {}
+model.forEach((item) => {
+  if (item.slot) return
+  child[item.field] = useTemplateRef(`form-item-${item.field}`)
+})
+
+function getChild(field = '') {
+  if (!field) return null
+  return child[field] ? child[field].value[0] : null
+}
+
+defineExpose({ validate, restoreValidation, getFormValue, getChild })
 </script>
 
 <style>
