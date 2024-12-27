@@ -79,6 +79,7 @@
         </template>
       </div>
     </template>
+    <button v-if="virtualSubmit" autocomplete="off" type="submit" style="display: none">virtual button</button>
     <slot></slot>
   </n-form>
 </template>
@@ -106,7 +107,8 @@ const { model, rules, feedbackSizeClass, inline, inlineSize } = defineProps({
   disabled: { type: Boolean, default: false },
   feedbackSizeClass: { type: String },
   itemStyle: { type: String, default: 'flex:1' }, // form-item style
-  inlineSize: { type: Array, default: () => [] } // 配合 inline 使用，每行显示 form-item 的数量，可传一个数组，如 [2, 3, 2]，表示第一行显示 2 个，第二行显示 3 个，第三行及以下显示 2 个
+  inlineSize: { type: Array, default: () => [] }, // 配合 inline 使用，每行显示 form-item 的数量，可传一个数组，如 [2, 3, 2]，表示第一行显示 2 个，第二行显示 3 个，第三行及以下显示 2 个
+  virtualSubmit: { type: Boolean, default: false }
 })
 
 const inlineModel = computed(() => {
@@ -247,8 +249,9 @@ function handleInput(path) {
 
 let child = {}
 model.forEach((item) => {
-  if (item.slot) return
-  child[item.field] = useTemplateRef(`form-item-${item.field}`)
+  if (!item.slot && item.ref === true) {
+    child[item.field] = useTemplateRef(`form-item-${item.field}`)
+  }
 })
 
 function getChild(field = '') {

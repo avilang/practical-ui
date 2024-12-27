@@ -55,6 +55,7 @@
       :show-require-mark="false"
       :inline-size="[2]"
       feedback-size-class="s"
+      virtual-submit
     />
   </box-component>
 </template>
