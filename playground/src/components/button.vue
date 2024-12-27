@@ -31,7 +31,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { createDiscreteApi } from '@avilang/practical-ui/index.js'
+import { loadingBarDiscrete } from '@avilang/practical-ui/index.js'
 import { WechatOutlined } from '@vicons/antd'
 import BoxComponent from './box-component.vue'
 
@@ -47,11 +47,10 @@ function handleLoading() {
   loading.value = true
 }
 
-const { loadingBar } = createDiscreteApi(['loadingBar'])
 function handleLoadingBar() {
-  loadingBar.start()
+  loadingBarDiscrete.start()
   setTimeout(() => {
-    loadingBar.finish()
+    loadingBarDiscrete.finish()
   }, 600)
 }
 

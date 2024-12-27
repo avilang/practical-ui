@@ -78,6 +78,20 @@ const handleClick = debounce(function () {
   color: var(--n-text-color);
 }
 
+.n-button.n-button--default-type.p-button-default-info {
+  --n-ripple-color: #2080f0ff;
+  --n-text-color: rgb(51, 54, 57);
+  --n-text-color-hover: #4098fcff;
+  --n-text-color-pressed: #1060c9ff;
+  --n-text-color-focus: #4098fcff;
+  --n-text-color-disabled: rgb(51, 54, 57);
+  --n-border: 1px solid rgb(224, 224, 230);
+  --n-border-hover: 1px solid #4098fcff;
+  --n-border-pressed: 1px solid #1060c9ff;
+  --n-border-focus: 1px solid #4098fcff;
+  --n-border-disabled: 1px solid rgb(224, 224, 230);
+}
+
 .n-button.n-button--default-type.p-button-default-success {
   --n-ripple-color: #18a058;
   --n-text-color: rgb(51, 54, 57);

@@ -4,11 +4,15 @@
     <p-button class="ml-10" type="default" @click="handleOk">成功</p-button>
     <p-button class="ml-10" type="default" @click="handleWarning">警告</p-button>
     <p-button class="ml-10" type="default" @click="handleError">错误</p-button>
+    <p-button class="ml-10" type="default" @click="handleDialogDiscrete">dialog discrete info</p-button>
+    <p-button class="ml-10" type="default" @click="handleDialogDiscreteWarning">dialog discrete warning</p-button>
+    <p-button class="ml-10" type="default" @click="handleDialogDiscreteSuccess">dialog discrete success</p-button>
+    <p-button class="ml-10" type="default" @click="handleDialogDiscreteError">dialog discrete error</p-button>
   </box-component>
 </template>
 
 <script setup>
-import { useDialog } from '@avilang/practical-ui/index.js'
+import { useDialog, dialogDiscrete } from '@avilang/practical-ui/index.js'
 import BoxComponent from './box-component.vue'
 
 defineOptions({
@@ -71,5 +75,30 @@ const handleError = () => {
       return false
     }
   })
+}
+
+function handleDialogDiscrete() {
+  const d = dialogDiscrete()
+  d.open({
+    content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用'],
+    onClose: () => {
+      console.log('离散的弹出窗关闭了')
+    }
+  })
+}
+
+function handleDialogDiscreteWarning() {
+  const d = dialogDiscrete()
+  d.warning({ content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用'] })
+}
+
+function handleDialogDiscreteSuccess() {
+  const d = dialogDiscrete()
+  d.success({ content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用'] }, { useDefaultConf: true })
+}
+
+function handleDialogDiscreteError() {
+  const d = dialogDiscrete()
+  d.error({ content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用'] }, { useDefaultConf: true })
 }
 </script>
