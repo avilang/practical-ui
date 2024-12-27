@@ -1,8 +1,12 @@
 import { h, onScopeDispose } from 'vue'
-import { useDialog } from 'naive-ui'
-import { discreteDialog } from '../../utility/discrete-api.js'
+import { useDialog, createDiscreteApi } from 'naive-ui'
 import DialogAction from './dialog-action.vue'
 import './dialog.css'
+
+const { dialog } = createDiscreteApi(['dialog'], {
+  configProviderProps: { inlineThemeDisabled: true }
+})
+const discreteDialog = dialog
 
 function setDialogContent(content) {
   if (typeof content === 'string') {

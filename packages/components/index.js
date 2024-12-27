@@ -48,5 +48,4 @@ export default {
   }
 }
 
-export { createDiscreteApi } from 'naive-ui'
 export * from './export.js'

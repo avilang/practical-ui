@@ -1,0 +1,11 @@
+.n-message-container.n-message-container--top.p-message-discrete {
+  top: 32px;
+}
+
+.n-message-container.n-message-container--top.p-message-discrete .n-message {
+  padding: 10px 16px;
+}
+
+.n-message-container.n-message-container--top.p-message-discrete .n-message .n-message__icon {
+  margin-right: 6px;
+}

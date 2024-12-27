@@ -26,12 +26,13 @@
       >
     </div>
     <p-button class="mt-10" type="error" block @click="handleLoadingBar">Loading Bar Block Error Button</p-button>
+    <p-button class="mt-10" block @click="handleMessage">Message Block Button</p-button>
   </box-component>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { loadingBarDiscrete } from '@avilang/practical-ui/index.js'
+import { createDiscreteFn } from '@avilang/practical-ui/index.js'
 import { WechatOutlined } from '@vicons/antd'
 import BoxComponent from './box-component.vue'
 
@@ -40,6 +41,7 @@ defineOptions({
 })
 
 const name = 'PButton'
+const { loadingBar, message } = createDiscreteFn()
 
 const loading = ref(false)
 function handleLoading() {
@@ -48,9 +50,9 @@ function handleLoading() {
 }
 
 function handleLoadingBar() {
-  loadingBarDiscrete.start()
+  loadingBar.start()
   setTimeout(() => {
-    loadingBarDiscrete.finish()
+    loadingBar.finish()
   }, 600)
 }
 
@@ -58,5 +60,9 @@ const waiting = ref(false)
 function handleWaiting() {
   waiting.value = true
   console.log('🚀 ~ handleWaiting ~ handleWaiting')
+}
+
+function handleMessage() {
+  message.success('Message Block Button')
 }
 </script>
