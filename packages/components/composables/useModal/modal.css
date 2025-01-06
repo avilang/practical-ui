@@ -42,7 +42,8 @@
   color: rgb(31, 34, 37);
 }
 
-.n-dialog.n-modal.p-modal .n-dialog__close:hover::before {
+.n-dialog.n-modal.p-modal .n-dialog__close:hover::before,
+.n-dialog.n-modal.p-modal .n-dialog__close:not(.n-base-close--disabled):focus::before {
   background-color: transparent;
 }
 

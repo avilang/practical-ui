@@ -10,6 +10,7 @@ export default () => {
     const config = {
       title: '',
       closable: true,
+      draggable: true,
       ...options,
       autoFocus: false,
       blockScroll: true,
@@ -33,7 +34,10 @@ export default () => {
 
     if (!config.title && options.closable == null) config.closable = false
     if (config.title) config.titleClass = 'p-modal-title'
-    if (!config.title && !config.closable) config.titleClass = 'p-modal-title-hidden'
+    if (!config.title && !config.closable) {
+      config.titleClass = 'p-modal-title-hidden'
+      config.draggable = false
+    }
     if (!config.title && config.closable) config.titleClass = 'p-modal-title-closable'
 
     if (!options.contentStyle) {

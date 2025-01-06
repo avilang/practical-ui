@@ -42,7 +42,8 @@
   color: rgb(31, 34, 37);
 }
 
-.n-dialog.n-modal.p-dialog .n-dialog__close:hover::before {
+.n-dialog.n-modal.p-dialog .n-dialog__close:hover::before,
+.n-dialog.n-modal.p-dialog .n-dialog__close:not(.n-base-close--disabled):focus::before {
   background-color: transparent;
 }
 
@@ -55,7 +56,7 @@
   border-top: 1px solid rgb(224, 224, 230);
 }
 
-.n-dialog.n-modal.p-dialog .n-dialog__action > *:not(:last-child) {
+.n-dialog.n-modal.p-dialog .n-dialog__action>*:not(:last-child) {
   margin-right: 10px;
 }
 

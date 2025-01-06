@@ -99,6 +99,6 @@ function handleDialogDiscreteSuccess() {
 
 function handleDialogDiscreteError() {
   const d = dialogDiscrete()
-  d.error({ content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用'] }, { useDefaultConf: true })
+  d.error({ content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用'], draggable: false }, { useDefaultConf: true })
 }
 </script>
