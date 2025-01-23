@@ -6,6 +6,5 @@
   "singleQuote": true,
   "printWidth": 120,
   "trailingComma": "none",
-  "quoteProps": "consistent",
-  "endOfLine": "lf"
+  "quoteProps": "consistent"
 }
