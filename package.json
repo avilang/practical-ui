@@ -2,8 +2,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "cd playground && pnpm dev",
-    "build": "cd packages/components && pnpm build"
+    "dev": "cd playground && npm run dev",
+    "build": "cd packages/components && npm run build"
   },
   "engines": {
     "node": "22.9.0",
