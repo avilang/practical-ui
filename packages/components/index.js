@@ -11,6 +11,7 @@ import {
   NTooltip
 } from 'naive-ui'
 import { Practical } from './practical/index.js'
+import { PSearch } from './search/index.js'
 import { PForm } from './form/index.js'
 import { PInput } from './input/index.js'
 import { PSelect } from './select/index.js'
@@ -26,6 +27,7 @@ export default {
     const { prefix = 'p' } = options
 
     app.component(`${prefix}-practical`, Practical)
+    app.component(`${prefix}-search`, PSearch)
     app.component(`${prefix}-form`, PForm)
     app.component(`${prefix}-input`, PInput)
     app.component(`${prefix}-select`, PSelect)

@@ -6,6 +6,7 @@
       type === 'default' && defaultType ? `p-button-default-${defaultType}` : '',
       waiting ? 'p-button-waiting' : ''
     ]"
+    :style="attrs.style || ''"
     :attr-type="attrType"
     :focusable="false"
     :bordered="true"

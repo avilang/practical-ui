@@ -19,6 +19,7 @@ import { ref } from 'vue'
 import Button from './components/button.vue'
 import Input from './components/input.vue'
 import Form from './components/form.vue'
+import Search from './components/search.vue'
 import Table from './components/table.vue'
 import Dialog from './components/dialog.vue'
 import Modal from './components/modal.vue'
@@ -31,6 +32,7 @@ const components = {
   button: Button,
   input: Input,
   form: Form,
+  search: Search,
   table: Table,
   dialog: Dialog,
   modal: Modal,
@@ -43,6 +45,7 @@ const options = [
   { componentName: 'P-Button', componentKey: 'button' },
   { componentName: 'P-Input', componentKey: 'input' },
   { componentName: 'P-Form', componentKey: 'form' },
+  { componentName: 'P-Search', componentKey: 'search' },
   { componentName: 'P-Data-Table', componentKey: 'table' },
   { componentName: 'P-Pagination', componentKey: 'pagination' },
   { componentName: 'P-Popconfirm', componentKey: 'popconfirm' },
