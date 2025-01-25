@@ -36,7 +36,7 @@ const initSearchData = () => {
   model.forEach((item) => {
     if (item.slot) return
     if (!item.field) return
-    if (item.defaultValue !== null) {
+    if (Object.hasOwn(item, 'defaultValue')) {
       data[item.field] = item.defaultValue
     }
   })
