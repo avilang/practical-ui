@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import { useTemplateRef, onMounted, ref } from 'vue'
+import { useTemplateRef, onMounted, ref, nextTick } from 'vue'
 import useEventListener from '../composables/useEventListener'
 import { throttle } from '../utility/throttle-debounce'
 import SearchItem from './search-item.vue'
@@ -122,8 +122,34 @@ function updateSearchData(field, value) {
   searchData.value[field] = value
 }
 
+const emit = defineEmits(['search', 'reset'])
+
+/**
+ * 过滤对象中的空值
+ * @param {Object} obj - 需要处理的对象
+ * @param {boolean} [strictMode=false] - 是否开启严格模式（同时过滤假值）
+ * @returns {Object} 过滤后的新对象
+ */
+function filterEmptyValues(obj, strictMode = false) {
+  // 容错处理非对象输入
+  if (typeof obj !== 'object' || obj === null) return {}
+
+  // 定义空值检测逻辑
+  const isConsideredEmpty = (value) => {
+    if (strictMode) {
+      // 严格模式：过滤所有假值 (false, 0, NaN 等)
+      return !value && value !== false && value !== 0
+    }
+    // 默认模式：仅过滤 null/undefined/空字符串
+    return value === null || value === undefined || value === ''
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  return Object.fromEntries(Object.entries(obj).filter(([_, value]) => !isConsideredEmpty(value)))
+}
+
 function doSearch() {
-  console.log('search', searchData.value)
+  emit('search', filterEmptyValues(searchData.value))
 }
 
 const searchItemRef = useTemplateRef('searchItem')
@@ -132,6 +158,9 @@ function doReset() {
     searchItem.reset()
   })
   initSearchData()
+  nextTick(() => {
+    emit('reset', filterEmptyValues(searchData.value))
+  })
 }
 </script>
 
