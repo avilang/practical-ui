@@ -75,7 +75,7 @@ const model = [
   {
     type: 'input',
     field: 'account',
-    value: '13690766465',
+    defaultValue: '13690766465',
     props: {
       placeholder: '请输入账号',
       maxlength: 11,
@@ -86,7 +86,7 @@ const model = [
   {
     type: 'input',
     field: 'password',
-    value: '123456',
+    defaultValue: '123456',
     props: {
       type: 'password',
       placeholder: '请输入密码',
@@ -171,7 +171,7 @@ const model3 = [
   {
     type: 'input',
     field: 'account',
-    value: '',
+    defaultValue: '',
     props: {
       placeholder: '请输入账号(手机号)',
       maxlength: 11
@@ -181,7 +181,7 @@ const model3 = [
   {
     type: 'input',
     field: 'nickName',
-    value: '',
+    defaultValue: '',
     props: {
       placeholder: '请输入昵称',
       maxlength: 20
@@ -191,7 +191,7 @@ const model3 = [
   {
     type: 'input',
     field: 'password',
-    value: '',
+    defaultValue: '',
     props: {
       type: 'password',
       placeholder: '请输入密码',
@@ -202,7 +202,7 @@ const model3 = [
   {
     type: 'switch',
     field: 'state',
-    value: true,
+    defaultValue: true,
     label: '状态',
     props: {
       style: 'margin-left: 2px;'

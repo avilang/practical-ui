@@ -185,7 +185,7 @@ const formValue = (function () {
   const data = {}
   model.forEach((item) => {
     if (item.slot) return
-    data[item.field] = item.value
+    data[item.field] = item.defaultValue
   })
   return ref(data)
 })()
