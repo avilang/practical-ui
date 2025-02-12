@@ -27,8 +27,7 @@ import { throttle } from '../utility/throttle-debounce'
 import SearchItem from './search-item.vue'
 
 defineOptions({
-  name: 'PSearch',
-  inheritAttrs: false
+  name: 'PSearch'
 })
 
 const { itemWidth, model, visibleLine, labelWidth } = defineProps({

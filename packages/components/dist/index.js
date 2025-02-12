@@ -29292,8 +29292,7 @@ const ai = /* @__PURE__ */ Object.assign({
   class: "p-search",
   ref: "search"
 }, B2 = /* @__PURE__ */ Object.assign({
-  name: "PSearch",
-  inheritAttrs: !1
+  name: "PSearch"
 }, {
   __name: "search",
   props: {
