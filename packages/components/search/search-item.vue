@@ -81,15 +81,16 @@ import { PInput as Input } from '../input/index.js'
 import { PSelect as Select } from '../select/index.js'
 import { PButton as SButton } from '../button/index.js'
 
-const { item, doSearch, doReset, updateSearchData } = defineProps({
+const { item, searchData, doSearch, doReset, updateSearchData } = defineProps({
   lastItemForMulti: { type: Boolean, default: false }, // 多行且每行的最后一个搜索条件
   item: { type: Object, required: true },
   labelWidth: { type: Number, required: true },
+  searchData: { type: Object, required: true },
   doSearch: { type: Function, required: true },
   doReset: { type: Function, required: true },
   updateSearchData: { type: Function, required: true }
 })
-const value = ref(item.defaultValue)
+const value = ref(item.field ? searchData[item.field] : void 0)
 
 function handleInput({ value }) {
   updateSearchData(item.field, value)

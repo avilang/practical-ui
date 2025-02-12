@@ -8,6 +8,7 @@
         :labelWidth="labelWidth"
         :item="item"
         :lastItemForMulti="layout.multiLine && !item._isActionItem && j === listPart.length - 1"
+        :searchData="searchData"
         :doSearch="doSearch"
         :doReset="doReset"
         :updateSearchData="updateSearchData"
@@ -21,6 +22,8 @@
 
 <script setup>
 import { useTemplateRef, onMounted, ref } from 'vue'
+import useEventListener from '../composables/useEventListener'
+import { throttle } from '../utility/throttle-debounce'
 import SearchItem from './search-item.vue'
 
 defineOptions({
@@ -105,6 +108,13 @@ function generateLayout() {
 
 onMounted(() => {
   generateLayout()
+  useEventListener(
+    window,
+    'resize',
+    throttle(function () {
+      generateLayout()
+    })
+  )
 })
 
 function updateSearchData(field, value) {
