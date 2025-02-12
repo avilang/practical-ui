@@ -1,6 +1,6 @@
 <template>
   <box-component :name="`${name}`">
-    <p-search :model="model" :item-width="350" />
+    <p-search :model="model" :item-width="350" @search="onSearch" />
   </box-component>
 </template>
 
@@ -56,4 +56,8 @@ const model = [
     label: '是否删除'
   }
 ]
+
+function onSearch(query) {
+  console.log('🚀 ~ onSearch ~ query:', query)
+}
 </script>

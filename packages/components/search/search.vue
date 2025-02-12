@@ -147,8 +147,12 @@ function filterEmptyValues(obj, strictMode = false) {
   return Object.fromEntries(Object.entries(obj).filter(([_, value]) => !isConsideredEmpty(value)))
 }
 
+function getSearchData() {
+  return filterEmptyValues(searchData.value)
+}
+
 function doSearch() {
-  emit('search', filterEmptyValues(searchData.value))
+  emit('search', getSearchData())
 }
 
 const searchItemRef = useTemplateRef('searchItem')
@@ -158,9 +162,11 @@ function doReset() {
   })
   initSearchData()
   nextTick(() => {
-    emit('reset', filterEmptyValues(searchData.value))
+    emit('reset', getSearchData())
   })
 }
+
+defineExpose({ getSearchData })
 </script>
 
 <style>
