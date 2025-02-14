@@ -7,7 +7,11 @@
     ]"
   >
     <template v-if="!item._isActionItem && !item._isEmptyItem">
-      <n-ellipsis class="p-search-item-label" :style="`width:${labelWidth}px`">{{ item.label }}</n-ellipsis>
+      <n-ellipsis
+        class="p-search-item-label"
+        :style="unlimitedLabelWidth ? 'padding-left:2px' : `width:${labelWidth}px`"
+        >{{ item.label }}</n-ellipsis
+      >
       <div class="p-search-item-content">
         <component
           v-if="item.type === 'input'"
@@ -83,6 +87,7 @@ import { PButton as SButton } from '../button/index.js'
 
 const { item, searchData, doSearch, doReset, updateSearchData } = defineProps({
   lastItemForMulti: { type: Boolean, default: false }, // 多行且每行的最后一个搜索条件
+  unlimitedLabelWidth: { type: Boolean, required: true },
   item: { type: Object, required: true },
   labelWidth: { type: Number, required: true },
   searchData: { type: Object, required: true },

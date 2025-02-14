@@ -1,10 +1,12 @@
 <template>
   <div class="p-search" ref="search">
     <div v-for="(listPart, i) in list" :key="i" class="p-search-lilne" :style="i > 0 ? 'margin-top:12px' : ''">
+      <!-- unlimitedLabelWidth 只有一行或存在两行且第二行只有操作按钮的情况下为真 -->
       <search-item
         v-for="(item, j) in listPart"
         ref="searchItem"
         :key="item.field || j"
+        :unlimitedLabelWidth="layout.singleLine || (list.length === 2 && list[1].length === 1)"
         :labelWidth="labelWidth"
         :item="item"
         :lastItemForMulti="layout.multiLine && !item._isActionItem && j === listPart.length - 1"
@@ -151,22 +153,27 @@ function getSearchData() {
   return filterEmptyValues(searchData.value)
 }
 
-function doSearch() {
-  emit('search', getSearchData())
-}
-
 const searchItemRef = useTemplateRef('searchItem')
-function doReset() {
+function resetSearchData() {
   searchItemRef.value.forEach((searchItem) => {
     searchItem.reset()
   })
   initSearchData()
+  return getSearchData()
+}
+
+function doSearch() {
+  emit('search', getSearchData())
+}
+
+function doReset() {
+  const data = resetSearchData()
   nextTick(() => {
-    emit('reset', getSearchData())
+    emit('reset', data)
   })
 }
 
-defineExpose({ getSearchData })
+defineExpose({ getSearchData, resetSearchData })
 </script>
 
 <style>
