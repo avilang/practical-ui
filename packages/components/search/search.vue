@@ -13,6 +13,7 @@
         :searchData="searchData"
         :doSearch="doSearch"
         :doReset="doReset"
+        :doChange="handleChange"
         :updateSearchData="updateSearchData"
         :style="
           layout.singleLine && !item._isActionItem ? `width: ${searchItemWidth}px` : layout.multiLine ? 'flex:1' : ''
@@ -123,7 +124,7 @@ function updateSearchData(field, value) {
   searchData.value[field] = value
 }
 
-const emit = defineEmits(['search', 'reset'])
+const emit = defineEmits(['search', 'reset', 'change'])
 
 /**
  * 过滤对象中的空值
@@ -170,6 +171,14 @@ function doReset() {
   const data = resetSearchData()
   nextTick(() => {
     emit('reset', data)
+  })
+}
+
+// searchData 变化时候触发
+// 对于 input 组件检测时机是失去焦点后
+function handleChange() {
+  nextTick(() => {
+    emit('change', getSearchData())
   })
 }
 

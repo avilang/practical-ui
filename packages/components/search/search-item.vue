@@ -18,7 +18,7 @@
           :is="Input"
           v-model="value"
           v-bind.prop="item.props"
-          @input="handleInput"
+          @blur="handleInputBlur"
         />
         <component
           v-if="item.type === 'select'"
@@ -85,7 +85,7 @@ import { PInput as Input } from '../input/index.js'
 import { PSelect as Select } from '../select/index.js'
 import { PButton as SButton } from '../button/index.js'
 
-const { item, searchData, doSearch, doReset, updateSearchData } = defineProps({
+const { item, searchData, doSearch, doReset, doChange, updateSearchData } = defineProps({
   lastItemForMulti: { type: Boolean, default: false }, // 多行且每行的最后一个搜索条件
   unlimitedLabelWidth: { type: Boolean, required: true },
   item: { type: Object, required: true },
@@ -93,16 +93,22 @@ const { item, searchData, doSearch, doReset, updateSearchData } = defineProps({
   searchData: { type: Object, required: true },
   doSearch: { type: Function, required: true },
   doReset: { type: Function, required: true },
+  doChange: { type: Function, required: true },
   updateSearchData: { type: Function, required: true }
 })
 const value = ref(item.field ? searchData[item.field] : void 0)
 
-function handleInput({ value }) {
+function handleInputBlur({ value }) {
+  const changed = value !== searchData[item.field]
   updateSearchData(item.field, value)
+  if (changed) {
+    doChange()
+  }
 }
 
 function handleChangeSelect(value) {
   updateSearchData(item.field, value)
+  doChange()
 }
 
 function handleSearch() {
