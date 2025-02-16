@@ -13,6 +13,7 @@
     :autofocus="autofocus"
     :disabled="disabled"
     :readonly="readonly"
+    :clearable="clearable"
     @input="handleInput"
     @blur="handleBlur"
   >
@@ -40,6 +41,7 @@ const { trim } = defineProps({
   showCount: { type: Boolean, default: false },
   autofocus: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
+  clearable: { type: Boolean, default: false },
   readonly: { type: Boolean, default: false },
   trim: { type: Boolean, default: true }, // 默认去除首尾空格
   showPassword: { type: Boolean, default: false }, // 是否显示密码

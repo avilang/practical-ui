@@ -18,13 +18,13 @@ const model = [
     type: 'input',
     field: 'accountName',
     defaultValue: '136',
-    props: { placeholder: '手机号', maxlength: 11 },
+    props: { placeholder: '手机号', maxlength: 11, clearable: true },
     label: '账号'
   },
   {
     type: 'input',
     field: 'nickName',
-    props: { maxlength: 20 },
+    props: { maxlength: 20, clearable: true },
     label: '昵称'
   },
   {

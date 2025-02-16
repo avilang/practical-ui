@@ -28977,6 +28977,7 @@ const ai = /* @__PURE__ */ Object.assign({
     showCount: { type: Boolean, default: !1 },
     autofocus: { type: Boolean, default: !1 },
     disabled: { type: Boolean, default: !1 },
+    clearable: { type: Boolean, default: !1 },
     readonly: { type: Boolean, default: !1 },
     trim: { type: Boolean, default: !0 },
     // 默认去除首尾空格
@@ -29025,6 +29026,7 @@ const ai = /* @__PURE__ */ Object.assign({
       autofocus: e.autofocus,
       disabled: e.disabled,
       readonly: e.readonly,
+      clearable: e.clearable,
       onInput: s,
       onBlur: l
     }, xo({ _: 2 }, [
@@ -29035,7 +29037,7 @@ const ai = /* @__PURE__ */ Object.assign({
         ]),
         key: "0"
       } : void 0
-    ]), 1032, ["type", "size", "show-password-on", "value", "maxlength", "show-count", "count-graphemes", "placeholder", "autofocus", "disabled", "readonly"]));
+    ]), 1032, ["type", "size", "show-password-on", "value", "maxlength", "show-count", "count-graphemes", "placeholder", "autofocus", "disabled", "readonly", "clearable"]));
   }
 }), Zc = /* @__PURE__ */ Object.assign({
   name: "PSelect",
