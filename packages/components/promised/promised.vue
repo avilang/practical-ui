@@ -11,19 +11,19 @@
       <n-spin :size="size" :style="spinStyle" />
       <div class="p-promised-loading-mask"></div>
     </div>
-    <n-empty
-      v-if="!loading && !isPending && !error && equalEmptyForData(data)"
-      :class="emptyClass"
-      :description="emptyDesc"
-      size="medium"
-    >
-      <template #extra v-if="$slots.emptyExtra">
-        <slot name="emptyExtra"></slot>
+    <template v-if="!loading && !isPending && !error && equalEmptyForData(data)">
+      <n-empty v-if="!$slots.emptyCustomize" :class="nilClass" :description="emptyDesc" size="medium">
+        <template #extra v-if="$slots.emptyExtra">
+          <slot name="emptyExtra"></slot>
+        </template>
+      </n-empty>
+      <template v-else>
+        <slot name="emptyCustomize"></slot>
       </template>
-    </n-empty>
+    </template>
     <n-empty
       v-if="!loading && !isPending && error"
-      :class="emptyClass"
+      :class="nilClass"
       :description="error.message || errorDefaultDesc"
       size="medium"
     />
@@ -79,13 +79,13 @@ const spinStyle = computed(() => {
 
   return style
 })
-const emptyClass = computed(() => {
+const nilClass = computed(() => {
   if (nilType === 'border') return 'p-promised-empty-border'
   if (nilType === 'line') return 'p-promised-empty-line'
   return ''
 })
-const attrs = useAttrs()
 
+const attrs = useAttrs()
 const promiseRef = toRef(() => promise)
 const { data, error, isPending, isDelayElapsed, isResolved, isRejected } = usePromise(promiseRef, 0)
 

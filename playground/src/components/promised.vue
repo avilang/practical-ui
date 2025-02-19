@@ -40,6 +40,20 @@
       <p-button @click="handleStart3">开始加载</p-button>
     </div>
   </box-component>
+
+  <box-component :name="`${name} - 自定义空 UI`">
+    <p-promised :promise="promise4">
+      <template v-slot="{ data }">
+        {{ data }}
+      </template>
+      <template #emptyCustomize>
+        <div>这是自定义显示 Empty UI</div>
+      </template>
+    </p-promised>
+    <div>
+      <p-button @click="handleStart4">开始加载</p-button>
+    </div>
+  </box-component>
 </template>
 
 <script setup>
@@ -95,6 +109,15 @@ function handleStart3() {
   promise3.value = new Promise((resolve, reject) => {
     setTimeout(() => {
       reject(new Error())
+    }, 1200)
+  })
+}
+
+const promise4 = ref(null)
+function handleStart4() {
+  promise4.value = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([])
     }, 1200)
   })
 }
