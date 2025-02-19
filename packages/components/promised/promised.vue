@@ -3,15 +3,17 @@
     <slot
       v-if="
         (!loading && !isPending && !error && !equalEmptyForData(data)) ||
-        (isPending && waiting && !recentError && !error && !equalEmptyForData(data))
+        (isPending && waiting && !recentError && !error && !equalEmptyForData(data)) ||
+        (isEmpty && defaultSlotAsEmpty)
       "
       :data="data"
+      :isEmpty="isEmpty"
     ></slot>
     <div v-if="loading" class="p-promised-loading">
       <n-spin :size="size" :style="spinStyle" />
       <div class="p-promised-loading-mask"></div>
     </div>
-    <template v-if="!loading && !isPending && !error && equalEmptyForData(data)">
+    <template v-if="isEmpty && !defaultSlotAsEmpty">
       <n-empty v-if="!$slots.emptyCustomize" :class="nilClass" :description="emptyDesc" size="medium">
         <template #extra v-if="$slots.emptyExtra">
           <slot name="emptyExtra"></slot>
@@ -51,6 +53,7 @@ const { promise, loadingSize, loadingTop, dataField, nilType } = defineProps({
   loadingTop: { type: Number },
   emptyDesc: { type: String, default: '暂无数据' },
   errorDefaultDesc: { type: String, default: '系统异常' },
+  defaultSlotAsEmpty: { type: Boolean, default: false },
   nilType: { type: String }, // 控制 empty 和 error 状态下的样式
   contentStyle: { type: String, default: 'position:relative; min-height:72px;' } //  内容的最小高度，避免 loading/empty 状态下高度不确定导致抖动
 })
@@ -88,8 +91,11 @@ const nilClass = computed(() => {
 const attrs = useAttrs()
 const promiseRef = toRef(() => promise)
 const { data, error, isPending, isDelayElapsed, isResolved, isRejected } = usePromise(promiseRef, 0)
-
 const { loading, waiting } = useDelayLoading()
+const isEmpty = computed(() => {
+  return !loading.value && !isPending.value && !error.value && equalEmptyForData(data.value)
+})
+
 watch(
   () => {
     return isPending.value && isDelayElapsed.value

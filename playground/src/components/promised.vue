@@ -42,9 +42,9 @@
   </box-component>
 
   <box-component :name="`${name} - 自定义空 UI`">
-    <p-promised :promise="promise4">
-      <template v-slot="{ data }">
-        {{ data }}
+    <p-promised :promise="promise4" defaultSlotAsEmpty>
+      <template v-slot="{ isEmpty }">
+        <div>{{ isEmpty ? 'default slot as empty' : 'list data' }}</div>
       </template>
       <template #emptyCustomize>
         <div>这是自定义显示 Empty UI</div>
