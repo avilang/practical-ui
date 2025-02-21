@@ -7,7 +7,8 @@
         ref="searchItem"
         :key="item.field || j"
         :unlimitedLabelWidth="layout.singleLine || (list.length === 2 && list[1].length === 1)"
-        :labelWidth="labelWidth"
+        :labelWidth="realLabelWidth"
+        :showColon="showColon"
         :item="item"
         :lastItemForMulti="layout.multiLine && !item._isActionItem && j === listPart.length - 1"
         :searchData="searchData"
@@ -24,7 +25,7 @@
 </template>
 
 <script setup>
-import { useTemplateRef, onMounted, ref, nextTick } from 'vue'
+import { useTemplateRef, onMounted, ref, nextTick, computed } from 'vue'
 import useEventListener from '../composables/useEventListener'
 import { throttle } from '../utility/throttle-debounce'
 import SearchItem from './search-item.vue'
@@ -33,13 +34,18 @@ defineOptions({
   name: 'PSearch'
 })
 
-const { itemWidth, model, visibleLine, labelWidth } = defineProps({
+const { itemWidth, model, visibleLine, labelWidth, showColon } = defineProps({
   model: { type: Array, default: () => [] },
   itemWidth: { type: Number, default: 268 },
-  labelWidth: { type: Number, default: 60 },
-  visibleLine: { type: Number, default: -1 }
+  labelWidth: { type: Number },
+  visibleLine: { type: Number, default: -1 },
+  showColon: { type: Boolean, default: true }
 })
 const searchItemWidth = Math.max(itemWidth, 200)
+const realLabelWidth = computed(() => {
+  if (labelWidth) return labelWidth
+  return showColon ? 74 : 60
+})
 
 const searchData = ref({})
 const initSearchData = () => {

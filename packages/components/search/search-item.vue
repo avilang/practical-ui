@@ -9,8 +9,8 @@
     <template v-if="!item._isActionItem && !item._isEmptyItem">
       <n-ellipsis
         class="p-search-item-label"
-        :style="unlimitedLabelWidth ? 'padding-left:2px' : `width:${labelWidth}px`"
-        >{{ item.label }}</n-ellipsis
+        :style="unlimitedLabelWidth ? '' : { boxSizing: 'border-box', width: `${labelWidth}px` }"
+        >{{ item.label }}{{ showColon ? '：' : '' }}</n-ellipsis
       >
       <div class="p-search-item-content">
         <component
@@ -88,6 +88,7 @@ import { PButton as SButton } from '../button/index.js'
 const { item, searchData, doSearch, doReset, doChange, updateSearchData } = defineProps({
   lastItemForMulti: { type: Boolean, default: false }, // 多行且每行的最后一个搜索条件
   unlimitedLabelWidth: { type: Boolean, required: true },
+  showColon: { type: Boolean, default: true },
   item: { type: Object, required: true },
   labelWidth: { type: Number, required: true },
   searchData: { type: Object, required: true },
@@ -140,7 +141,7 @@ defineExpose({ reset })
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  padding-right: 16px;
+  padding-right: 24px;
 }
 
 .p-search-item.p-search-item-action {
@@ -155,7 +156,8 @@ defineExpose({ reset })
 
 .p-search-item .p-search-item-label {
   margin-right: 8px;
-  text-align: right;
+  text-align: left;
+  padding-left: 1px;
 }
 
 .p-search-item-content {
