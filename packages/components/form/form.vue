@@ -15,10 +15,10 @@
   >
     <template v-if="!inline || (inline && inlineSize.length <= 0)">
       <n-form-item
-        v-for="item in model"
+        v-for="(item, k) in model"
         ref="formItem"
         :style="item.itemStyle == null ? itemStyle : item.itemStyle"
-        :key="item.field"
+        :key="item.field || k"
         :label="item.label"
         :path="item.field"
         :feedback-class="feedbackSizeClassName"
@@ -45,10 +45,14 @@
       </n-form-item>
     </template>
     <template v-if="inline && inlineSize.length > 0 && inlineModel">
-      <div v-for="(itemModel, index) in inlineModel" :key="index" class="p-form-inline-item">
-        <template v-for="item in itemModel" :key="item.field">
+      <div
+        v-for="(itemModel, index) in inlineModel"
+        :key="index"
+        :class="['p-form-inline-item', inlineClass[index] ? inlineClass[index] : '']"
+      >
+        <template v-for="(item, j) in itemModel" :key="item.field || index + '-' + j">
           <n-form-item
-            v-if="!item.isInlinePlaceholder"
+            v-if="!item.isInlinePlaceholder && !item.placeholder"
             ref="formItem"
             :style="item.itemStyle == null ? itemStyle : item.itemStyle"
             :label="item.label"
@@ -96,7 +100,7 @@ defineOptions({
   inheritAttrs: false
 })
 
-const { model, rules, feedbackSizeClass, inline, inlineSize } = defineProps({
+const { model, rules, feedbackSizeClass, inline, inlineSize, inlineClass } = defineProps({
   model: { type: Array, default: () => [] },
   rules: { type: Object, default: () => {} },
   inline: { type: Boolean, default: false },
@@ -108,6 +112,7 @@ const { model, rules, feedbackSizeClass, inline, inlineSize } = defineProps({
   feedbackSizeClass: { type: String },
   itemStyle: { type: String, default: 'flex:1' }, // form-item style
   inlineSize: { type: Array, default: () => [] }, // 配合 inline 使用，每行显示 form-item 的数量，可传一个数组，如 [2, 3, 2]，表示第一行显示 2 个，第二行显示 3 个，第三行及以下显示 2 个
+  inlineClass: { type: Array, default: () => [] }, // 配合 inline 使用，每行的 className
   virtualSubmit: { type: Boolean, default: false }
 })
 

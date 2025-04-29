@@ -54,6 +54,7 @@
       :rules="rules3"
       :show-require-mark="false"
       :inline-size="[2]"
+      :inline-class="[, 'bbbb']"
       feedback-size-class="s"
       virtual-submit
     />
@@ -199,6 +200,7 @@ const model3 = [
     },
     label: '密码'
   },
+  { placeholder: true },
   {
     type: 'switch',
     field: 'state',
