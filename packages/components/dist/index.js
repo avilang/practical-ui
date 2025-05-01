@@ -29550,7 +29550,7 @@ const ai = /* @__PURE__ */ Object.assign({
     }), i = function() {
       const b = {};
       return e.model.forEach((g) => {
-        g.slot || (b[g.field] = g.defaultValue);
+        g.slot || !g.field || g.placeholder || (b[g.field] = g.defaultValue);
       }), I(b);
     }(), a = function() {
       return e.feedbackSizeClass ? ["s"].includes(e.feedbackSizeClass) ? `p-form-item-feedback-${e.feedbackSizeClass}` : e.feedbackSizeClass : "";
@@ -29558,7 +29558,7 @@ const ai = /* @__PURE__ */ Object.assign({
     function l() {
       const b = {};
       return e.model.forEach((g) => {
-        g.slot && (b[g.field] = $f(g.value));
+        !g.field || g.placeholder || g.slot && (b[g.field] = $f(g.value));
       }), { ...i.value, ...b };
     }
     const s = r, d = Cr("form"), u = (b = !0) => (b && document.activeElement && document.activeElement.blur(), d.value.validate().then(() => ({ formData: l(), valid: !0 })).catch((g) => ({ formData: l(), valid: !1, errors: g }))), c = Bi(function() {

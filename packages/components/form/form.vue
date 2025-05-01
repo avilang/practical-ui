@@ -189,7 +189,7 @@ const inlineModel = computed(() => {
 const formValue = (function () {
   const data = {}
   model.forEach((item) => {
-    if (item.slot) return
+    if (item.slot || !item.field || !!item.placeholder) return
     data[item.field] = item.defaultValue
   })
   return ref(data)
@@ -205,6 +205,7 @@ const feedbackSizeClassName = (function () {
 function getFormValue() {
   const data = {}
   model.forEach((item) => {
+    if (!item.field || !!item.placeholder) return
     if (item.slot) data[item.field] = toValue(item.value)
   })
   return { ...formValue.value, ...data }
