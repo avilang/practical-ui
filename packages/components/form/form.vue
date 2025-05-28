@@ -14,35 +14,44 @@
     @submit.prevent="handleSubmit"
   >
     <template v-if="!inline || (inline && inlineSize.length <= 0)">
-      <n-form-item
-        v-for="(item, k) in model"
-        ref="formItem"
-        :style="item.itemStyle == null ? itemStyle : item.itemStyle"
-        :key="item.field || k"
-        :label="item.label"
-        :path="item.field"
-        :feedback-class="feedbackSizeClassName"
-        :first="true"
-      >
-        <slot v-if="item.slot === true" :name="item.field" />
-        <template v-else>
-          <component
-            v-if="item.type === 'input'"
-            :ref="`form-item-${item.field}`"
-            :is="Input"
-            v-model="formValue[item.field]"
-            v-bind.prop="{ disabled, readonly, ...item.props }"
-            @input="handleInput(item.field)"
-          />
-          <component
-            v-else-if="item.type === 'switch'"
-            :ref="`form-item-${item.field}`"
-            :is="Switch"
-            v-model="formValue[item.field]"
-            v-bind.prop="{ disabled, readonly, ...item.props }"
-          />
-        </template>
-      </n-form-item>
+      <template v-for="(item, k) in model" :key="item.field || k">
+        <n-form-item
+          v-if="!item.placeholder"
+          ref="formItem"
+          :style="item.itemStyle == null ? itemStyle : item.itemStyle"
+          :label="item.label"
+          :path="item.field"
+          :feedback-class="feedbackSizeClassName"
+          :first="true"
+        >
+          <slot v-if="item.slot === true" :name="item.field" />
+          <template v-else>
+            <component
+              v-if="item.type === 'input'"
+              :ref="`form-item-${item.field}`"
+              :is="Input"
+              v-model="formValue[item.field]"
+              v-bind.prop="{ disabled, readonly, ...item.props }"
+              @input="handleInput(item.field)"
+            />
+            <component
+              v-else-if="item.type === 'switch'"
+              :ref="`form-item-${item.field}`"
+              :is="Switch"
+              v-model="formValue[item.field]"
+              v-bind.prop="{ disabled, readonly, ...item.props }"
+            />
+            <template v-else-if="item.type === 'select'">
+              <component
+                :ref="`form-item-${item.field}`"
+                :is="Select"
+                v-model="formValue[item.field]"
+                v-bind.prop="{ disabled, ...item.props }"
+              />
+            </template>
+          </template>
+        </n-form-item>
+      </template>
     </template>
     <template v-if="inline && inlineSize.length > 0 && inlineModel">
       <div
@@ -77,6 +86,14 @@
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, readonly, ...item.props }"
               />
+              <template v-else-if="item.type === 'select'">
+                <component
+                  :ref="`form-item-${item.field}`"
+                  :is="Select"
+                  v-model="formValue[item.field]"
+                  v-bind.prop="{ disabled, ...item.props }"
+                />
+              </template>
             </template>
           </n-form-item>
           <div v-else style="flex: 1"></div>
@@ -93,6 +110,7 @@ import { ref, toValue, useTemplateRef, computed, onScopeDispose } from 'vue'
 import { NForm, NFormItem } from 'naive-ui'
 import { PInput as Input } from '../input/index.js'
 import { PSwitch as Switch } from '../switch/index.js'
+import { PSelect as Select } from '../select/index.js'
 import { debounce } from '../utility/throttle-debounce'
 
 defineOptions({

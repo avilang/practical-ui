@@ -49,6 +49,7 @@
 
   <box-component :name="`${name} - 行内`">
     <p-form
+      ref="form3"
       :inline="true"
       :model="model3"
       :rules="rules3"
@@ -58,6 +59,7 @@
       feedback-size-class="s"
       virtual-submit
     />
+    <p-button block size="large" @click="handleReset3">重置</p-button>
   </box-component>
 </template>
 
@@ -202,6 +204,18 @@ const model3 = [
   },
   { placeholder: true },
   {
+    type: 'select',
+    field: 'accountId',
+    props: {
+      clearable: true,
+      options: [
+        { label: '账号1', value: '1' },
+        { label: '账号2', value: '2' }
+      ]
+    },
+    label: '所属账号'
+  },
+  {
     type: 'switch',
     field: 'state',
     defaultValue: true,
@@ -222,6 +236,12 @@ const rules3 = {
     required: true,
     message: '密码不能为空',
     trigger: ['blur', 'input']
-  }
+  },
+  accountId: { required: true, message: '必填哦', trigger: ['change'] }
+}
+
+const form3Ref = useTemplateRef('form3')
+function handleReset3() {
+  form3Ref.value.restoreValidation()
 }
 </script>
