@@ -170,7 +170,7 @@ function handleInputAccount2(field) {
   form2Ref.value.restoreValidation(field)
 }
 
-const model3 = [
+const model3 = ref([
   {
     type: 'input',
     field: 'account',
@@ -208,10 +208,25 @@ const model3 = [
     field: 'accountId',
     props: {
       clearable: true,
-      options: [
-        { label: '账号1', value: '1' },
-        { label: '账号2', value: '2' }
-      ]
+      remote: true,
+      filterable: true,
+      throttleSearch: true,
+      loading: false,
+      options: []
+    },
+    event: {
+      search: () => {
+        const selectItem = model3.value[4]
+        selectItem.props.loading = true
+        setTimeout(() => {
+          selectItem.props.options = [
+            { value: 1, label: '账号1' },
+            { value: 2, label: '账号2' },
+            { value: 3, label: '账号3' }
+          ]
+          selectItem.props.loading = false
+        }, 1500)
+      }
     },
     label: '所属账号'
   },
@@ -224,7 +239,7 @@ const model3 = [
       style: 'margin-left: 2px;'
     }
   }
-]
+])
 
 const rules3 = {
   account: {
@@ -237,7 +252,13 @@ const rules3 = {
     message: '密码不能为空',
     trigger: ['blur', 'input']
   },
-  accountId: { required: true, message: '必填哦', trigger: ['change'] }
+  accountId: {
+    message: '必填哦',
+    trigger: ['change'],
+    validator(rule, value) {
+      return value == null || value === '' ? false : true
+    }
+  }
 }
 
 const form3Ref = useTemplateRef('form3')

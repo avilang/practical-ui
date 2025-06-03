@@ -47,6 +47,7 @@
                 :is="Select"
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, ...item.props }"
+                @search="item.event?.search"
               />
             </template>
           </template>
@@ -92,6 +93,7 @@
                   :is="Select"
                   v-model="formValue[item.field]"
                   v-bind.prop="{ disabled, ...item.props }"
+                  @search="item.event?.search"
                 />
               </template>
             </template>

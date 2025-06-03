@@ -5,6 +5,9 @@
     :options="options"
     :value="value"
     :size="size"
+    :remote="remote"
+    :filterable="filterable"
+    :loading="loading"
     :placeholder="placeholder"
     :disabled="disabled"
     :value-field="valueField"
@@ -15,6 +18,7 @@
     :consistent-menu-width="true"
     :virtual-scroll="true"
     @update:value="handleUpdateValue"
+    @search="handleSearch"
   >
     <template #empty>
       <n-empty size="small" :description="emptyDescription" />
@@ -25,14 +29,14 @@
 <script setup>
 import { useAttrs, nextTick } from 'vue'
 import { NSelect, NEmpty } from 'naive-ui'
-import { debounce } from '../utility/throttle-debounce'
+import { debounce, throttle } from '../utility/throttle-debounce'
 
 defineOptions({
   name: 'PSelect',
   inheritAttrs: false
 })
 
-defineProps({
+const { throttleSearch } = defineProps({
   size: { type: String, default: 'medium' },
   placeholder: { type: String, default: '请选择' },
   disabled: { type: Boolean, default: false },
@@ -41,13 +45,17 @@ defineProps({
   showCheckmark: { type: Boolean, default: true },
   valueField: { type: String, default: 'value' },
   labelField: { type: String, default: 'label' },
+  filterable: { type: Boolean, default: false },
+  remote: { type: Boolean, default: false },
+  loading: { type: Boolean, default: false },
+  throttleSearch: { type: Boolean, default: false },
   width: { type: String, default: '' },
   emptyDescription: { type: String, default: '暂无数据' }
 })
 
 const attrs = useAttrs()
 
-const emit = defineEmits(['update', 'change'])
+const emit = defineEmits(['update', 'change', 'search'])
 const value = defineModel({ default: null })
 const handleUpdateValue = debounce(function (val) {
   if (val !== value.value) {
@@ -58,4 +66,9 @@ const handleUpdateValue = debounce(function (val) {
   value.value = val
   emit('update', val)
 }, 300)
+
+function doSearch(query) {
+  emit('search', query)
+}
+const handleSearch = throttleSearch ? throttle(doSearch) : doSearch
 </script>
