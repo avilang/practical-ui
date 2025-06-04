@@ -47,7 +47,7 @@
                 :is="Select"
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, ...item.props }"
-                @search="item.event?.search"
+                @search="handleSelectSearch(item, $event)"
               />
             </template>
           </template>
@@ -93,7 +93,7 @@
                   :is="Select"
                   v-model="formValue[item.field]"
                   v-bind.prop="{ disabled, ...item.props }"
-                  @search="item.event?.search"
+                  @search="handleSelectSearch(item, $event)"
                 />
               </template>
             </template>
@@ -271,6 +271,16 @@ function handleInput(path) {
   if (rules[path].trigger && rules[path].trigger.includes('input')) return
 
   restoreValidation(path)
+}
+
+function handleSelectSearch(m, v) {
+  const path = m.field
+  if (path && rules && rules[path] && m.props?.filterable) {
+    restoreValidation(path)
+  }
+  if (m.event?.search) {
+    m.event.search(v)
+  }
 }
 
 let child = {}
