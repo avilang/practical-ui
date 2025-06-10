@@ -226,6 +226,9 @@ const model3 = ref([
           ]
           selectItem.props.loading = false
         }, 1500)
+      },
+      update: () => {
+        console.log('select update')
       }
     },
     label: '所属账号'
@@ -254,7 +257,7 @@ const rules3 = {
   },
   accountId: {
     message: '必填哦',
-    trigger: ['change'],
+    // trigger: ['change'],
     validator(rule, value) {
       return value == null || value === '' ? false : true
     }

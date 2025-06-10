@@ -48,6 +48,7 @@
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, ...item.props }"
                 @search="handleSelectSearch(item, $event)"
+                @update="handleSelectUpdate(item, $event)"
               />
             </template>
           </template>
@@ -94,6 +95,7 @@
                   v-model="formValue[item.field]"
                   v-bind.prop="{ disabled, ...item.props }"
                   @search="handleSelectSearch(item, $event)"
+                  @update="handleSelectUpdate(item, $event)"
                 />
               </template>
             </template>
@@ -280,6 +282,21 @@ function handleSelectSearch(m, v) {
   }
   if (m.event?.search) {
     m.event.search(v)
+  }
+}
+
+function handleSelectUpdate(m, v) {
+  const path = m.field
+  if (
+    path &&
+    rules &&
+    rules[path] &&
+    (!rules[path].trigger || (!!rules[path].trigger && rules[path].trigger.includes('change') === false))
+  ) {
+    restoreValidation(path)
+  }
+  if (m.event?.update) {
+    m.event.update(v)
   }
 }
 
