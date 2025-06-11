@@ -1,4 +1,4 @@
-import { ref as I, readonly as En, watch as He, computed as $, getCurrentInstance as mo, onMounted as Pt, onBeforeUnmount as kt, onBeforeMount as ir, reactive as bo, inject as ge, onActivated as xd, onDeactivated as Oa, createTextVNode as Ht, Fragment as je, Comment as Ma, defineComponent as ee, provide as Ee, withDirectives as vn, toRef as ie, h as f, Teleport as si, nextTick as pt, renderSlot as wn, mergeProps as Rt, isVNode as Bf, shallowRef as Cd, watchEffect as tt, Transition as jt, TransitionGroup as kf, vShow as Rr, cloneVNode as yd, Text as Rf, markRaw as Rl, onUnmounted as wd, normalizeClass as Ut, createApp as Ff, unref as oe, openBlock as Re, createBlock as vt, withCtx as it, createVNode as tn, onScopeDispose as di, mergeModels as Tn, useModel as io, useTemplateRef as Cr, createSlots as xo, normalizeProps as Pf, guardReactiveProps as zf, useAttrs as Co, normalizeStyle as an, useSlots as Sd, createCommentVNode as xt, createElementBlock as ut, toDisplayString as on, createElementVNode as Un, resolveDynamicComponent as $n, renderList as Zr, withModifiers as $f, toValue as Af } from "vue";
+import { ref as I, readonly as En, watch as He, computed as $, getCurrentInstance as mo, onMounted as Pt, onBeforeUnmount as kt, onBeforeMount as ir, reactive as bo, inject as ge, onActivated as xd, onDeactivated as Oa, createTextVNode as Ht, Fragment as je, Comment as Ma, defineComponent as ee, provide as Ee, withDirectives as vn, toRef as ie, h as f, Teleport as si, nextTick as pt, renderSlot as wn, mergeProps as Rt, isVNode as Bf, shallowRef as Cd, watchEffect as rt, Transition as jt, TransitionGroup as kf, vShow as Rr, cloneVNode as yd, Text as Rf, markRaw as Rl, onUnmounted as wd, normalizeClass as Ut, createApp as Ff, unref as oe, openBlock as Re, createBlock as vt, withCtx as it, createVNode as tn, onScopeDispose as di, mergeModels as Tn, useModel as io, useTemplateRef as Cr, createSlots as xo, normalizeProps as Pf, guardReactiveProps as zf, useAttrs as Co, normalizeStyle as an, useSlots as Sd, createCommentVNode as xt, createElementBlock as dt, toDisplayString as on, createElementVNode as Un, resolveDynamicComponent as $n, renderList as Zr, withModifiers as $f, toValue as Af } from "vue";
 function Df(e) {
   let t = ".", r = "__", o = "--", i;
   if (e) {
@@ -2957,7 +2957,7 @@ function us(e) {
   throw new Error(`${e} has no smaller size.`);
 }
 const cs = /* @__PURE__ */ new Set();
-function at(e, t) {
+function ut(e, t) {
   const r = `[naive/${e}]: ${t}`;
   cs.has(r) || (cs.add(r), console.error(r));
 }
@@ -3118,7 +3118,7 @@ function Ye(e, t, r, o) {
       }), u = void 0;
     };
   };
-  return tt(() => {
+  return rt(() => {
     h();
   }), {
     themeClass: s,
@@ -4502,11 +4502,11 @@ var su = Object.prototype, Lp = su.hasOwnProperty, Np = su.propertyIsEnumerable,
 function Hp() {
   return !1;
 }
-var du = typeof exports == "object" && exports && !exports.nodeType && exports, ys = du && typeof module == "object" && module && !module.nodeType && module, jp = ys && ys.exports === du, ws = jp ? mn.Buffer : void 0, _p = ws ? ws.isBuffer : void 0, ei = _p || Hp, Wp = "[object Arguments]", Vp = "[object Array]", Kp = "[object Boolean]", Up = "[object Date]", qp = "[object Error]", Gp = "[object Function]", Xp = "[object Map]", Yp = "[object Number]", Zp = "[object Object]", Jp = "[object RegExp]", Qp = "[object Set]", eg = "[object String]", tg = "[object WeakMap]", ng = "[object ArrayBuffer]", rg = "[object DataView]", og = "[object Float32Array]", ig = "[object Float64Array]", ag = "[object Int8Array]", lg = "[object Int16Array]", sg = "[object Int32Array]", dg = "[object Uint8Array]", ug = "[object Uint8ClampedArray]", cg = "[object Uint16Array]", fg = "[object Uint32Array]", dt = {};
-dt[og] = dt[ig] = dt[ag] = dt[lg] = dt[sg] = dt[dg] = dt[ug] = dt[cg] = dt[fg] = !0;
-dt[Wp] = dt[Vp] = dt[ng] = dt[Kp] = dt[rg] = dt[Up] = dt[qp] = dt[Gp] = dt[Xp] = dt[Yp] = dt[Zp] = dt[Jp] = dt[Qp] = dt[eg] = dt[tg] = !1;
+var du = typeof exports == "object" && exports && !exports.nodeType && exports, ys = du && typeof module == "object" && module && !module.nodeType && module, jp = ys && ys.exports === du, ws = jp ? mn.Buffer : void 0, _p = ws ? ws.isBuffer : void 0, ei = _p || Hp, Wp = "[object Arguments]", Vp = "[object Array]", Kp = "[object Boolean]", Up = "[object Date]", qp = "[object Error]", Gp = "[object Function]", Xp = "[object Map]", Yp = "[object Number]", Zp = "[object Object]", Jp = "[object RegExp]", Qp = "[object Set]", eg = "[object String]", tg = "[object WeakMap]", ng = "[object ArrayBuffer]", rg = "[object DataView]", og = "[object Float32Array]", ig = "[object Float64Array]", ag = "[object Int8Array]", lg = "[object Int16Array]", sg = "[object Int32Array]", dg = "[object Uint8Array]", ug = "[object Uint8ClampedArray]", cg = "[object Uint16Array]", fg = "[object Uint32Array]", st = {};
+st[og] = st[ig] = st[ag] = st[lg] = st[sg] = st[dg] = st[ug] = st[cg] = st[fg] = !0;
+st[Wp] = st[Vp] = st[ng] = st[Kp] = st[rg] = st[Up] = st[qp] = st[Gp] = st[Xp] = st[Yp] = st[Zp] = st[Jp] = st[Qp] = st[eg] = st[tg] = !1;
 function hg(e) {
-  return In(e) && rl(e.length) && !!dt[sr(e)];
+  return In(e) && rl(e.length) && !!st[sr(e)];
 }
 function vg(e) {
   return function(t) {
@@ -5231,7 +5231,7 @@ function zt(e, t, r) {
     if (d)
       return d;
   }), a = ge(ln, null), l = () => {
-    tt(() => {
+    rt(() => {
       const {
         value: s
       } = r, d = `${s}${e}Rtl`;
@@ -6603,9 +6603,9 @@ const Bo = {
         position: me,
         behavior: Se,
         el: Le,
-        debounce: rt = !0
+        debounce: nt = !0
       } = P;
-      (J !== void 0 || se !== void 0) && Pe(J ?? 0, se ?? 0, 0, !1, Se), Le !== void 0 ? Pe(0, Le.offsetTop, Le.offsetHeight, rt, Se) : de !== void 0 && pe !== void 0 ? Pe(0, de * pe, pe, rt, Se) : me === "bottom" ? Pe(0, Number.MAX_SAFE_INTEGER, 0, !1, Se) : me === "top" && Pe(0, 0, 0, !1, Se);
+      (J !== void 0 || se !== void 0) && Pe(J ?? 0, se ?? 0, 0, !1, Se), Le !== void 0 ? Pe(0, Le.offsetTop, Le.offsetHeight, nt, Se) : de !== void 0 && pe !== void 0 ? Pe(0, de * pe, pe, nt, Se) : me === "bottom" ? Pe(0, Number.MAX_SAFE_INTEGER, 0, !1, Se) : me === "top" && Pe(0, 0, 0, !1, Se);
     }, G = Rh(() => {
       e.container || we({
         top: x.value,
@@ -6655,7 +6655,7 @@ const Bo = {
     function ze() {
       xe(), Ce(), he();
     }
-    function lt() {
+    function at() {
       Qe();
     }
     function Qe() {
@@ -6724,7 +6724,7 @@ const Bo = {
       var W;
       return !(!((W = a.value) === null || W === void 0) && W.contains(Fr(P)));
     }
-    function st(P) {
+    function lt(P) {
       P.preventDefault(), P.stopPropagation(), R = !0, Ke("mousemove", window, $t, !0), Ke("mouseup", window, At, !0), F = b.value, A = i != null && i.value ? window.innerWidth - P.clientX : P.clientX;
     }
     function $t(P) {
@@ -6747,18 +6747,18 @@ const Bo = {
       if (Le) {
         Le.scrollLeft = Se * (i != null && i.value ? -1 : 1);
         const {
-          internalOnUpdateScrollLeft: rt
+          internalOnUpdateScrollLeft: nt
         } = e;
-        rt && rt(Se);
+        nt && nt(Se);
       }
     }
     function At(P) {
       P.preventDefault(), P.stopPropagation(), We("mousemove", window, $t, !0), We("mouseup", window, At, !0), R = !1, he(), Te(P) && Qe();
     }
     function mt(P) {
-      P.preventDefault(), P.stopPropagation(), w = !0, Ke("mousemove", window, nt, !0), Ke("mouseup", window, wt, !0), B = x.value, V = P.clientY;
+      P.preventDefault(), P.stopPropagation(), w = !0, Ke("mousemove", window, tt, !0), Ke("mouseup", window, wt, !0), B = x.value, V = P.clientY;
     }
-    function nt(P) {
+    function tt(P) {
       if (!w) return;
       k !== void 0 && window.clearTimeout(k), y !== void 0 && window.clearTimeout(y);
       const {
@@ -6778,9 +6778,9 @@ const Bo = {
       Le && (Le.scrollTop = Se);
     }
     function wt(P) {
-      P.preventDefault(), P.stopPropagation(), We("mousemove", window, nt, !0), We("mouseup", window, wt, !0), w = !1, he(), Te(P) && Qe();
+      P.preventDefault(), P.stopPropagation(), We("mousemove", window, tt, !0), We("mouseup", window, wt, !0), w = !1, he(), Te(P) && Qe();
     }
-    tt(() => {
+    rt(() => {
       const {
         value: P
       } = q, {
@@ -6796,7 +6796,7 @@ const Bo = {
     }), Pt(() => {
       e.container || he();
     }), kt(() => {
-      k !== void 0 && window.clearTimeout(k), y !== void 0 && window.clearTimeout(y), We("mousemove", window, nt, !0), We("mouseup", window, wt, !0);
+      k !== void 0 && window.clearTimeout(k), y !== void 0 && window.clearTimeout(y), We("mousemove", window, tt, !0), We("mouseup", window, wt, !0);
     });
     const et = $(() => {
       const {
@@ -6812,7 +6812,7 @@ const Bo = {
           railInsetHorizontalTop: me,
           railInsetHorizontalBottom: Se,
           railInsetVerticalRight: Le,
-          railInsetVerticalLeft: rt,
+          railInsetVerticalLeft: nt,
           railColor: Ve
         }
       } = n.value, {
@@ -6835,7 +6835,7 @@ const Bo = {
         right: ot,
         bottom: ht,
         left: Gt
-      } = Nt(i != null && i.value ? ss(rt) : rt);
+      } = Nt(i != null && i.value ? ss(nt) : nt);
       return {
         "--n-scrollbar-bezier": P,
         "--n-scrollbar-color": W,
@@ -6868,7 +6868,7 @@ const Bo = {
       sync: he,
       syncUnifiedContainer: re,
       handleMouseEnterWrapper: ze,
-      handleMouseLeaveWrapper: lt
+      handleMouseLeaveWrapper: at
     }), {
       mergedClsPrefix: t,
       rtlEnabled: i,
@@ -6891,7 +6891,7 @@ const Bo = {
       handleContentResize: ue,
       handleContainerResize: Fe,
       handleYScrollMouseDown: mt,
-      handleXScrollMouseDown: st,
+      handleXScrollMouseDown: lt,
       cssVars: r ? void 0 : et,
       themeClass: ce == null ? void 0 : ce.themeClass,
       onRender: ce == null ? void 0 : ce.onRender
@@ -8176,7 +8176,7 @@ const c1 = z("base-select-menu", `
           optionTextColorActive: be,
           optionOpacityDisabled: Pe,
           optionCheckColor: ze,
-          actionTextColor: lt,
+          actionTextColor: at,
           optionColorPending: Qe,
           optionColorActive: ct,
           loadingColor: ft,
@@ -8190,7 +8190,7 @@ const c1 = z("base-select-menu", `
       return {
         "--n-height": Y,
         "--n-action-divider-color": we,
-        "--n-action-text-color": lt,
+        "--n-action-text-color": at,
         "--n-bezier": q,
         "--n-border-radius": ae,
         "--n-color": le,
@@ -8592,7 +8592,7 @@ const p1 = ee({
       mergedClsPrefixRef: i,
       inlineThemeDisabled: a
     } = Ae(e), l = ve("Popover", "-popover", v1, hr, e, i), s = I(null), d = ge("NPopover"), u = I(null), c = I(e.show), h = I(!1);
-    tt(() => {
+    rt(() => {
       const {
         show: y
       } = e;
@@ -8928,8 +8928,8 @@ const nr = {
   slots: Object,
   __popover__: !0,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
-      e.maxWidth !== void 0 && at("popover", "`max-width` is deprecated, please use `style` instead."), e.minWidth !== void 0 && at("popover", "`min-width` is deprecated, please use `style` instead."), e.arrow !== void 0 && at("popover", "`arrow` is deprecated, please use `showArrow` instead."), e.onHide !== void 0 && at("popover", "`on-hide` is deprecated, please use `on-update:show` instead."), e.onShow !== void 0 && at("popover", "`on-show` is deprecated, please use `on-update:show` instead.");
+    process.env.NODE_ENV !== "production" && rt(() => {
+      e.maxWidth !== void 0 && ut("popover", "`max-width` is deprecated, please use `style` instead."), e.minWidth !== void 0 && ut("popover", "`min-width` is deprecated, please use `style` instead."), e.arrow !== void 0 && ut("popover", "`arrow` is deprecated, please use `showArrow` instead."), e.onHide !== void 0 && ut("popover", "`on-hide` is deprecated, please use `on-update:show` instead."), e.onShow !== void 0 && ut("popover", "`on-show` is deprecated, please use `on-update:show` instead.");
     });
     const t = Tr(), r = I(null), o = $(() => e.show), i = I(e.defaultShow), a = Mt(o, i), l = Ue(() => e.disabled ? !1 : a.value), s = () => {
       if (e.disabled) return !0;
@@ -9042,7 +9042,7 @@ const nr = {
       zIndexRef: ie(e, "zIndex"),
       extraClassRef: ie(e, "internalExtraClass"),
       internalRenderBodyRef: ie(e, "internalRenderBody")
-    }), tt(() => {
+    }), rt(() => {
       a.value && s() && g(!1);
     }), {
       binderInstRef: r,
@@ -9451,8 +9451,8 @@ const w1 = {
   props: k1,
   slots: Object,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
-      e.onCheckedChange !== void 0 && at("tag", "`on-checked-change` is deprecated, please use `on-update:checked` instead");
+    process.env.NODE_ENV !== "production" && rt(() => {
+      e.onCheckedChange !== void 0 && ut("tag", "`on-checked-change` is deprecated, please use `on-update:checked` instead");
     });
     const t = I(null), {
       mergedBorderedRef: r,
@@ -10253,7 +10253,7 @@ const _u = {
       } = h;
       return re;
     }
-    function lt() {
+    function at() {
       return a.value;
     }
     let Qe = null;
@@ -10274,7 +10274,7 @@ const _u = {
     He(R, (re) => {
       re || (v.value = !1);
     }), Pt(() => {
-      tt(() => {
+      rt(() => {
         const re = u.value;
         re && (e.disabled ? re.removeAttribute("tabindex") : re.tabIndex = g.value ? -1 : 0);
       });
@@ -10290,11 +10290,11 @@ const _u = {
         },
         self: {
           fontWeight: Te,
-          borderRadius: st,
+          borderRadius: lt,
           color: $t,
           placeholderColor: At,
           textColor: mt,
-          paddingSingle: nt,
+          paddingSingle: tt,
           paddingMultiple: wt,
           caretColor: et,
           colorDisabled: ce,
@@ -10308,7 +10308,7 @@ const _u = {
           borderFocus: me,
           borderHover: Se,
           borderActive: Le,
-          arrowColor: rt,
+          arrowColor: nt,
           arrowColorDisabled: Ve,
           loadingColor: Et,
           // form warning
@@ -10339,14 +10339,14 @@ const _u = {
           [Z("height", re)]: jr,
           [Z("fontSize", re)]: _r
         }
-      } = b.value, Rn = Nt(nt), Fn = Nt(wt);
+      } = b.value, Rn = Nt(tt), Fn = Nt(wt);
       return {
         "--n-bezier": he,
         "--n-border": pe,
         "--n-border-active": Le,
         "--n-border-focus": me,
         "--n-border-hover": Se,
-        "--n-border-radius": st,
+        "--n-border-radius": lt,
         "--n-box-shadow-active": se,
         "--n-box-shadow-focus": J,
         "--n-box-shadow-hover": de,
@@ -10368,7 +10368,7 @@ const _u = {
         "--n-placeholder-color-disabled": P,
         "--n-text-color": mt,
         "--n-text-color-disabled": Be,
-        "--n-arrow-color": rt,
+        "--n-arrow-color": nt,
         "--n-arrow-color-disabled": Ve,
         "--n-loading-color": Et,
         // form warning
@@ -10444,7 +10444,7 @@ const _u = {
       blurInput: be,
       updateCounter: Pe,
       getCounter: ze,
-      getTail: lt,
+      getTail: at,
       renderLabel: e.renderLabel,
       cssVars: $e ? void 0 : Ie,
       themeClass: Je == null ? void 0 : Je.themeClass,
@@ -11380,9 +11380,6 @@ const Zs = ee({
   props: W1,
   slots: Object,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
-      e.showPasswordToggle && at("input", '`show-password-toggle` is deprecated, please use `showPasswordOn="click"` instead');
-    });
     const {
       mergedClsPrefixRef: t,
       mergedBorderedRef: r,
@@ -11560,7 +11557,7 @@ const Zs = ee({
       } = e;
       Q && ne(Q, _);
     }
-    function lt(_) {
+    function at(_) {
       const {
         onWrapperBlur: Q
       } = e;
@@ -11625,7 +11622,7 @@ const Zs = ee({
       ue(_), y.value = !0, A.value = !0, be(), re(_, "focus"), Q === 0 ? p.value = c.value : Q === 1 ? p.value = h.value : Q === 2 && (p.value = s.value);
     }
     function Ie(_) {
-      e.passivelyActivated && (lt(_), re(_, "blur"));
+      e.passivelyActivated && (at(_), re(_, "blur"));
     }
     function Je(_) {
       e.passivelyActivated && (y.value = !0, ze(_), re(_, "focus"));
@@ -11639,7 +11636,7 @@ const Zs = ee({
     function Te(_) {
       Pe(_);
     }
-    function st(_) {
+    function lt(_) {
       we(_), $t();
     }
     function $t() {
@@ -11684,7 +11681,7 @@ const Zs = ee({
       var _;
       B.value = !0, e.type === "textarea" && ((_ = v.value) === null || _ === void 0 || _.handleMouseEnterWrapper());
     }
-    function nt() {
+    function tt() {
       var _;
       B.value = !1, e.type === "textarea" && ((_ = v.value) === null || _ === void 0 || _.handleMouseLeaveWrapper());
     }
@@ -11790,7 +11787,7 @@ const Zs = ee({
           qe && (_ ? qe.textContent = _ : qe.innerHTML = "&nbsp;");
         }
     }
-    function rt() {
+    function nt() {
       U();
     }
     const Ve = I({
@@ -11804,7 +11801,7 @@ const Zs = ee({
       Ve.value.top = `${-ye}px`, (Q = v.value) === null || Q === void 0 || Q.syncUnifiedContainer();
     }
     let It = null;
-    tt(() => {
+    rt(() => {
       const {
         autosize: _,
         type: Q
@@ -11814,7 +11811,7 @@ const Zs = ee({
       }) : It == null || It();
     });
     let Lt = null;
-    tt(() => {
+    rt(() => {
       e.type === "textarea" ? Lt = He(C, (_) => {
         var Q;
         !Array.isArray(_) && _ !== V && ((Q = v.value) === null || Q === void 0 || Q.syncUnifiedContainer());
@@ -11997,16 +11994,16 @@ const Zs = ee({
       handleWrapperBlur: Ie,
       handleWrapperFocus: Je,
       handleMouseEnter: mt,
-      handleMouseLeave: nt,
+      handleMouseLeave: tt,
       handleMouseDown: At,
       handleChange: he,
       handleClick: Te,
-      handleClear: st,
+      handleClear: lt,
       handlePasswordToggleClick: wt,
       handlePasswordToggleMousedown: et,
       handleWrapperKeydown: Be,
       handleWrapperKeyup: ce,
-      handleTextAreaMirrorResize: rt,
+      handleTextAreaMirrorResize: nt,
       getTextareaScrollContainer: () => s.value,
       mergedTheme: a,
       cssVars: o ? void 0 : Jt,
@@ -12922,7 +12919,7 @@ const Ci = {
   props: nC,
   slots: Object,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
+    process.env.NODE_ENV !== "production" && rt(() => {
       const {
         dashed: w,
         ghost: R,
@@ -12931,7 +12928,7 @@ const Ci = {
         tertiary: B,
         quaternary: F
       } = e;
-      (w || R || k) && (y || B || F) && at("button", "`dashed`, `ghost` and `text` props can't be used along with `secondary`, `tertiary` and `quaternary` props.");
+      (w || R || k) && (y || B || F) && ut("button", "`dashed`, `ghost` and `text` props can't be used along with `secondary`, `tertiary` and `quaternary` props.");
     });
     const t = I(null), r = I(null), o = I(!1), i = Ue(() => !e.quaternary && !e.tertiary && !e.secondary && !e.text && (!e.color || e.ghost || e.dashed) && e.bordered), a = ge(J1, {}), {
       mergedSizeRef: l
@@ -13123,7 +13120,7 @@ const Ci = {
         [Z("fontSize", M)]: be,
         [Z("padding", M)]: Pe,
         [Z("paddingRound", M)]: ze,
-        [Z("iconSize", M)]: lt,
+        [Z("iconSize", M)]: at,
         [Z("borderRadius", M)]: Qe,
         [Z("iconMargin", M)]: ct,
         waveOpacity: ft
@@ -13132,7 +13129,7 @@ const Ci = {
         "--n-height": H ? "initial" : Fe,
         "--n-font-size": be,
         "--n-padding": te || H ? "initial" : K ? ze : Pe,
-        "--n-icon-size": lt,
+        "--n-icon-size": at,
         "--n-icon-margin": ct,
         "--n-border-radius": H ? "initial" : te || K ? Fe : Qe
       };
@@ -13723,8 +13720,8 @@ const Xu = {
   name: "CheckboxGroup",
   props: cC,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
-      e.onChange !== void 0 && at("checkbox-group", "`on-change` is deprecated, please use `on-update:value` instead.");
+    process.env.NODE_ENV !== "production" && rt(() => {
+      e.onChange !== void 0 && ut("checkbox-group", "`on-change` is deprecated, please use `on-update:value` instead.");
     });
     const {
       mergedClsPrefixRef: t
@@ -13967,8 +13964,8 @@ const Xu = {
   name: "Checkbox",
   props: gC,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
-      e.onChange && at("checkbox", "`on-change` is deprecated, please use `on-update:checked` instead.");
+    process.env.NODE_ENV !== "production" && rt(() => {
+      e.onChange && ut("checkbox", "`on-change` is deprecated, please use `on-update:checked` instead.");
     });
     const t = ge(Yu, null), r = I(null), {
       mergedClsPrefixRef: o,
@@ -14769,7 +14766,7 @@ const Cl = {
   name: "PopselectPanel",
   props: yl,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
+    process.env.NODE_ENV !== "production" && rt(() => {
       e.onChange !== void 0 && Ft("popselect", "`on-change` is deprecated, please use `on-update:value` instead.");
     });
     const t = ge(Qu), {
@@ -15127,8 +15124,8 @@ const ec = {
   props: EC,
   slots: Object,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
-      e.items !== void 0 && at("select", "`items` is deprecated, please use `options` instead."), e.onChange !== void 0 && at("select", "`on-change` is deprecated, please use `on-update:value` instead.");
+    process.env.NODE_ENV !== "production" && rt(() => {
+      e.items !== void 0 && ut("select", "`items` is deprecated, please use `options` instead."), e.onChange !== void 0 && ut("select", "`on-change` is deprecated, please use `on-update:value` instead.");
     });
     const {
       mergedClsPrefixRef: t,
@@ -15306,7 +15303,7 @@ const ec = {
       W && ne(W, P), J && ne(J, P), S.value = P;
     }
     function we() {
-      K.value || (fe(!0), S.value = !0, e.filterable && nt());
+      K.value || (fe(!0), S.value = !0, e.filterable && tt());
     }
     function G() {
       fe(!1);
@@ -15322,9 +15319,9 @@ const ec = {
       e.filterable && (Fe.value = !1, w.value || ue());
     }
     function ze() {
-      K.value || (w.value ? e.filterable ? nt() : G() : we());
+      K.value || (w.value ? e.filterable ? tt() : G() : we());
     }
-    function lt(P) {
+    function at(P) {
       var W, J;
       !((J = (W = y.value) === null || W === void 0 ? void 0 : W.selfRef) === null || J === void 0) && J.contains(P.relatedTarget) || (u.value = !1, U(P), G());
     }
@@ -15440,7 +15437,7 @@ const ec = {
       } = e;
       !W && e.filterable && G(), j(), W ? X([], []) : X(null, null);
     }
-    function st(P) {
+    function lt(P) {
       !qt(P, "action") && !qt(P, "empty") && !qt(P, "header") && P.preventDefault();
     }
     function $t(P) {
@@ -15491,7 +15488,7 @@ const ec = {
       var P;
       (P = R.value) === null || P === void 0 || P.focus();
     }
-    function nt() {
+    function tt() {
       var P;
       (P = R.value) === null || P === void 0 || P.focusInput();
     }
@@ -15562,14 +15559,14 @@ const ec = {
       handleDeleteOption: Je,
       handlePatternInput: he,
       handleClear: Te,
-      handleTriggerBlur: lt,
+      handleTriggerBlur: at,
       handleTriggerFocus: Qe,
       handleKeydown: At,
       handleMenuAfterLeave: ue,
       handleMenuClickOutside: Ce,
       handleMenuScroll: $t,
       handleMenuKeydown: At,
-      handleMenuMousedown: st,
+      handleMenuMousedown: lt,
       mergedTheme: a,
       cssVars: i ? void 0 : ce,
       themeClass: Be == null ? void 0 : Be.themeClass,
@@ -16069,8 +16066,8 @@ const LC = Object.assign(Object.assign({}, ve.props), {
   props: LC,
   slots: Object,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
-      e.pageCount !== void 0 && e.itemCount !== void 0 && Ft("pagination", "`page-count` and `item-count` should't be specified together. Only `item-count` will take effect."), e.onPageSizeChange && at("pagination", "`on-page-size-change` is deprecated, please use `on-update:page-size` instead."), e.onChange && at("pagination", "`on-change` is deprecated, please use `on-update:page` instead.");
+    process.env.NODE_ENV !== "production" && rt(() => {
+      e.pageCount !== void 0 && e.itemCount !== void 0 && Ft("pagination", "`page-count` and `item-count` should't be specified together. Only `item-count` will take effect."), e.onPageSizeChange && ut("pagination", "`on-page-size-change` is deprecated, please use `on-update:page-size` instead."), e.onChange && ut("pagination", "`on-change` is deprecated, please use `on-update:page` instead.");
     });
     const {
       mergedComponentPropsRef: t,
@@ -16090,7 +16087,7 @@ const LC = Object.assign(Object.assign({}, ve.props), {
       } = e;
       return ue !== void 0 ? Math.max(ue, 1) : 1;
     }), m = I("");
-    tt(() => {
+    rt(() => {
       e.simple, m.value = String(c.value);
     });
     const v = I(!1), g = I(!1), x = I(!1), b = I(!1), C = () => {
@@ -16104,7 +16101,7 @@ const LC = Object.assign(Object.assign({}, ve.props), {
     }, k = (G) => {
       H(G);
     }, y = $(() => IC(c.value, p.value, e.pageSlot, e.showQuickJumpDropdown));
-    tt(() => {
+    rt(() => {
       y.value.hasFastBackward ? y.value.hasFastForward || (v.value = !1, x.value = !1) : (g.value = !1, b.value = !1);
     });
     const B = $(() => {
@@ -16205,7 +16202,7 @@ const LC = Object.assign(Object.assign({}, ve.props), {
     function le(G) {
       m.value = G.replace(/\D+/g, "");
     }
-    tt(() => {
+    rt(() => {
       c.value, h.value, E();
     });
     const fe = $(() => {
@@ -16218,7 +16215,7 @@ const LC = Object.assign(Object.assign({}, ve.props), {
           buttonBorderPressed: be,
           buttonIconColor: Pe,
           buttonIconColorHover: ze,
-          buttonIconColorPressed: lt,
+          buttonIconColorPressed: at,
           itemTextColor: Qe,
           itemTextColorHover: ct,
           itemTextColorPressed: ft,
@@ -16230,11 +16227,11 @@ const LC = Object.assign(Object.assign({}, ve.props), {
           itemColorActive: re,
           itemColorActiveHover: he,
           itemColorDisabled: Te,
-          itemBorder: st,
+          itemBorder: lt,
           itemBorderHover: $t,
           itemBorderPressed: At,
           itemBorderActive: mt,
-          itemBorderDisabled: nt,
+          itemBorderDisabled: tt,
           itemBorderRadius: wt,
           jumperTextColor: et,
           jumperTextColorDisabled: ce,
@@ -16248,7 +16245,7 @@ const LC = Object.assign(Object.assign({}, ve.props), {
           [Z("inputMargin", G)]: me,
           [Z("selectMargin", G)]: Se,
           [Z("jumperFontSize", G)]: Le,
-          [Z("prefixMargin", G)]: rt,
+          [Z("prefixMargin", G)]: nt,
           [Z("suffixMargin", G)]: Ve,
           [Z("itemSize", G)]: Et,
           [Z("buttonIconSize", G)]: It,
@@ -16261,7 +16258,7 @@ const LC = Object.assign(Object.assign({}, ve.props), {
         }
       } = a.value;
       return {
-        "--n-prefix-margin": rt,
+        "--n-prefix-margin": nt,
         "--n-suffix-margin": Ve,
         "--n-item-font-size": Lt,
         "--n-select-width": pe,
@@ -16281,9 +16278,9 @@ const LC = Object.assign(Object.assign({}, ve.props), {
         "--n-item-color-active": re,
         "--n-item-color-active-hover": he,
         "--n-item-color-pressed": Je,
-        "--n-item-border": st,
+        "--n-item-border": lt,
         "--n-item-border-hover": $t,
-        "--n-item-border-disabled": nt,
+        "--n-item-border-disabled": tt,
         "--n-item-border-active": mt,
         "--n-item-border-pressed": At,
         "--n-item-padding": J,
@@ -16297,7 +16294,7 @@ const LC = Object.assign(Object.assign({}, ve.props), {
         "--n-button-icon-size": It,
         "--n-button-icon-color": Pe,
         "--n-button-icon-color-hover": ze,
-        "--n-button-icon-color-pressed": lt,
+        "--n-button-icon-color-pressed": at,
         "--n-button-color-hover": P,
         "--n-button-color": Be,
         "--n-button-color-pressed": W,
@@ -17226,8 +17223,8 @@ const ry = ee({
   }
 }, fc = "n-radio-group";
 function ay(e) {
-  process.env.NODE_ENV !== "production" && tt(() => {
-    e.checkedValue !== void 0 && at("radio", "`checked-value` is deprecated, please use `checked` instead.");
+  process.env.NODE_ENV !== "production" && rt(() => {
+    e.checkedValue !== void 0 && ut("radio", "`checked-value` is deprecated, please use `checked` instead.");
   });
   const t = ge(fc, null), r = Nn(e, {
     mergedSize(C) {
@@ -19957,7 +19954,7 @@ const jy = ee({
       doCheck: G,
       doUncheck: ue,
       renderCell: Fe
-    } = ge(sn), be = ge(ln), Pe = I(null), ze = I(null), lt = I(null), Qe = Ue(() => d.value.length === 0), ct = Ue(() => e.showHeader || !Qe.value), ft = Ue(() => e.showHeader || Qe.value);
+    } = ge(sn), be = ge(ln), Pe = I(null), ze = I(null), at = I(null), Qe = Ue(() => d.value.length === 0), ct = Ue(() => e.showHeader || !Qe.value), ft = Ue(() => e.showHeader || Qe.value);
     let xe = "";
     const Ce = $(() => new Set(o.value));
     function $e(ce) {
@@ -19994,11 +19991,11 @@ const jy = ee({
       if (!ct.value) {
         const {
           value: Be
-        } = lt;
+        } = at;
         return Be || null;
       }
       if (k.value)
-        return st();
+        return lt();
       const {
         value: ce
       } = Pe;
@@ -20022,7 +20019,7 @@ const jy = ee({
     function Te() {
       S.value = null;
     }
-    function st() {
+    function lt() {
       const {
         value: ce
       } = ze;
@@ -20045,7 +20042,7 @@ const jy = ee({
       } = e;
       P && P(ce), (Be = Pe.value) === null || Be === void 0 || Be.sync();
     }
-    const nt = {
+    const tt = {
       getScrollContainer: re,
       scrollTo(ce, Be) {
         var P, W;
@@ -20062,7 +20059,7 @@ const jy = ee({
       return O([Be(ce.leftActiveFixedColKey), P(ce.rightActiveFixedColKey), ce.leftActiveFixedChildrenColKeys.map((W) => Be(W)), ce.rightActiveFixedChildrenColKeys.map((W) => P(W))]);
     }]);
     let et = !1;
-    return tt(() => {
+    return rt(() => {
       const {
         value: ce
       } = v, {
@@ -20100,7 +20097,7 @@ const jy = ee({
       componentId: A,
       scrollbarInstRef: Pe,
       virtualListRef: ze,
-      emptyElRef: lt,
+      emptyElRef: at,
       summary: w,
       mergedClsPrefix: i,
       mergedTheme: a,
@@ -20157,14 +20154,14 @@ const jy = ee({
       handleVirtualListScroll: At,
       handleVirtualListResize: mt,
       handleMouseleaveTable: Te,
-      virtualListContainer: st,
+      virtualListContainer: lt,
       virtualListContent: $t,
       handleTableBodyScroll: we,
       handleCheckboxUpdateChecked: Ie,
       handleRadioUpdateChecked: Je,
       handleUpdateExpanded: he,
       renderCell: Fe
-    }, nt);
+    }, tt);
   },
   render() {
     const {
@@ -20283,7 +20280,7 @@ const jy = ee({
         }, Ce) => {
           be[Ce] = xe.key;
         });
-        const Pe = A ? this.bodyWidth : null, ze = Pe === null ? void 0 : `${Pe}px`, lt = this.virtualScrollX ? "div" : "td";
+        const Pe = A ? this.bodyWidth : null, ze = Pe === null ? void 0 : `${Pe}px`, at = this.virtualScrollX ? "div" : "td";
         let Qe = 0, ct = 0;
         q && b.forEach((xe) => {
           xe.column.fixed === "left" ? Qe++ : xe.column.fixed === "right" && ct++;
@@ -20322,16 +20319,16 @@ const jy = ee({
               }
             }, H(de, Te)) : H(de, Te)));
           }
-          const st = "isSummaryRow" in xe, $t = !st && xe.striped, {
+          const lt = "isSummaryRow" in xe, $t = !lt && xe.striped, {
             tmNode: At,
             key: mt
           } = xe, {
-            rawNode: nt
-          } = At, wt = F.has(mt), et = D ? D(nt, Te) : void 0, ce = typeof y == "string" ? y : QC(nt, Te, y), Be = Ie ? b.filter((se, de) => !!(Je <= de && de <= re || se.column.fixed)) : b, P = Ie ? Ct((U == null ? void 0 : U(nt, Te)) || j) : void 0, W = Be.map((se) => {
+            rawNode: tt
+          } = At, wt = F.has(mt), et = D ? D(tt, Te) : void 0, ce = typeof y == "string" ? y : QC(tt, Te, y), Be = Ie ? b.filter((se, de) => !!(Je <= de && de <= re || se.column.fixed)) : b, P = Ie ? Ct((U == null ? void 0 : U(tt, Te)) || j) : void 0, W = Be.map((se) => {
             var de, pe, me, Se, Le;
-            const rt = se.index;
+            const nt = se.index;
             if (Ce in g) {
-              const ot = g[Ce], ht = ot.indexOf(rt);
+              const ot = g[Ce], ht = ot.indexOf(nt);
               if (~ht)
                 return ot.splice(ht, 1), null;
             }
@@ -20340,20 +20337,20 @@ const jy = ee({
             } = se, Et = rn(se), {
               rowSpan: It,
               colSpan: Lt
-            } = Ve, _t = st ? ((de = xe.tmNode.rawNode[Et]) === null || de === void 0 ? void 0 : de.colSpan) || 1 : Lt ? Lt(nt, Te) : 1, Wt = st ? ((pe = xe.tmNode.rawNode[Et]) === null || pe === void 0 ? void 0 : pe.rowSpan) || 1 : It ? It(nt, Te) : 1, Jt = rt + _t === Y, Vt = Ce + Wt === Fe, _ = Wt > 1;
+            } = Ve, _t = lt ? ((de = xe.tmNode.rawNode[Et]) === null || de === void 0 ? void 0 : de.colSpan) || 1 : Lt ? Lt(tt, Te) : 1, Wt = lt ? ((pe = xe.tmNode.rawNode[Et]) === null || pe === void 0 ? void 0 : pe.rowSpan) || 1 : It ? It(tt, Te) : 1, Jt = nt + _t === Y, Vt = Ce + Wt === Fe, _ = Wt > 1;
             if (_ && (x[Ce] = {
-              [rt]: []
+              [nt]: []
             }), _t > 1 || _)
               for (let ot = Ce; ot < Ce + Wt; ++ot) {
-                _ && x[Ce][rt].push(be[ot]);
-                for (let ht = rt; ht < rt + _t; ++ht)
-                  ot === Ce && ht === rt || (ot in g ? g[ot].push(ht) : g[ot] = [ht]);
+                _ && x[Ce][nt].push(be[ot]);
+                for (let ht = nt; ht < nt + _t; ++ht)
+                  ot === Ce && ht === nt || (ot in g ? g[ot].push(ht) : g[ot] = [ht]);
               }
             const Q = _ ? this.hoverKey : null, {
               cellProps: ye
-            } = Ve, Oe = ye == null ? void 0 : ye(nt, Te), qe = {
+            } = Ve, Oe = ye == null ? void 0 : ye(tt, Te), qe = {
               "--indent-offset": ""
-            }, Ne = Ve.fixed ? "td" : lt;
+            }, Ne = Ve.fixed ? "td" : at;
             return f(Ne, Object.assign({}, Oe, {
               key: Et,
               style: [{
@@ -20363,7 +20360,7 @@ const jy = ee({
                 height: P
               }, Ie && !Ve.fixed ? {
                 position: "absolute",
-                left: Ct(he(rt)),
+                left: Ct(he(nt)),
                 top: 0,
                 bottom: 0
               } : {
@@ -20373,23 +20370,23 @@ const jy = ee({
               colspan: _t,
               rowspan: $e ? void 0 : Wt,
               "data-col-key": Et,
-              class: [`${r}-data-table-td`, Ve.className, Oe == null ? void 0 : Oe.class, st && `${r}-data-table-td--summary`, Q !== null && x[Ce][rt].includes(Q) && `${r}-data-table-td--hover`, cc(Ve, B) && `${r}-data-table-td--sorting`, Ve.fixed && `${r}-data-table-td--fixed-${Ve.fixed}`, Ve.align && `${r}-data-table-td--${Ve.align}-align`, Ve.type === "selection" && `${r}-data-table-td--selection`, Ve.type === "expand" && `${r}-data-table-td--expand`, Jt && `${r}-data-table-td--last-col`, Vt && `${r}-data-table-td--last-row`]
-            }), fe && rt === M ? [dh(qe["--indent-offset"] = st ? 0 : xe.tmNode.level, f("div", {
+              class: [`${r}-data-table-td`, Ve.className, Oe == null ? void 0 : Oe.class, lt && `${r}-data-table-td--summary`, Q !== null && x[Ce][nt].includes(Q) && `${r}-data-table-td--hover`, cc(Ve, B) && `${r}-data-table-td--sorting`, Ve.fixed && `${r}-data-table-td--fixed-${Ve.fixed}`, Ve.align && `${r}-data-table-td--${Ve.align}-align`, Ve.type === "selection" && `${r}-data-table-td--selection`, Ve.type === "expand" && `${r}-data-table-td--expand`, Jt && `${r}-data-table-td--last-col`, Vt && `${r}-data-table-td--last-row`]
+            }), fe && nt === M ? [dh(qe["--indent-offset"] = lt ? 0 : xe.tmNode.level, f("div", {
               class: `${r}-data-table-indent`,
               style: G
-            })), st || xe.tmNode.isLeaf ? f("div", {
+            })), lt || xe.tmNode.isLeaf ? f("div", {
               class: `${r}-data-table-expand-placeholder`
             }) : f(ad, {
               class: `${r}-data-table-expand-trigger`,
               clsPrefix: r,
               expanded: wt,
-              rowData: nt,
+              rowData: tt,
               renderExpandIcon: this.renderExpandIcon,
               loading: s.has(xe.key),
               onClick: () => {
                 X(mt, xe.tmNode);
               }
-            })] : null, Ve.type === "selection" ? st ? null : Ve.multiple === !1 ? f(fy, {
+            })] : null, Ve.type === "selection" ? lt ? null : Ve.multiple === !1 ? f(fy, {
               key: k,
               rowKey: mt,
               disabled: xe.tmNode.disabled,
@@ -20403,9 +20400,9 @@ const jy = ee({
               onUpdateChecked: (ot, ht) => {
                 K(xe.tmNode, ot, ht.shiftKey);
               }
-            }) : Ve.type === "expand" ? st ? null : !Ve.expandable || !((Le = Ve.expandable) === null || Le === void 0) && Le.call(Ve, nt) ? f(ad, {
+            }) : Ve.type === "expand" ? lt ? null : !Ve.expandable || !((Le = Ve.expandable) === null || Le === void 0) && Le.call(Ve, tt) ? f(ad, {
               clsPrefix: r,
-              rowData: nt,
+              rowData: tt,
               expanded: wt,
               renderExpandIcon: this.renderExpandIcon,
               onClick: () => {
@@ -20414,9 +20411,9 @@ const jy = ee({
             }) : null : f(py, {
               clsPrefix: r,
               index: Te,
-              row: nt,
+              row: tt,
               column: Ve,
-              isSummary: st,
+              isSummary: lt,
               mergedTheme: S,
               renderCell: this.renderCell
             }));
@@ -20434,7 +20431,7 @@ const jy = ee({
               this.hoverKey = mt, (de = et == null ? void 0 : et.onMouseenter) === null || de === void 0 || de.call(et, se);
             },
             key: mt,
-            class: [`${r}-data-table-tr`, st && `${r}-data-table-tr--summary`, $t && `${r}-data-table-tr--striped`, wt && `${r}-data-table-tr--expanded`, ce, et == null ? void 0 : et.class],
+            class: [`${r}-data-table-tr`, lt && `${r}-data-table-tr--summary`, $t && `${r}-data-table-tr--striped`, wt && `${r}-data-table-tr--expanded`, ce, et == null ? void 0 : et.class],
             style: [et == null ? void 0 : et.style, Ie && {
               height: P
             }]
@@ -20573,7 +20570,7 @@ const jy = ee({
         (w = c.value) === null || w === void 0 || w.scrollTo(C, S);
       }
     };
-    return tt(() => {
+    return rt(() => {
       const {
         value: C
       } = h;
@@ -20621,6 +20618,7 @@ const jy = ee({
  --n-merged-th-color: var(--n-th-color);
  --n-merged-td-color: var(--n-td-color);
  --n-merged-border-color: var(--n-border-color);
+ --n-merged-th-color-hover: var(--n-th-color-hover);
  --n-merged-th-color-sorting: var(--n-th-color-sorting);
  --n-merged-td-color-hover: var(--n-td-color-hover);
  --n-merged-td-color-sorting: var(--n-td-color-sorting);
@@ -21779,8 +21777,8 @@ const nw = ee({
   setup(e, {
     slots: t
   }) {
-    process.env.NODE_ENV !== "production" && tt(() => {
-      e.onPageChange !== void 0 && at("data-table", "`on-page-change` is deprecated, please use `on-update:page` instead."), e.onPageSizeChange !== void 0 && at("data-table", "`on-page-size-change` is deprecated, please use `on-update:page-size` instead."), e.onSorterChange !== void 0 && at("data-table", "`on-sorter-change` is deprecated, please use `on-update:sorter` instead."), e.onFiltersChange !== void 0 && at("data-table", "`on-filters-change` is deprecated, please use `on-update:filters` instead."), e.onCheckedRowKeysChange !== void 0 && at("data-table", "`on-checked-row-keys-change` is deprecated, please use `on-update:checked-row-keys` instead.");
+    process.env.NODE_ENV !== "production" && rt(() => {
+      e.onPageChange !== void 0 && ut("data-table", "`on-page-change` is deprecated, please use `on-update:page` instead."), e.onPageSizeChange !== void 0 && ut("data-table", "`on-page-size-change` is deprecated, please use `on-update:page-size` instead."), e.onSorterChange !== void 0 && ut("data-table", "`on-sorter-change` is deprecated, please use `on-update:sorter` instead."), e.onFiltersChange !== void 0 && ut("data-table", "`on-filters-change` is deprecated, please use `on-update:filters` instead."), e.onCheckedRowKeysChange !== void 0 && ut("data-table", "`on-checked-row-keys-change` is deprecated, please use `on-update:checked-row-keys` instead.");
     });
     const {
       mergedBorderedRef: r,
@@ -21850,7 +21848,7 @@ const nw = ee({
     }), {
       stickyExpandedRowsRef: Pe,
       mergedExpandedRowKeysRef: ze,
-      renderExpandRef: lt,
+      renderExpandRef: at,
       expandableRef: Qe,
       doUpdateExpandedRowKeys: ct
     } = qy(e, C), {
@@ -21863,7 +21861,7 @@ const nw = ee({
       rightActiveFixedColKeyRef: re,
       rightActiveFixedChildrenColKeysRef: he,
       leftFixedColumnsRef: Te,
-      rightFixedColumnsRef: st,
+      rightFixedColumnsRef: lt,
       fixedColumnLeftMapRef: $t,
       fixedColumnRightMapRef: At
     } = Zy(e, {
@@ -21872,7 +21870,7 @@ const nw = ee({
       mergedCurrentPageRef: S
     }), {
       localeRef: mt
-    } = tr("DataTable"), nt = $(() => e.virtualScroll || e.flexHeight || e.maxHeight !== void 0 || b.value ? "fixed" : e.tableLayout);
+    } = tr("DataTable"), tt = $(() => e.virtualScroll || e.flexHeight || e.maxHeight !== void 0 || b.value ? "fixed" : e.tableLayout);
     Ee(sn, {
       props: e,
       treeMateRef: C,
@@ -21895,7 +21893,7 @@ const nw = ee({
       rightActiveFixedColKeyRef: re,
       rightActiveFixedChildrenColKeysRef: he,
       leftFixedColumnsRef: Te,
-      rightFixedColumnsRef: st,
+      rightFixedColumnsRef: lt,
       fixedColumnLeftMapRef: $t,
       fixedColumnRightMapRef: At,
       mergedCurrentPageRef: S,
@@ -21912,7 +21910,7 @@ const nw = ee({
       expandableRef: Qe,
       stickyExpandedRowsRef: Pe,
       rowKeyRef: ie(e, "rowKey"),
-      renderExpandRef: lt,
+      renderExpandRef: at,
       summaryRef: ie(e, "summary"),
       virtualScrollRef: ie(e, "virtualScroll"),
       virtualScrollXRef: ie(e, "virtualScrollX"),
@@ -21944,7 +21942,7 @@ const nw = ee({
         };
       }),
       onLoadRef: ie(e, "onLoad"),
-      mergedTableLayoutRef: nt,
+      mergedTableLayoutRef: tt,
       maxHeightRef: ie(e, "maxHeight"),
       minHeightRef: ie(e, "minHeight"),
       flexHeightRef: ie(e, "flexHeight"),
@@ -21999,7 +21997,7 @@ const nw = ee({
           tdColorSortingPopover: me,
           thColorSorting: Se,
           thColorSortingModal: Le,
-          thColorSortingPopover: rt,
+          thColorSortingPopover: nt,
           thColor: Ve,
           thColorHover: Et,
           tdColor: It,
@@ -22082,12 +22080,12 @@ const nw = ee({
         "--n-td-color-striped": Ai,
         "--n-td-color-striped-modal": Di,
         "--n-td-color-striped-popover": Ei,
-        "n-td-color-sorting": de,
-        "n-td-color-sorting-modal": pe,
-        "n-td-color-sorting-popover": me,
-        "n-th-color-sorting": Se,
-        "n-th-color-sorting-modal": Le,
-        "n-th-color-sorting-popover": rt
+        "--n-td-color-sorting": de,
+        "--n-td-color-sorting-modal": pe,
+        "--n-td-color-sorting-popover": me,
+        "--n-th-color-sorting": Se,
+        "--n-th-color-sorting-modal": Le,
+        "--n-th-color-sorting-popover": nt
       };
     }), ce = i ? Ye("data-table", $(() => e.size[0]), et, e) : void 0, Be = $(() => {
       if (!e.pagination) return !1;
@@ -22947,7 +22945,7 @@ const Bl = Object.assign(Object.assign({}, bl), Si), hw = On(Bl), vw = ee({
   props: Ec,
   slots: Object,
   setup(e) {
-    process.env.NODE_ENV !== "production" && (e.onHide && at("modal", "`on-hide` is deprecated."), e.onAfterHide && at("modal", "`on-after-hide` is deprecated, please use `on-after-leave` instead."), e.onBeforeHide && at("modal", "`on-before-hide` is deprecated, please use `on-before-leave` instead."), e.overlayStyle && at("modal", "`overlay-style` is deprecated, please use `style` instead."));
+    process.env.NODE_ENV !== "production" && (e.onHide && ut("modal", "`on-hide` is deprecated."), e.onAfterHide && ut("modal", "`on-after-hide` is deprecated, please use `on-after-leave` instead."), e.onBeforeHide && ut("modal", "`on-before-hide` is deprecated, please use `on-before-leave` instead."), e.overlayStyle && ut("modal", "`overlay-style` is deprecated, please use `style` instead."));
     const t = I(null), {
       mergedClsPrefixRef: r,
       namespaceRef: o,
@@ -24394,7 +24392,7 @@ const jw = {
       mergedClsPrefixRef: t,
       wipTransitionCountRef: r
     } = ge(Bi), o = I(null);
-    return tt(() => {
+    return rt(() => {
       var i, a;
       r.value > 0 ? (i = o == null ? void 0 : o.value) === null || i === void 0 || i.classList.add("transitioning") : (a = o == null ? void 0 : o.value) === null || a === void 0 || a.classList.remove("transitioning");
     }), {
@@ -26399,8 +26397,8 @@ const md = ee({
       } = u, X = o ? vo(o.props.model, K || "") : void 0, U = {}, j = {}, q = (E ? te.filter((be) => Array.isArray(be.trigger) ? be.trigger.includes(E) : be.trigger === E) : te).filter(H).map((be, Pe) => {
         const ze = Object.assign({}, be);
         if (ze.validator && (ze.validator = gd(ze.validator, !1)), ze.asyncValidator && (ze.asyncValidator = gd(ze.asyncValidator, !0)), ze.renderMessage) {
-          const lt = `__renderMessage__${Pe}`;
-          j[lt] = ze.message, ze.message = lt, U[lt] = ze.renderMessage;
+          const at = `__renderMessage__${Pe}`;
+          j[at] = ze.message, ze.message = at, U[at] = ze.renderMessage;
         }
         return ze;
       }), Y = q.filter((be) => be.level !== "warning"), ae = q.filter((be) => be.level === "warning"), le = {
@@ -26991,8 +26989,8 @@ const QS = {
   props: d2,
   slots: Object,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
-      e.spinning !== void 0 && at("spin", "`spinning` is deprecated, please use `show` instead.");
+    process.env.NODE_ENV !== "production" && rt(() => {
+      e.spinning !== void 0 && ut("spin", "`spinning` is deprecated, please use `show` instead.");
     });
     const {
       mergedClsPrefixRef: t,
@@ -27023,7 +27021,7 @@ const QS = {
       } = e;
       return typeof d == "number" ? String(d) : d[0];
     }), i, e) : void 0, l = _a(e, ["spinning", "show"]), s = I(!1);
-    return tt((d) => {
+    return rt((d) => {
       let u;
       if (l.value) {
         const {
@@ -27242,8 +27240,8 @@ const f2 = ee({
   props: c2,
   slots: Object,
   setup(e) {
-    process.env.NODE_ENV !== "production" && tt(() => {
-      e.onChange && at("switch", "`on-change` is deprecated, please use `on-update:value` instead.");
+    process.env.NODE_ENV !== "production" && rt(() => {
+      e.onChange && ut("switch", "`on-change` is deprecated, please use `on-update:value` instead.");
     }), Ur === void 0 && (typeof CSS < "u" ? typeof CSS.supports < "u" ? Ur = CSS.supports("width", "max(1px)") : Ur = !1 : Ur = !0);
     const {
       mergedClsPrefixRef: t,
@@ -29202,14 +29200,14 @@ const ai = /* @__PURE__ */ Object.assign({
     function s() {
       e.item._isActionItem || e.item.field && (r.value = e.item.defaultValue);
     }
-    return t({ reset: s }), (d, u) => (Re(), ut("div", {
+    return t({ reset: s }), (d, u) => (Re(), dt("div", {
       class: Ut([
         "p-search-item",
         e.item._isActionItem ? "p-search-item-action" : "",
         e.lastItemForMulti ? "p-search-item-last" : ""
       ])
     }, [
-      !e.item._isActionItem && !e.item._isEmptyItem ? (Re(), ut(je, { key: 0 }, [
+      !e.item._isActionItem && !e.item._isEmptyItem ? (Re(), dt(je, { key: 0 }, [
         tn(oe(yi), {
           class: "p-search-item-label",
           style: an(e.unlimitedLabelWidth ? "" : { boxSizing: "border-box", width: `${e.labelWidth}px` })
@@ -29232,7 +29230,7 @@ const ai = /* @__PURE__ */ Object.assign({
           }, e.item.props, { onChange: i }), null, 16, ["modelValue"])) : xt("", !0)
         ])
       ], 64)) : xt("", !0),
-      e.item._isActionItem ? (Re(), ut(je, { key: 1 }, [
+      e.item._isActionItem ? (Re(), dt(je, { key: 1 }, [
         tn(oe(or), {
           style: { width: "80px" },
           onClick: a
@@ -29397,13 +29395,13 @@ const ai = /* @__PURE__ */ Object.assign({
         v("change", x());
       });
     }
-    return t({ getSearchData: x, resetSearchData: C }), (k, y) => (Re(), ut("div", S2, [
-      (Re(!0), ut(je, null, Zr(s.value, (B, F) => (Re(), ut("div", {
+    return t({ getSearchData: x, resetSearchData: C }), (k, y) => (Re(), dt("div", S2, [
+      (Re(!0), dt(je, null, Zr(s.value, (B, F) => (Re(), dt("div", {
         key: F,
         class: "p-search-lilne",
         style: an(F > 0 ? "margin-top:12px" : "")
       }, [
-        (Re(!0), ut(je, null, Zr(B, (A, V) => (Re(), vt(w2, {
+        (Re(!0), dt(je, null, Zr(B, (A, V) => (Re(), vt(w2, {
           ref_for: !0,
           ref: "searchItem",
           key: A.field || V,
@@ -29448,7 +29446,7 @@ const ai = /* @__PURE__ */ Object.assign({
     const r = io(e, "modelValue"), o = Co(), i = t, a = ki(function(l) {
       e.readonly || (r.value = l, i("change", l));
     }, 300);
-    return (l, s) => (Re(), ut(je, null, [
+    return (l, s) => (Re(), dt(je, null, [
       tn(oe(f2), {
         class: Ut([oe(o).class || "", e.readonly ? "p-switch-readonly" : ""]),
         style: an(oe(o).style || ""),
@@ -29475,11 +29473,11 @@ const ai = /* @__PURE__ */ Object.assign({
           key: "1"
         } : void 0
       ]), 1032, ["class", "style", "size", "value", "loading", "disabled", "checked-value", "unchecked-value", "on-update:value"]),
-      e.outside && e.checkedText != null && e.checkedText !== "" && r.value === e.checkedValue ? (Re(), ut("span", {
+      e.outside && e.checkedText != null && e.checkedText !== "" && r.value === e.checkedValue ? (Re(), dt("span", {
         key: 0,
         class: Ut(["p-switch-outside-text", e.disabled ? "p-switch-outside-text-disabled" : ""])
       }, on(e.checkedText), 3)) : xt("", !0),
-      e.outside && e.uncheckedText != null && e.uncheckedText !== "" && r.value === e.uncheckedValue ? (Re(), ut("span", {
+      e.outside && e.uncheckedText != null && e.uncheckedText !== "" && r.value === e.uncheckedValue ? (Re(), dt("span", {
         key: 1,
         class: Ut(["p-switch-outside-text", e.disabled ? "p-switch-outside-text-disabled" : ""])
       }, on(e.uncheckedText), 3)) : xt("", !0)
@@ -29623,7 +29621,7 @@ const ai = /* @__PURE__ */ Object.assign({
       onSubmit: $f(oe(c), ["prevent"])
     }, {
       default: it(() => [
-        !e.inline || e.inline && e.inlineSize.length <= 0 ? (Re(!0), ut(je, { key: 0 }, Zr(e.model, (w, R) => (Re(), ut(je, {
+        !e.inline || e.inline && e.inlineSize.length <= 0 ? (Re(!0), dt(je, { key: 0 }, Zr(e.model, (w, R) => (Re(), dt(je, {
           key: w.field || R
         }, [
           w.placeholder ? xt("", !0) : (Re(), vt(oe(md), {
@@ -29637,7 +29635,7 @@ const ai = /* @__PURE__ */ Object.assign({
             first: !0
           }, {
             default: it(() => [
-              w.slot === !0 ? wn(C.$slots, w.field, { key: 0 }) : (Re(), ut(je, { key: 1 }, [
+              w.slot === !0 ? wn(C.$slots, w.field, { key: 0 }) : (Re(), dt(je, { key: 1 }, [
                 w.type === "input" ? (Re(), vt($n(oe(ai)), Rt({
                   key: 0,
                   ref_for: !0,
@@ -29667,11 +29665,11 @@ const ai = /* @__PURE__ */ Object.assign({
             _: 2
           }, 1032, ["style", "label", "path", "feedback-class"]))
         ], 64))), 128)) : xt("", !0),
-        e.inline && e.inlineSize.length > 0 && o.value ? (Re(!0), ut(je, { key: 1 }, Zr(o.value, (w, R) => (Re(), ut("div", {
+        e.inline && e.inlineSize.length > 0 && o.value ? (Re(!0), dt(je, { key: 1 }, Zr(o.value, (w, R) => (Re(), dt("div", {
           key: R,
           class: Ut(["p-form-inline-item", e.inlineClass[R] ? e.inlineClass[R] : ""])
         }, [
-          (Re(!0), ut(je, null, Zr(w, (k, y) => (Re(), ut(je, {
+          (Re(!0), dt(je, null, Zr(w, (k, y) => (Re(), dt(je, {
             key: k.field || R + "-" + y
           }, [
             !k.isInlinePlaceholder && !k.placeholder ? (Re(), vt(oe(md), {
@@ -29685,7 +29683,7 @@ const ai = /* @__PURE__ */ Object.assign({
               first: !0
             }, {
               default: it(() => [
-                k.slot === !0 ? wn(C.$slots, k.field, { key: 0 }) : (Re(), ut(je, { key: 1 }, [
+                k.slot === !0 ? wn(C.$slots, k.field, { key: 0 }) : (Re(), dt(je, { key: 1 }, [
                   k.type === "input" ? (Re(), vt($n(oe(ai)), Rt({
                     key: 0,
                     ref_for: !0,
@@ -29713,10 +29711,10 @@ const ai = /* @__PURE__ */ Object.assign({
                 ], 64))
               ]),
               _: 2
-            }, 1032, ["style", "label", "path", "feedback-class"])) : (Re(), ut("div", k2))
+            }, 1032, ["style", "label", "path", "feedback-class"])) : (Re(), dt("div", k2))
           ], 64))), 128))
         ], 2))), 128)) : xt("", !0),
-        e.virtualSubmit ? (Re(), ut("button", R2, "virtual button")) : xt("", !0),
+        e.virtualSubmit ? (Re(), dt("button", R2, "virtual button")) : xt("", !0),
         wn(C.$slots, "default")
       ]),
       _: 3
@@ -29761,7 +29759,7 @@ const ai = /* @__PURE__ */ Object.assign({
     function r() {
       e.onClose && e.onClose(), e.onPositiveClick && e.onPositiveClick();
     }
-    return (o, i) => (Re(), ut(je, null, [
+    return (o, i) => (Re(), dt(je, null, [
       e.negativeText ? (Re(), vt(oe(or), {
         key: 0,
         size: "xs",
@@ -30009,7 +30007,7 @@ const Qc = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: r = !1 } = 
     function b(C) {
       return C == null || C === "" ? !0 : x(e.dataField ? C[e.dataField] : C);
     }
-    return (C, S) => (Re(), ut("div", {
+    return (C, S) => (Re(), dt("div", {
       class: Ut(oe(i).class ? oe(i).class : ""),
       style: an(e.contentStyle)
     }, [
@@ -30018,14 +30016,14 @@ const Qc = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: r = !1 } = 
         data: oe(l),
         isEmpty: v.value
       }) : xt("", !0),
-      oe(p) ? (Re(), ut("div", E2, [
+      oe(p) ? (Re(), dt("div", E2, [
         tn(oe(Yc), {
           size: t.value,
           style: an(r.value)
         }, null, 8, ["size", "style"]),
         S[0] || (S[0] = Un("div", { class: "p-promised-loading-mask" }, null, -1))
       ])) : xt("", !0),
-      v.value && !e.defaultSlotAsEmpty ? (Re(), ut(je, { key: 2 }, [
+      v.value && !e.defaultSlotAsEmpty ? (Re(), dt(je, { key: 2 }, [
         C.$slots.emptyCustomize ? wn(C.$slots, "emptyCustomize", { key: 1 }) : (Re(), vt(oe($r), {
           key: 0,
           class: Ut(o.value),
@@ -30107,7 +30105,7 @@ const ef = {
     function l() {
       r.value || (e.onPositiveClick ? i(e.onPositiveClick, "positiveClick") : e.onClose());
     }
-    return (s, d) => (Re(), ut(je, null, [
+    return (s, d) => (Re(), dt(je, null, [
       e.negativeText ? (Re(), vt(oe(or), {
         key: 0,
         size: "small",
