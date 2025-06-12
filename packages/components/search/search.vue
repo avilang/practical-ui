@@ -169,23 +169,34 @@ function resetSearchData() {
   return getSearchData()
 }
 
+// 用于判断change事件是否由用户通过点击操作按钮触发的
+let actionTime = 0
+
 function doSearch() {
-  emit('search', getSearchData())
+  actionTime = new Date().getTime()
+  emit('search', getSearchData(), { type: 'search' })
 }
 
 function doReset() {
   const data = resetSearchData()
   nextTick(() => {
-    emit('reset', data)
+    actionTime = new Date().getTime()
+    emit('reset', data, { type: 'reset' })
   })
 }
 
 // searchData 变化时候触发
 // 对于 input 组件检测时机是失去焦点后
 function handleChange() {
-  nextTick(() => {
-    emit('change', getSearchData())
-  })
+  setTimeout(() => {
+    let isChangByAction = false
+    const now = new Date().getTime()
+
+    if (actionTime != 0 && now > actionTime && now - actionTime < 200) {
+      isChangByAction = true
+    }
+    emit('change', getSearchData(), { type: 'change', isChangByAction })
+  }, 0)
 }
 
 defineExpose({ getSearchData, resetSearchData })

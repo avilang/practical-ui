@@ -1,6 +1,6 @@
 <template>
   <box-component :name="`${name}`">
-    <p-search :model="model" :item-width="350" @search="onSearch" @change="onChange" />
+    <p-search :model="model" :item-width="350" @search="onSearch" @change="onReset" @reset="onReset" />
   </box-component>
 </template>
 
@@ -57,11 +57,14 @@ const model = [
   }
 ]
 
-function onSearch(query) {
+function onSearch(query, payload = {}) {
+  console.log('🚀 ~ onSearch ~ payload:', payload)
   console.log('🚀 ~ onSearch ~ query:', query)
 }
 
-function onChange(data) {
-  console.log('🚀 ~ onChange ~ data:', data)
+function onReset(data, payload = {}) {
+  if (payload.type === 'change' && payload.isChangByAction) return
+  console.log(`🚀 ~ ${payload.type} ~ payload:`, payload)
+  console.log(`🚀 ~ ${payload.type} ~ data:`, data)
 }
 </script>
