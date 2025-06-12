@@ -53,7 +53,7 @@
       :inline="true"
       :model="model3"
       :rules="rules3"
-      :show-require-mark="false"
+      :show-require-mark="true"
       :inline-size="[2]"
       :inline-class="[, 'bbbb']"
       feedback-size-class="s"
@@ -189,7 +189,8 @@ const model3 = ref([
       placeholder: '请输入昵称',
       maxlength: 20
     },
-    label: '昵称'
+    label: '昵称',
+    showRequireMark: false
   },
   {
     type: 'input',
@@ -231,7 +232,8 @@ const model3 = ref([
         console.log('select update')
       }
     },
-    label: '所属账号'
+    label: '所属账号',
+    showRequireMark: false
   },
   {
     type: 'switch',

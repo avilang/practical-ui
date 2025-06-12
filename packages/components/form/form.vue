@@ -23,6 +23,7 @@
           :path="item.field"
           :feedback-class="feedbackSizeClassName"
           :first="true"
+          :show-require-mark="item.showRequireMark == null ? showRequireMark : !!item.showRequireMark"
         >
           <slot v-if="item.slot === true" :name="item.field" />
           <template v-else>
@@ -70,6 +71,7 @@
             :path="item.field"
             :feedback-class="feedbackSizeClassName"
             :first="true"
+            :show-require-mark="item.showRequireMark == null ? showRequireMark : !!item.showRequireMark"
           >
             <slot v-if="item.slot === true" :name="item.field" />
             <template v-else>
@@ -128,7 +130,7 @@ const { model, rules, feedbackSizeClass, inline, inlineSize, inlineClass } = def
   inline: { type: Boolean, default: false },
   showLabel: { type: Boolean, default: true },
   labelPlacement: { type: String, default: 'left' }, // 标签显示的位置
-  showRequireMark: { type: Boolean, default: true }, // 是否展示必填的星号
+  showRequireMark: { type: Boolean, default: false }, // 是否展示必填的星号
   readonly: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
   feedbackSizeClass: { type: String },
