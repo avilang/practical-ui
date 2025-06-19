@@ -55,6 +55,8 @@ const initSearchData = () => {
     if (!item.field) return
     if (Object.hasOwn(item, 'defaultValue')) {
       data[item.field] = item.defaultValue
+    } else if (item.type === 'input') {
+      data[item.field] = ''
     }
   })
   searchData.value = data
@@ -192,7 +194,7 @@ function handleChange() {
     let isChangByAction = false
     const now = new Date().getTime()
 
-    if (actionTime != 0 && now > actionTime && now - actionTime < 200) {
+    if (actionTime != 0 && now >= actionTime && now - actionTime < 200) {
       isChangByAction = true
     }
     emit('change', getSearchData(), { type: 'change', isChangByAction })

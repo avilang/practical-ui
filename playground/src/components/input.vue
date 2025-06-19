@@ -5,7 +5,7 @@
   </box-component>
 
   <box-component :name="`${name} - Not Trim`">
-    <p-input v-model="value2" :trim="false" />
+    <p-input v-model="value2" :trim="false" :blurByEnter="true" @enter="handleEnter" @blur="handleBlur" />
     <div class="mt-10 pl-2">输入框值：[{{ value2 }}]</div>
   </box-component>
 
@@ -26,4 +26,13 @@ const name = 'PInput'
 const value = ref('ABC')
 const value2 = ref('')
 const value3 = ref('❤️ 图标 1 A')
+
+function handleEnter({ value }) {
+  console.log('🚀 ~ handleEnter ~ value:', value)
+}
+
+function handleBlur({ value, isTriggerByEnter }) {
+  if (isTriggerByEnter) return
+  console.log('🚀 ~ handleBlur ~ value:', value)
+}
 </script>

@@ -16,6 +16,7 @@
     :clearable="clearable"
     @input="handleInput"
     @blur="handleBlur"
+    @keyup.enter="handleEnter"
   >
     <template v-if="prefixIcon" #prefix>
       <n-icon v-bind="prefixIcon" />
@@ -33,7 +34,7 @@ defineOptions({
   inheritAttrs: false
 })
 
-const { trim } = defineProps({
+const { trim, blurByEnter } = defineProps({
   type: { type: String, default: 'text' },
   size: { type: String, default: 'medium' },
   placeholder: { type: String, default: '请输入' },
@@ -45,10 +46,11 @@ const { trim } = defineProps({
   readonly: { type: Boolean, default: false },
   trim: { type: Boolean, default: true }, // 默认去除首尾空格
   showPassword: { type: Boolean, default: false }, // 是否显示密码
-  prefixIcon: { type: Object } // 前缀图标 Icon Props
+  prefixIcon: { type: Object }, // 前缀图标 Icon Props
+  blurByEnter: { type: Boolean, default: true }
 })
 const value = defineModel({ type: String, default: '' })
-const emit = defineEmits(['blur', 'input'])
+const emit = defineEmits(['blur', 'input', 'enter'])
 
 function handleValueWithTrim() {
   let v = value.value
@@ -60,9 +62,20 @@ function handleValueWithTrim() {
   return v
 }
 
+let enterTime = 0
+
 function handleBlur() {
+  let isTriggerByEnter = false
+
+  if (blurByEnter && enterTime > 0) {
+    const now = new Date().getTime()
+    if (enterTime != 0 && now >= enterTime && now - enterTime < 200) {
+      isTriggerByEnter = true
+    }
+  }
+
   const val = handleValueWithTrim()
-  emit('blur', { value: val })
+  emit('blur', { value: val, isTriggerByEnter })
 }
 
 function handleInput(val) {
@@ -78,6 +91,18 @@ function handleInput(val) {
 const inputRef = useTemplateRef('input')
 const focus = () => {
   inputRef.value && inputRef.value.focus()
+}
+
+function handleEnter() {
+  let v = value.value
+  if (trim) v = v.trim()
+  emit('enter', { value: v })
+  if (blurByEnter) {
+    enterTime = new Date().getTime()
+    setTimeout(() => {
+      inputRef.value && inputRef.value.blur()
+    }, 0)
+  }
 }
 
 defineExpose({ focus })

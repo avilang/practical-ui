@@ -1,7 +1,7 @@
 {
   "name": "@avilang/practical-ui",
   "type": "module",
-  "version": "0.3.54",
+  "version": "0.3.55",
   "description": "Practical UI components created based on vue3",
   "main": "dist/index.js",
   "files": [
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "grapheme-splitter": "1.0.4",
-    "naive-ui": "2.41.1",
+    "naive-ui": "2.42.0",
     "vfonts": "0.0.3",
     "vue-promised": "2.2.0"
   },
