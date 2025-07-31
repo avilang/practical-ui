@@ -29403,7 +29403,7 @@ const ai = /* @__PURE__ */ Object.assign({
       setTimeout(() => {
         let y = !1;
         const B = (/* @__PURE__ */ new Date()).getTime();
-        S != 0 && B >= S && B - S < 200 && (y = !0), h("change", x(), { type: "change", isChangByAction: y });
+        S != 0 && B >= S && B - S < 200 && (y = !0), h("change", x(), { type: "change", isActionTriggered: y });
       }, 0);
     }
     return t({ getSearchData: x, resetSearchData: C }), (y, B) => (Re(), dt("div", B2, [

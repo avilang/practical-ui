@@ -191,13 +191,13 @@ function doReset() {
 // 对于 input 组件检测时机是失去焦点后
 function handleChange() {
   setTimeout(() => {
-    let isChangByAction = false
+    let isActionTriggered = false
     const now = new Date().getTime()
 
     if (actionTime != 0 && now >= actionTime && now - actionTime < 200) {
-      isChangByAction = true
+      isActionTriggered = true
     }
-    emit('change', getSearchData(), { type: 'change', isChangByAction })
+    emit('change', getSearchData(), { type: 'change', isActionTriggered })
   }, 0)
 }
 
