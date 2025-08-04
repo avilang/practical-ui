@@ -39,7 +39,7 @@ const { itemWidth, model, visibleLine, labelWidth, maxLabelWidth, showColon, sho
   labelWidth: { type: Number },
   maxLabelWidth: { type: Number, default: 87 },
   visibleLine: { type: Number, default: -1 },
-  showColon: { type: Boolean, default: true },
+  showColon: { type: Boolean, default: false },
   showResetBtnIcon: { type: Boolean, default: false }
 })
 const searchItemWidth = Math.max(itemWidth, 200)

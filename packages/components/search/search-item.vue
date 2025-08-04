@@ -7,7 +7,7 @@
     ]"
   >
     <template v-if="!item._isActionItem && !item._isEmptyItem">
-      <div class="p-search-item-label">
+      <div :class="{ 'p-search-item-label': true, 'p-search-item-colon-label': showColon }">
         <n-ellipsis
           :style="
             oneLineCondition
@@ -146,7 +146,7 @@ defineExpose({ reset })
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  padding-right: 24px;
+  padding-right: 16px;
 }
 
 .p-search-item.p-search-item-action {
@@ -163,6 +163,10 @@ defineExpose({ reset })
   margin-right: 8px;
   text-align: right;
   padding-left: 1px;
+}
+
+.p-search-item .p-search-item-label.p-search-item-colon-label {
+  margin-right: 1px;
 }
 
 .p-search-item-content {
