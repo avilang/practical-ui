@@ -55,7 +55,7 @@
         >搜索</s-button
       >
       <s-button style="margin-left: 10px; width: 80px" type="default" @click="handleReset">
-        <template #icon>
+        <template #icon v-if="item.showResetBtnIcon">
           <n-icon size="18">
             <svg
               t="1737871878167"
