@@ -1,6 +1,6 @@
 <template>
   <box-component :name="`${name}`">
-    <p-search :model="model" :item-width="350" @search="onSearch" @change="onReset" @reset="onReset" />
+    <p-search :model="model" :item-width="260" @search="onSearch" @change="onReset" @reset="onReset" />
   </box-component>
 </template>
 
@@ -19,13 +19,13 @@ const model = [
     field: 'accountName',
     defaultValue: '136',
     props: { placeholder: '手机号', maxlength: 11, clearable: true },
-    label: '账号'
+    label: '账号12'
   },
   {
     type: 'input',
     field: 'nickName',
     props: { maxlength: 20, clearable: true },
-    label: '昵称'
+    label: '12abcdTY13AG'
   },
   {
     type: 'select',
@@ -39,7 +39,7 @@ const model = [
       ],
       clearable: false
     },
-    label: '状态'
+    label: 'a状态B'
   },
   {
     type: 'select',

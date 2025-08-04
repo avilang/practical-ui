@@ -1,12 +1,11 @@
 <template>
   <div class="p-search" ref="search">
     <div v-for="(listPart, i) in list" :key="i" class="p-search-lilne" :style="i > 0 ? 'margin-top:12px' : ''">
-      <!-- unlimitedLabelWidth 只有一行或存在两行且第二行只有操作按钮的情况下为真 -->
       <search-item
         v-for="(item, j) in listPart"
         ref="searchItem"
         :key="item.field || j"
-        :unlimitedLabelWidth="layout.singleLine || (list.length === 2 && list[1].length === 1)"
+        :oneLineCondition="oneLineCondition"
         :labelWidth="realLabelWidth"
         :showColon="showColon"
         :item="item"
@@ -34,18 +33,15 @@ defineOptions({
   name: 'PSearch'
 })
 
-const { itemWidth, model, visibleLine, labelWidth, showColon } = defineProps({
+const { itemWidth, model, visibleLine, labelWidth, maxLabelWidth, showColon } = defineProps({
   model: { type: Array, default: () => [] },
   itemWidth: { type: Number, default: 268 },
   labelWidth: { type: Number },
+  maxLabelWidth: { type: Number, default: 87 },
   visibleLine: { type: Number, default: -1 },
   showColon: { type: Boolean, default: true }
 })
 const searchItemWidth = Math.max(itemWidth, 200)
-const realLabelWidth = computed(() => {
-  if (labelWidth) return labelWidth
-  return showColon ? 74 : 60
-})
 
 const searchData = ref({})
 const initSearchData = () => {
@@ -68,6 +64,19 @@ const layout = ref({})
 const itemAction = { _isActionItem: true, width: 170 } // width 为操作项的宽度
 const itemEmpty = { _isEmptyItem: true } // 占位项
 const searchRef = useTemplateRef('search')
+
+// 只有一行或存在两行且第二行只有操作按钮的情况下为真
+const oneLineCondition = computed(() => {
+  return layout.value.singleLine || (list.value.length === 2 && list.value[1].length === 1)
+})
+const realLabelWidth = computed(() => {
+  let ilableWidth = labelWidth || 59
+  ilableWidth = Math.min(ilableWidth, maxLabelWidth)
+
+  if (oneLineCondition.value === false) return ilableWidth
+
+  return maxLabelWidth
+})
 
 function generateLayout() {
   if (!searchRef.value) return

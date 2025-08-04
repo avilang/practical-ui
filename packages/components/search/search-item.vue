@@ -7,11 +7,16 @@
     ]"
   >
     <template v-if="!item._isActionItem && !item._isEmptyItem">
-      <n-ellipsis
-        class="p-search-item-label"
-        :style="unlimitedLabelWidth ? '' : { boxSizing: 'border-box', width: `${labelWidth}px` }"
-        >{{ item.label }}{{ showColon ? '：' : '' }}</n-ellipsis
-      >
+      <div class="p-search-item-label">
+        <n-ellipsis
+          :style="
+            oneLineCondition
+              ? `max-width: ${labelWidth - 1}px`
+              : { boxSizing: 'border-box', width: `${labelWidth - 1}px` }
+          "
+          >{{ item.label }}</n-ellipsis
+        ><span v-if="showColon">：</span>
+      </div>
       <div class="p-search-item-content">
         <component
           v-if="item.type === 'input'"
@@ -87,7 +92,7 @@ import { PButton as SButton } from '../button/index.js'
 
 const { item, searchData, doSearch, doReset, doChange, updateSearchData } = defineProps({
   lastItemForMulti: { type: Boolean, default: false }, // 多行且每行的最后一个搜索条件
-  unlimitedLabelWidth: { type: Boolean, required: true },
+  oneLineCondition: { type: Boolean, required: true },
   showColon: { type: Boolean, default: true },
   item: { type: Object, required: true },
   labelWidth: { type: Number, required: true },
@@ -156,7 +161,7 @@ defineExpose({ reset })
 
 .p-search-item .p-search-item-label {
   margin-right: 8px;
-  text-align: left;
+  text-align: right;
   padding-left: 1px;
 }
 
