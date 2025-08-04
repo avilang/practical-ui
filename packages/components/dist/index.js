@@ -29336,7 +29336,7 @@ const ai = /* @__PURE__ */ Object.assign({
     labelWidth: { type: Number },
     maxLabelWidth: { type: Number, default: 87 },
     visibleLine: { type: Number, default: -1 },
-    showColon: { type: Boolean, default: !1 },
+    showColon: { type: Boolean, default: !0 },
     showResetBtnIcon: { type: Boolean, default: !1 }
   },
   emits: ["search", "reset", "change"],
