@@ -12,6 +12,18 @@
   <box-component :name="`${name} - 字数统计`">
     <p-input placeholder="请输入" v-model="value3" :trim="false" :autofocus="true" :maxlength="20" show-count />
   </box-component>
+
+  <box-component :name="`${name} - textarea`">
+    <p-input
+      placeholder="请输入"
+      v-model="value4"
+      type="textarea"
+      :trim="false"
+      :autosize="{ minRows: 2 }"
+      :maxlength="1000"
+      show-count
+    />
+  </box-component>
 </template>
 
 <script setup>
@@ -26,6 +38,7 @@ const name = 'PInput'
 const value = ref('ABC')
 const value2 = ref('')
 const value3 = ref('❤️ 图标 1 A')
+const value4 = ref('❤️ 图标 1 A')
 
 function handleEnter({ value }) {
   console.log('🚀 ~ handleEnter ~ value:', value)

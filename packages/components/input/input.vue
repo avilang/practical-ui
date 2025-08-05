@@ -14,6 +14,7 @@
     :disabled="disabled"
     :readonly="readonly"
     :clearable="clearable"
+    :autosize="type !== 'textarea' ? false : autosize"
     @input="handleInput"
     @blur="handleBlur"
     @keyup.enter="handleEnter"
@@ -43,6 +44,7 @@ const { trim, blurByEnter } = defineProps({
   autofocus: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
   clearable: { type: Boolean, default: false },
+  autosize: { type: [Object, Boolean], default: true },
   readonly: { type: Boolean, default: false },
   trim: { type: Boolean, default: true }, // 默认去除首尾空格
   showPassword: { type: Boolean, default: false }, // 是否显示密码

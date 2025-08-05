@@ -28970,6 +28970,7 @@ const ai = /* @__PURE__ */ Object.assign({
     autofocus: { type: Boolean, default: !1 },
     disabled: { type: Boolean, default: !1 },
     clearable: { type: Boolean, default: !1 },
+    autosize: { type: [Object, Boolean], default: !0 },
     readonly: { type: Boolean, default: !1 },
     trim: { type: Boolean, default: !0 },
     // 默认去除首尾空格
@@ -29032,6 +29033,7 @@ const ai = /* @__PURE__ */ Object.assign({
       disabled: e.disabled,
       readonly: e.readonly,
       clearable: e.clearable,
+      autosize: e.type !== "textarea" ? !1 : e.autosize,
       onInput: d,
       onBlur: s,
       onKeyup: Pf(v, ["enter"])
@@ -29043,7 +29045,7 @@ const ai = /* @__PURE__ */ Object.assign({
         ]),
         key: "0"
       } : void 0
-    ]), 1032, ["type", "size", "show-password-on", "value", "maxlength", "show-count", "count-graphemes", "placeholder", "autofocus", "disabled", "readonly", "clearable"]));
+    ]), 1032, ["type", "size", "show-password-on", "value", "maxlength", "show-count", "count-graphemes", "placeholder", "autofocus", "disabled", "readonly", "clearable", "autosize"]));
   }
 }), li = /* @__PURE__ */ Object.assign({
   name: "PSelect",
