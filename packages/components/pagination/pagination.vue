@@ -35,13 +35,13 @@ defineProps({
   pageSlot: { type: Number, default: 9 },
   showQuickJumper: { type: Boolean, default: true },
   showSizePicker: { type: Boolean, default: true },
-  pageSizes: { type: Array, default: () => [10, 20, 30, 40] },
+  pageSizes: { type: Array, default: () => [20, 40, 60, 80] },
   simple: { type: Boolean, default: false }
 })
 
 const attrs = useAttrs()
 const page = defineModel('page', { type: Number, default: 1 })
-const pageSize = defineModel('pageSize', { type: Number, default: 10 })
+const pageSize = defineModel('pageSize', { type: Number, default: 20 })
 const emit = defineEmits(['changePage', 'changePageSize'])
 
 function handleUpdatePage(current) {

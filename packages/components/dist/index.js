@@ -29880,12 +29880,12 @@ const ai = /* @__PURE__ */ Object.assign({
     pageSlot: { type: Number, default: 9 },
     showQuickJumper: { type: Boolean, default: !0 },
     showSizePicker: { type: Boolean, default: !0 },
-    pageSizes: { type: Array, default: () => [10, 20, 30, 40] },
+    pageSizes: { type: Array, default: () => [20, 40, 60, 80] },
     simple: { type: Boolean, default: !1 }
   }, {
     page: { type: Number, default: 1 },
     pageModifiers: {},
-    pageSize: { type: Number, default: 10 },
+    pageSize: { type: Number, default: 20 },
     pageSizeModifiers: {}
   }),
   emits: /* @__PURE__ */ On(["changePage", "changePageSize"], ["update:page", "update:pageSize"]),
