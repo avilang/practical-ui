@@ -1,11 +1,12 @@
 <template>
   <box-component :name="`${name}`">
-    <p-data-table :columns="columns" :data="data" :striped="false" />
+    <p-data-table ref="table" :columns="columns" :data="data" :striped="false" :max-height="200" />
   </box-component>
 </template>
 
 <script setup>
 import BoxComponent from './box-component.vue'
+import { useTemplateRef } from 'vue'
 
 defineOptions({
   name: 'PDataTableWithBox'
@@ -86,4 +87,9 @@ const data = [
     uTime: '2024-11-06 21:21:16'
   }
 ]
+
+const tableRef = useTemplateRef('table')
+setTimeout(() => {
+  tableRef.value.scrollTo({ left: 0, top: 0 })
+}, 3000)
 </script>
