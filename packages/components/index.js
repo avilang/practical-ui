@@ -17,6 +17,7 @@ import { PInput } from './input/index.js'
 import { PSelect } from './select/index.js'
 import { PSwitch } from './switch/index.js'
 import { PRadio } from './radio/index.js'
+import { PCheckbox } from './checkbox/index.js'
 import { PButton } from './button/index.js'
 import { PDataTable } from './data-table/index.js'
 import { PPopconfirm } from './popconfirm/index.js'
@@ -34,6 +35,7 @@ export default {
     app.component(`${prefix}-select`, PSelect)
     app.component(`${prefix}-switch`, PSwitch)
     app.component(`${prefix}-radio`, PRadio)
+    app.component(`${prefix}-checkbox`, PCheckbox)
     app.component(`${prefix}-button`, PButton)
     app.component(`${prefix}-data-table`, PDataTable)
     app.component(`${prefix}-popconfirm`, PPopconfirm)

@@ -28,6 +28,7 @@ import Popconfirm from './components/popconfirm.vue'
 import Promised from './components/promised.vue'
 import Switch from './components/switch.vue'
 import Radio from './components/radio.vue'
+import Checkbox from './components/checkbox.vue'
 
 const components = {
   button: Button,
@@ -41,7 +42,8 @@ const components = {
   promised: Promised,
   pagination: Pagination,
   switch: Switch,
-  radio: Radio
+  radio: Radio,
+  checkbox: Checkbox
 }
 const options = [
   { componentName: 'P-Button', componentKey: 'button' },
@@ -54,6 +56,7 @@ const options = [
   { componentName: 'P-Promised', componentKey: 'promised' },
   { componentName: 'P-Switch', componentKey: 'switch' },
   { componentName: 'P-Radio', componentKey: 'radio' },
+  { componentName: 'P-Checkbox', componentKey: 'checkbox' },
   { componentName: 'Dialog', componentKey: 'dialog' },
   { componentName: 'Modal', componentKey: 'modal' }
 ]
