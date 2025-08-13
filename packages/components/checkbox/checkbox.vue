@@ -6,6 +6,7 @@
     :disabled="disabled"
     :checked-value="true"
     :unchecked-value="false"
+    :value="val"
     :on-update:checked="handleCheckedChange"
     ><slot></slot
   ></n-checkbox>
@@ -25,7 +26,8 @@ const { checkedValue, uncheckedValue } = defineProps({
   size: { type: String, default: 'medium' },
   disabled: { type: Boolean, default: false },
   checkedValue: { type: [String, Number, Boolean], default: true },
-  uncheckedValue: { type: [String, Number, Boolean], default: false }
+  uncheckedValue: { type: [String, Number, Boolean], default: false },
+  val: { type: [String, Number] }
 })
 
 const value = defineModel({ type: [String, Number, Boolean] })

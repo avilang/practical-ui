@@ -27,6 +27,20 @@
       >粉桃子</p-checkbox
     >
   </box-component>
+
+  <box-component :name="`${name} - group`">
+    <p-checkbox-group
+      style="padding: 16px; border: 1px solid #f90; border-radius: 4px"
+      v-model="aValue"
+      @change="handleCheckedChange"
+    >
+      <p-checkbox style="margin-right: 20px" :val="1">圆珠笔</p-checkbox>
+      <p-checkbox style="margin-right: 20px" val="pencil">铅笔</p-checkbox>
+      <p-checkbox style="margin-right: 20px" :val="2">马克笔</p-checkbox>
+      <p-checkbox style="margin-right: 20px" val="eraser" disabled>橡皮</p-checkbox>
+    </p-checkbox-group>
+    <div style="margin-top: 10px; padding-left: 2px">{{ aValue }}</div>
+  </box-component>
 </template>
 
 <script setup>
@@ -45,5 +59,11 @@ const value4 = ref(2)
 
 function handleChange(val) {
   console.log('🚀 ~ handleChange ~ val:', val)
+}
+
+const aValue = ref([2, 'pencil'])
+function handleCheckedChange(value, meta) {
+  console.log('🚀 ~ handleCheckedChange ~ meta:', meta)
+  console.log('🚀 ~ handleCheckedChange ~ value:', value)
 }
 </script>
