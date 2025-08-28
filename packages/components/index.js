@@ -19,6 +19,7 @@ import { PSwitch } from './switch/index.js'
 import { PRadio } from './radio/index.js'
 import { PCheckbox } from './checkbox/index.js'
 import { PCheckboxGroup } from './checkbox-group/index.js'
+import { PRadioGroup } from './radio-group/index.js'
 import { PButton } from './button/index.js'
 import { PDataTable } from './data-table/index.js'
 import { PPopconfirm } from './popconfirm/index.js'
@@ -36,6 +37,7 @@ export default {
     app.component(`${prefix}-select`, PSelect)
     app.component(`${prefix}-switch`, PSwitch)
     app.component(`${prefix}-radio`, PRadio)
+    app.component(`${prefix}-radio-group`, PRadioGroup)
     app.component(`${prefix}-checkbox`, PCheckbox)
     app.component(`${prefix}-checkbox-group`, PCheckboxGroup)
     app.component(`${prefix}-button`, PButton)

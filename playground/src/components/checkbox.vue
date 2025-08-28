@@ -34,10 +34,10 @@
       v-model="aValue"
       @change="handleCheckedChange"
     >
-      <p-checkbox style="margin-right: 20px" :val="1">圆珠笔</p-checkbox>
-      <p-checkbox style="margin-right: 20px" val="pencil">铅笔</p-checkbox>
-      <p-checkbox style="margin-right: 20px" :val="2">马克笔</p-checkbox>
-      <p-checkbox style="margin-right: 20px" val="eraser" disabled>橡皮</p-checkbox>
+      <p-checkbox :val="1">圆珠笔</p-checkbox>
+      <p-checkbox val="pencil">铅笔</p-checkbox>
+      <p-checkbox :val="2">马克笔</p-checkbox>
+      <p-checkbox val="eraser" disabled>橡皮</p-checkbox>
     </p-checkbox-group>
     <div style="margin-top: 10px; padding-left: 2px">{{ aValue }}</div>
   </box-component>

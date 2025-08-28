@@ -1,5 +1,5 @@
 <template>
-  <n-checkbox-group :style="attrs.style || ''" :value="value" :on-update:value="handleUpdate"
+  <n-checkbox-group class="p-checkbox-group" :style="attrs.style || ''" :value="value" :on-update:value="handleUpdate"
     ><slot></slot
   ></n-checkbox-group>
 </template>
@@ -26,3 +26,13 @@ const handleUpdate = debounce(function (val, meta) {
   }, 0)
 }, 300)
 </script>
+
+<style>
+.p-checkbox-group.n-checkbox-group .n-checkbox {
+  margin-right: 16px;
+}
+
+.p-checkbox-group.n-checkbox-group .n-checkbox:last-child {
+  margin-right: 0;
+}
+</style>
