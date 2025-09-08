@@ -36,10 +36,12 @@
 .n-dialog.n-modal.p-dialog .n-dialog__close {
   margin: 12px 14px 0 0;
   font-size: 16px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .n-dialog.n-modal.p-dialog .n-dialog__close:hover {
   color: rgb(31, 34, 37);
+  transform: rotate(180deg);
 }
 
 .n-dialog.n-modal.p-dialog .n-dialog__close:hover::before,
