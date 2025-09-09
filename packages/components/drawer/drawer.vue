@@ -13,6 +13,8 @@
     :placement="placement"
     :mask-closable="maskClosable"
     :on-update:show="handleUpdateShow"
+    :on-after-enter="handleAfterEnter"
+    :on-after-leave="handleAfterLeave"
   >
     <n-drawer-content
       :body-content-class="bodyContentClass"
@@ -53,10 +55,19 @@ const { lock } = defineProps({
 })
 const show = defineModel('show', { type: Boolean, default: false })
 const slots = useSlots()
+const emit = defineEmits(['afterEnter', 'afterLeave'])
 
 function handleUpdateShow(v) {
   if (lock) return
   show.value = v
+}
+
+function handleAfterEnter() {
+  emit('afterEnter')
+}
+
+function handleAfterLeave() {
+  emit('afterLeave')
 }
 </script>
 

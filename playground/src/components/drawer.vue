@@ -13,6 +13,8 @@
     height="50%"
     :body-content-style="{ lineHeight: 3 }"
     :footer-style="{ padding: '12px 16px', borderTop: '1px solid rgb(224, 224, 230)' }"
+    @afterEnter="onAfterEnter"
+    @afterLeave="onAfterLeave"
   >
     <div>
       <p-input placeholder="请输入" v-model="value" />
@@ -64,5 +66,13 @@ function handleSubmit() {
   setTimeout(() => {
     loading.value = false
   }, 3000)
+}
+
+function onAfterEnter() {
+  console.log('afterEnter afterEnter')
+}
+
+function onAfterLeave() {
+  console.log('afterLeave afterLeave')
 }
 </script>
