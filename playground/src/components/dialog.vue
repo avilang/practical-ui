@@ -1,9 +1,9 @@
 <template>
   <box-component :name="`${name}`">
-    <p-button type="default" @click="handleOpen">常规</p-button>
-    <p-button class="ml-10" type="default" @click="handleOk">成功</p-button>
-    <p-button class="ml-10" type="default" @click="handleWarning">警告</p-button>
-    <p-button class="ml-10" type="default" @click="handleError">错误</p-button>
+    <p-button type="default" @click="handleOpen">常规-异步关闭</p-button>
+    <p-button class="ml-10" type="default" @click="handleOk">成功-不关闭弹出窗</p-button>
+    <p-button class="ml-10" type="default" @click="handleWarning">警告-隐藏loading,不关闭弹出窗</p-button>
+    <p-button class="ml-10" type="default" @click="handleError">错误-返回按钮不关闭弹出窗</p-button>
     <p-button class="ml-10" type="default" @click="handleDialogDiscrete">dialog discrete info</p-button>
     <p-button class="ml-10" type="default" @click="handleDialogDiscreteWarning">dialog discrete warning</p-button>
     <p-button class="ml-10" type="default" @click="handleDialogDiscreteSuccess">dialog discrete success</p-button>
@@ -30,7 +30,7 @@ const handleOpen = () => {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve()
-        }, 250)
+        }, 2500)
       }).then(() => {
         done()
       })

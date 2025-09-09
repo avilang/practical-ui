@@ -19,7 +19,7 @@
 .n-dialog .n-dialog__title.p-modal-title {
   line-height: 1.6;
   font-size: 14px;
-  padding: 12px 16px 10px;
+  padding: 12px 16px 10px 14px;
   border-bottom: 1px solid rgb(224, 224, 230);
 }
 

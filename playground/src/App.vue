@@ -29,6 +29,7 @@ import Promised from './components/promised.vue'
 import Switch from './components/switch.vue'
 import Radio from './components/radio.vue'
 import Checkbox from './components/checkbox.vue'
+import Drawer from './components/drawer.vue'
 
 const components = {
   button: Button,
@@ -43,7 +44,8 @@ const components = {
   pagination: Pagination,
   switch: Switch,
   radio: Radio,
-  checkbox: Checkbox
+  checkbox: Checkbox,
+  drawer: Drawer
 }
 const options = [
   { componentName: 'P-Button', componentKey: 'button' },
@@ -57,6 +59,7 @@ const options = [
   { componentName: 'P-Switch', componentKey: 'switch' },
   { componentName: 'P-Radio', componentKey: 'radio' },
   { componentName: 'P-Checkbox', componentKey: 'checkbox' },
+  { componentName: 'P-Drawer', componentKey: 'drawer' },
   { componentName: 'Dialog', componentKey: 'dialog' },
   { componentName: 'Modal', componentKey: 'modal' }
 ]

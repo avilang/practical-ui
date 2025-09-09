@@ -25,6 +25,7 @@ import { PDataTable } from './data-table/index.js'
 import { PPopconfirm } from './popconfirm/index.js'
 import { PPagination } from './pagination/index.js'
 import { PPromised } from './promised/index.js'
+import { PDrawer } from './drawer/index.js'
 
 export default {
   install: (app, options = {}) => {
@@ -55,6 +56,7 @@ export default {
     app.component(`${prefix}-collapse-item`, NCollapseItem)
     app.component(`${prefix}-dropdown`, NDropdown)
     app.component(`${prefix}-tooltip`, NTooltip)
+    app.component(`${prefix}-drawer`, PDrawer)
   }
 }
 
