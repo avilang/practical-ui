@@ -1,5 +1,6 @@
 <template>
   <n-input
+    :class="`${attrs.class ? attrs.class : ''}`"
     ref="input"
     :input-props="{ autocomplete: 'off' }"
     :type="type"
@@ -26,7 +27,7 @@
 </template>
 
 <script setup>
-import { useTemplateRef } from 'vue'
+import { useTemplateRef, useAttrs } from 'vue'
 import { NInput, NIcon } from 'naive-ui'
 import { countGraphemes } from '../utility/util'
 
@@ -51,6 +52,7 @@ const { trim, blurByEnter } = defineProps({
   prefixIcon: { type: Object }, // 前缀图标 Icon Props
   blurByEnter: { type: Boolean, default: true }
 })
+const attrs = useAttrs()
 const value = defineModel({ type: String, default: '' })
 const emit = defineEmits(['blur', 'input', 'enter'])
 

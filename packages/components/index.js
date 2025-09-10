@@ -8,7 +8,8 @@ import {
   NCollapse,
   NCollapseItem,
   NDropdown,
-  NTooltip
+  NTooltip,
+  NDivider
 } from 'naive-ui'
 import { Practical } from './practical/index.js'
 import { PSearch } from './search/index.js'
@@ -46,6 +47,7 @@ export default {
     app.component(`${prefix}-popconfirm`, PPopconfirm)
     app.component(`${prefix}-pagination`, PPagination)
     app.component(`${prefix}-promised`, PPromised)
+    app.component(`${prefix}-drawer`, PDrawer)
     app.component(`${prefix}-icon-wrapper`, NIconWrapper)
     app.component(`${prefix}-icon`, NIcon)
     app.component(`${prefix}-input-group`, NInputGroup)
@@ -56,7 +58,7 @@ export default {
     app.component(`${prefix}-collapse-item`, NCollapseItem)
     app.component(`${prefix}-dropdown`, NDropdown)
     app.component(`${prefix}-tooltip`, NTooltip)
-    app.component(`${prefix}-drawer`, PDrawer)
+    app.component(`${prefix}-divider`, NDivider)
   }
 }
 
