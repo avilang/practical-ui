@@ -30,6 +30,7 @@ import Switch from './components/switch.vue'
 import Radio from './components/radio.vue'
 import Checkbox from './components/checkbox.vue'
 import Drawer from './components/drawer.vue'
+import InputNumber from './components/input-number.vue'
 
 const components = {
   button: Button,
@@ -45,11 +46,13 @@ const components = {
   switch: Switch,
   radio: Radio,
   checkbox: Checkbox,
-  drawer: Drawer
+  drawer: Drawer,
+  inputNumber: InputNumber
 }
 const options = [
   { componentName: 'P-Button', componentKey: 'button' },
   { componentName: 'P-Input', componentKey: 'input' },
+  { componentName: 'P-Input-Number', componentKey: 'inputNumber' },
   { componentName: 'P-Form', componentKey: 'form' },
   { componentName: 'P-Search', componentKey: 'search' },
   { componentName: 'P-Data-Table', componentKey: 'table' },
