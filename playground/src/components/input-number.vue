@@ -8,6 +8,8 @@
       clearable
       :max="82.21"
       :min="-2.73"
+      :precision="3"
+      :fillPrecision="false"
       @blur="handleBlur"
       @input="handleInput"
     />
@@ -24,10 +26,10 @@ defineOptions({
 })
 
 const name = 'PInputNumber'
-const num1 = ref(1.21)
+const num1 = ref(88)
 
 setTimeout(() => {
-  num1.value = 88
+  num1.value = 1.2193
 }, 3000)
 
 function handleBlur(detail) {

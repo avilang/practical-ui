@@ -24,15 +24,17 @@ defineOptions({
   inheritAttrs: false
 })
 
-const { verificationType, max, min } = defineProps({
+const { verificationType, max, min, precision, fillPrecision } = defineProps({
   size: { type: String, default: 'medium' },
   placeholder: { type: String, default: '请输入' },
-  maxlength: { type: Number, default: 21 },
+  maxlength: { type: Number },
   disabled: { type: Boolean, default: false },
   clearable: { type: Boolean, default: false },
   readonly: { type: Boolean, default: false },
   max: { type: Number },
   min: { type: Number },
+  precision: { type: Number },
+  fillPrecision: { type: Boolean, default: true },
   verificationType: { type: String, default: 'positiveIntegerContainZero' }
 })
 const value = defineModel({ type: [Number, String] }) // 真正的数值
@@ -84,9 +86,40 @@ function setValue(val, valInfo = {}, opts = {}) {
     return val
   }
 
+  let sVal = `${val}`
   let bigNum = null
+
+  if (
+    precision != null &&
+    precision !== '' &&
+    oType.isPositiveInteger === false &&
+    oType.isPositiveIntegerContainZero === false
+  ) {
+    if (fillPrecision) {
+      bigNum = PBig(sVal)
+      sVal = bigNum.toFixed(precision, 0)
+    } else {
+      if (precision <= 0) {
+        bigNum = PBig(sVal)
+        sVal = bigNum.toFixed(0, 0)
+      } else {
+        const aVal = sVal.split('.')
+        if (aVal.length === 1) {
+          bigNum = PBig(sVal)
+          sVal = bigNum.toFixed(void 0, 0)
+        } else if (aVal.length === 2 && aVal[1].length < precision) {
+          bigNum = PBig(sVal)
+          sVal = bigNum.toFixed(void 0, 0)
+        } else if (aVal.length === 2 && aVal[1].length >= precision) {
+          bigNum = PBig(sVal)
+          sVal = bigNum.toFixed(precision, 0)
+        }
+      }
+    }
+  }
+
   if ((max != null && max !== '') || (min != null && min !== '')) {
-    bigNum = PBig(`${val}`)
+    bigNum = PBig(sVal)
   }
   if (bigNum != null) {
     if (max != null && max !== '' && bigNum.gt(`${max}`)) {
@@ -102,12 +135,12 @@ function setValue(val, valInfo = {}, opts = {}) {
   }
 
   valueInfo.value = valInfo
-  value.value = val
-  return val
+  value.value = sVal
+  return sVal
 }
 
-function updateInputText(val) {
-  const v = val == null ? value.value : val
+function updateInputText() {
+  const v = value.value
   if (v == null || v === '') {
     inputText.value = ''
   } else {
