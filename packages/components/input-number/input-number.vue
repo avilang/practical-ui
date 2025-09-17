@@ -2,6 +2,12 @@
   <input-number
     :class="`${$attrs.class ? $attrs.class : ''} ${valueInfo.type === 'error' && inputText != null && inputText !== '' ? 'p-input-number-error' : ''}`"
     :trim="false"
+    :placeholder="placeholder"
+    :size="size"
+    :maxlength="maxlength"
+    :disabled="disabled"
+    :readonly="readonly"
+    :clearable="clearable"
     v-model="inputText"
     @input="onInput"
     @blur="onBlur"
@@ -11,24 +17,27 @@
 <script setup>
 import { nextTick, onMounted, ref, watch } from 'vue'
 import { PInput as InputNumber } from '../input/index.js'
+import { PBig } from '../utility/util.js'
 
 defineOptions({
   name: 'PInputNumber',
   inheritAttrs: false
 })
 
-const { verificationType } = defineProps({
+const { verificationType, max, min } = defineProps({
   size: { type: String, default: 'medium' },
   placeholder: { type: String, default: '请输入' },
   maxlength: { type: Number },
   disabled: { type: Boolean, default: false },
   clearable: { type: Boolean, default: false },
   readonly: { type: Boolean, default: false },
+  max: { type: Number },
+  min: { type: Number },
   verificationType: { type: String, default: 'positiveIntegerContainZero' }
 })
 const value = defineModel({ type: [Number, String] }) // 真正的数值
-const valueInfo = ref({ type: 'ok' }) // 记录输入值的类型，用于失焦后处理数据
-const inputText = ref('') // 输入框的值
+const valueInfo = ref({ type: 'ok' }) // 记录输入值的信息，用于显示处理
+const inputText = ref('') // 输入框显示的值
 const verificationTypes = [
   'numeric',
   'positiveNumber',
@@ -57,26 +66,47 @@ const numericTextWithNegative = /^[-]?0\.$|^[-]?[1-9][0-9]*\.$/ // 匹配如 -0.
 const zero = /^[-]?0\.$|^[-]?0\.[0]+$|^[-]?0$/ // 匹配 -0. / 0. / 0.000 / -0.0
 
 // 监听value变化，更新inputText
+// 仅传入value变化/初始化/失去焦点后会更新
 watch(
   value,
   (v) => {
     if (valueInfo.value.type !== 'ok') return
-    if (v == null || v === '') {
-      inputText.value = ''
-    } else {
-      inputText.value = `${v}`
-    }
+    handleValue(`${v == null || v === '' ? '' : v}`, true)
+    updateInputText()
   },
-  { immediate: true }
+  { immediate: false }
 )
 
-function setValue(val, valInfo = {}) {
+function setValue(val, valInfo = {}, opts = {}) {
+  if (val == null || val === '') {
+    valueInfo.value = valInfo
+    value.value = val
+    return
+  }
+
+  let bigNum = null
+  if ((max != null && max !== '') || (min != null && min !== '')) {
+    bigNum = PBig(`${val}`)
+  }
+  if (bigNum != null) {
+    if (max != null && max !== '' && bigNum.gt(`${max}`)) {
+      valueInfo.value = { type: opts.forOK ? 'ok' : 'error' }
+      value.value = null
+      return
+    }
+    if (min != null && min !== '' && bigNum.lt(`${min}`)) {
+      valueInfo.value = { type: opts.forOK ? 'ok' : 'error' }
+      value.value = null
+      return
+    }
+  }
+
   valueInfo.value = valInfo
   value.value = val
 }
 
-function updateInputText() {
-  const v = value.value
+function updateInputText(val) {
+  const v = val == null ? value.value : val
   if (v == null || v === '') {
     inputText.value = ''
   } else {
@@ -109,48 +139,51 @@ function handleValue(val, forOK = false) {
     // 避免如传入 '0.0' 的字符串，前端显示为 '0.0'
     // 零 统一显示为 0
     if (forOK && Math.abs(parseFloat(val)) === 0) {
-      setValue(0, { type: 'ok' })
+      setValue(0, { type: 'ok' }, { forOK })
     } else {
-      setValue(val, { type: 'ok' })
+      setValue(val, { type: forOK ? 'ok' : 'inputok' }, { forOK })
     }
   } else {
     if (oType.isPositiveIntegerContainZero) {
       if (isNumeric.test(val)) {
         if (Math.abs(parseFloat(val)) === 0) {
-          setValue(0, { type: forOK ? 'ok' : 'warning' })
+          setValue(0, { type: forOK ? 'ok' : 'warning' }, { forOK })
           return
         }
       } else if (numericText.test(val)) {
-        setValue(`${Math.abs(parseFloat(val))}`, { type: forOK ? 'ok' : 'warning' })
+        setValue(`${Math.abs(parseFloat(val))}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
         return
       }
     } else if (oType.isPositiveInteger) {
       if (numericTextIgnoreZero.test(val)) {
-        setValue(`${parseInt(val)}`, { type: forOK ? 'ok' : 'warning' })
+        setValue(`${parseInt(val)}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
         return
       }
     } else if (oType.isPositiveNumber) {
       if (numericTextIgnoreZero.test(val)) {
-        setValue(`${parseFloat(val)}`, { type: forOK ? 'ok' : 'warning' })
+        setValue(`${parseFloat(val)}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
         return
       }
     } else if (oType.isPositiveNumberContainZero) {
       if (numericText.test(val) || zero.test(val)) {
-        setValue(`${Math.abs(parseFloat(val))}`, { type: forOK ? 'ok' : 'warning' })
+        setValue(`${Math.abs(parseFloat(val))}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
         return
       }
     } else if (oType.isNumeric) {
       if (numericTextWithNegative.test(val)) {
-        setValue(`${parseFloat(val)}`, { type: forOK ? 'ok' : 'warning' })
+        setValue(`${parseFloat(val)}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
         return
       }
     }
-    setValue(null, { type: forOK ? 'ok' : 'error' })
+    setValue(null, { type: forOK ? 'ok' : 'error' }, { forOK })
   }
 }
 
 onMounted(() => {
-  handleValue(value.value, true)
+  handleValue(`${value.value == null || value.value === '' ? '' : value.value}`, true)
+  nextTick(() => {
+    updateInputText()
+  })
 })
 
 function onInput({ value }) {

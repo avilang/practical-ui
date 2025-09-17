@@ -1,7 +1,15 @@
 <template>
   <box-component :name="`${name}`">
-    <p-input-number class="test-p-input-number" verification-type="positiveIntegerContainZero" v-model="num1" />
-    <div>值：[{{ num1 }}]</div>
+    <p-input-number
+      class="test-p-input-number"
+      verification-type="numeric"
+      v-model="num1"
+      placeholder="ddddddd"
+      clearable
+      :max="82.21"
+      :min="-2.73"
+    />
+    <div>num1：[{{ num1 }}]</div>
   </box-component>
 </template>
 
@@ -14,7 +22,11 @@ defineOptions({
 })
 
 const name = 'PInputNumber'
-const num1 = ref('-0.0')
+const num1 = ref(1.21)
+
+setTimeout(() => {
+  num1.value = 88
+}, 3000)
 </script>
 
 <style>
