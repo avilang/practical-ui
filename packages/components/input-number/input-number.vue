@@ -27,7 +27,7 @@ defineOptions({
 const { verificationType, max, min } = defineProps({
   size: { type: String, default: 'medium' },
   placeholder: { type: String, default: '请输入' },
-  maxlength: { type: Number },
+  maxlength: { type: Number, default: 21 },
   disabled: { type: Boolean, default: false },
   clearable: { type: Boolean, default: false },
   readonly: { type: Boolean, default: false },
@@ -81,7 +81,7 @@ function setValue(val, valInfo = {}, opts = {}) {
   if (val == null || val === '') {
     valueInfo.value = valInfo
     value.value = val
-    return
+    return val
   }
 
   let bigNum = null
@@ -92,17 +92,18 @@ function setValue(val, valInfo = {}, opts = {}) {
     if (max != null && max !== '' && bigNum.gt(`${max}`)) {
       valueInfo.value = { type: opts.forOK ? 'ok' : 'error' }
       value.value = null
-      return
+      return null
     }
     if (min != null && min !== '' && bigNum.lt(`${min}`)) {
       valueInfo.value = { type: opts.forOK ? 'ok' : 'error' }
       value.value = null
-      return
+      return null
     }
   }
 
   valueInfo.value = valInfo
   value.value = val
+  return val
 }
 
 function updateInputText(val) {
@@ -115,6 +116,7 @@ function updateInputText(val) {
 }
 
 function handleValue(val, forOK = false) {
+  let result = null
   let regular = null
   if (oType.isNumeric) {
     regular = isNumeric
@@ -139,43 +141,46 @@ function handleValue(val, forOK = false) {
     // 避免如传入 '0.0' 的字符串，前端显示为 '0.0'
     // 零 统一显示为 0
     if (forOK && Math.abs(parseFloat(val)) === 0) {
-      setValue(0, { type: 'ok' }, { forOK })
+      result = setValue(0, { type: 'ok' }, { forOK })
     } else {
-      setValue(val, { type: forOK ? 'ok' : 'inputok' }, { forOK })
+      result = setValue(val, { type: forOK ? 'ok' : 'inputok' }, { forOK })
     }
+    return result
   } else {
     if (oType.isPositiveIntegerContainZero) {
       if (isNumeric.test(val)) {
         if (Math.abs(parseFloat(val)) === 0) {
-          setValue(0, { type: forOK ? 'ok' : 'warning' }, { forOK })
-          return
+          result = setValue(0, { type: forOK ? 'ok' : 'warning' }, { forOK })
+          return result
         }
       } else if (numericText.test(val)) {
-        setValue(`${Math.abs(parseFloat(val))}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
-        return
+        result = setValue(`${Math.abs(parseFloat(val))}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
+        return result
       }
     } else if (oType.isPositiveInteger) {
       if (numericTextIgnoreZero.test(val)) {
-        setValue(`${parseInt(val)}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
-        return
+        result = setValue(`${parseInt(val)}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
+        return result
       }
     } else if (oType.isPositiveNumber) {
       if (numericTextIgnoreZero.test(val)) {
-        setValue(`${parseFloat(val)}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
-        return
+        result = setValue(`${parseFloat(val)}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
+        return result
       }
     } else if (oType.isPositiveNumberContainZero) {
       if (numericText.test(val) || zero.test(val)) {
-        setValue(`${Math.abs(parseFloat(val))}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
-        return
+        result = setValue(`${Math.abs(parseFloat(val))}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
+        return result
       }
     } else if (oType.isNumeric) {
       if (numericTextWithNegative.test(val)) {
-        setValue(`${parseFloat(val)}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
-        return
+        result = setValue(`${parseFloat(val)}`, { type: forOK ? 'ok' : 'warning' }, { forOK })
+        return result
       }
     }
-    setValue(null, { type: forOK ? 'ok' : 'error' }, { forOK })
+
+    result = setValue(null, { type: forOK ? 'ok' : 'error' }, { forOK })
+    return result
   }
 }
 
@@ -186,19 +191,31 @@ onMounted(() => {
   })
 })
 
-function onInput({ value }) {
-  const v = (value || '').trim()
-  inputText.value = v
+const emit = defineEmits(['blur', 'input'])
+const numStrToNum = (str) => {
+  if (str == null || str === '') return str
 
-  handleValue(v)
+  if (oType.isPositiveInteger || oType.isPositiveIntegerContainZero) {
+    return parseInt(str)
+  }
+  return parseFloat(str)
+}
+
+function onInput({ value }) {
+  const val = (value || '').trim()
+  inputText.value = val
+
+  const v = handleValue(val)
+  emit('input', { value: numStrToNum(v) })
 }
 
 function onBlur(detail) {
-  handleValue((detail.value || '').trim(), true)
+  const v = handleValue((detail.value || '').trim(), true)
   // 确保更新 inputText
   // 可能因 valueInfo 改变，但 value 值没变化，无法触发 watch 监听
   nextTick(() => {
     updateInputText()
+    emit('blur', { ...detail, value: numStrToNum(v) })
   })
 }
 </script>

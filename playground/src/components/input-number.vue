@@ -8,6 +8,8 @@
       clearable
       :max="82.21"
       :min="-2.73"
+      @blur="handleBlur"
+      @input="handleInput"
     />
     <div>num1：[{{ num1 }}]</div>
   </box-component>
@@ -27,6 +29,14 @@ const num1 = ref(1.21)
 setTimeout(() => {
   num1.value = 88
 }, 3000)
+
+function handleBlur(detail) {
+  console.log('🚀 ~ handleBlur ~ detail:', detail)
+}
+
+function handleInput({ value }) {
+  console.log('🚀 ~ handleInput ~ value:', value)
+}
 </script>
 
 <style>
