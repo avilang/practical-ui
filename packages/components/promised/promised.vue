@@ -14,7 +14,7 @@
       <div class="p-promised-loading-mask"></div>
     </div>
     <template v-if="isEmpty && !defaultSlotAsEmpty">
-      <n-empty v-if="!$slots.emptyCustomize" :class="nilClass" :description="emptyDesc" size="medium">
+      <n-empty v-if="!$slots.emptyCustomize" :class="nilClassName" :description="emptyDesc" size="medium">
         <template #extra v-if="$slots.emptyExtra">
           <slot name="emptyExtra"></slot>
         </template>
@@ -25,7 +25,7 @@
     </template>
     <n-empty
       v-if="!loading && !isPending && error"
-      :class="nilClass"
+      :class="nilClassName"
       :description="error.message || errorDefaultDesc"
       size="medium"
     />
@@ -46,7 +46,8 @@ defineOptions({
 // 在开发环境下 promise 若 reject 时，会在控制台打印如下错误信息
 // [Vue warn]: Unhandled error during execution of watcher getter
 // 若想隐藏该错误信息，考虑使用 app.config.warnHandler 来处理
-const { promise, loadingSize, loadingTop, dataField, nilType } = defineProps({
+// READING: https://github.com/posva/vue-promised/pull/40 (promise 重置为null时，不会恢复初始状态，应该是该 PR，持续关注)
+const { promise, loadingSize, loadingTop, dataField, nilType, nilClass } = defineProps({
   promise: { default: null },
   dataField: { type: String },
   loadingSize: { type: String, default: 'medium' },
@@ -55,6 +56,7 @@ const { promise, loadingSize, loadingTop, dataField, nilType } = defineProps({
   errorDefaultDesc: { type: String, default: '系统异常' },
   defaultSlotAsEmpty: { type: Boolean, default: false },
   nilType: { type: String }, // 控制 empty 和 error 状态下的样式
+  nilClass: { type: String }, // 定义 empty 和 error 状态下的 class 名
   contentStyle: { type: String, default: 'position:relative; min-height:72px;' } //  内容的最小高度，避免 loading/empty 状态下高度不确定导致抖动
 })
 const size = computed(() => {
@@ -82,10 +84,11 @@ const spinStyle = computed(() => {
 
   return style
 })
-const nilClass = computed(() => {
-  if (nilType === 'border') return 'p-promised-empty-border'
-  if (nilType === 'line') return 'p-promised-empty-line'
-  return ''
+const nilClassName = computed(() => {
+  let className = (nilClass || '').trim()
+  if (nilType === 'border') className += ' p-promised-empty-border'
+  if (nilType === 'line') className += ' p-promised-empty-line'
+  return className.trim()
 })
 
 const attrs = useAttrs()

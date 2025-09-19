@@ -31571,6 +31571,8 @@ const xf = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: r = !1 } = 
     defaultSlotAsEmpty: { type: Boolean, default: !1 },
     nilType: { type: String },
     // 控制 empty 和 error 状态下的样式
+    nilClass: { type: String },
+    // 定义 empty 和 error 状态下的 class 名
     contentStyle: { type: String, default: "position:relative; min-height:72px;" }
     //  内容的最小高度，避免 loading/empty 状态下高度不确定导致抖动
   },
@@ -31578,7 +31580,10 @@ const xf = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: r = !1 } = 
     const t = E(() => ["small", "medium", "large"].includes(e.loadingSize) ? e.loadingSize : "medium"), r = E(() => {
       const y = { position: "absolute", left: "50%", zIndex: 2 };
       return e.loadingTop == null ? y.top = "50%" : y.top = `${e.loadingTop}px`, t.value === "small" ? (y.marginLeft = "-14px", e.loadingTop == null && (y.marginTop = "-14px")) : t.value === "medium" ? (y.marginLeft = "-17px", e.loadingTop == null && (y.marginTop = "-17px")) : t.value === "large" && (y.marginLeft = "-20px", e.loadingTop == null && (y.marginTop = "-20px")), y;
-    }), o = E(() => e.nilType === "border" ? "p-promised-empty-border" : e.nilType === "line" ? "p-promised-empty-line" : ""), i = Bn(), a = ie(() => e.promise), { data: s, error: l, isPending: d, isDelayElapsed: u, isResolved: c, isRejected: v } = DB(a, 0), { loading: g, waiting: m } = xf(), h = E(() => !g.value && !d.value && !l.value && b(s.value));
+    }), o = E(() => {
+      let y = (e.nilClass || "").trim();
+      return e.nilType === "border" && (y += " p-promised-empty-border"), e.nilType === "line" && (y += " p-promised-empty-line"), y.trim();
+    }), i = Bn(), a = ie(() => e.promise), { data: s, error: l, isPending: d, isDelayElapsed: u, isResolved: c, isRejected: v } = DB(a, 0), { loading: g, waiting: m } = xf(), h = E(() => !g.value && !d.value && !l.value && b(s.value));
     Me(
       () => d.value && u.value,
       (y) => {

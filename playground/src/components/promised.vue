@@ -31,7 +31,7 @@
   </box-component>
 
   <box-component :name="`${name} - 正确请求接口失败抛出错误信息`">
-    <p-promised :promise="promise3" nil-type="border">
+    <p-promised :promise="promise3" nil-type="border" nil-class="nil-promised-error">
       <template v-slot="{ data }">
         {{ data }}
       </template>
@@ -122,3 +122,10 @@ function handleStart4() {
   })
 }
 </script>
+
+<style>
+.nil-promised-error {
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+</style>
