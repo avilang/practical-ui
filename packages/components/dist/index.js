@@ -31227,6 +31227,8 @@ const zo = /* @__PURE__ */ Object.assign({
     disabled: { type: Boolean, default: !1 },
     checkedValue: { type: [String, Number, Boolean], default: !0 },
     uncheckedValue: { type: [String, Number, Boolean], default: !1 },
+    checkedOnly: { type: Boolean, default: !1 },
+    // 若选中时，再次点击不取消选中 - 就是要选中的效果，不在 group 中使用
     val: { type: [String, Number] }
   }, {
     modelValue: { type: [String, Number, Boolean] },
@@ -31235,9 +31237,9 @@ const zo = /* @__PURE__ */ Object.assign({
   emits: /* @__PURE__ */ At(["change"], ["update:modelValue"]),
   setup(e, { emit: t }) {
     const r = fn(e, "modelValue"), o = Bn(), i = t, a = Qn(function(s) {
-      r.value = s ? e.checkedValue : e.uncheckedValue, setTimeout(() => {
+      e.checkedOnly && e.val == null && r.value === e.checkedValue || (r.value = s ? e.checkedValue : e.uncheckedValue, setTimeout(() => {
         i("change", r.value);
-      }, 0);
+      }, 0));
     }, 300);
     return (s, l) => (Be(), et(re(Ai), {
       style: Ut(re(o).style || ""),

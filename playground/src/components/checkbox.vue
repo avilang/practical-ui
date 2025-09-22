@@ -41,6 +41,15 @@
     </p-checkbox-group>
     <div style="margin-top: 10px; padding-left: 2px">{{ aValue }}</div>
   </box-component>
+
+  <box-component :name="`${name} - 若选中时，再次点击不取消选中 - 要选中的效果`">
+    <p-checkbox style="margin-right: 20px" v-model="value5" unchecked-value="" checked-value="AAAAA" checked-only
+      >AAAAA</p-checkbox
+    >
+    <p-checkbox style="margin-right: 20px" v-model="value5" unchecked-value="" checked-value="BBBBB" checked-only
+      >BBBBB</p-checkbox
+    >
+  </box-component>
 </template>
 
 <script setup>
@@ -56,6 +65,7 @@ const value1 = ref('apple')
 const value2 = ref(0)
 const value3 = ref(false)
 const value4 = ref(2)
+const value5 = ref('BBBBB')
 
 function handleChange(val) {
   console.log('🚀 ~ handleChange ~ val:', val)
