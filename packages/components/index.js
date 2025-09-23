@@ -16,6 +16,7 @@ import { PSearch } from './search/index.js'
 import { PForm } from './form/index.js'
 import { PInput } from './input/index.js'
 import { PInputNumber } from './input-number/index.js'
+import { PInputIdentifier } from './input-identifier/index.js'
 import { PSelect } from './select/index.js'
 import { PSwitch } from './switch/index.js'
 import { PRadio } from './radio/index.js'
@@ -38,6 +39,7 @@ export default {
     app.component(`${prefix}-form`, PForm)
     app.component(`${prefix}-input`, PInput)
     app.component(`${prefix}-input-number`, PInputNumber)
+    app.component(`${prefix}-input-identifier`, PInputIdentifier)
     app.component(`${prefix}-select`, PSelect)
     app.component(`${prefix}-switch`, PSwitch)
     app.component(`${prefix}-radio`, PRadio)
