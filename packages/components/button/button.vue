@@ -25,7 +25,7 @@
     <template v-if="$slots.icon" #icon>
       <slots.icon />
     </template>
-    <slots.default v-if="!loading || (loading && !loadingWithoutText)" />
+    <slots.default v-if="!!$slots.default && (!loading || (loading && !loadingWithoutText))" />
   </n-button>
 </template>
 
