@@ -24,6 +24,11 @@
       show-count
     />
   </box-component>
+
+  <box-component :name="`${name} - lazy - 失去焦点后才真正改变值`">
+    <p-input placeholder="请输入" v-model="value5" lazy :trim="false" @enter="handleEnter2" @blur="handleBlur" />
+    value5: [{{ value5 }}]
+  </box-component>
 </template>
 
 <script setup>
@@ -47,5 +52,11 @@ function handleEnter({ value }) {
 function handleBlur({ value, isTriggerByEnter }) {
   if (isTriggerByEnter) return
   console.log('🚀 ~ handleBlur ~ value:', value)
+}
+
+const value5 = ref('')
+function handleEnter2({ value, lazy }) {
+  console.log('🚀 ~ handleEnter2 ~ lazy:', lazy)
+  console.log('🚀 ~ handleEnter2 ~ value:', value)
 }
 </script>

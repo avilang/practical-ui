@@ -6,7 +6,7 @@
     :type="type"
     :size="size"
     :show-password-on="showPassword ? 'click' : void 0"
-    :value="value"
+    :value="valueText"
     :maxlength="maxlength"
     :show-count="showCount"
     :count-graphemes="(maxlength != null && maxlength > 0) || showCount ? countGraphemes : void 0"
@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { useTemplateRef, useAttrs } from 'vue'
+import { useTemplateRef, useAttrs, ref } from 'vue'
 import { NInput, NIcon } from 'naive-ui'
 import { countGraphemes } from '../utility/util'
 
@@ -36,7 +36,7 @@ defineOptions({
   inheritAttrs: false
 })
 
-const { trim, blurByEnter } = defineProps({
+const { trim, blurByEnter, lazy } = defineProps({
   type: { type: String, default: 'text' },
   size: { type: String, default: 'medium' },
   placeholder: { type: String, default: '请输入' },
@@ -50,19 +50,25 @@ const { trim, blurByEnter } = defineProps({
   trim: { type: Boolean, default: true }, // 默认去除首尾空格
   showPassword: { type: Boolean, default: false }, // 是否显示密码
   prefixIcon: { type: Object }, // 前缀图标 Icon Props
-  blurByEnter: { type: Boolean, default: true }
+  blurByEnter: { type: Boolean, default: true },
+  lazy: { type: Boolean, default: false } // true 时，则输入框失焦才正在改变值
 })
 const attrs = useAttrs()
 const value = defineModel({ type: String, default: '' })
+const valueText = ref(value.value == null ? '' : value.value)
 const emit = defineEmits(['blur', 'input', 'enter'])
 
 function handleValueWithTrim() {
-  let v = value.value
+  let v = valueText.value
+
+  value.value = v
   if (trim) {
     const vWithTrim = v.trim()
     value.value = vWithTrim
+    valueText.value = vWithTrim
     v = vWithTrim
   }
+
   return v
 }
 
@@ -83,13 +89,16 @@ function handleBlur() {
 }
 
 function handleInput(val) {
-  value.value = val
+  if (lazy === false) {
+    value.value = val
+  }
+  valueText.value = val
 
   let v = val
   if (trim) {
     v = v.trim()
   }
-  emit('input', { value: v })
+  emit('input', { value: v, lazy })
 }
 
 const inputRef = useTemplateRef('input')
@@ -98,9 +107,9 @@ const focus = () => {
 }
 
 function handleEnter() {
-  let v = value.value
+  let v = valueText.value
   if (trim) v = v.trim()
-  emit('enter', { value: v })
+  emit('enter', { value: v, lazy: lazy && blurByEnter === false })
   if (blurByEnter) {
     enterTime = new Date().getTime()
     setTimeout(() => {
