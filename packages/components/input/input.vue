@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { useTemplateRef, useAttrs, ref } from 'vue'
+import { useTemplateRef, useAttrs, ref, watch } from 'vue'
 import { NInput, NIcon } from 'naive-ui'
 import { countGraphemes } from '../utility/util'
 
@@ -55,18 +55,29 @@ const { trim, blurByEnter, lazy } = defineProps({
 })
 const attrs = useAttrs()
 const value = defineModel({ type: String, default: '' })
-const valueText = ref(value.value == null ? '' : value.value)
+const valueText = ref('')
 const emit = defineEmits(['blur', 'input', 'enter'])
+
+watch(
+  value,
+  (newText) => {
+    if (newText !== valueText.value) {
+      valueText.value = newText
+    }
+  },
+  { immediate: true }
+)
 
 function handleValueWithTrim() {
   let v = valueText.value
 
-  value.value = v
   if (trim) {
     const vWithTrim = v.trim()
-    value.value = vWithTrim
     valueText.value = vWithTrim
+    value.value = vWithTrim
     v = vWithTrim
+  } else {
+    value.value = v
   }
 
   return v
@@ -89,10 +100,10 @@ function handleBlur() {
 }
 
 function handleInput(val) {
+  valueText.value = val
   if (lazy === false) {
     value.value = val
   }
-  valueText.value = val
 
   let v = val
   if (trim) {

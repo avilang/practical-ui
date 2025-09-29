@@ -30292,13 +30292,21 @@ const Kr = /* @__PURE__ */ Object.assign({
   }),
   emits: /* @__PURE__ */ Bt(["blur", "input", "enter"], ["update:modelValue"]),
   setup(e, { expose: t, emit: r }) {
-    const o = Bn(), i = sn(e, "modelValue"), a = I(i.value == null ? "" : i.value), s = r;
+    const o = Bn(), i = sn(e, "modelValue"), a = I(""), s = r;
+    Me(
+      i,
+      (h) => {
+        h !== a.value && (a.value = h);
+      },
+      { immediate: !0 }
+    );
     function l() {
       let h = a.value;
-      if (i.value = h, e.trim) {
+      if (e.trim) {
         const p = h.trim();
-        i.value = p, a.value = p, h = p;
-      }
+        a.value = p, i.value = p, h = p;
+      } else
+        i.value = h;
       return h;
     }
     let d = 0;
@@ -30312,7 +30320,7 @@ const Kr = /* @__PURE__ */ Object.assign({
       s("blur", { value: p, isTriggerByEnter: h });
     }
     function c(h) {
-      e.lazy === !1 && (i.value = h), a.value = h;
+      a.value = h, e.lazy === !1 && (i.value = h);
       let p = h;
       e.trim && (p = p.trim()), s("input", { value: p, lazy: e.lazy });
     }
