@@ -1,5 +1,6 @@
 <template>
   <n-radio
+    :class="`${attrs.class ? attrs.class : ''}`"
     :style="attrs.style || ''"
     :checked="value === val"
     :size="size"

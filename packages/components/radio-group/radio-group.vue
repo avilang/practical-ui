@@ -1,5 +1,9 @@
 <template>
-  <n-radio-group class="p-radio-group" :style="attrs.style || ''" :value="value" :on-update:value="handleUpdate"
+  <n-radio-group
+    :class="`p-radio-group ${attrs.class ? attrs.class : ''}`"
+    :style="attrs.style || ''"
+    :value="value"
+    :on-update:value="handleUpdate"
     ><slot></slot
   ></n-radio-group>
 </template>
@@ -21,18 +25,16 @@ const attrs = useAttrs()
 const emit = defineEmits(['change'])
 const handleUpdate = debounce(function (val) {
   value.value = val
-  setTimeout(() => {
-    emit('change', value.value)
-  }, 0)
+  emit('change', val)
 }, 300)
 </script>
 
 <style>
-.p-radio-group.n-radio-group .n-radio {
+.p-radio-group.n-radio-group > .n-radio {
   margin-right: 16px;
 }
 
-.p-radio-group.n-radio-group .n-radio:last-child {
+.p-radio-group.n-radio-group > .n-radio:last-child {
   margin-right: 0;
 }
 </style>

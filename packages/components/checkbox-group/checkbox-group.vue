@@ -25,9 +25,7 @@ const attrs = useAttrs()
 const emit = defineEmits(['change'])
 const handleUpdate = debounce(function (val, meta) {
   value.value = val || []
-  setTimeout(() => {
-    emit('change', value.value, meta)
-  }, 0)
+  emit('change', val || [], meta)
 }, 300)
 </script>
 
