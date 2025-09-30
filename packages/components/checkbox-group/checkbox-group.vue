@@ -32,11 +32,11 @@ const handleUpdate = debounce(function (val, meta) {
 </script>
 
 <style>
-.p-checkbox-group.n-checkbox-group .n-checkbox {
+.p-checkbox-group.n-checkbox-group > .n-checkbox {
   margin-right: 16px;
 }
 
-.p-checkbox-group.n-checkbox-group .n-checkbox:last-child {
+.p-checkbox-group.n-checkbox-group > .n-checkbox:last-child {
   margin-right: 0;
 }
 </style>
