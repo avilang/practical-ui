@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { useAttrs, nextTick } from 'vue'
+import { useAttrs } from 'vue'
 import { NSelect, NEmpty } from 'naive-ui'
 import { debounce, throttle } from '../utility/throttle-debounce'
 
@@ -58,12 +58,10 @@ const attrs = useAttrs()
 const emit = defineEmits(['update', 'change', 'search'])
 const value = defineModel({ default: null })
 const handleUpdateValue = debounce(function (val) {
-  if (val !== value.value) {
-    nextTick(() => {
-      emit('change', val)
-    })
-  }
+  const changed = val !== value.value
+
   value.value = val
+  if (changed) emit('change', val)
   emit('update', val)
 }, 300)
 
