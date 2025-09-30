@@ -1,5 +1,9 @@
 <template>
-  <n-checkbox-group class="p-checkbox-group" :style="attrs.style || ''" :value="value" :on-update:value="handleUpdate"
+  <n-checkbox-group
+    :class="`p-checkbox-group ${attrs.class ? attrs.class : ''}`"
+    :style="attrs.style || ''"
+    :value="value"
+    :on-update:value="handleUpdate"
     ><slot></slot
   ></n-checkbox-group>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <box-component :name="`${name}`">
     <p-checkbox
+      class="checkbox-red"
       style="margin-right: 20px"
       @change="handleChange"
       v-model="value1"
@@ -30,7 +31,8 @@
 
   <box-component :name="`${name} - group`">
     <p-checkbox-group
-      style="padding: 16px; border: 1px solid #f90; border-radius: 4px"
+      class="checkbox-group-radius"
+      style="padding: 16px; border: 1px solid #f90"
       v-model="aValue"
       @change="handleCheckedChange"
     >
@@ -77,3 +79,13 @@ function handleCheckedChange(value, meta) {
   console.log('🚀 ~ handleCheckedChange ~ value:', value)
 }
 </script>
+
+<style>
+.checkbox-red > span {
+  color: red !important;
+}
+
+.checkbox-group-radius {
+  border-radius: 4px;
+}
+</style>

@@ -1,5 +1,6 @@
 <template>
   <n-checkbox
+    :class="`${attrs.class ? attrs.class : ''}`"
     :style="attrs.style || ''"
     :checked="value === checkedValue"
     :size="size"
