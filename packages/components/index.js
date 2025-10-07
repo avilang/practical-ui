@@ -9,7 +9,8 @@ import {
   NCollapseItem,
   NDropdown,
   NTooltip,
-  NDivider
+  NDivider,
+  NEmpty
 } from 'naive-ui'
 import { Practical } from './practical/index.js'
 import { PSearch } from './search/index.js'
@@ -63,6 +64,7 @@ export default {
     app.component(`${prefix}-dropdown`, NDropdown)
     app.component(`${prefix}-tooltip`, NTooltip)
     app.component(`${prefix}-divider`, NDivider)
+    app.component(`${prefix}-empty`, NEmpty)
   }
 }
 
