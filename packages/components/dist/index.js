@@ -30821,7 +30821,7 @@ const Kr = /* @__PURE__ */ Object.assign({
         key: 0,
         class: bt(["p-switch-outside-text", e.disabled ? "p-switch-outside-text-disabled" : ""])
       }, fn(e.checkedText), 3)) : Ct("", !0),
-      e.outside && e.uncheckedText != null && e.uncheckedText !== "" && r.value === e.uncheckedValue ? (Be(), dt("span", {
+      e.outside && e.uncheckedText != null && e.uncheckedText !== "" && r.value !== e.checkedValue ? (Be(), dt("span", {
         key: 1,
         class: bt(["p-switch-outside-text", e.disabled ? "p-switch-outside-text-disabled" : ""])
       }, fn(e.uncheckedText), 3)) : Ct("", !0)

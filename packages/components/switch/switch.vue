@@ -19,7 +19,7 @@
     >{{ checkedText }}</span
   >
   <span
-    v-if="outside && uncheckedText != null && uncheckedText !== '' && value === uncheckedValue"
+    v-if="outside && uncheckedText != null && uncheckedText !== '' && value !== checkedValue"
     :class="['p-switch-outside-text', disabled ? 'p-switch-outside-text-disabled' : '']"
     >{{ uncheckedText }}</span
   >

@@ -23,6 +23,21 @@
       readonly
       @change="handleChange"
     />
+    <p-switch
+      class="ml-10"
+      :checked-value="1"
+      :unchecked-value="0"
+      v-model="o.value"
+      checked-text="checked-value"
+      unchecked-text="unchecked-text"
+    />
+    <p-switch
+      class="ml-10"
+      v-model="o.value"
+      :outside="false"
+      checked-text="checked-value"
+      unchecked-text="unchecked-text"
+    />
   </box-component>
 </template>
 
@@ -36,6 +51,7 @@ defineOptions({
 
 const name = 'PSwitch'
 const value = ref(1)
+const o = ref({})
 
 function handleChange(val) {
   console.log('🚀 ~ handleChange ~ val:', val)
