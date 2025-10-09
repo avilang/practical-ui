@@ -118,14 +118,12 @@ function handleChangeSelect(value) {
 }
 
 function handleSearch() {
-  document.activeElement && document.activeElement.blur()
   nextTick(() => {
     doSearch()
   })
 }
 
 function handleReset() {
-  document.activeElement && document.activeElement.blur()
   nextTick(() => {
     doReset()
   })

@@ -30436,6 +30436,7 @@ const Kr = /* @__PURE__ */ Object.assign({
     type: { type: String, default: "primary" },
     size: { type: String, default: "medium" },
     attrType: { type: String, default: "button" },
+    focusable: { type: Boolean, default: !0 },
     block: { type: Boolean, default: !1 },
     loading: { type: Boolean, default: !1 },
     ghost: { type: Boolean, default: !1 },
@@ -30460,7 +30461,7 @@ const Kr = /* @__PURE__ */ Object.assign({
       ]),
       style: Ut(Q(r).style || ""),
       "attr-type": e.attrType,
-      focusable: !1,
+      focusable: e.focusable,
       bordered: !0,
       keyboard: !1,
       block: e.block,
@@ -30486,7 +30487,7 @@ const Kr = /* @__PURE__ */ Object.assign({
         ]),
         key: "0"
       } : void 0
-    ]), 1032, ["class", "style", "attr-type", "block", "size", "type", "loading", "ghost", "secondary", "text", "disabled", "onClick"]));
+    ]), 1032, ["class", "style", "attr-type", "focusable", "block", "size", "type", "loading", "ghost", "secondary", "text", "disabled", "onClick"]));
   }
 }), pB = { key: 0 }, mB = { class: "p-search-item-content" }, bB = {
   __name: "search-item",
@@ -30513,12 +30514,12 @@ const Kr = /* @__PURE__ */ Object.assign({
       e.updateSearchData(e.item.field, d), e.doChange();
     }
     function a() {
-      document.activeElement && document.activeElement.blur(), ut(() => {
+      ut(() => {
         e.doSearch();
       });
     }
     function s() {
-      document.activeElement && document.activeElement.blur(), ut(() => {
+      ut(() => {
         e.doReset();
       });
     }

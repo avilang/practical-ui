@@ -28,6 +28,13 @@
     <p-button class="mt-10" type="error" block @click="handleLoadingBar">Loading Bar Block Error Button</p-button>
     <p-button class="mt-10" block @click="handleMessage">Message Block Button</p-button>
   </box-component>
+
+  <box-component :name="`${name} - 点击按钮不聚焦`">
+    <div style="margin-bottom: 10px">
+      <input style="width: 100%" />
+    </div>
+    <p-button :focusable="false">先让上面输入框聚集，在点击该按钮，观察输入框是否失去焦点</p-button>
+  </box-component>
 </template>
 
 <script setup>

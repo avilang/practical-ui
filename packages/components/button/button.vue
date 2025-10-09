@@ -8,7 +8,7 @@
     ]"
     :style="attrs.style || ''"
     :attr-type="attrType"
-    :focusable="false"
+    :focusable="focusable"
     :bordered="true"
     :keyboard="false"
     :block="block"
@@ -43,6 +43,7 @@ const { waiting } = defineProps({
   type: { type: String, default: 'primary' },
   size: { type: String, default: 'medium' },
   attrType: { type: String, default: 'button' },
+  focusable: { type: Boolean, default: true },
   block: { type: Boolean, default: false },
   loading: { type: Boolean, default: false },
   ghost: { type: Boolean, default: false },
