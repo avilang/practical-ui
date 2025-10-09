@@ -30514,12 +30514,12 @@ const Kr = /* @__PURE__ */ Object.assign({
       e.updateSearchData(e.item.field, d), e.doChange();
     }
     function a() {
-      ut(() => {
+      document.activeElement && document.activeElement.blur(), ut(() => {
         e.doSearch();
       });
     }
     function s() {
-      ut(() => {
+      document.activeElement && document.activeElement.blur(), ut(() => {
         e.doReset();
       });
     }
@@ -30565,6 +30565,7 @@ const Kr = /* @__PURE__ */ Object.assign({
       e.item._isActionItem ? (Be(), dt(je, { key: 1 }, [
         Yt(Q(pr), {
           style: { width: "80px" },
+          focusable: !1,
           onClick: a
         }, {
           icon: We(() => [
@@ -30600,6 +30601,7 @@ const Kr = /* @__PURE__ */ Object.assign({
         Yt(Q(pr), {
           style: { "margin-left": "10px", width: "80px" },
           type: "default",
+          focusable: !1,
           onClick: s
         }, br({
           default: We(() => [

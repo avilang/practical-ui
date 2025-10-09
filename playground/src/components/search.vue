@@ -70,7 +70,7 @@ function onSearch(query, payload = {}) {
 }
 
 function onReset(data, payload = {}) {
-  if (payload.type === 'change' && payload.isChangByAction) return
+  if (payload.type === 'change' && payload.isActionTriggered) return
   console.log(`🚀 ~ ${payload.type} ~ payload:`, payload)
   console.log(`🚀 ~ ${payload.type} ~ data:`, data)
 }

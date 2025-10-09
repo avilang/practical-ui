@@ -35,7 +35,7 @@
       </div>
     </template>
     <template v-if="item._isActionItem">
-      <s-button style="width: 80px" @click="handleSearch">
+      <s-button style="width: 80px" :focusable="false" @click="handleSearch">
         <template #icon
           ><n-icon size="20" color="#ffffff"
             ><svg
@@ -54,7 +54,7 @@
               ></path></svg></n-icon></template
         >搜索</s-button
       >
-      <s-button style="margin-left: 10px; width: 80px" type="default" @click="handleReset">
+      <s-button style="margin-left: 10px; width: 80px" type="default" :focusable="false" @click="handleReset">
         <template #icon v-if="item.showResetBtnIcon">
           <n-icon size="18">
             <svg
@@ -118,12 +118,14 @@ function handleChangeSelect(value) {
 }
 
 function handleSearch() {
+  document.activeElement && document.activeElement.blur()
   nextTick(() => {
     doSearch()
   })
 }
 
 function handleReset() {
+  document.activeElement && document.activeElement.blur()
   nextTick(() => {
     doReset()
   })
