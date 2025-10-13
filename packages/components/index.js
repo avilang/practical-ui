@@ -10,7 +10,11 @@ import {
   NDropdown,
   NTooltip,
   NDivider,
-  NEmpty
+  NEmpty,
+  NUpload,
+  NUploadTrigger,
+  NUploadFileList,
+  NUploadDragger
 } from 'naive-ui'
 import { Practical } from './practical/index.js'
 import { PSearch } from './search/index.js'
@@ -65,6 +69,10 @@ export default {
     app.component(`${prefix}-tooltip`, NTooltip)
     app.component(`${prefix}-divider`, NDivider)
     app.component(`${prefix}-empty`, NEmpty)
+    app.component(`${prefix}-upload`, NUpload)
+    app.component(`${prefix}-upload-trigger`, NUploadTrigger)
+    app.component(`${prefix}-upload-file-list`, NUploadFileList)
+    app.component(`${prefix}-upload-dragger`, NUploadDragger)
   }
 }
 
