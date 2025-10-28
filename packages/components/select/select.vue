@@ -1,10 +1,11 @@
 <template>
   <n-select
-    :class="`${attrs.class ? attrs.class : ''}`"
+    :class="[$attrs.class ? $attrs.class : '']"
     :style="width ? `width:${width}` : ''"
     :options="options"
     :value="value"
     :size="size"
+    :menu-size="menuSize"
     :remote="remote"
     :filterable="filterable"
     :loading="loading"
@@ -14,6 +15,9 @@
     :label-field="labelField"
     :clearable="clearable"
     :show-checkmark="showCheckmark"
+    :multiple="multiple"
+    :max-tag-count="maxTagCount"
+    :keyboard="keyboard"
     :fallback-option="false"
     :consistent-menu-width="true"
     :virtual-scroll="true"
@@ -21,13 +25,12 @@
     @search="handleSearch"
   >
     <template #empty>
-      <n-empty size="small" :description="emptyDescription" />
+      <n-empty class="p-select-empty" :size="size === 'small' ? 'tiny' : 'small'" :description="emptyDescription" />
     </template>
   </n-select>
 </template>
 
 <script setup>
-import { useAttrs } from 'vue'
 import { NSelect, NEmpty } from 'naive-ui'
 import { debounce, throttle } from '../utility/throttle-debounce'
 
@@ -38,6 +41,7 @@ defineOptions({
 
 const { throttleSearch } = defineProps({
   size: { type: String, default: 'medium' },
+  menuSize: { type: String, default: 'medium' },
   placeholder: { type: String, default: '请选择' },
   disabled: { type: Boolean, default: false },
   options: { type: Array, default: () => [] },
@@ -48,12 +52,13 @@ const { throttleSearch } = defineProps({
   filterable: { type: Boolean, default: false },
   remote: { type: Boolean, default: false },
   loading: { type: Boolean, default: false },
+  multiple: { type: Boolean, default: false },
+  maxTagCount: { type: [Number, String], default: 'responsive' },
+  keyboard: { type: Boolean, default: false },
   throttleSearch: { type: Boolean, default: false },
   width: { type: String, default: '' },
   emptyDescription: { type: String, default: '暂无数据' }
 })
-
-const attrs = useAttrs()
 
 const emit = defineEmits(['update', 'change', 'search'])
 const value = defineModel({ default: null })
@@ -70,3 +75,9 @@ function doSearch(query) {
 }
 const handleSearch = throttleSearch ? throttle(doSearch) : doSearch
 </script>
+
+<style>
+.p-select-empty.n-empty .n-empty__icon + .n-empty__description {
+  font-size: 14px;
+}
+</style>

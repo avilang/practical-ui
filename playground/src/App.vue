@@ -32,6 +32,7 @@ import Checkbox from './components/checkbox.vue'
 import Drawer from './components/drawer.vue'
 import InputNumber from './components/input-number.vue'
 import InputIdentifier from './components/input-identifier.vue'
+import Select from './components/select.vue'
 
 const components = {
   button: Button,
@@ -49,13 +50,15 @@ const components = {
   checkbox: Checkbox,
   drawer: Drawer,
   inputNumber: InputNumber,
-  inputIdentifier: InputIdentifier
+  inputIdentifier: InputIdentifier,
+  select: Select
 }
 const options = [
   { componentName: 'P-Button', componentKey: 'button' },
   { componentName: 'P-Input', componentKey: 'input' },
   { componentName: 'P-Input-Number', componentKey: 'inputNumber' },
   { componentName: 'P-Input-Identifier', componentKey: 'inputIdentifier' },
+  { componentName: 'P-Select', componentKey: 'select' },
   { componentName: 'P-Form', componentKey: 'form' },
   { componentName: 'P-Search', componentKey: 'search' },
   { componentName: 'P-Data-Table', componentKey: 'table' },
