@@ -42,16 +42,15 @@
               v-model="formValue[item.field]"
               v-bind.prop="{ disabled, readonly, ...item.props }"
             />
-            <template v-else-if="item.type === 'select'">
-              <component
-                :ref="`form-item-${item.field}`"
-                :is="Select"
-                v-model="formValue[item.field]"
-                v-bind.prop="{ disabled, ...item.props }"
-                @search="handleSelectSearch(item, $event)"
-                @update="handleSelectUpdate(item, $event)"
-              />
-            </template>
+            <component
+              v-else-if="item.type === 'select'"
+              :ref="`form-item-${item.field}`"
+              :is="Select"
+              v-model="formValue[item.field]"
+              v-bind.prop="{ disabled, ...item.props }"
+              @search="handleSelectSearch(item, $event)"
+              @update="handleSelectUpdate(item, $event)"
+            />
           </template>
         </n-form-item>
       </template>
@@ -90,19 +89,18 @@
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, readonly, ...item.props }"
               />
-              <template v-else-if="item.type === 'select'">
-                <component
-                  :ref="`form-item-${item.field}`"
-                  :is="Select"
-                  v-model="formValue[item.field]"
-                  v-bind.prop="{ disabled, ...item.props }"
-                  @search="handleSelectSearch(item, $event)"
-                  @update="handleSelectUpdate(item, $event)"
-                />
-              </template>
+              <component
+                v-else-if="item.type === 'select'"
+                :ref="`form-item-${item.field}`"
+                :is="Select"
+                v-model="formValue[item.field]"
+                v-bind.prop="{ disabled, ...item.props }"
+                @search="handleSelectSearch(item, $event)"
+                @update="handleSelectUpdate(item, $event)"
+              />
             </template>
           </n-form-item>
-          <div v-else style="flex: 1"></div>
+          <div v-else style="flex: 1" class="p-form-inline-item-placeholder"></div>
         </template>
       </div>
     </template>
@@ -329,8 +327,12 @@ defineExpose({ validate, restoreValidation, getFormValue, getChild })
   display: flex;
   width: 100%;
 }
-.p-form-inline .n-form-item.n-form-item--left-labelled {
+.p-form-inline .n-form-item.n-form-item--left-labelled,
+.p-form-inline .p-form-inline-item-placeholder {
   margin-right: 16px;
+}
+.p-form-inline .p-form-inline-item-placeholder:last-child {
+  margin-right: 0;
 }
 .p-form-inline .n-form-item.n-form-item--left-labelled .n-form-item-label {
   padding: 0 10px 0 0;

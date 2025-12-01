@@ -47,18 +47,33 @@
     </p-form>
   </box-component>
 
-  <box-component :name="`${name} - 行内`">
+  <box-component :name="`${name} - 行内 vs Block`">
     <p-form
       ref="form3"
       :inline="true"
       :model="model3"
       :rules="rules3"
       :show-require-mark="true"
-      :inline-size="[2]"
+      :inline-size="[3]"
       :inline-class="[, 'bbbb']"
       feedback-size-class="s"
       virtual-submit
     />
+
+    <div style="border-top: 12px solid #f90; margin-bottom: 12px"></div>
+
+    <p-form
+      ref="form4"
+      :inline="false"
+      :model="model3"
+      :rules="rules3"
+      :show-require-mark="true"
+      :inline-size="[3]"
+      :inline-class="[, 'bbbb']"
+      feedback-size-class="s"
+      virtual-submit
+    />
+
     <p-button block size="large" @click="handleReset3">重置</p-button>
   </box-component>
 </template>
@@ -203,7 +218,6 @@ const model3 = ref([
     },
     label: '密码'
   },
-  { placeholder: true },
   {
     type: 'select',
     field: 'accountId',
@@ -217,7 +231,7 @@ const model3 = ref([
     },
     event: {
       search: () => {
-        const selectItem = model3.value[4]
+        const selectItem = model3.value[3]
         selectItem.props.loading = true
         setTimeout(() => {
           selectItem.props.options = [
@@ -235,6 +249,7 @@ const model3 = ref([
     label: '所属账号',
     showRequireMark: false
   },
+  { placeholder: true },
   {
     type: 'switch',
     field: 'state',
@@ -267,7 +282,9 @@ const rules3 = {
 }
 
 const form3Ref = useTemplateRef('form3')
+const form4Ref = useTemplateRef('form4')
 function handleReset3() {
   form3Ref.value.restoreValidation()
+  form4Ref.value.restoreValidation()
 }
 </script>

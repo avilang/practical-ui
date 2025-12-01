@@ -1,7 +1,22 @@
 <template>
   <box-component :name="`${name} - 多选`">
-    <p-select v-model="value" multiple :options="options" width="200px" @change="handleChange"
-  /></box-component>
+    <p-select v-model="value" multiple :options="options" width="200px" @change="handleChange" />
+  </box-component>
+
+  <box-component :name="`${name} - 远程`">
+    <p-select
+      v-model="value2"
+      multiple
+      :options="options2"
+      remote
+      filterable
+      :throttleSearch="false"
+      :loading="loading"
+      width="200px"
+      @change="handleChange2"
+      @search="handleSearch"
+    />
+  </box-component>
 </template>
 
 <script setup>
@@ -39,5 +54,24 @@ const options = [
 
 function handleChange(val) {
   console.log('🚀 ~ handleChange ~ val:', val)
+}
+
+const value2 = ref(null)
+const options2 = ref([])
+const loading = ref(false)
+function handleChange2(val) {
+  console.log('🚀 ~ handleChange2 ~ val:', val)
+}
+
+function handleSearch() {
+  loading.value = true
+  setTimeout(() => {
+    options2.value = [
+      { value: 1, label: '账号1' },
+      { value: 2, label: '账号2' },
+      { value: 3, label: '账号3' }
+    ]
+    loading.value = false
+  }, 1500)
 }
 </script>

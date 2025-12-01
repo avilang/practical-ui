@@ -17,7 +17,7 @@
     :show-checkmark="showCheckmark"
     :multiple="multiple"
     :max-tag-count="maxTagCount"
-    :keyboard="keyboard"
+    :keyboard="true"
     :fallback-option="false"
     :consistent-menu-width="true"
     :virtual-scroll="true"
@@ -54,7 +54,6 @@ const { throttleSearch } = defineProps({
   loading: { type: Boolean, default: false },
   multiple: { type: Boolean, default: false },
   maxTagCount: { type: [Number, String], default: 'responsive' },
-  keyboard: { type: Boolean, default: false },
   throttleSearch: { type: Boolean, default: false },
   width: { type: String, default: '' },
   emptyDescription: { type: String, default: '暂无数据' }
