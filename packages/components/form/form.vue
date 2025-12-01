@@ -36,6 +36,14 @@
               @input="handleInput(item.field)"
             />
             <component
+              v-else-if="item.type === 'input-identifier'"
+              :ref="`form-item-${item.field}`"
+              :is="InputIdentifier"
+              v-model="formValue[item.field]"
+              v-bind.prop="{ disabled, ...item.props }"
+              @input="handleInput(item.field)"
+            />
+            <component
               v-else-if="item.type === 'switch'"
               :ref="`form-item-${item.field}`"
               :is="Switch"
@@ -83,6 +91,14 @@
                 @input="handleInput(item.field)"
               />
               <component
+                v-else-if="item.type === 'input-identifier'"
+                :ref="`form-item-${item.field}`"
+                :is="InputIdentifier"
+                v-model="formValue[item.field]"
+                v-bind.prop="{ disabled, ...item.props }"
+                @input="handleInput(item.field)"
+              />
+              <component
                 v-else-if="item.type === 'switch'"
                 :ref="`form-item-${item.field}`"
                 :is="Switch"
@@ -113,6 +129,7 @@
 import { ref, toValue, useTemplateRef, computed, onScopeDispose } from 'vue'
 import { NForm, NFormItem } from 'naive-ui'
 import { PInput as Input } from '../input/index.js'
+import { PInputIdentifier as InputIdentifier } from '../input-identifier/index.js'
 import { PSwitch as Switch } from '../switch/index.js'
 import { PSelect as Select } from '../select/index.js'
 import { debounce } from '../utility/throttle-debounce'

@@ -258,6 +258,17 @@ const model3 = ref([
     props: {
       style: 'margin-left: 2px;'
     }
+  },
+  {
+    type: 'input-identifier',
+    field: 'identifier',
+    defaultValue: 'ab_cd_12',
+    props: {
+      disabled: false,
+      clearable: true
+    },
+    label: '标识符',
+    showRequireMark: false
   }
 ])
 
@@ -269,8 +280,12 @@ const rules3 = {
   },
   password: {
     required: true,
-    message: '密码不能为空',
-    trigger: ['blur', 'input']
+    message: '密码不能为空'
+  },
+  identifier: {
+    required: true,
+    message: '标识符不能为空',
+    trigger: ['blur']
   },
   accountId: {
     message: '必填哦',
