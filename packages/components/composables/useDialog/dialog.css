@@ -58,8 +58,8 @@
   border-top: 1px solid rgb(224, 224, 230);
 }
 
-.n-dialog.n-modal.p-dialog .n-dialog__action > *:not(:last-child) {
-  margin-right: 10px;
+.n-dialog.n-modal.p-dialog .n-dialog__action>*:not(:last-child) {
+  margin-right: 0;
 }
 
 .n-dialog.n-modal.p-dialog .n-dialog__action .n-button {
