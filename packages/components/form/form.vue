@@ -282,6 +282,23 @@ function restoreValidation(path = '') {
   targetFormItem && targetFormItem.restoreValidation()
 }
 
+function validateItem(path = '', options = {}) {
+  if (!path) {
+    return new Promise((resolve, reject) => {
+      reject(new Error('formItem not found'))
+    })
+  }
+
+  const targetFormItem = formItemRef.value.find((item) => item.path === path)
+  if (!targetFormItem) {
+    return new Promise((resolve, reject) => {
+      reject(new Error('formItem not found'))
+    })
+  }
+
+  return targetFormItem.validate(options)
+}
+
 // 输入框若存在验证规则，且不包含input触发，则还原到未校验的状态
 function handleInput(path) {
   if (!path) return
@@ -333,7 +350,7 @@ onScopeDispose(() => {
   child = null
 })
 
-defineExpose({ validate, restoreValidation, getFormValue, getChild })
+defineExpose({ validate, validateItem, restoreValidation, getFormValue, getChild })
 </script>
 
 <style>

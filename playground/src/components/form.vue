@@ -75,6 +75,7 @@
     />
 
     <p-button block size="large" @click="handleReset3">重置</p-button>
+    <p-button block size="large" class="mt-10" @click="handleValidate">校验单个表单字段</p-button>
   </box-component>
 </template>
 
@@ -284,8 +285,12 @@ const rules3 = {
   },
   identifier: {
     required: true,
-    message: '标识符不能为空',
-    trigger: ['blur']
+    // message: '标识符不能为空',
+    trigger: ['blur'],
+    validator(rule, value, c, d, e) {
+      if (e && e.cc === 'cc') return new Error('重复的标识符')
+      return true
+    }
   },
   accountId: {
     message: '必填哦',
@@ -301,5 +306,9 @@ const form4Ref = useTemplateRef('form4')
 function handleReset3() {
   form3Ref.value.restoreValidation()
   form4Ref.value.restoreValidation()
+}
+
+function handleValidate() {
+  form4Ref.value.validateItem('identifier', { options: { cc: 'cc' } }).catch(() => null)
 }
 </script>
