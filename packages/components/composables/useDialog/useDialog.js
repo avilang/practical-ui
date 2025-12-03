@@ -96,8 +96,10 @@ export default () => {
               d = commonDialog
             }
 
-            if (d.closable === false) return
-            d.class = status === true ? 'p-dialog p-dialog-loading' : 'p-dialog'
+            d.class =
+              status === true
+                ? `p-dialog p-dialog-loading ${d.closable ? 'p-dialog-loading-closable' : ''}`
+                : 'p-dialog'
           }
         })
       }
@@ -222,8 +224,10 @@ export function dialogDiscrete() {
               d = commonDialog
             }
 
-            if (d.closable === false) return
-            d.class = status === true ? 'p-dialog p-dialog-loading' : 'p-dialog'
+            d.class =
+              status === true
+                ? `p-dialog p-dialog-loading ${d.closable ? 'p-dialog-loading-closable' : ''}`
+                : 'p-dialog'
           }
         })
       }

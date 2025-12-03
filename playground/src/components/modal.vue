@@ -41,7 +41,7 @@ function handleOpen2() {
 
 function handleHeaderFooter() {
   const m = modal.open(
-    { title: '申请售后', content: ModalContent },
+    { title: '申请售后', content: ModalContent, closable: true },
     {
       contentProps: { text: '确认申请吗？' },
       footer: ModalFooter,
@@ -54,6 +54,9 @@ function handleHeaderFooter() {
         },
         onOk: () => {
           m.lock()
+          setTimeout(() => {
+            m.unlock()
+          }, 2000)
         }
       }
     }

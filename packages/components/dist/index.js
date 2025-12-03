@@ -35755,7 +35755,7 @@ const HB = () => {
         },
         onLoading: (b) => {
           let h = null;
-          v === "success" && t ? h = t : v === "warning" && n ? h = n : v === "error" && o ? h = o : e && (h = e), h.closable !== !1 && (h.class = b === !0 ? "p-dialog p-dialog-loading" : "p-dialog");
+          v === "success" && t ? h = t : v === "warning" && n ? h = n : v === "error" && o ? h = o : e && (h = e), h.class = b === !0 ? `p-dialog p-dialog-loading ${h.closable ? "p-dialog-loading-closable" : ""}` : "p-dialog";
         }
       });
     }), p.content = kh(u.content), i.create(p);
@@ -35815,7 +35815,7 @@ function jB() {
         },
         onLoading: (u) => {
           let f = null;
-          l === "success" && t ? f = t : l === "warning" && n ? f = n : l === "error" && o ? f = o : e && (f = e), f.closable !== !1 && (f.class = u === !0 ? "p-dialog p-dialog-loading" : "p-dialog");
+          l === "success" && t ? f = t : l === "warning" && n ? f = n : l === "error" && o ? f = o : e && (f = e), f.class = u === !0 ? `p-dialog p-dialog-loading ${f.closable ? "p-dialog-loading-closable" : ""}` : "p-dialog";
         }
       });
     }), d.content = kh(a.content), d.onClose = function() {
@@ -35880,8 +35880,9 @@ const WB = () => {
     const l = e.create(i);
     return {
       instance: l,
-      lock: function() {
-        l.class = "p-modal p-modal-lock";
+      lock: function(d = !0) {
+        const u = ["p-modal"];
+        l.closable && u.push("p-modal-lock-closable"), d && u.push("p-modal-lock-content"), l.class = u.join(" ");
       },
       unlock: function() {
         l.class = "p-modal";

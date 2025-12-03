@@ -19,7 +19,7 @@
     <div>
       <p-input placeholder="请输入" v-model="value" />
     </div>
-    <div>这是内容</div>
+    <div style="height: 2000px">这是内容</div>
     <template #footer>
       <p-button type="default" size="small" :disabled="loading" style="min-width: 60px" @click="handleClose"
         >关闭</p-button
@@ -65,7 +65,7 @@ function handleSubmit() {
   loading.value = true
   setTimeout(() => {
     loading.value = false
-  }, 3000)
+  }, 15000)
 }
 
 function onAfterEnter() {

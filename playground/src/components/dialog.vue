@@ -4,10 +4,14 @@
     <p-button class="ml-10" type="default" @click="handleOk">成功-不关闭弹出窗</p-button>
     <p-button class="ml-10" type="default" @click="handleWarning">警告-隐藏loading,不关闭弹出窗</p-button>
     <p-button class="ml-10" type="default" @click="handleError">错误-返回按钮不关闭弹出窗</p-button>
+    <p-button class="ml-10" type="default" @click="handleNoFooter">常规-没有底部操作</p-button>
     <p-button class="ml-10" type="default" @click="handleDialogDiscrete">dialog discrete info</p-button>
     <p-button class="ml-10" type="default" @click="handleDialogDiscreteWarning">dialog discrete warning</p-button>
     <p-button class="ml-10" type="default" @click="handleDialogDiscreteSuccess">dialog discrete success</p-button>
     <p-button class="ml-10" type="default" @click="handleDialogDiscreteError">dialog discrete error</p-button>
+    <p-button class="ml-10" type="default" @click="handleDialogDiscreteNoFooter"
+      >dialog discrete info no footer</p-button
+    >
   </box-component>
 </template>
 
@@ -34,7 +38,8 @@ const handleOpen = () => {
       }).then(() => {
         done()
       })
-    }
+    },
+    closable: false
   })
 }
 const handleOk = () => {
@@ -77,19 +82,40 @@ const handleError = () => {
   })
 }
 
+const handleNoFooter = () => {
+  dialog.open({
+    content: ['这是一个没有底部操作的弹出窗', '这是一个没有底部操作的弹出窗', '这是一个没有底部操作的弹出窗'],
+    positiveText: '',
+    negativeText: ''
+  })
+}
+
 function handleDialogDiscrete() {
   const d = dialogDiscrete()
   d.open({
     content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用'],
     onClose: () => {
       console.log('离散的弹出窗关闭了')
-    }
+    },
+    onPositiveClick: ({ done }) => {
+      // console.log('点击了 open 确定按钮')
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve()
+        }, 2500)
+      }).then(() => {
+        done()
+      })
+    },
+    closable: true
   })
 }
 
 function handleDialogDiscreteWarning() {
   const d = dialogDiscrete()
-  d.warning({ content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用'] })
+  d.warning({
+    content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用']
+  })
 }
 
 function handleDialogDiscreteSuccess() {
@@ -100,5 +126,14 @@ function handleDialogDiscreteSuccess() {
 function handleDialogDiscreteError() {
   const d = dialogDiscrete()
   d.error({ content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用'], draggable: false }, { useDefaultConf: true })
+}
+
+function handleDialogDiscreteNoFooter() {
+  const d = dialogDiscrete()
+  d.open({
+    content: ['这是一个离散的弹出窗', '无需在 setup 中即可使用'],
+    positiveText: '',
+    negativeText: ''
+  })
 }
 </script>

@@ -5,7 +5,7 @@
   transition-duration: 0.15s;
 }
 
-.n-dialog.n-modal.p-modal.p-modal-lock::after {
+.n-dialog.n-modal.p-modal.p-modal-lock-closable::after {
   content: ' ';
   position: absolute;
   top: 10px;
@@ -55,4 +55,14 @@
   margin-bottom: 0;
   line-height: 1.6;
   overflow-y: auto;
+}
+
+.n-dialog.n-modal.p-modal.p-modal-lock-content .n-dialog__content.p-modal-content::after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
 }

@@ -72,8 +72,11 @@ export default () => {
     const m = modal.create(config)
     return {
       instance: m,
-      lock: function () {
-        m.class = 'p-modal p-modal-lock'
+      lock: function (lockContent = true) {
+        const aClassName = ['p-modal']
+        if (m.closable) aClassName.push('p-modal-lock-closable')
+        if (lockContent) aClassName.push('p-modal-lock-content')
+        m.class = aClassName.join(' ')
       },
       unlock: function () {
         m.class = 'p-modal'

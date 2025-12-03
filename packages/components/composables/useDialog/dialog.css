@@ -3,7 +3,7 @@
   transition-duration: 0.15s;
 }
 
-.n-dialog.n-modal.p-dialog.p-dialog-loading::after {
+.n-dialog.n-modal.p-dialog.p-dialog-loading.p-dialog-loading-closable::after {
   content: ' ';
   position: absolute;
   top: 10px;
@@ -58,8 +58,12 @@
   border-top: 1px solid rgb(224, 224, 230);
 }
 
-.n-dialog.n-modal.p-dialog .n-dialog__action>*:not(:last-child) {
+.n-dialog.n-modal.p-dialog .n-dialog__action > *:not(:last-child) {
   margin-right: 0;
+}
+
+.n-dialog.n-modal.p-dialog .n-dialog__action > *:not(:first-child) {
+  margin-left: 10px;
 }
 
 .n-dialog.n-modal.p-dialog .n-dialog__action .n-button {

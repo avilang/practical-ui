@@ -151,6 +151,20 @@ function handleAfterLeave() {
   cursor: not-allowed;
 }
 
+.p-drawer.p-drawer-lock .n-drawer-body {
+  position: relative;
+}
+
+.p-drawer.p-drawer-lock .n-drawer-body::after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+
 .n-drawer.p-drawer .n-drawer-content .n-drawer-footer {
   border-top: none;
   padding: 0;
