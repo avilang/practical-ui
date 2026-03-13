@@ -294,7 +294,7 @@ const rules3 = {
   },
   accountId: {
     message: '必填哦',
-    // trigger: ['change'],
+    trigger: ['change'],
     validator(rule, value) {
       return value == null || value === '' ? false : true
     }

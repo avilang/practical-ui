@@ -140,6 +140,36 @@ defineOptions({
 })
 
 const { model, rules, feedbackSizeClass, inline, inlineSize, inlineClass } = defineProps({
+  /**
+   * 表单配置项列表
+   * 每一项为一个对象，用于描述一个表单项的渲染和行为
+   *
+   * 通用字段：
+   * - type: string
+   *   - 'input'            渲染为 `PInput`
+   *   - 'input-identifier' 渲染为 `PInputIdentifier`
+   *   - 'switch'           渲染为 `PSwitch`
+   *   - 'select'           渲染为 `PSelect`
+   * - field: string              对应的字段 key，用于 v-model 绑定和校验 rules 的 path
+   * - label: string              表单项标签文案
+   * - defaultValue: any          非插槽模式下的默认值，初始化到内部 formValue 中
+   * - props: object              透传给对应组件的属性，例如输入框 placeholder、maxlength 等
+   * - itemStyle: string          当前 form-item 的行内样式，不传则使用全局的 itemStyle
+   * - showRequireMark: boolean   当前项是否显示必填星号，不传则跟随全局 showRequireMark
+   * - placeholder: boolean       若为 true，则仅占位不渲染表单项（常用于行内布局补位）
+   *
+   * 插槽模式相关：
+   * - slot: boolean              为 true 时，不渲染内置组件而是使用具名插槽，插槽名为 field
+   * - value: any | Ref           插槽模式下用于 getFormValue 时的取值来源（toValue 后合并到表单值中）
+   *
+   * 行内布局相关（内部使用）：
+   * - isInlinePlaceholder: boolean  内部生成的占位项，用于补齐 inline 行数，外部一般无需手动传入
+   *
+   * 组件内部会根据以上字段自动生成：
+   * - 表单初始值 formValue
+   * - 与 naive-ui `rules` 联动的校验行为
+   * - 对应类型的输入 / 选择组件
+   */
   model: { type: Array, default: () => [] },
   rules: { type: Object, default: () => {} },
   inline: { type: Boolean, default: false },

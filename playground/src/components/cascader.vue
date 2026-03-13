@@ -8,6 +8,7 @@
       v-model="value"
       :options="options"
       :menu-props="{ style: { '--n-column-width': '200px' } }"
+      filterable
       @update="handleUpdate"
       @change="handleChange"
     />
@@ -17,6 +18,7 @@
       style="width: 200px"
       v-model="value2"
       multiple
+      filterable
       check-strategy="child"
       :options="options"
       :menu-props="{ style: { '--n-column-width': '200px' } }"

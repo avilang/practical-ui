@@ -10,9 +10,11 @@
     :multiple="multiple"
     :cascade="cascade"
     :clearable="clearable"
-    :check-strategy="multiple ? checkStrategy : 'child'"
+    :check-strategy="realCheckStrategy"
     :show-path="showPath"
     :remote="remote"
+    :filterable="remote ? false : filterable"
+    :clear-filter-after-select="clearFilterAfterSelect"
     :menu-props="menuProps"
     :children-field="childrenField"
     :disabled-field="disabledField"
@@ -30,6 +32,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { NCascader, NEmpty } from 'naive-ui'
 import { debounce } from '../utility/throttle-debounce'
 
@@ -38,7 +41,7 @@ defineOptions({
   inheritAttrs: false
 })
 
-const { multiple } = defineProps({
+const { multiple, checkStrategy } = defineProps({
   size: { type: String, default: 'medium' },
   disabled: { type: Boolean, default: false },
   placeholder: { type: String, default: '请选择' },
@@ -49,14 +52,20 @@ const { multiple } = defineProps({
   clearable: { type: Boolean, default: false },
   showPath: { type: Boolean, default: false },
   remote: { type: Boolean, default: false },
+  filterable: { type: Boolean, default: false },
+  clearFilterAfterSelect: { type: Boolean, default: true },
   onLoad: { type: Function },
-  checkStrategy: { type: String, default: 'parent' },
+  checkStrategy: { type: String },
   childrenField: { type: String, default: 'children' },
   disabledField: { type: String, default: 'disabled' },
   valueField: { type: String, default: 'value' },
   labelField: { type: String, default: 'label' },
   maxTagCount: { type: [Number, String], default: 'responsive' },
   emptyDescription: { type: String, default: '暂无数据' }
+})
+
+const realCheckStrategy = computed(() => {
+  return checkStrategy || (multiple ? 'parent' : 'child')
 })
 
 const emit = defineEmits(['update', 'change'])
