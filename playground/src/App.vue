@@ -5,7 +5,7 @@
       v-model="value"
       :options="options"
       :clearable="false"
-      width="200px"
+      style="width: 200px"
       value-field="componentKey"
       label-field="componentName"
       @change="handleChange"
@@ -33,6 +33,7 @@ import Drawer from './components/drawer.vue'
 import InputNumber from './components/input-number.vue'
 import InputIdentifier from './components/input-identifier.vue'
 import Select from './components/select.vue'
+import Cascader from './components/cascader.vue'
 
 const components = {
   button: Button,
@@ -51,7 +52,8 @@ const components = {
   drawer: Drawer,
   inputNumber: InputNumber,
   inputIdentifier: InputIdentifier,
-  select: Select
+  select: Select,
+  cascader: Cascader
 }
 const options = [
   { componentName: 'P-Button', componentKey: 'button' },
@@ -59,6 +61,7 @@ const options = [
   { componentName: 'P-Input-Number', componentKey: 'inputNumber' },
   { componentName: 'P-Input-Identifier', componentKey: 'inputIdentifier' },
   { componentName: 'P-Select', componentKey: 'select' },
+  { componentName: 'P-Cascader', componentKey: 'cascader' },
   { componentName: 'P-Form', componentKey: 'form' },
   { componentName: 'P-Search', componentKey: 'search' },
   { componentName: 'P-Data-Table', componentKey: 'table' },

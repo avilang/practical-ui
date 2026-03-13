@@ -1,5 +1,5 @@
 <template>
-  <div :class="attrs.class ? attrs.class : ''" :style="contentStyle">
+  <div :class="attrs.class ? attrs.class : ''" :style="$attrs.style || contentStyle">
     <slot
       v-if="
         (!loading && !isPending && !error && !equalEmptyForData(data)) ||
@@ -57,7 +57,7 @@ const { promise, loadingSize, loadingTop, dataField, nilType, nilClass } = defin
   defaultSlotAsEmpty: { type: Boolean, default: false },
   nilType: { type: String }, // 控制 empty 和 error 状态下的样式
   nilClass: { type: String }, // 定义 empty 和 error 状态下的 class 名
-  contentStyle: { type: String, default: 'position:relative; min-height:72px;' } //  内容的最小高度，避免 loading/empty 状态下高度不确定导致抖动
+  contentStyle: { type: String, default: 'position:relative; min-height:72px;' } //  内容的最小高度，避免 loading/empty 状态下高度不确定导致抖动，传参时建议使用 style 属性代替
 })
 const size = computed(() => {
   return ['small', 'medium', 'large'].includes(loadingSize) ? loadingSize : 'medium'

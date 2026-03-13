@@ -1,7 +1,7 @@
 <template>
   <n-select
     :class="[$attrs.class ? $attrs.class : '']"
-    :style="width ? `width:${width}` : ''"
+    :style="$attrs.style || ''"
     :options="options"
     :value="value"
     :size="size"
@@ -39,7 +39,7 @@ defineOptions({
   inheritAttrs: false
 })
 
-const { throttleSearch } = defineProps({
+const { throttleSearch, multiple } = defineProps({
   size: { type: String, default: 'medium' },
   menuSize: { type: String, default: 'medium' },
   placeholder: { type: String, default: '请选择' },
@@ -55,16 +55,21 @@ const { throttleSearch } = defineProps({
   multiple: { type: Boolean, default: false },
   maxTagCount: { type: [Number, String], default: 'responsive' },
   throttleSearch: { type: Boolean, default: false },
-  width: { type: String, default: '' },
   emptyDescription: { type: String, default: '暂无数据' }
 })
 
 const emit = defineEmits(['update', 'change', 'search'])
 const value = defineModel({ default: null })
 const handleUpdateValue = debounce(function (val) {
-  const changed = val !== value.value
+  let changed = false
+  if (multiple) {
+    changed = val.length !== value.value?.length
+  } else {
+    changed = val !== value.value
+  }
 
   value.value = val
+
   if (changed) emit('change', val)
   emit('update', val)
 }, 300)

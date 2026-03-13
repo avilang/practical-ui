@@ -1,6 +1,10 @@
 <template>
+  <box-component :name="`${name} - 单选`">
+    <p-select v-model="value3" :options="options" style="width: 200px" @change="handleChange" />
+  </box-component>
+
   <box-component :name="`${name} - 多选`">
-    <p-select v-model="value" multiple :options="options" width="200px" @change="handleChange" />
+    <p-select v-model="value" multiple :options="options" style="width: 200px" @change="handleChange" />
   </box-component>
 
   <box-component :name="`${name} - 远程`">
@@ -12,7 +16,7 @@
       filterable
       :throttleSearch="false"
       :loading="loading"
-      width="200px"
+      style="width: 200px"
       @change="handleChange2"
       @search="handleSearch"
     />
@@ -29,6 +33,7 @@ defineOptions({
 
 const name = 'PSelect'
 const value = ref(['2', '4'])
+const value3 = ref(null)
 const options = [
   {
     value: '1',

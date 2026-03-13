@@ -15,7 +15,7 @@
 
   <box-component :name="`${name} - 控制 loading 位置`">
     <div style="height: 150px; position: relative">
-      <p-promised :promise="promise2" content-style="height: 100%;overflow-y: auto">
+      <p-promised :promise="promise2" style="height: 100%; overflow-y: auto">
         <template v-slot="{ data }">
           <ul>
             <li v-for="item in data" :key="item">
@@ -98,9 +98,12 @@ function handleStart(type) {
 const promise2 = ref(null)
 function handleStart2() {
   promise2.value = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    }, 1000)
+    setTimeout(
+      () => {
+        resolve([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+      },
+      promise2.value == null ? 1000 : 30000
+    )
   })
 }
 
