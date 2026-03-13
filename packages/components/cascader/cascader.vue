@@ -24,6 +24,7 @@
     :virtual-scroll="true"
     :on-load="onLoad"
     @update:value="handleUpdateValue"
+    @input="emitInput"
   >
     <template #empty>
       <n-empty class="p-cascader-empty" :size="size === 'small' ? 'tiny' : 'small'" :description="emptyDescription" />
@@ -34,14 +35,14 @@
 <script setup>
 import { computed } from 'vue'
 import { NCascader, NEmpty } from 'naive-ui'
-import { debounce } from '../utility/throttle-debounce'
+import { debounce, throttle } from '../utility/throttle-debounce'
 
 defineOptions({
   name: 'PCascader',
   inheritAttrs: false
 })
 
-const { multiple, checkStrategy } = defineProps({
+const { multiple, checkStrategy, filterable, remote } = defineProps({
   size: { type: String, default: 'medium' },
   disabled: { type: Boolean, default: false },
   placeholder: { type: String, default: '请选择' },
@@ -68,7 +69,7 @@ const realCheckStrategy = computed(() => {
   return checkStrategy || (multiple ? 'parent' : 'child')
 })
 
-const emit = defineEmits(['update', 'change'])
+const emit = defineEmits(['update', 'change', 'inputFilter'])
 const value = defineModel({ default: null })
 const handleUpdateValue = debounce(function (val) {
   let changed = false
@@ -82,6 +83,12 @@ const handleUpdateValue = debounce(function (val) {
 
   if (changed) emit('change', val)
   emit('update', val)
+}, 300)
+
+const emitInput = throttle(function (e) {
+  if (filterable && !remote) {
+    emit('inputFilter', e.target.value)
+  }
 }, 300)
 </script>
 

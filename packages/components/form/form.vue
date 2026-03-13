@@ -59,6 +59,15 @@
               @search="handleSelectSearch(item, $event)"
               @update="handleSelectUpdate(item, $event)"
             />
+            <component
+              v-else-if="item.type === 'cascader'"
+              :ref="`form-item-${item.field}`"
+              :is="Cascader"
+              v-model="formValue[item.field]"
+              v-bind.prop="{ disabled, ...item.props }"
+              @input-filter="handleCascaderInput(item)"
+              @update="handleCascaderUpdate(item, $event)"
+            />
           </template>
         </n-form-item>
       </template>
@@ -114,6 +123,15 @@
                 @search="handleSelectSearch(item, $event)"
                 @update="handleSelectUpdate(item, $event)"
               />
+              <component
+                v-else-if="item.type === 'cascader'"
+                :ref="`form-item-${item.field}`"
+                :is="Cascader"
+                v-model="formValue[item.field]"
+                v-bind.prop="{ disabled, ...item.props }"
+                @input-filter="handleCascaderInput(item)"
+                @update="handleCascaderUpdate(item, $event)"
+              />
             </template>
           </n-form-item>
           <div v-else style="flex: 1" class="p-form-inline-item-placeholder"></div>
@@ -132,6 +150,7 @@ import { PInput as Input } from '../input/index.js'
 import { PInputIdentifier as InputIdentifier } from '../input-identifier/index.js'
 import { PSwitch as Switch } from '../switch/index.js'
 import { PSelect as Select } from '../select/index.js'
+import { PCascader as Cascader } from '../cascader/index.js'
 import { debounce } from '../utility/throttle-debounce'
 
 defineOptions({
@@ -150,6 +169,7 @@ const { model, rules, feedbackSizeClass, inline, inlineSize, inlineClass } = def
    *   - 'input-identifier' 渲染为 `PInputIdentifier`
    *   - 'switch'           渲染为 `PSwitch`
    *   - 'select'           渲染为 `PSelect`
+   *   - 'cascader'         渲染为 `PCascader`
    * - field: string              对应的字段 key，用于 v-model 绑定和校验 rules 的 path
    * - label: string              表单项标签文案
    * - defaultValue: any          非插槽模式下的默认值，初始化到内部 formValue 中
@@ -350,6 +370,28 @@ function handleSelectSearch(m, v) {
 }
 
 function handleSelectUpdate(m, v) {
+  const path = m.field
+  if (
+    path &&
+    rules &&
+    rules[path] &&
+    (!rules[path].trigger || (!!rules[path].trigger && rules[path].trigger.includes('change') === false))
+  ) {
+    restoreValidation(path)
+  }
+  if (m.event?.update) {
+    m.event.update(v)
+  }
+}
+
+function handleCascaderInput(m) {
+  const path = m.field
+  if (path && rules && rules[path] && m.props?.filterable) {
+    restoreValidation(path)
+  }
+}
+
+function handleCascaderUpdate(m, v) {
   const path = m.field
   if (
     path &&

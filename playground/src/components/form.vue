@@ -270,6 +270,39 @@ const model3 = ref([
     },
     label: '标识符',
     showRequireMark: false
+  },
+  {
+    type: 'cascader',
+    field: 'cascaderValue',
+    props: {
+      multiple: true,
+      clearable: true,
+      filterable: true,
+      options: [
+        {
+          value: 1,
+          label: '一级 1',
+          children: [
+            { value: 11, label: '二级 11' },
+            { value: 12, label: '二级 12' }
+          ]
+        },
+        {
+          value: 2,
+          label: '一级 2',
+          children: [
+            { value: 21, label: '二级 21' },
+            { value: 22, label: '二级 22' }
+          ]
+        }
+      ]
+    },
+    event: {
+      update: (v) => {
+        console.log('cascader update: ' + v)
+      }
+    },
+    label: '级联选择'
   }
 ])
 
@@ -297,6 +330,13 @@ const rules3 = {
     trigger: ['change'],
     validator(rule, value) {
       return value == null || value === '' ? false : true
+    }
+  },
+  cascaderValue: {
+    message: '级联选择不能为空',
+    trigger: ['change'],
+    validator(rule, value) {
+      return value == null || value === '' || (value && value.length === 0) ? false : true
     }
   }
 }

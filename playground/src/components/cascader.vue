@@ -54,6 +54,16 @@
       :on-load="handleLoad"
     />
   </box-component>
+  <box-component :name="`${name} - 单选 - inputFilter`">
+    <p-cascader
+      style="width: 200px"
+      v-model="value"
+      :options="options"
+      :menu-props="{ style: { '--n-column-width': '200px' } }"
+      filterable
+      @input-filter="handleInputFilter"
+    />
+  </box-component>
 </template>
 
 <script setup>
@@ -135,6 +145,10 @@ function handleLoad(option) {
       resolve()
     }, 1e3)
   })
+}
+
+function handleInputFilter(val) {
+  console.log('🚀 ~ handleInputFilter ~ val:', val)
 }
 </script>
 
