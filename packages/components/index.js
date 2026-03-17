@@ -15,7 +15,9 @@ import {
   NUploadTrigger,
   NUploadFileList,
   NUploadDragger,
-  NProgress
+  NProgress,
+  NBreadcrumb,
+  NBreadcrumbItem
 } from 'naive-ui'
 import { Practical } from './practical/index.js'
 import { PSearch } from './search/index.js'
@@ -77,6 +79,8 @@ export default {
     app.component(`${prefix}-upload-file-list`, NUploadFileList)
     app.component(`${prefix}-upload-dragger`, NUploadDragger)
     app.component(`${prefix}-progress`, NProgress)
+    app.component(`${prefix}-breadcrumb`, NBreadcrumb)
+    app.component(`${prefix}-breadcrumb-item`, NBreadcrumbItem)
   }
 }
 
