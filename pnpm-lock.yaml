@@ -27,7 +27,7 @@ importers:
   packages/components:
     dependencies:
       big.js:
-        specifier: ^7.0.1
+        specifier: 7.0.1
         version: 7.0.1
       grapheme-splitter:
         specifier: 1.0.4
