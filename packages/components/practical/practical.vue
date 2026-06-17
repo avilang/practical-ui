@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import 'vfonts/Lato.css'
+import 'vfonts/OpenSans.css'
 import { NConfigProvider, NDialogProvider, NModalProvider, zhCN, dateZhCN } from 'naive-ui'
 
 defineOptions({

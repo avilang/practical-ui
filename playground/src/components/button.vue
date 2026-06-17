@@ -5,6 +5,9 @@
     <p-button class="ml-10" type="default" size="small">Small Default Button</p-button>
     <p-button class="ml-10" type="error" size="xs">XS Error Button</p-button>
     <p-button class="ml-10" type="success" size="large">Large Success Button</p-button>
+    <p-button class="ml-10" text type="default"
+      ><template #icon> <p-icon :component="PlusOutlined"></p-icon> </template>新增账号</p-button
+    >
   </box-component>
 
   <box-component :name="`${name} - 显示为块级`">
@@ -40,7 +43,7 @@
 <script setup>
 import { ref } from 'vue'
 import { createDiscreteFn } from '@avilang/practical-ui/index.js'
-import { WechatOutlined } from '@vicons/antd'
+import { WechatOutlined, PlusOutlined } from '@vicons/antd'
 import BoxComponent from './box-component.vue'
 
 defineOptions({
