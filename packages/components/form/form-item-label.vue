@@ -1,5 +1,5 @@
 <template>
-  <span ref="label" :class="['p-form-item-label']" :style="style">
+  <span ref="label" :class="['p-form-item-label']" :style="style" :title="style !== '' ? label : ''">
     <span class="p-form-item-label__text">{{ label }}</span>
   </span>
 </template>

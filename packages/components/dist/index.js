@@ -345,7 +345,7 @@ const I0 = "n", Do = `.${I0}-`, L0 = "__", N0 = "--", Iu = Mu(), Lu = x0({
 Iu.use(Lu);
 const {
   c: E,
-  find: gB
+  find: pB
 } = Iu, {
   cB: $,
   cE: M,
@@ -36623,7 +36623,7 @@ const io = /* @__PURE__ */ Object.assign({
       ], 4))), 128))
     ], 512));
   }
-}), Xk = { class: "p-form-item-label__text" }, $u = {
+}), Xk = ["title"], Yk = { class: "p-form-item-label__text" }, $u = {
   __name: "form-item-label",
   props: {
     label: { type: String },
@@ -36638,10 +36638,11 @@ const io = /* @__PURE__ */ Object.assign({
     }), (o, i) => (Ee(), xt("span", {
       ref: "label",
       class: kt(["p-form-item-label"]),
-      style: _t(n.value)
+      style: _t(n.value),
+      title: n.value !== "" ? e.label : ""
     }, [
-      Nn("span", Xk, gn(e.label), 1)
-    ], 4));
+      Nn("span", Yk, gn(e.label), 1)
+    ], 12, Xk));
   }
 }, kl = /* @__PURE__ */ Object.assign({
   name: "PInputIdentifier",
@@ -36857,16 +36858,16 @@ const io = /* @__PURE__ */ Object.assign({
       _: 1
     }, 8, ["style", "size", "disabled", "placeholder", "value", "options", "multiple", "cascade", "clearable", "check-strategy", "show-path", "remote", "filterable", "clear-filter-after-select", "menu-props", "children-field", "disabled-field", "value-field", "label-field", "max-tag-count", "on-load", "onUpdate:value", "onInput"]));
   }
-}), Yk = {
+}), Zk = {
   key: 1,
   style: { flex: "1" },
   class: "p-form-inline-item-placeholder"
-}, Zk = {
+}, Jk = {
   key: 2,
   autocomplete: "off",
   type: "submit",
   style: { display: "none" }
-}, Jk = /* @__PURE__ */ Object.assign({
+}, Qk = /* @__PURE__ */ Object.assign({
   name: "PForm",
   inheritAttrs: !1
 }, {
@@ -37212,16 +37213,16 @@ const io = /* @__PURE__ */ Object.assign({
                 ]),
                 key: "0"
               } : void 0
-            ]), 1032, ["style", "label", "label-style", "content-style", "path", "feedback-class", "show-require-mark"])) : (Ee(), xt("div", Yk))
+            ]), 1032, ["style", "label", "label-style", "content-style", "path", "feedback-class", "show-require-mark"])) : (Ee(), xt("div", Zk))
           ], 64))), 128))
         ], 2))), 128)) : Dt("", !0),
-        e.virtualSubmit ? (Ee(), xt("button", Zk, "virtual button")) : Dt("", !0),
+        e.virtualSubmit ? (Ee(), xt("button", Jk, "virtual button")) : Dt("", !0),
         nn(S.$slots, "default")
       ]),
       _: 3
     }, 8, ["class", "show-label", "label-placement", "label-width", "show-require-mark", "label-align", "model", "rules", "inline", "show-feedback", "onSubmit"]));
   }
-}), Qk = /* @__PURE__ */ Object.assign({
+}), eB = /* @__PURE__ */ Object.assign({
   name: "PInputNumber",
   inheritAttrs: !1
 }, {
@@ -37349,7 +37350,7 @@ const io = /* @__PURE__ */ Object.assign({
       onBlur: B
     }, null, 8, ["class", "placeholder", "size", "maxlength", "disabled", "readonly", "clearable", "modelValue"]));
   }
-}), eB = /* @__PURE__ */ Object.assign({
+}), tB = /* @__PURE__ */ Object.assign({
   name: "PRadio",
   inheritAttrs: !1
 }, {
@@ -37382,7 +37383,7 @@ const io = /* @__PURE__ */ Object.assign({
       _: 3
     }, 8, ["class", "style", "checked", "size", "disabled", "value", "on-update:checked"]));
   }
-}), tB = /* @__PURE__ */ Object.assign({
+}), nB = /* @__PURE__ */ Object.assign({
   name: "PCheckbox",
   inheritAttrs: !1
 }, {
@@ -37421,7 +37422,7 @@ const io = /* @__PURE__ */ Object.assign({
       _: 3
     }, 8, ["class", "style", "checked", "size", "disabled", "value", "on-update:checked"]));
   }
-}), nB = /* @__PURE__ */ Object.assign({
+}), rB = /* @__PURE__ */ Object.assign({
   name: "PCheckboxGroup",
   inheritAttrs: !1
 }, {
@@ -37447,7 +37448,7 @@ const io = /* @__PURE__ */ Object.assign({
       _: 3
     }, 8, ["class", "style", "value", "on-update:value"]));
   }
-}), rB = /* @__PURE__ */ Object.assign({
+}), oB = /* @__PURE__ */ Object.assign({
   name: "PRadioGroup",
   inheritAttrs: !1
 }, {
@@ -37473,7 +37474,7 @@ const io = /* @__PURE__ */ Object.assign({
       _: 3
     }, 8, ["class", "style", "value", "on-update:value"]));
   }
-}), oB = /* @__PURE__ */ Q((e, {
+}), iB = /* @__PURE__ */ Q((e, {
   expose: t
 }) => {
   const n = {
@@ -37502,7 +37503,7 @@ const io = /* @__PURE__ */ Object.assign({
 }, {
   name: "PDataTable",
   inheritAttrs: !0
-}), iB = {
+}), aB = {
   __name: "popconfirm-action",
   props: {
     positiveText: { type: String, default: "" },
@@ -37545,7 +37546,7 @@ const io = /* @__PURE__ */ Object.assign({
       }, 8, ["type"])) : Dt("", !0)
     ], 64));
   }
-}, aB = /* @__PURE__ */ Q((e, {
+}, lB = /* @__PURE__ */ Q((e, {
   emit: t
 }) => {
   const n = zl(), o = L(), i = () => {
@@ -37563,7 +37564,7 @@ const io = /* @__PURE__ */ Object.assign({
   }, {
     default: n.default,
     trigger: n.trigger,
-    action: () => c(iB, {
+    action: () => c(aB, {
       positiveText: e.positiveText,
       negativeText: e.negativeText,
       type: e.type,
@@ -37601,7 +37602,7 @@ const io = /* @__PURE__ */ Object.assign({
       default: "max-width:300px"
     }
   }
-}), lB = /* @__PURE__ */ Object.assign({
+}), sB = /* @__PURE__ */ Object.assign({
   name: "PPagination",
   inheritAttrs: !1
 }, {
@@ -37667,7 +37668,7 @@ const io = /* @__PURE__ */ Object.assign({
   * (c) 2021 Eduardo San Martin Morote
   * @license MIT
   */
-function sB(e, t = 200) {
+function dB(e, t = 200) {
   const n = L(!1), o = L(!1), i = A(() => !n.value && !o.value), a = L(!1), s = L(), l = L();
   let d;
   return Ze(() => ne(e), (u) => {
@@ -37715,10 +37716,10 @@ const Wh = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: n = !1 } = 
   ), Hi(() => {
     d = null, a();
   }), { loading: l, waiting: s, setLoadingStatus: u };
-}, dB = {
+}, uB = {
   key: 1,
   class: "p-promised-loading"
-}, uB = /* @__PURE__ */ Object.assign({
+}, cB = /* @__PURE__ */ Object.assign({
   name: "PPromised",
   inheritAttrs: !1
 }, {
@@ -37745,7 +37746,7 @@ const Wh = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: n = !1 } = 
     }), o = A(() => {
       let C = (e.nilClass || "").trim();
       return e.nilType === "border" && (C += " p-promised-empty-border"), e.nilType === "line" && (C += " p-promised-empty-line"), C.trim();
-    }), i = Kn(), a = te(() => e.promise), { data: s, error: l, isPending: d, isDelayElapsed: u, isResolved: f, isRejected: h } = sB(a, 0), { loading: p, waiting: x } = Wh(), v = A(() => !p.value && !d.value && !l.value && m(s.value));
+    }), i = Kn(), a = te(() => e.promise), { data: s, error: l, isPending: d, isDelayElapsed: u, isResolved: f, isRejected: h } = dB(a, 0), { loading: p, waiting: x } = Wh(), v = A(() => !p.value && !d.value && !l.value && m(s.value));
     Ze(
       () => d.value && u.value,
       (C) => {
@@ -37781,7 +37782,7 @@ const Wh = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: n = !1 } = 
         data: ne(s),
         isEmpty: v.value
       }) : Dt("", !0),
-      ne(p) ? (Ee(), xt("div", dB, [
+      ne(p) ? (Ee(), xt("div", uB, [
         Kt(ne(Ah), {
           size: t.value,
           style: _t(n.value)
@@ -37812,7 +37813,7 @@ const Wh = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: n = !1 } = 
       }, null, 8, ["class", "description"])) : Dt("", !0)
     ], 6));
   }
-}), cB = /* @__PURE__ */ Object.assign({
+}), fB = /* @__PURE__ */ Object.assign({
   name: "PDrawer",
   inheritAttrs: !1
 }, {
@@ -37894,7 +37895,7 @@ const Wh = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: n = !1 } = 
     }, 8, ["class", "show", "width", "height", "placement", "mask-closable"]));
   }
 });
-function pB(e = ["loadingBar", "message"], t = {}) {
+function mB(e = ["loadingBar", "message"], t = {}) {
   var i;
   const { loadingBar: n, message: o } = xh(e, {
     configProviderProps: { inlineThemeDisabled: !0 },
@@ -37980,9 +37981,9 @@ const Vh = {
       }, 8, ["type", "loading"])) : Dt("", !0)
     ], 64));
   }
-}, { dialog: fB } = xh(["dialog"], {
+}, { dialog: hB } = xh(["dialog"], {
   configProviderProps: { inlineThemeDisabled: !0 }
-}), hB = fB;
+}), vB = hB;
 function _h(e) {
   return typeof e == "string" ? function() {
     return c("p", { innerHTML: e });
@@ -37993,7 +37994,7 @@ function _h(e) {
     );
   } : e;
 }
-const mB = () => {
+const bB = () => {
   let e = null, t = null, n = null, o = null;
   const i = rh(), a = (u = {}, f = { width: 430 }, h) => {
     const p = {
@@ -38053,7 +38054,7 @@ const mB = () => {
     error: d
   };
 };
-function bB() {
+function xB() {
   let e = null, t = null, n = null, o = null;
   const i = (a = {}, s = { width: 430 }, l) => {
     const d = {
@@ -38089,7 +38090,7 @@ function bB() {
       });
     }), d.content = _h(a.content), d.onClose = function() {
       a.onClose && a.onClose(), e && e.destroy(), t && t.destroy(), n && n.destroy(), o && o.destroy(), e = null, t = null, n = null, o = null;
-    }, hB.create(d);
+    }, vB.create(d);
   };
   return {
     open: function(a, s) {
@@ -38113,7 +38114,7 @@ function bB() {
     }
   };
 }
-const xB = () => {
+const yB = () => {
   const e = sh();
   return { open: (n = {}, o = {}) => {
     const i = {
@@ -38158,19 +38159,19 @@ const xB = () => {
       }
     };
   } };
-}, yB = {
+}, CB = {
   install: (e, t = {}) => {
     const { prefix: n = "p" } = t;
-    e.component(`${n}-practical`, Fk), e.component(`${n}-search`, Gk), e.component(`${n}-form`, Jk), e.component(`${n}-input`, io), e.component(`${n}-input-number`, Qk), e.component(`${n}-input-identifier`, kl), e.component(`${n}-select`, ji), e.component(`${n}-cascader`, Rl), e.component(`${n}-switch`, Bl), e.component(`${n}-radio`, eB), e.component(`${n}-radio-group`, rB), e.component(`${n}-checkbox`, tB), e.component(`${n}-checkbox-group`, nB), e.component(`${n}-button`, Ar), e.component(`${n}-data-table`, oB), e.component(`${n}-popconfirm`, aB), e.component(`${n}-pagination`, lB), e.component(`${n}-promised`, uB), e.component(`${n}-drawer`, cB), e.component(`${n}-icon-wrapper`, E4), e.component(`${n}-icon`, jo), e.component(`${n}-input-group`, zw), e.component(`${n}-input-group-label`, Ew), e.component(`${n}-popover`, Nr), e.component(`${n}-spin`, Ah), e.component(`${n}-collapse`, B2), e.component(`${n}-collapse-item`, F2), e.component(`${n}-dropdown`, Zf), e.component(`${n}-tooltip`, gs), e.component(`${n}-divider`, s5), e.component(`${n}-empty`, Un), e.component(`${n}-upload`, Pk), e.component(`${n}-upload-trigger`, ys), e.component(`${n}-upload-file-list`, Mh), e.component(`${n}-upload-dragger`, Eh), e.component(`${n}-progress`, zh), e.component(`${n}-breadcrumb`, _w), e.component(`${n}-breadcrumb-item`, qw);
+    e.component(`${n}-practical`, Fk), e.component(`${n}-search`, Gk), e.component(`${n}-form`, Qk), e.component(`${n}-input`, io), e.component(`${n}-input-number`, eB), e.component(`${n}-input-identifier`, kl), e.component(`${n}-select`, ji), e.component(`${n}-cascader`, Rl), e.component(`${n}-switch`, Bl), e.component(`${n}-radio`, tB), e.component(`${n}-radio-group`, oB), e.component(`${n}-checkbox`, nB), e.component(`${n}-checkbox-group`, rB), e.component(`${n}-button`, Ar), e.component(`${n}-data-table`, iB), e.component(`${n}-popconfirm`, lB), e.component(`${n}-pagination`, sB), e.component(`${n}-promised`, cB), e.component(`${n}-drawer`, fB), e.component(`${n}-icon-wrapper`, E4), e.component(`${n}-icon`, jo), e.component(`${n}-input-group`, zw), e.component(`${n}-input-group-label`, Ew), e.component(`${n}-popover`, Nr), e.component(`${n}-spin`, Ah), e.component(`${n}-collapse`, B2), e.component(`${n}-collapse-item`, F2), e.component(`${n}-dropdown`, Zf), e.component(`${n}-tooltip`, gs), e.component(`${n}-divider`, s5), e.component(`${n}-empty`, Un), e.component(`${n}-upload`, Pk), e.component(`${n}-upload-trigger`, ys), e.component(`${n}-upload-file-list`, Mh), e.component(`${n}-upload-dragger`, Eh), e.component(`${n}-progress`, zh), e.component(`${n}-breadcrumb`, _w), e.component(`${n}-breadcrumb-item`, qw);
   }
 };
 export {
-  pB as createDiscreteFn,
+  mB as createDiscreteFn,
   er as debounce,
-  yB as default,
-  bB as dialogDiscrete,
+  CB as default,
+  xB as dialogDiscrete,
   Cs as throttle,
   Wh as useDelayLoading,
-  mB as useDialog,
-  xB as useModal
+  bB as useDialog,
+  yB as useModal
 };
