@@ -28,6 +28,13 @@
           :first="true"
           :show-require-mark="item.showRequireMark == null ? showRequireMark : !!item.showRequireMark"
         >
+          <template #label v-if="showCustomizeLabel">
+            <form-item-label
+              :label="item.label"
+              :width="labelWidth"
+              :show-require-mark="item.showRequireMark == null ? showRequireMark : !!item.showRequireMark"
+            />
+          </template>
           <slot v-if="item.slot === true" :name="item.field" />
           <template v-else>
             <component
@@ -94,6 +101,13 @@
             :first="true"
             :show-require-mark="item.showRequireMark == null ? showRequireMark : !!item.showRequireMark"
           >
+            <template #label v-if="showCustomizeLabel">
+              <form-item-label
+                :label="item.label"
+                :width="labelWidth"
+                :show-require-mark="item.showRequireMark == null ? showRequireMark : !!item.showRequireMark"
+              />
+            </template>
             <slot v-if="item.slot === true" :name="item.field" />
             <template v-else>
               <component
@@ -151,6 +165,7 @@
 <script setup>
 import { ref, toValue, useTemplateRef, computed, onScopeDispose } from 'vue'
 import { NForm, NFormItem } from 'naive-ui'
+import FormItemLabel from './form-item-label.vue'
 import { PInput as Input } from '../input/index.js'
 import { PInputIdentifier as InputIdentifier } from '../input-identifier/index.js'
 import { PSwitch as Switch } from '../switch/index.js'
@@ -163,7 +178,7 @@ defineOptions({
   inheritAttrs: false
 })
 
-const { model, rules, feedbackSizeClass, inline, inlineSize, inlineClass } = defineProps({
+const { model, rules, feedbackSizeClass, inline, inlineSize, inlineClass, labelWidth, showLabel } = defineProps({
   /**
    * 表单配置项列表
    * 每一项为一个对象，用于描述一个表单项的渲染和行为
@@ -214,6 +229,10 @@ const { model, rules, feedbackSizeClass, inline, inlineSize, inlineClass } = def
   inlineCommonClass: { type: Array, default: () => [] }, // 配合 inline 使用，每行的通用 className
   virtualSubmit: { type: Boolean, default: false }
 })
+
+const showCustomizeLabel = (function () {
+  return labelWidth !== 'auto' && showLabel
+})()
 
 const inlineModel = computed(() => {
   if (!inline || (inline && inlineSize.length <= 0) || model.length <= 0) return null

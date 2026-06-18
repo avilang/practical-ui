@@ -85,7 +85,8 @@
       inline
       :inline-size="[3]"
       :showFeedback="false"
-      label-width="100"
+      label-width="100px"
+      :show-label="true"
       label-style="--n-blank-height:28px;"
       content-style="--n-blank-height:28px;"
       :inline-common-class="['inline-common-class']"
