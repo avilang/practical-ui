@@ -4,13 +4,14 @@
     :class="[inline ? 'p-form-inline' : '']"
     :show-label="showLabel"
     :label-placement="labelPlacement"
-    label-width="auto"
+    :label-width="labelWidth"
     require-mark-placement="left"
     :show-require-mark="showRequireMark"
     :label-align="labelPlacement === 'left' ? 'right' : 'left'"
     :model="formValue"
     :rules="rules"
     :inline="inline"
+    :show-feedback="showFeedback"
     @submit.prevent="handleSubmit"
   >
     <template v-if="!inline || (inline && inlineSize.length <= 0)">
@@ -20,6 +21,8 @@
           ref="formItem"
           :style="item.itemStyle == null ? itemStyle : item.itemStyle"
           :label="item.label"
+          :label-style="labelStyle"
+          :content-style="contentStyle"
           :path="item.field"
           :feedback-class="feedbackSizeClassName"
           :first="true"
@@ -76,7 +79,7 @@
       <div
         v-for="(itemModel, index) in inlineModel"
         :key="index"
-        :class="['p-form-inline-item', inlineClass[index] ? inlineClass[index] : '']"
+        :class="['p-form-inline-item', ...inlineCommonClass, inlineClass[index] ? inlineClass[index] : '']"
       >
         <template v-for="(item, j) in itemModel" :key="item.field || index + '-' + j">
           <n-form-item
@@ -84,6 +87,8 @@
             ref="formItem"
             :style="item.itemStyle == null ? itemStyle : item.itemStyle"
             :label="item.label"
+            :label-style="labelStyle"
+            :content-style="contentStyle"
             :path="item.field"
             :feedback-class="feedbackSizeClassName"
             :first="true"
@@ -194,14 +199,19 @@ const { model, rules, feedbackSizeClass, inline, inlineSize, inlineClass } = def
   rules: { type: Object, default: () => {} },
   inline: { type: Boolean, default: false },
   showLabel: { type: Boolean, default: true },
+  labelWidth: { type: [Number, String], default: 'auto' },
+  labelStyle: { type: null }, // FormItem 标签的样式
   labelPlacement: { type: String, default: 'left' }, // 标签显示的位置
   showRequireMark: { type: Boolean, default: false }, // 是否展示必填的星号
+  showFeedback: { type: Boolean, default: true },
   readonly: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
   feedbackSizeClass: { type: String },
   itemStyle: { type: String, default: 'flex:1' }, // form-item style
+  contentStyle: { type: null }, // FormItem 内容的样式
   inlineSize: { type: Array, default: () => [] }, // 配合 inline 使用，每行显示 form-item 的数量，可传一个数组，如 [2, 3, 2]，表示第一行显示 2 个，第二行显示 3 个，第三行及以下显示 2 个
   inlineClass: { type: Array, default: () => [] }, // 配合 inline 使用，每行的 className
+  inlineCommonClass: { type: Array, default: () => [] }, // 配合 inline 使用，每行的通用 className
   virtualSubmit: { type: Boolean, default: false }
 })
 

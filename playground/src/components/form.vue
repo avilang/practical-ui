@@ -77,6 +77,20 @@
     <p-button block size="large" @click="handleReset3">重置</p-button>
     <p-button block size="large" class="mt-10" @click="handleValidate">校验单个表单字段</p-button>
   </box-component>
+
+  <box-component :name="`${name} - 行内样式调整`">
+    <p-form
+      :model="model4"
+      feedback-size-class="s"
+      inline
+      :inline-size="[3]"
+      :showFeedback="false"
+      label-width="100"
+      label-style="--n-blank-height:28px;"
+      content-style="--n-blank-height:28px;"
+      :inline-common-class="['inline-common-class']"
+    ></p-form>
+  </box-component>
 </template>
 
 <script setup>
@@ -351,4 +365,26 @@ function handleReset3() {
 function handleValidate() {
   form4Ref.value.validateItem('identifier', { options: { cc: 'cc' } }).catch(() => null)
 }
+
+const model4 = ref([
+  {
+    type: 'input',
+    label: '客户名称阿道夫卡迪夫全额认购',
+    field: 'name',
+    showRequireMark: true,
+    props: { size: 'small' }
+  },
+  { type: 'input', label: '客户编号', field: 'code', props: { size: 'small', disabled: true } },
+  { type: 'select', label: '价格等级', field: 'priceLevel', props: { size: 'small' } },
+  { type: 'select', label: '状态', field: 'status', showRequireMark: true, props: { size: 'small' } }
+])
 </script>
+
+<style scoped>
+:deep(.inline-common-class) {
+  &:first-child {
+    margin-top: 0;
+  }
+  margin-top: 4px;
+}
+</style>
