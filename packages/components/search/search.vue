@@ -33,13 +33,13 @@ defineOptions({
   name: 'PSearch'
 })
 
-const { itemWidth, model, visibleLine, labelWidth, maxLabelWidth, showColon, showResetBtnIcon } = defineProps({
+const { itemWidth, model, visibleLine, labelWidth, maxLabelWidth, showResetBtnIcon } = defineProps({
   model: { type: Array, default: () => [] },
   itemWidth: { type: Number, default: 268 },
   labelWidth: { type: Number },
   maxLabelWidth: { type: Number, default: 87 },
   visibleLine: { type: Number, default: -1 },
-  showColon: { type: Boolean, default: true },
+  showColon: { type: Boolean, default: false },
   showResetBtnIcon: { type: Boolean, default: false }
 })
 const searchItemWidth = Math.max(itemWidth, 200)

@@ -1,13 +1,6 @@
 <template>
   <box-component :name="`${name}`">
-    <p-search
-      :model="model"
-      :item-width="260"
-      :showColon="false"
-      @search="onSearch"
-      @change="onReset"
-      @reset="onReset"
-    />
+    <p-search :model="model" :item-width="260" @search="onSearch" @change="onReset" @reset="onReset" />
   </box-component>
 </template>
 

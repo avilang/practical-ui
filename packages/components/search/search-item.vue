@@ -7,10 +7,12 @@
     ]"
   >
     <template v-if="!item._isActionItem && !item._isEmptyItem">
-      <div :class="{ 'p-search-item-label': true, 'p-search-item-colon-label': showColon }">
-        <search-item-label :label="item.label" :width="labelWidth" :oneLineCondition="oneLineCondition" />
-        <span v-if="showColon">：</span>
-      </div>
+      <search-item-label
+        :label="item.label"
+        :width="labelWidth"
+        :showColon="showColon"
+        :oneLineCondition="oneLineCondition"
+      />
       <div class="p-search-item-content">
         <component
           v-if="item.type === 'input'"
@@ -88,7 +90,7 @@ import SearchItemLabel from './search-item-label.vue'
 const { item, searchData, doSearch, doReset, doChange, updateSearchData } = defineProps({
   lastItemForMulti: { type: Boolean, default: false }, // 多行且每行的最后一个搜索条件
   oneLineCondition: { type: Boolean, required: true },
-  showColon: { type: Boolean, default: true },
+  showColon: { type: Boolean },
   item: { type: Object, required: true },
   labelWidth: { type: Number, required: true },
   searchData: { type: Object, required: true },
@@ -152,16 +154,6 @@ defineExpose({ reset })
 
 .p-search-item.p-search-item-last {
   padding-right: 0;
-}
-
-.p-search-item .p-search-item-label {
-  margin-right: 8px;
-  text-align: right;
-  padding-left: 1px;
-}
-
-.p-search-item .p-search-item-label.p-search-item-colon-label {
-  margin-right: 1px;
 }
 
 .p-search-item-content {
