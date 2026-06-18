@@ -1,7 +1,7 @@
 <template>
   <n-form
     ref="form"
-    :class="[inline ? 'p-form-inline' : '']"
+    :class="[inline ? 'p-form-inline' : 'p-form-block']"
     :show-label="showLabel"
     :label-placement="labelPlacement"
     :label-width="labelWidth"
@@ -469,8 +469,9 @@ defineExpose({ validate, validateItem, restoreValidation, getFormValue, getChild
 .p-form-inline .p-form-inline-item-placeholder:last-child {
   margin-right: 0;
 }
-.p-form-inline .n-form-item.n-form-item--left-labelled .n-form-item-label {
-  padding: 0 10px 0 0;
+.p-form-inline .n-form-item.n-form-item--left-labelled .n-form-item-label,
+.p-form-block .n-form-item.n-form-item--left-labelled .n-form-item-label {
+  padding: 0 8px 0 0;
 }
 .n-form-item-feedback-wrapper.p-form-item-feedback-s {
   min-height: 12px;

@@ -8,14 +8,8 @@
   >
     <template v-if="!item._isActionItem && !item._isEmptyItem">
       <div :class="{ 'p-search-item-label': true, 'p-search-item-colon-label': showColon }">
-        <n-ellipsis
-          :style="
-            oneLineCondition
-              ? `max-width: ${labelWidth - 1}px`
-              : { boxSizing: 'border-box', width: `${labelWidth - 1}px` }
-          "
-          >{{ item.label }}</n-ellipsis
-        ><span v-if="showColon">：</span>
+        <search-item-label :label="item.label" :width="labelWidth" :oneLineCondition="oneLineCondition" />
+        <span v-if="showColon">：</span>
       </div>
       <div class="p-search-item-content">
         <component
@@ -85,10 +79,11 @@
 
 <script setup>
 import { ref, nextTick } from 'vue'
-import { NIcon, NEllipsis } from 'naive-ui'
+import { NIcon } from 'naive-ui'
 import { PInput as Input } from '../input/index.js'
 import { PSelect as Select } from '../select/index.js'
 import { PButton as SButton } from '../button/index.js'
+import SearchItemLabel from './search-item-label.vue'
 
 const { item, searchData, doSearch, doReset, doChange, updateSearchData } = defineProps({
   lastItemForMulti: { type: Boolean, default: false }, // 多行且每行的最后一个搜索条件
