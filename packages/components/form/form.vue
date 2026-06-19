@@ -42,7 +42,7 @@
               :ref="`form-item-${item.field}`"
               :is="Input"
               v-model="formValue[item.field]"
-              v-bind.prop="{ disabled, readonly, ...item.props }"
+              v-bind.prop="{ disabled, readonly, size, ...item.props }"
               @input="handleInput(item.field)"
             />
             <component
@@ -50,7 +50,7 @@
               :ref="`form-item-${item.field}`"
               :is="InputIdentifier"
               v-model="formValue[item.field]"
-              v-bind.prop="{ disabled, ...item.props }"
+              v-bind.prop="{ disabled, size, ...item.props }"
               @input="handleInput(item.field)"
             />
             <component
@@ -58,14 +58,14 @@
               :ref="`form-item-${item.field}`"
               :is="Switch"
               v-model="formValue[item.field]"
-              v-bind.prop="{ disabled, readonly, ...item.props }"
+              v-bind.prop="{ disabled, readonly, size, ...item.props }"
             />
             <component
               v-else-if="item.type === 'select'"
               :ref="`form-item-${item.field}`"
               :is="Select"
               v-model="formValue[item.field]"
-              v-bind.prop="{ disabled, ...item.props }"
+              v-bind.prop="{ disabled, size, ...item.props }"
               @search="handleSelectSearch(item, $event)"
               @update="handleSelectUpdate(item, $event)"
             />
@@ -74,7 +74,7 @@
               :ref="`form-item-${item.field}`"
               :is="Cascader"
               v-model="formValue[item.field]"
-              v-bind.prop="{ disabled, ...item.props }"
+              v-bind.prop="{ disabled, size, ...item.props }"
               @input-filter="handleCascaderInput(item)"
               @update="handleCascaderUpdate(item, $event)"
             />
@@ -115,7 +115,7 @@
                 :ref="`form-item-${item.field}`"
                 :is="Input"
                 v-model="formValue[item.field]"
-                v-bind.prop="{ disabled, readonly, ...item.props }"
+                v-bind.prop="{ disabled, readonly, size, ...item.props }"
                 @input="handleInput(item.field)"
               />
               <component
@@ -123,7 +123,7 @@
                 :ref="`form-item-${item.field}`"
                 :is="InputIdentifier"
                 v-model="formValue[item.field]"
-                v-bind.prop="{ disabled, ...item.props }"
+                v-bind.prop="{ disabled, size, ...item.props }"
                 @input="handleInput(item.field)"
               />
               <component
@@ -131,14 +131,14 @@
                 :ref="`form-item-${item.field}`"
                 :is="Switch"
                 v-model="formValue[item.field]"
-                v-bind.prop="{ disabled, readonly, ...item.props }"
+                v-bind.prop="{ disabled, readonly, size, ...item.props }"
               />
               <component
                 v-else-if="item.type === 'select'"
                 :ref="`form-item-${item.field}`"
                 :is="Select"
                 v-model="formValue[item.field]"
-                v-bind.prop="{ disabled, ...item.props }"
+                v-bind.prop="{ disabled, size, ...item.props }"
                 @search="handleSelectSearch(item, $event)"
                 @update="handleSelectUpdate(item, $event)"
               />
@@ -147,7 +147,7 @@
                 :ref="`form-item-${item.field}`"
                 :is="Cascader"
                 v-model="formValue[item.field]"
-                v-bind.prop="{ disabled, ...item.props }"
+                v-bind.prop="{ disabled, size, ...item.props }"
                 @input-filter="handleCascaderInput(item)"
                 @update="handleCascaderUpdate(item, $event)"
               />
@@ -212,6 +212,7 @@ const { model, rules, feedbackSizeClass, inline, inlineSize, inlineClass, labelW
    */
   model: { type: Array, default: () => [] },
   rules: { type: Object, default: () => {} },
+  size: { type: String, default: 'medium' },
   inline: { type: Boolean, default: false },
   showLabel: { type: Boolean, default: true },
   labelWidth: { type: [Number, String], default: 'auto' },

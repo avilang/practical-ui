@@ -36932,6 +36932,7 @@ const io = /* @__PURE__ */ Object.assign({
     model: { type: Array, default: () => [] },
     rules: { type: Object, default: () => {
     } },
+    size: { type: String, default: "medium" },
     inline: { type: Boolean, default: !1 },
     showLabel: { type: Boolean, default: !0 },
     labelWidth: { type: [Number, String], default: "auto" },
@@ -37108,7 +37109,7 @@ const io = /* @__PURE__ */ Object.assign({
                   ref: `form-item-${b.field}`,
                   modelValue: ne(a)[b.field],
                   "onUpdate:modelValue": (F) => ne(a)[b.field] = F
-                }, { disabled: e.disabled, readonly: e.readonly, ...b.props }, {
+                }, { disabled: e.disabled, readonly: e.readonly, size: e.size, ...b.props }, {
                   onInput: (F) => g(b.field)
                 }), null, 16, ["modelValue", "onUpdate:modelValue", "onInput"])) : b.type === "input-identifier" ? (Ae(), ot(hn(ne(Sl)), Pt({
                   key: 1,
@@ -37116,7 +37117,7 @@ const io = /* @__PURE__ */ Object.assign({
                   ref: `form-item-${b.field}`,
                   modelValue: ne(a)[b.field],
                   "onUpdate:modelValue": (F) => ne(a)[b.field] = F
-                }, { disabled: e.disabled, ...b.props }, {
+                }, { disabled: e.disabled, size: e.size, ...b.props }, {
                   onInput: (F) => g(b.field)
                 }), null, 16, ["modelValue", "onUpdate:modelValue", "onInput"])) : b.type === "switch" ? (Ae(), ot(hn(ne(kl)), Pt({
                   key: 2,
@@ -37124,13 +37125,13 @@ const io = /* @__PURE__ */ Object.assign({
                   ref: `form-item-${b.field}`,
                   modelValue: ne(a)[b.field],
                   "onUpdate:modelValue": (F) => ne(a)[b.field] = F
-                }, { disabled: e.disabled, readonly: e.readonly, ...b.props }), null, 16, ["modelValue", "onUpdate:modelValue"])) : b.type === "select" ? (Ae(), ot(hn(ne(ji)), Pt({
+                }, { disabled: e.disabled, readonly: e.readonly, size: e.size, ...b.props }), null, 16, ["modelValue", "onUpdate:modelValue"])) : b.type === "select" ? (Ae(), ot(hn(ne(ji)), Pt({
                   key: 3,
                   ref_for: !0,
                   ref: `form-item-${b.field}`,
                   modelValue: ne(a)[b.field],
                   "onUpdate:modelValue": (F) => ne(a)[b.field] = F
-                }, { disabled: e.disabled, ...b.props }, {
+                }, { disabled: e.disabled, size: e.size, ...b.props }, {
                   onSearch: (F) => y(b, F),
                   onUpdate: (F) => m(b, F)
                 }), null, 16, ["modelValue", "onUpdate:modelValue", "onSearch", "onUpdate"])) : b.type === "cascader" ? (Ae(), ot(hn(ne(Bl)), Pt({
@@ -37139,7 +37140,7 @@ const io = /* @__PURE__ */ Object.assign({
                   ref: `form-item-${b.field}`,
                   modelValue: ne(a)[b.field],
                   "onUpdate:modelValue": (F) => ne(a)[b.field] = F
-                }, { disabled: e.disabled, ...b.props }, {
+                }, { disabled: e.disabled, size: e.size, ...b.props }, {
                   onInputFilter: (F) => C(b),
                   onUpdate: (F) => P(b, F)
                 }), null, 16, ["modelValue", "onUpdate:modelValue", "onInputFilter", "onUpdate"])) : Dt("", !0)
@@ -37188,7 +37189,7 @@ const io = /* @__PURE__ */ Object.assign({
                     ref: `form-item-${F.field}`,
                     modelValue: ne(a)[F.field],
                     "onUpdate:modelValue": (z) => ne(a)[F.field] = z
-                  }, { disabled: e.disabled, readonly: e.readonly, ...F.props }, {
+                  }, { disabled: e.disabled, readonly: e.readonly, size: e.size, ...F.props }, {
                     onInput: (z) => g(F.field)
                   }), null, 16, ["modelValue", "onUpdate:modelValue", "onInput"])) : F.type === "input-identifier" ? (Ae(), ot(hn(ne(Sl)), Pt({
                     key: 1,
@@ -37196,7 +37197,7 @@ const io = /* @__PURE__ */ Object.assign({
                     ref: `form-item-${F.field}`,
                     modelValue: ne(a)[F.field],
                     "onUpdate:modelValue": (z) => ne(a)[F.field] = z
-                  }, { disabled: e.disabled, ...F.props }, {
+                  }, { disabled: e.disabled, size: e.size, ...F.props }, {
                     onInput: (z) => g(F.field)
                   }), null, 16, ["modelValue", "onUpdate:modelValue", "onInput"])) : F.type === "switch" ? (Ae(), ot(hn(ne(kl)), Pt({
                     key: 2,
@@ -37204,13 +37205,13 @@ const io = /* @__PURE__ */ Object.assign({
                     ref: `form-item-${F.field}`,
                     modelValue: ne(a)[F.field],
                     "onUpdate:modelValue": (z) => ne(a)[F.field] = z
-                  }, { disabled: e.disabled, readonly: e.readonly, ...F.props }), null, 16, ["modelValue", "onUpdate:modelValue"])) : F.type === "select" ? (Ae(), ot(hn(ne(ji)), Pt({
+                  }, { disabled: e.disabled, readonly: e.readonly, size: e.size, ...F.props }), null, 16, ["modelValue", "onUpdate:modelValue"])) : F.type === "select" ? (Ae(), ot(hn(ne(ji)), Pt({
                     key: 3,
                     ref_for: !0,
                     ref: `form-item-${F.field}`,
                     modelValue: ne(a)[F.field],
                     "onUpdate:modelValue": (z) => ne(a)[F.field] = z
-                  }, { disabled: e.disabled, ...F.props }, {
+                  }, { disabled: e.disabled, size: e.size, ...F.props }, {
                     onSearch: (z) => y(F, z),
                     onUpdate: (z) => m(F, z)
                   }), null, 16, ["modelValue", "onUpdate:modelValue", "onSearch", "onUpdate"])) : F.type === "cascader" ? (Ae(), ot(hn(ne(Bl)), Pt({
@@ -37219,7 +37220,7 @@ const io = /* @__PURE__ */ Object.assign({
                     ref: `form-item-${F.field}`,
                     modelValue: ne(a)[F.field],
                     "onUpdate:modelValue": (z) => ne(a)[F.field] = z
-                  }, { disabled: e.disabled, ...F.props }, {
+                  }, { disabled: e.disabled, size: e.size, ...F.props }, {
                     onInputFilter: (z) => C(F),
                     onUpdate: (z) => P(F, z)
                   }), null, 16, ["modelValue", "onUpdate:modelValue", "onInputFilter", "onUpdate"])) : Dt("", !0)
