@@ -39,7 +39,7 @@
           <template v-else>
             <component
               v-if="item.type === 'input'"
-              :ref="`form-item-${item.field}`"
+              :ref="item.ref ? childRef(item.field) : undefined"
               :is="Input"
               v-model="formValue[item.field]"
               v-bind.prop="{ disabled, readonly, size, ...item.props }"
@@ -47,7 +47,7 @@
             />
             <component
               v-else-if="item.type === 'input-identifier'"
-              :ref="`form-item-${item.field}`"
+              :ref="item.ref ? childRef(item.field) : undefined"
               :is="InputIdentifier"
               v-model="formValue[item.field]"
               v-bind.prop="{ disabled, size, ...item.props }"
@@ -55,14 +55,14 @@
             />
             <component
               v-else-if="item.type === 'switch'"
-              :ref="`form-item-${item.field}`"
+              :ref="item.ref ? childRef(item.field) : undefined"
               :is="Switch"
               v-model="formValue[item.field]"
               v-bind.prop="{ disabled, readonly, size, ...item.props }"
             />
             <component
               v-else-if="item.type === 'select'"
-              :ref="`form-item-${item.field}`"
+              :ref="item.ref ? childRef(item.field) : undefined"
               :is="Select"
               v-model="formValue[item.field]"
               v-bind.prop="{ disabled, size, ...item.props }"
@@ -71,7 +71,7 @@
             />
             <component
               v-else-if="item.type === 'cascader'"
-              :ref="`form-item-${item.field}`"
+              :ref="item.ref ? childRef(item.field) : undefined"
               :is="Cascader"
               v-model="formValue[item.field]"
               v-bind.prop="{ disabled, size, ...item.props }"
@@ -112,7 +112,7 @@
             <template v-else>
               <component
                 v-if="item.type === 'input'"
-                :ref="`form-item-${item.field}`"
+                :ref="item.ref ? childRef(item.field) : undefined"
                 :is="Input"
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, readonly, size, ...item.props }"
@@ -120,7 +120,7 @@
               />
               <component
                 v-else-if="item.type === 'input-identifier'"
-                :ref="`form-item-${item.field}`"
+                :ref="item.ref ? childRef(item.field) : undefined"
                 :is="InputIdentifier"
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, size, ...item.props }"
@@ -128,14 +128,14 @@
               />
               <component
                 v-else-if="item.type === 'switch'"
-                :ref="`form-item-${item.field}`"
+                :ref="item.ref ? childRef(item.field) : undefined"
                 :is="Switch"
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, readonly, size, ...item.props }"
               />
               <component
                 v-else-if="item.type === 'select'"
-                :ref="`form-item-${item.field}`"
+                :ref="item.ref ? childRef(item.field) : undefined"
                 :is="Select"
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, size, ...item.props }"
@@ -144,7 +144,7 @@
               />
               <component
                 v-else-if="item.type === 'cascader'"
-                :ref="`form-item-${item.field}`"
+                :ref="item.ref ? childRef(item.field) : undefined"
                 :is="Cascader"
                 v-model="formValue[item.field]"
                 v-bind.prop="{ disabled, size, ...item.props }"
@@ -436,20 +436,23 @@ function handleCascaderUpdate(m, v) {
   }
 }
 
-let child = {}
-model.forEach((item) => {
-  if (!item.slot && item.ref === true) {
-    child[item.field] = useTemplateRef(`form-item-${item.field}`)
+let childInstances = {}
+
+function childRef(field) {
+  if (!field) return undefined
+  return (el) => {
+    childInstances[field] = el || null
   }
-})
+}
 
 function getChild(field = '') {
   if (!field) return null
-  return child[field] ? child[field].value[0] : null
+  if (!childInstances[field]) return null
+  return childInstances[field]
 }
 
 onScopeDispose(() => {
-  child = null
+  childInstances = {}
 })
 
 defineExpose({ validate, validateItem, restoreValidation, getFormValue, getChild })

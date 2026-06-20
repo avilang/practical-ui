@@ -80,6 +80,7 @@
 
   <box-component :name="`${name} - 行内样式调整`">
     <p-form
+      ref="formA"
       :model="model4"
       feedback-size-class="s"
       inline
@@ -92,6 +93,7 @@
       content-style="--n-blank-height:28px;"
       :inline-common-class="['inline-common-class']"
     ></p-form>
+    <p-button block size="large" class="mt-10" @click="onFocusFormA">FormA 获取焦点</p-button>
   </box-component>
 </template>
 
@@ -368,17 +370,25 @@ function handleValidate() {
   form4Ref.value.validateItem('identifier', { options: { cc: 'cc' } }).catch(() => null)
 }
 
+const formARef = useTemplateRef('formA')
 const model4 = ref([
   {
     type: 'input',
     label: '客户名称阿道夫卡迪夫全额认购',
     field: 'name',
-    showRequireMark: true
+    showRequireMark: true,
+    ref: true
   },
   { type: 'input', label: '客户编号', field: 'code', props: { disabled: true, size: 'large' } },
   { type: 'select', label: '价格等级', field: 'priceLevel' },
   { type: 'select', label: '状态', field: 'status', showRequireMark: true }
 ])
+
+function onFocusFormA() {
+  const elemName = formARef.value.getChild('name')
+  console.log('🚀 ~ onFocusFormA ~ elemName:', elemName)
+  elemName?.focus()
+}
 </script>
 
 <style scoped>

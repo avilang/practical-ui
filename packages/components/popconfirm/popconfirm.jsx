@@ -18,7 +18,9 @@ export default defineComponent(
           ref: elemRef,
           class: {
             'p-popconfirm': true,
-            'p-popconfirm-none-action': props.positiveText == null && props.positiveText == null
+            'p-popconfirm-none-action':
+              (props.positiveText == null || props.positiveText === '') &&
+              (props.negativeText == null || props.negativeText === '')
           },
           style: props.style,
           placement: props.placement,
