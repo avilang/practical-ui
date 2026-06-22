@@ -41,23 +41,40 @@ function handleOpen2() {
 
 function handleHeaderFooter() {
   const m = modal.open(
-    { title: '申请售后', content: ModalContent, closable: true },
+    {
+      title: '申请售后',
+      content: ModalContent,
+      closable: true,
+      closeOnEsc: true
+    },
     {
       contentProps: { text: '确认申请吗？' },
       footer: ModalFooter,
       footerProps: {
         onClose: () => {
           m.unlock()
-          setTimeout(() => {
-            m.instance.destroy()
-          }, 1000)
+          m.destroy()
         },
         onOk: () => {
           m.lock()
-          setTimeout(() => {
-            m.unlock()
-          }, 2000)
         }
+      },
+      onClose: () => {
+        console.log('close call')
+        // return false
+        // return true
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(true)
+            // reject(true)
+          }, 1000)
+        })
+      },
+      onDestroy: () => {
+        console.log('onDestroy call')
+      },
+      onEsc: () => {
+        console.log('onEsc call')
       }
     }
   )

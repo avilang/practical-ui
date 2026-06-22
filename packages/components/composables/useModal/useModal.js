@@ -1,5 +1,6 @@
 import { h } from 'vue'
 import { useModal } from 'naive-ui'
+import { isPromise } from '../../utility/util.js'
 import './modal.css'
 
 export default () => {
@@ -11,13 +12,13 @@ export default () => {
       title: '',
       closable: true,
       draggable: true,
+      closeOnEsc: false,
       ...options,
       autoFocus: false,
       blockScroll: true,
       preset: 'dialog',
       transformOrigin: 'center',
       showIcon: false,
-      closeOnEsc: false,
       maskClosable: false,
       bordered: false,
       class: 'p-modal',
@@ -69,17 +70,53 @@ export default () => {
       }
     }
 
+    config.onClose = function () {
+      let result = true
+      if (oPayload.onClose) {
+        result = oPayload.onClose()
+      }
+
+      if (result === false) return false
+      if (isPromise(result)) {
+        return result
+          .then((res) => {
+            if (res === false) return false
+            oPayload.onDestroy && oPayload.onDestroy()
+            return true
+          })
+          .catch(() => false)
+      }
+
+      oPayload.onDestroy && oPayload.onDestroy()
+    }
+
+    let locked = false
+    config.onEsc = function () {
+      if (locked) return
+      oPayload.onEsc && oPayload.onEsc()
+      oPayload.onDestroy && oPayload.onDestroy()
+    }
+
     const m = modal.create(config)
+
     return {
-      instance: m,
       lock: function (lockContent = true) {
         const aClassName = ['p-modal']
         if (m.closable) aClassName.push('p-modal-lock-closable')
         if (lockContent) aClassName.push('p-modal-lock-content')
         m.class = aClassName.join(' ')
+        m.closeOnEsc = false
+        locked = true
       },
       unlock: function () {
         m.class = 'p-modal'
+        if (config.closeOnEsc) m.closeOnEsc = true
+        locked = false
+      },
+      destroy: function () {
+        if (locked) return
+        oPayload.onDestroy && oPayload.onDestroy()
+        m.destroy()
       }
     }
   }
