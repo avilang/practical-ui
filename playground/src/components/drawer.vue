@@ -4,6 +4,7 @@
   </box-component>
   <p-drawer
     v-model:show="show"
+    :close-on-esc="true"
     :closable="true"
     :lock="loading"
     title="抽屉标题"

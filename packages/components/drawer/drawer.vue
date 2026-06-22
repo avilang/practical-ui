@@ -9,7 +9,7 @@
     native-scrollbar
     show-mask
     :resizable="false"
-    :close-on-esc="false"
+    :close-on-esc="closeOnEsc"
     :placement="placement"
     :mask-closable="maskClosable"
     :on-update:show="handleUpdateShow"
@@ -46,6 +46,7 @@ const { lock } = defineProps({
   height: { type: [String, Number] },
   title: { type: String, default: '' },
   closable: { type: Boolean, default: true },
+  closeOnEsc: { type: Boolean, default: false },
   maskClosable: { type: Boolean, default: false },
   placement: { type: String, default: 'right' },
   bodyContentClass: { type: String },
