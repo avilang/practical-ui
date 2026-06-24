@@ -1,7 +1,7 @@
 <template>
   <n-form
     ref="form"
-    :class="[inline ? 'p-form-inline' : 'p-form-block']"
+    :class="[inline ? 'p-form-inline' : 'p-form-block', colon ? 'p-form-colon' : '']"
     :show-label="showLabel"
     :label-placement="labelPlacement"
     :label-width="labelWidth"
@@ -32,6 +32,7 @@
             <form-item-label
               :label="item.label"
               :width="labelWidth"
+              :colon="colon"
               :show-require-mark="item.showRequireMark == null ? showRequireMark : !!item.showRequireMark"
             />
           </template>
@@ -105,6 +106,7 @@
               <form-item-label
                 :label="item.label"
                 :width="labelWidth"
+                :colon="colon"
                 :show-require-mark="item.showRequireMark == null ? showRequireMark : !!item.showRequireMark"
               />
             </template>
@@ -228,7 +230,8 @@ const { model, rules, feedbackSizeClass, inline, inlineSize, inlineClass, labelW
   inlineSize: { type: Array, default: () => [] }, // 配合 inline 使用，每行显示 form-item 的数量，可传一个数组，如 [2, 3, 2]，表示第一行显示 2 个，第二行显示 3 个，第三行及以下显示 2 个
   inlineClass: { type: Array, default: () => [] }, // 配合 inline 使用，每行的 className
   inlineCommonClass: { type: Array, default: () => [] }, // 配合 inline 使用，每行的通用 className
-  virtualSubmit: { type: Boolean, default: false }
+  virtualSubmit: { type: Boolean, default: false },
+  colon: { type: Boolean, default: false } // label 是否展示冒号
 })
 
 const showCustomizeLabel = (function () {
@@ -473,9 +476,17 @@ defineExpose({ validate, validateItem, restoreValidation, getFormValue, getChild
 .p-form-inline .p-form-inline-item-placeholder:last-child {
   margin-right: 0;
 }
-.p-form-inline .n-form-item.n-form-item--left-labelled .n-form-item-label,
-.p-form-block .n-form-item.n-form-item--left-labelled .n-form-item-label {
+.p-form-inline .n-form-item.n-form-item--left-labelled .n-form-item-label {
   padding: 0 8px 0 0;
+}
+.p-form-inline.p-form-colon .n-form-item.n-form-item--left-labelled .n-form-item-label {
+  padding: 0 1px 0 0;
+}
+.p-form-block .n-form-item.n-form-item--left-labelled .n-form-item-label {
+  padding: 0 12px 0 0;
+}
+.p-form-block.p-form-colon .n-form-item.n-form-item--left-labelled .n-form-item-label {
+  padding: 0 3px 0 0;
 }
 .n-form-item-feedback-wrapper.p-form-item-feedback-s {
   min-height: 12px;

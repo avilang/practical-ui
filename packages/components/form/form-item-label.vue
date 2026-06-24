@@ -1,6 +1,6 @@
 <template>
   <span ref="label" :class="['p-form-item-label']" :style="style" :title="style !== '' ? label : ''">
-    <span class="p-form-item-label__text">{{ label }}</span>
+    <span class="p-form-item-label__text">{{ label }}<template v-if="colon">：</template></span>
   </span>
 </template>
 
@@ -10,7 +10,8 @@ import { useTemplateRef, onMounted, ref } from 'vue'
 const { width, showRequireMark } = defineProps({
   label: { type: String },
   width: { type: [Number, String] },
-  showRequireMark: { type: Boolean }
+  showRequireMark: { type: Boolean },
+  colon: { type: Boolean }
 })
 
 const labelRef = useTemplateRef('label')
