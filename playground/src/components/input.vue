@@ -29,6 +29,10 @@
     <p-input placeholder="请输入" v-model="value5" lazy :trim="false" @enter="handleEnter2" @blur="handleBlur" />
     value5: [{{ value5 }}]
   </box-component>
+
+  <box-component :name="`${name} - style`">
+    <p-input placeholder="请输入" style="width: 300px; --n-border-radius: 0; --n-height: 30px" />
+  </box-component>
 </template>
 
 <script setup>

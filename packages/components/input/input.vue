@@ -1,6 +1,7 @@
 <template>
   <n-input
     :class="`${attrs.class ? attrs.class : ''}`"
+    :style="attrs.style || ''"
     ref="input"
     :input-props="{ autocomplete: 'off' }"
     :type="type"
