@@ -20,7 +20,6 @@ import Button from './components/button.vue'
 import Input from './components/input.vue'
 import Form from './components/form.vue'
 import Search from './components/search.vue'
-import Table from './components/table.vue'
 import Dialog from './components/dialog.vue'
 import Modal from './components/modal.vue'
 import Pagination from './components/pagination.vue'
@@ -40,7 +39,6 @@ const components = {
   input: Input,
   form: Form,
   search: Search,
-  table: Table,
   dialog: Dialog,
   modal: Modal,
   popconfirm: Popconfirm,
@@ -64,7 +62,6 @@ const options = [
   { componentName: 'P-Cascader', componentKey: 'cascader' },
   { componentName: 'P-Form', componentKey: 'form' },
   { componentName: 'P-Search', componentKey: 'search' },
-  { componentName: 'P-Data-Table', componentKey: 'table' },
   { componentName: 'P-Pagination', componentKey: 'pagination' },
   { componentName: 'P-Popconfirm', componentKey: 'popconfirm' },
   { componentName: 'P-Promised', componentKey: 'promised' },

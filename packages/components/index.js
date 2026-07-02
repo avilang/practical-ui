@@ -33,7 +33,6 @@ import { PCheckbox } from './checkbox/index.js'
 import { PCheckboxGroup } from './checkbox-group/index.js'
 import { PRadioGroup } from './radio-group/index.js'
 import { PButton } from './button/index.js'
-import { PDataTable } from './data-table/index.js'
 import { PPopconfirm } from './popconfirm/index.js'
 import { PPagination } from './pagination/index.js'
 import { PPromised } from './promised/index.js'
@@ -57,7 +56,6 @@ export default {
     app.component(`${prefix}-checkbox`, PCheckbox)
     app.component(`${prefix}-checkbox-group`, PCheckboxGroup)
     app.component(`${prefix}-button`, PButton)
-    app.component(`${prefix}-data-table`, PDataTable)
     app.component(`${prefix}-popconfirm`, PPopconfirm)
     app.component(`${prefix}-pagination`, PPagination)
     app.component(`${prefix}-promised`, PPromised)
