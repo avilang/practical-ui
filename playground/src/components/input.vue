@@ -26,7 +26,16 @@
   </box-component>
 
   <box-component :name="`${name} - lazy - 失去焦点后才真正改变值`">
-    <p-input placeholder="请输入" v-model="value5" lazy :trim="false" @enter="handleEnter2" @blur="handleBlur" />
+    <p-input
+      placeholder="请输入"
+      v-model="value5"
+      lazy
+      :trim="false"
+      :blurByEnter="true"
+      @enter="handleEnter2"
+      @blur="handleBlur"
+      @input="handleInput"
+    />
     value5: [{{ value5 }}]
   </box-component>
 
@@ -55,12 +64,18 @@ function handleEnter({ value }) {
 
 function handleBlur({ value, isTriggerByEnter }) {
   if (isTriggerByEnter) return
-  console.log('🚀 ~ handleBlur ~ value:', value)
+  console.log('🚀 ~ handleBlur ~ value:', '(' + value + ')')
 }
 
 const value5 = ref('')
-function handleEnter2({ value, lazy }) {
+function handleEnter2({ value, lazy, blurByEnter }) {
   console.log('🚀 ~ handleEnter2 ~ lazy:', lazy)
-  console.log('🚀 ~ handleEnter2 ~ value:', value)
+  console.log('🚀 ~ handleInput ~ blurByEnter:', blurByEnter)
+  console.log('🚀 ~ handleEnter2 ~ value:', '(' + value + ')')
+}
+
+function handleInput({ value, lazy }) {
+  console.log('🚀 ~ handleInput ~ lazy:', lazy)
+  console.log('🚀 ~ handleInput ~ value:', '(' + value + ')')
 }
 </script>

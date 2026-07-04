@@ -32499,7 +32499,7 @@ const Zr = /* @__PURE__ */ Object.assign({
     };
     function y() {
       let v = a.value;
-      e.trim && (v = v.trim()), s("enter", { value: v, lazy: e.lazy && e.blurByEnter === !1 }), e.blurByEnter && (u = (/* @__PURE__ */ new Date()).getTime(), setTimeout(() => {
+      e.trim && (v = v.trim()), s("enter", { value: v, lazy: e.lazy, blurByEnter: e.blurByEnter }), e.blurByEnter && (u = (/* @__PURE__ */ new Date()).getTime(), setTimeout(() => {
         h.value && h.value.blur();
       }, 0));
     }

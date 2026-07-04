@@ -121,7 +121,7 @@ const focus = () => {
 function handleEnter() {
   let v = valueText.value
   if (trim) v = v.trim()
-  emit('enter', { value: v, lazy: lazy && blurByEnter === false })
+  emit('enter', { value: v, lazy: lazy, blurByEnter: blurByEnter })
   if (blurByEnter) {
     enterTime = new Date().getTime()
     setTimeout(() => {
