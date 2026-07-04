@@ -17,7 +17,9 @@ import {
   NUploadDragger,
   NProgress,
   NBreadcrumb,
-  NBreadcrumbItem
+  NBreadcrumbItem,
+  NEllipsis,
+  NPerformantEllipsis
 } from 'naive-ui'
 import { Practical } from './practical/index.js'
 import { PSearch } from './search/index.js'
@@ -79,6 +81,8 @@ export default {
     app.component(`${prefix}-progress`, NProgress)
     app.component(`${prefix}-breadcrumb`, NBreadcrumb)
     app.component(`${prefix}-breadcrumb-item`, NBreadcrumbItem)
+    app.component(`${prefix}-ellipsis`, NEllipsis)
+    app.component(`${prefix}-performant-ellipsis`, NPerformantEllipsis)
   }
 }
 
