@@ -33722,7 +33722,8 @@ const Zr = /* @__PURE__ */ Object.assign({
   props: /* @__PURE__ */ Ct({
     size: { type: String, default: "medium" },
     disabled: { type: Boolean, default: !1 },
-    val: { type: [String, Number, Boolean], default: "" }
+    val: { type: [String, Number, Boolean], default: "" },
+    readonly: { type: Boolean, default: !1 }
   }, {
     modelValue: { type: [String, Number, Boolean] },
     modelModifiers: {}
@@ -33730,7 +33731,7 @@ const Zr = /* @__PURE__ */ Object.assign({
   emits: /* @__PURE__ */ Ct(["change"], ["update:modelValue"]),
   setup(e, { emit: t }) {
     const r = Qt(e, "modelValue"), o = Ln(), i = t, a = Un(function(s) {
-      s && (r.value = e.val, i("change", e.val));
+      e.readonly || e.disabled || s && (r.value = e.val, i("change", e.val));
     }, 300);
     return (s, l) => (we(), Ge(K(R2), {
       class: gt(`${K(o).class ? K(o).class : ""}`),

@@ -21,10 +21,11 @@ defineOptions({
   inheritAttrs: false
 })
 
-const { val } = defineProps({
+const { val, readonly, disabled } = defineProps({
   size: { type: String, default: 'medium' },
   disabled: { type: Boolean, default: false },
-  val: { type: [String, Number, Boolean], default: '' }
+  val: { type: [String, Number, Boolean], default: '' },
+  readonly: { type: Boolean, default: false }
 })
 
 const value = defineModel({ type: [String, Number, Boolean] })
@@ -32,6 +33,7 @@ const attrs = useAttrs()
 
 const emit = defineEmits(['change'])
 const handleUpdateChecked = debounce(function (checked) {
+  if (readonly || disabled) return
   if (checked) {
     value.value = val
     emit('change', val)

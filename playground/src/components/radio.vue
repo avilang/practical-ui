@@ -7,6 +7,7 @@
     <p-radio style="margin-right: 20px" @change="handleChange" v-model="value" val="orange">橙子</p-radio>
     <p-radio style="margin-right: 20px" @change="handleChange" v-model="value" :val="true">葡萄</p-radio>
     <p-radio style="margin-right: 20px" @change="handleChange" v-model="value" :val="11">桃子</p-radio>
+    <p-radio style="margin-right: 20px" @change="handleChange" v-model="value" :val="12" readonly>只读选项</p-radio>
   </box-component>
 
   <box-component :name="`${name} - group`">
