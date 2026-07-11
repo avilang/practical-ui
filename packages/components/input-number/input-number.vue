@@ -1,6 +1,7 @@
 <template>
   <input-number
     :class="`${$attrs.class ? $attrs.class : ''} ${valueInfo.type === 'error' && inputText != null && inputText !== '' ? 'p-input-number-error' : ''}`"
+    :style="$attrs.style || ''"
     :trim="false"
     :placeholder="placeholder"
     :size="size"

@@ -1,6 +1,7 @@
 <template>
   <input-inner
     :class="`${$attrs.class ? $attrs.class : ''} ${valueInfo.type === 'error' && inputText != null && inputText !== '' ? 'p-input-identifier-error' : ''}`"
+    :style="$attrs.style || ''"
     :trim="true"
     :placeholder="placeholder"
     :size="size"
@@ -98,10 +99,10 @@ function handleValue(val, forOK = false) {
   }
 
   if (ok) {
-    result = setValue(val, { type: forOK ? 'ok' : 'inputok' }, { forOK })
+    result = setValue(val, { type: forOK ? 'ok' : 'inputok' })
     return result
   } else {
-    result = setValue('', { type: forOK ? 'ok' : val.trim() === '' ? 'ok' : 'error' }, { forOK })
+    result = setValue('', { type: forOK ? 'ok' : val.trim() === '' ? 'ok' : 'error' })
     return result
   }
 }

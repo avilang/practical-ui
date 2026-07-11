@@ -12,6 +12,7 @@
       :fillPrecision="false"
       @blur="handleBlur"
       @input="handleInput"
+      :style="{ '--n-border-radius': '6px' }"
     />
     <div>num1：[{{ num1 }}]</div>
   </box-component>

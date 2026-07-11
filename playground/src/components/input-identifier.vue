@@ -5,7 +5,13 @@
   </box-component>
 
   <box-component :name="`${name} - 自定义校验`">
-    <p-input-identifier v-model="v2" :verification="customVerification" />
+    <p-input-identifier
+      v-model="v2"
+      :verification="customVerification"
+      @input="onInput2"
+      @blur="onBlur2"
+      :style="{ '--n-border-radius': 0 }"
+    />
     <div>[{{ v2 }}]</div>
   </box-component>
 </template>
@@ -35,5 +41,13 @@ function onBlur(detail) {
 const v2 = ref('')
 function customVerification(vv) {
   return /^[0-9\s]+$/.test(vv)
+}
+
+function onInput2({ value }) {
+  console.log('🚀 ~ onInput2 ~ value:(' + value + ')')
+}
+
+function onBlur2({ value }) {
+  console.log('🚀 ~ onBlur2 ~ value:(' + value + ')')
 }
 </script>
