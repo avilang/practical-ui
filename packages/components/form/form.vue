@@ -308,14 +308,16 @@ const inlineModel = computed(() => {
   return [...resultA, ...resultB]
 })
 
-const formValue = (function () {
+function createFormValue() {
   const data = {}
   model.forEach((item) => {
     if (item.slot || !item.field || !!item.placeholder) return
     data[item.field] = item.defaultValue
   })
-  return ref(data)
-})()
+  return data
+}
+
+const formValue = ref(createFormValue())
 
 const feedbackSizeClassName = (function () {
   if (!feedbackSizeClass) return ''
@@ -331,6 +333,10 @@ function getFormValue() {
     if (item.slot) data[item.field] = toValue(item.value)
   })
   return { ...formValue.value, ...data }
+}
+
+function resetFormValue() {
+  formValue.value = createFormValue()
 }
 
 const emit = defineEmits(['submit'])
@@ -458,7 +464,7 @@ onScopeDispose(() => {
   childInstances = {}
 })
 
-defineExpose({ validate, validateItem, restoreValidation, getFormValue, getChild })
+defineExpose({ validate, validateItem, restoreValidation, getFormValue, resetFormValue, getChild })
 </script>
 
 <style>

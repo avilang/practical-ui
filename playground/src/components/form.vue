@@ -364,6 +364,8 @@ const form4Ref = useTemplateRef('form4')
 function handleReset3() {
   form3Ref.value.restoreValidation()
   form4Ref.value.restoreValidation()
+  form3Ref.value.resetFormValue()
+  form4Ref.value.resetFormValue()
 }
 
 function handleValidate() {
