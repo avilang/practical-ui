@@ -1,6 +1,6 @@
 <template>
   <input-inner
-    :class="`${$attrs.class ? $attrs.class : ''} ${valueInfo.type === 'error' && inputText != null && inputText !== '' ? 'p-input-identifier-error' : ''}`"
+    :class="`${$attrs.class ? $attrs.class : ''} ${valueInfo.type === 'error' && inputText != null && inputText !== '' ? 'p-input-identifier-error' : ''} p-input-identifier`"
     :style="$attrs.style || ''"
     :trim="true"
     :placeholder="placeholder"
@@ -131,7 +131,11 @@ function onBlur(detail) {
 </script>
 
 <style>
+.n-input.p-input-identifier .n-input__input-el {
+  transition: color 0.3s ease;
+}
 .n-input.p-input-identifier-error .n-input__input-el {
   text-decoration: line-through;
+  color: #999;
 }
 </style>

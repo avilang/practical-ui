@@ -33062,7 +33062,7 @@ const Zr = /* @__PURE__ */ Object.assign({
       });
     }
     return (m, C) => (we(), Ge(ee(Zr), {
-      class: gt(`${m.$attrs.class ? m.$attrs.class : ""} ${o.value.type === "error" && i.value != null && i.value !== "" ? "p-input-identifier-error" : ""}`),
+      class: gt(`${m.$attrs.class ? m.$attrs.class : ""} ${o.value.type === "error" && i.value != null && i.value !== "" ? "p-input-identifier-error" : ""} p-input-identifier`),
       style: Bt(m.$attrs.style || ""),
       trim: !0,
       placeholder: e.placeholder,
