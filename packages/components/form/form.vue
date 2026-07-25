@@ -339,6 +339,17 @@ function resetFormValue() {
   formValue.value = createFormValue()
 }
 
+function setFormValue(data) {
+  if (!data) return
+  const newData = {}
+  model.forEach((item) => {
+    if (item.slot || !item.field || !!item.placeholder) return
+    const fieldValue = toValue(data[item.field])
+    newData[item.field] = fieldValue
+  })
+  formValue.value = newData
+}
+
 const emit = defineEmits(['submit'])
 const formRef = useTemplateRef('form')
 const validate = (outOfFocus = true) => {
@@ -464,7 +475,7 @@ onScopeDispose(() => {
   childInstances = {}
 })
 
-defineExpose({ validate, validateItem, restoreValidation, getFormValue, resetFormValue, getChild })
+defineExpose({ validate, validateItem, restoreValidation, getFormValue, resetFormValue, setFormValue, getChild })
 </script>
 
 <style>

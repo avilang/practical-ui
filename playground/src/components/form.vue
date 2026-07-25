@@ -94,6 +94,7 @@
       :inline-common-class="['inline-common-class']"
     ></p-form>
     <p-button block size="large" class="mt-10" @click="onFocusFormA">FormA 获取焦点</p-button>
+    <p-button block size="large" class="mt-10" @click="onSetFormAData">设置表单数据</p-button>
   </box-component>
 </template>
 
@@ -390,6 +391,13 @@ function onFocusFormA() {
   const elemName = formARef.value.getChild('name')
   console.log('🚀 ~ onFocusFormA ~ elemName:', elemName)
   elemName?.focus()
+}
+
+function onSetFormAData() {
+  formARef.value.setFormValue({ name: 'abcd', code: 'KH000008' })
+  setTimeout(() => {
+    console.log('🚀 ~ onSetFormAData ~ formARef.value.getFormValue():', formARef.value.getFormValue())
+  }, 1000)
 }
 </script>
 
