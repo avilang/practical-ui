@@ -8,6 +8,7 @@
     <p-button class="ml-10" text type="default"
       ><template #icon> <p-icon :component="PlusOutlined"></p-icon> </template>新增账号</p-button
     >
+    <p-button class="ml-10" text text-underline>Text Button</p-button>
   </box-component>
 
   <box-component :name="`${name} - 显示为块级`">

@@ -4,7 +4,8 @@
       attrs.class ? attrs.class : '',
       size === 'xs' ? 'p-button-xs' : '',
       type === 'default' && defaultType ? `p-button-default-${defaultType}` : '',
-      waiting ? 'p-button-waiting' : ''
+      waiting ? 'p-button-waiting' : '',
+      text && textUnderline ? 'p-button-text-underline' : ''
     ]"
     :style="attrs.style || ''"
     :attr-type="attrType"
@@ -52,7 +53,8 @@ const { waiting } = defineProps({
   disabled: { type: Boolean, default: false },
   waiting: { type: Boolean, default: false },
   loadingWithoutText: { type: Boolean, default: true },
-  defaultType: { type: String, default: '' }
+  defaultType: { type: String, default: '' },
+  textUnderline: { type: Boolean, default: false }
 })
 
 const attrs = useAttrs()
@@ -72,12 +74,19 @@ const handleClick = debounce(function () {
 
 .n-button.p-button-waiting {
   opacity: 0.5;
+  cursor: initial;
 }
 
 .n-button.p-button-waiting:hover {
-  cursor: initial;
   background-color: var(--n-color);
   color: var(--n-text-color);
+}
+
+.n-button.p-button-text-underline:hover {
+  text-decoration: underline;
+}
+.n-button.p-button-text-underline.p-button-waiting:hover {
+  text-decoration: none;
 }
 
 .n-button.n-button--default-type.p-button-default-info {
