@@ -85,9 +85,6 @@ const handleClick = debounce(function () {
 .n-button.p-button-text-underline:hover {
   text-decoration: underline;
 }
-.n-button.p-button-text-underline.p-button-waiting:hover {
-  text-decoration: none;
-}
 
 .n-button.n-button--default-type.p-button-default-info {
   --n-ripple-color: #2080f0ff;
