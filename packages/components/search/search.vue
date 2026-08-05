@@ -1,6 +1,6 @@
 <template>
   <div class="p-search" ref="search">
-    <div v-for="(listPart, i) in list" :key="i" class="p-search-lilne" :style="i > 0 ? 'margin-top:12px' : ''">
+    <div v-for="(listPart, i) in list" :key="i" class="p-search-lilne" :style="i > 0 ? 'margin-top:10px' : ''">
       <search-item
         v-for="(item, j) in listPart"
         ref="searchItem"
@@ -8,6 +8,7 @@
         :oneLineCondition="oneLineCondition"
         :labelWidth="realLabelWidth"
         :showColon="showColon"
+        :buttonWidth="buttonWidth"
         :item="item"
         :lastItemForMulti="layout.multiLine && !item._isActionItem && j === listPart.length - 1"
         :searchData="searchData"
@@ -33,14 +34,15 @@ defineOptions({
   name: 'PSearch'
 })
 
-const { itemWidth, model, visibleLine, labelWidth, maxLabelWidth, showResetBtnIcon } = defineProps({
+const { itemWidth, model, visibleLine, labelWidth, maxLabelWidth, showResetBtnIcon, buttonWidth } = defineProps({
   model: { type: Array, default: () => [] },
   itemWidth: { type: Number, default: 268 },
   labelWidth: { type: Number },
   maxLabelWidth: { type: Number, default: 87 },
   visibleLine: { type: Number, default: -1 },
   showColon: { type: Boolean, default: false },
-  showResetBtnIcon: { type: Boolean, default: false }
+  showResetBtnIcon: { type: Boolean, default: false },
+  buttonWidth: { type: Number, default: 80 }
 })
 const searchItemWidth = Math.max(itemWidth, 200)
 
@@ -62,7 +64,7 @@ initSearchData()
 
 const list = ref([])
 const layout = ref({})
-const itemAction = { _isActionItem: true, width: 170, showResetBtnIcon } // width 为操作项的宽度
+const itemAction = { _isActionItem: true, width: buttonWidth * 2 + 10, showResetBtnIcon } // width 为操作项的宽度
 const itemEmpty = { _isEmptyItem: true } // 占位项
 const searchRef = useTemplateRef('search')
 

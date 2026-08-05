@@ -31,7 +31,7 @@
       </div>
     </template>
     <template v-if="item._isActionItem">
-      <s-button style="width: 80px" :focusable="false" @click="handleSearch">
+      <s-button :style="`width: ${buttonWidth}px`" :focusable="false" @click="handleSearch">
         <template #icon
           ><n-icon size="20" color="#ffffff"
             ><svg
@@ -50,7 +50,12 @@
               ></path></svg></n-icon></template
         >搜索</s-button
       >
-      <s-button style="margin-left: 10px; width: 80px" type="default" :focusable="false" @click="handleReset">
+      <s-button
+        :style="`margin-left: 10px; width: ${buttonWidth}px`"
+        type="default"
+        :focusable="false"
+        @click="handleReset"
+      >
         <template #icon v-if="item.showResetBtnIcon">
           <n-icon size="18">
             <svg
@@ -97,7 +102,8 @@ const { item, searchData, doSearch, doReset, doChange, updateSearchData } = defi
   doSearch: { type: Function, required: true },
   doReset: { type: Function, required: true },
   doChange: { type: Function, required: true },
-  updateSearchData: { type: Function, required: true }
+  updateSearchData: { type: Function, required: true },
+  buttonWidth: { type: Number }
 })
 const value = ref(item.field ? searchData[item.field] : void 0)
 
