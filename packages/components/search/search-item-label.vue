@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, useTemplateRef, ref } from 'vue'
+import { onMounted, useTemplateRef, ref, watch } from 'vue'
 
 const { width, oneLineCondition } = defineProps({
   label: { type: String },
@@ -16,20 +16,34 @@ const { width, oneLineCondition } = defineProps({
   oneLineCondition: { type: Boolean },
   showColon: { type: Boolean }
 })
-const iW = width - 1
+
 const isOverflow = ref(false)
-const style = computed(() => {
+const style = ref({})
+const labelTextRef = useTemplateRef('labelText')
+
+function setStyle() {
+  const iW = width - 1
+  const overflow = labelTextRef.value.offsetWidth > iW
   const result = oneLineCondition ? { maxWidth: `${iW}px` } : { boxSizing: 'border-box', width: `${iW}px` }
-  if (isOverflow.value) {
+
+  if (overflow) {
     result.userSelect = 'none'
     result['-webkit-user-select'] = 'none'
   }
-  return result
-})
+  isOverflow.value = overflow
+  style.value = result
+}
 
-const labelTextRef = useTemplateRef('labelText')
+watch(
+  [() => width, () => oneLineCondition],
+  () => {
+    setStyle()
+  },
+  { immediate: false }
+)
+
 onMounted(() => {
-  isOverflow.value = labelTextRef.value.offsetWidth > iW
+  setStyle()
 })
 </script>
 
