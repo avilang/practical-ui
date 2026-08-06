@@ -31,7 +31,12 @@
       </div>
     </template>
     <template v-if="item._isActionItem">
-      <s-button :style="`width: ${buttonWidth}px`" :focusable="false" @click="handleSearch">
+      <s-button
+        :style="`width: ${buttonWidth}px`"
+        v-bind="item.searchBtnProps"
+        :focusable="false"
+        @click="handleSearch"
+      >
         <template #icon
           ><n-icon size="20" color="#ffffff"
             ><svg
@@ -52,6 +57,7 @@
       >
       <s-button
         :style="`margin-left: 10px; width: ${buttonWidth}px`"
+        v-bind="item.resetBtnProps"
         type="default"
         :focusable="false"
         @click="handleReset"

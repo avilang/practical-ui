@@ -118,9 +118,6 @@ const model2 = [
 </script>
 
 <style>
-.custom-search.p-search {
-  min-height: 30px;
-}
 .custom-search.p-search .n-input .n-input__input-el,
 .custom-search.p-search .n-base-selection,
 .custom-search.p-search .n-button {

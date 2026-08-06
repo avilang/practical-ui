@@ -34,7 +34,17 @@ defineOptions({
   name: 'PSearch'
 })
 
-const { itemWidth, model, visibleLine, labelWidth, maxLabelWidth, showResetBtnIcon, buttonWidth } = defineProps({
+const {
+  itemWidth,
+  model,
+  visibleLine,
+  labelWidth,
+  maxLabelWidth,
+  showResetBtnIcon,
+  buttonWidth,
+  searchBtnProps,
+  resetBtnProps
+} = defineProps({
   model: { type: Array, default: () => [] },
   itemWidth: { type: Number, default: 268 },
   labelWidth: { type: Number },
@@ -42,6 +52,8 @@ const { itemWidth, model, visibleLine, labelWidth, maxLabelWidth, showResetBtnIc
   visibleLine: { type: Number, default: -1 },
   showColon: { type: Boolean, default: false },
   showResetBtnIcon: { type: Boolean, default: false },
+  searchBtnProps: { type: Object, default: () => {} },
+  resetBtnProps: { type: Object, default: () => {} },
   buttonWidth: { type: Number, default: 80 }
 })
 const searchItemWidth = Math.max(itemWidth, 200)
@@ -64,7 +76,7 @@ initSearchData()
 
 const list = ref([])
 const layout = ref({})
-const itemAction = { _isActionItem: true, width: buttonWidth * 2 + 10, showResetBtnIcon } // width 为操作项的宽度
+const itemAction = { _isActionItem: true, width: buttonWidth * 2 + 10, showResetBtnIcon, searchBtnProps, resetBtnProps } // width 为操作项的宽度
 const itemEmpty = { _isEmptyItem: true } // 占位项
 const searchRef = useTemplateRef('search')
 
@@ -217,7 +229,6 @@ defineExpose({ getSearchData, resetSearchData })
 .p-search {
   width: 100%;
   max-width: 100%;
-  min-height: 34px;
 }
 
 .p-search-lilne {
