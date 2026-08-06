@@ -32724,8 +32724,7 @@ const Zr = /* @__PURE__ */ Object.assign({
     doSearch: { type: Function, required: !0 },
     doReset: { type: Function, required: !0 },
     doChange: { type: Function, required: !0 },
-    updateSearchData: { type: Function, required: !0 },
-    buttonWidth: { type: Number }
+    updateSearchData: { type: Function, required: !0 }
   },
   setup(e, { expose: t }) {
     const r = L(e.item.field ? e.searchData[e.item.field] : void 0);
@@ -32778,14 +32777,14 @@ const Zr = /* @__PURE__ */ Object.assign({
       ], 64)) : bt("", !0),
       e.item._isActionItem ? (we(), ct(Ke, { key: 1 }, [
         At(ee(Sr), gt({
-          style: `width: ${e.buttonWidth}px`
+          style: `width: ${e.item.buttonWidth}px; --n-padding: 0 10px 0 8px;`
         }, e.item.searchBtnProps, {
           focusable: !1,
           onClick: a
         }), {
           icon: Xe(() => [
             At(ee(zo), {
-              size: "20",
+              size: "18",
               color: "#ffffff"
             }, {
               default: Xe(() => d[2] || (d[2] = [
@@ -32814,7 +32813,7 @@ const Zr = /* @__PURE__ */ Object.assign({
           _: 1
         }, 16, ["style"]),
         At(ee(Sr), gt({
-          style: `margin-left: 10px; width: ${e.buttonWidth}px`
+          style: `margin-left: 10px; width: ${e.item.buttonWidth}px; --n-padding: 0 10px 0 8px;`
         }, e.item.resetBtnProps, {
           type: "default",
           focusable: !1,
@@ -32828,7 +32827,7 @@ const Zr = /* @__PURE__ */ Object.assign({
           e.item.showResetBtnIcon ? {
             name: "icon",
             fn: Xe(() => [
-              At(ee(zo), { size: "18" }, {
+              At(ee(zo), { size: "16" }, {
                 default: Xe(() => d[4] || (d[4] = [
                   bn("svg", {
                     t: "1737871878167",
@@ -32889,7 +32888,14 @@ const Zr = /* @__PURE__ */ Object.assign({
       }), i.value = x;
     };
     a();
-    const s = L([]), l = L({}), u = { _isActionItem: !0, width: e.buttonWidth * 2 + 10, showResetBtnIcon: e.showResetBtnIcon, searchBtnProps: e.searchBtnProps, resetBtnProps: e.resetBtnProps }, d = { _isEmptyItem: !0 }, c = gr("search"), h = E(() => l.value.singleLine || s.value.length === 2 && s.value[1].length === 1), p = E(() => {
+    const s = L([]), l = L({}), u = {
+      _isActionItem: !0,
+      width: e.buttonWidth * 2 + 10,
+      showResetBtnIcon: e.showResetBtnIcon,
+      searchBtnProps: e.searchBtnProps,
+      resetBtnProps: e.resetBtnProps,
+      buttonWidth: e.buttonWidth
+    }, d = { _isEmptyItem: !0 }, c = gr("search"), h = E(() => l.value.singleLine || s.value.length === 2 && s.value[1].length === 1), p = E(() => {
       let x = e.labelWidth || 59;
       return x = Math.min(x, e.maxLabelWidth), h.value === !1 ? x : e.maxLabelWidth;
     });
@@ -32976,7 +32982,6 @@ const Zr = /* @__PURE__ */ Object.assign({
           oneLineCondition: h.value,
           labelWidth: p.value,
           showColon: e.showColon,
-          buttonWidth: e.buttonWidth,
           item: B,
           lastItemForMulti: l.value.multiLine && !B._isActionItem && n === F.length - 1,
           searchData: i.value,
@@ -32987,7 +32992,7 @@ const Zr = /* @__PURE__ */ Object.assign({
           style: Bt(
             l.value.singleLine && !B._isActionItem ? `width: ${ee(o)}px` : l.value.multiLine ? "flex:1" : ""
           )
-        }, null, 8, ["oneLineCondition", "labelWidth", "showColon", "buttonWidth", "item", "lastItemForMulti", "searchData", "style"]))), 128))
+        }, null, 8, ["oneLineCondition", "labelWidth", "showColon", "item", "lastItemForMulti", "searchData", "style"]))), 128))
       ], 4))), 128))
     ], 512));
   }

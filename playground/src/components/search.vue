@@ -4,7 +4,7 @@
   </box-component>
 
   <box-component :name="`${name} - Size`">
-    <p-search class="custom-search" :model="model2" :buttonWidth="76" />
+    <p-search class="custom-search" :model="model2" />
   </box-component>
 </template>
 

@@ -32,13 +32,13 @@
     </template>
     <template v-if="item._isActionItem">
       <s-button
-        :style="`width: ${buttonWidth}px`"
+        :style="`width: ${item.buttonWidth}px; --n-padding: 0 10px 0 8px;`"
         v-bind="item.searchBtnProps"
         :focusable="false"
         @click="handleSearch"
       >
         <template #icon
-          ><n-icon size="20" color="#ffffff"
+          ><n-icon size="18" color="#ffffff"
             ><svg
               t="1737784979409"
               class="icon"
@@ -56,14 +56,14 @@
         >搜索</s-button
       >
       <s-button
-        :style="`margin-left: 10px; width: ${buttonWidth}px`"
+        :style="`margin-left: 10px; width: ${item.buttonWidth}px; --n-padding: 0 10px 0 8px;`"
         v-bind="item.resetBtnProps"
         type="default"
         :focusable="false"
         @click="handleReset"
       >
         <template #icon v-if="item.showResetBtnIcon">
-          <n-icon size="18">
+          <n-icon size="16">
             <svg
               t="1737871878167"
               class="icon"
@@ -108,8 +108,7 @@ const { item, searchData, doSearch, doReset, doChange, updateSearchData } = defi
   doSearch: { type: Function, required: true },
   doReset: { type: Function, required: true },
   doChange: { type: Function, required: true },
-  updateSearchData: { type: Function, required: true },
-  buttonWidth: { type: Number }
+  updateSearchData: { type: Function, required: true }
 })
 const value = ref(item.field ? searchData[item.field] : void 0)
 

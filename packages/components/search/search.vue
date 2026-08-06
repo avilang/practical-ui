@@ -8,7 +8,6 @@
         :oneLineCondition="oneLineCondition"
         :labelWidth="realLabelWidth"
         :showColon="showColon"
-        :buttonWidth="buttonWidth"
         :item="item"
         :lastItemForMulti="layout.multiLine && !item._isActionItem && j === listPart.length - 1"
         :searchData="searchData"
@@ -76,7 +75,14 @@ initSearchData()
 
 const list = ref([])
 const layout = ref({})
-const itemAction = { _isActionItem: true, width: buttonWidth * 2 + 10, showResetBtnIcon, searchBtnProps, resetBtnProps } // width 为操作项的宽度
+const itemAction = {
+  _isActionItem: true,
+  width: buttonWidth * 2 + 10,
+  showResetBtnIcon,
+  searchBtnProps,
+  resetBtnProps,
+  buttonWidth
+} // width 为操作项的宽度
 const itemEmpty = { _isEmptyItem: true } // 占位项
 const searchRef = useTemplateRef('search')
 
