@@ -19,7 +19,8 @@ import {
   NBreadcrumb,
   NBreadcrumbItem,
   NEllipsis,
-  NPerformantEllipsis
+  NPerformantEllipsis,
+  NTree
 } from 'naive-ui'
 import { Practical } from './practical/index.js'
 import { PSearch } from './search/index.js'
@@ -83,6 +84,7 @@ export default {
     app.component(`${prefix}-breadcrumb-item`, NBreadcrumbItem)
     app.component(`${prefix}-ellipsis`, NEllipsis)
     app.component(`${prefix}-performant-ellipsis`, NPerformantEllipsis)
+    app.component(`${prefix}-tree`, NTree)
   }
 }
 
