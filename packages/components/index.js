@@ -40,6 +40,7 @@ import { PPopconfirm } from './popconfirm/index.js'
 import { PPagination } from './pagination/index.js'
 import { PPromised } from './promised/index.js'
 import { PDrawer } from './drawer/index.js'
+import { PTreeSelect } from './tree-select/index.js'
 
 export default {
   install: (app, options = {}) => {
@@ -53,6 +54,7 @@ export default {
     app.component(`${prefix}-input-identifier`, PInputIdentifier)
     app.component(`${prefix}-select`, PSelect)
     app.component(`${prefix}-cascader`, PCascader)
+    app.component(`${prefix}-tree-select`, PTreeSelect)
     app.component(`${prefix}-switch`, PSwitch)
     app.component(`${prefix}-radio`, PRadio)
     app.component(`${prefix}-radio-group`, PRadioGroup)

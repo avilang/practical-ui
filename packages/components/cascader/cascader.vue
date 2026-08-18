@@ -1,5 +1,6 @@
 <template>
   <n-cascader
+    :class="[$attrs.class ? $attrs.class : '']"
     :style="$attrs.style || ''"
     bordered
     :size="size"

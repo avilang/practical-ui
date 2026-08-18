@@ -33,6 +33,7 @@ import InputNumber from './components/input-number.vue'
 import InputIdentifier from './components/input-identifier.vue'
 import Select from './components/select.vue'
 import Cascader from './components/cascader.vue'
+import TreeSelect from './components/tree-select.vue'
 
 const components = {
   button: Button,
@@ -51,7 +52,8 @@ const components = {
   inputNumber: InputNumber,
   inputIdentifier: InputIdentifier,
   select: Select,
-  cascader: Cascader
+  cascader: Cascader,
+  treeSelect: TreeSelect
 }
 const options = [
   { componentName: 'P-Button', componentKey: 'button' },
@@ -60,6 +62,7 @@ const options = [
   { componentName: 'P-Input-Identifier', componentKey: 'inputIdentifier' },
   { componentName: 'P-Select', componentKey: 'select' },
   { componentName: 'P-Cascader', componentKey: 'cascader' },
+  { componentName: 'P-Tree-Select', componentKey: 'treeSelect' },
   { componentName: 'P-Form', componentKey: 'form' },
   { componentName: 'P-Search', componentKey: 'search' },
   { componentName: 'P-Pagination', componentKey: 'pagination' },
