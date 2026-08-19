@@ -37211,7 +37211,8 @@ const Sh = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: n = !1 } = 
     checkStrategy: { type: String },
     maxTagCount: { type: [Number, String], default: "responsive" },
     defaultExpandAll: { type: Boolean, default: !1 },
-    expandedKeys: { type: Array, default: () => [] },
+    expandedKeys: { type: Array },
+    defaultExpandedKeys: { type: Array, default: () => [] },
     loading: { type: Boolean, default: !1 },
     showPath: { type: Boolean, default: !1 },
     clearable: { type: Boolean, default: !1 },
@@ -37247,6 +37248,7 @@ const Sh = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: n = !1 } = 
       "check-strategy": n.value,
       "max-tag-count": e.maxTagCount,
       "default-expand-all": e.defaultExpandAll,
+      "default-expanded-keys": e.defaultExpandedKeys,
       "expanded-keys": e.expandedKeys,
       loading: e.loading,
       "show-path": e.showPath,
@@ -37269,7 +37271,7 @@ const Sh = ({ delay: e = 300, minPendingTime: t = 500, loadingValue: n = !1 } = 
         }, null, 8, ["size", "description"])
       ]),
       _: 1
-    }, 8, ["class", "style", "value", "size", "disabled", "placeholder", "options", "children-field", "key-field", "label-field", "disabled-field", "multiple", "cascade", "check-strategy", "max-tag-count", "default-expand-all", "expanded-keys", "loading", "show-path", "clearable", "indent", "filterable", "filter", "checkable", "onUpdate:value"]));
+    }, 8, ["class", "style", "value", "size", "disabled", "placeholder", "options", "children-field", "key-field", "label-field", "disabled-field", "multiple", "cascade", "check-strategy", "max-tag-count", "default-expand-all", "default-expanded-keys", "expanded-keys", "loading", "show-path", "clearable", "indent", "filterable", "filter", "checkable", "onUpdate:value"]));
   }
 });
 function W4(e = ["loadingBar", "message"], t = {}) {

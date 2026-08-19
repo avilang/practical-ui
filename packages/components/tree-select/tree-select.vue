@@ -16,6 +16,7 @@
     :check-strategy="realCheckStrategy"
     :max-tag-count="maxTagCount"
     :default-expand-all="defaultExpandAll"
+    :default-expanded-keys="defaultExpandedKeys"
     :expanded-keys="expandedKeys"
     :loading="loading"
     :show-path="showPath"
@@ -64,7 +65,8 @@ const { multiple, checkStrategy } = defineProps({
   checkStrategy: { type: String },
   maxTagCount: { type: [Number, String], default: 'responsive' },
   defaultExpandAll: { type: Boolean, default: false },
-  expandedKeys: { type: Array, default: () => [] },
+  expandedKeys: { type: Array },
+  defaultExpandedKeys: { type: Array, default: () => [] },
   loading: { type: Boolean, default: false },
   showPath: { type: Boolean, default: false },
   clearable: { type: Boolean, default: false },
