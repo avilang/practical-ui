@@ -33,6 +33,7 @@
               :label="item.label"
               :width="labelWidth"
               :colon="colon"
+              :inline="false"
               :show-require-mark="item.showRequireMark == null ? showRequireMark : !!item.showRequireMark"
             />
           </template>
@@ -107,6 +108,7 @@
                 :label="item.label"
                 :width="labelWidth"
                 :colon="colon"
+                :inline="true"
                 :show-require-mark="item.showRequireMark == null ? showRequireMark : !!item.showRequireMark"
               />
             </template>

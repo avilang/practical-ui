@@ -7,17 +7,19 @@
 <script setup>
 import { useTemplateRef, onMounted, ref } from 'vue'
 
-const { width, showRequireMark } = defineProps({
+const { width, showRequireMark, inline, colon } = defineProps({
   label: { type: String },
   width: { type: [Number, String] },
   showRequireMark: { type: Boolean },
-  colon: { type: Boolean }
+  colon: { type: Boolean },
+  inline: { type: Boolean }
 })
 
 const labelRef = useTemplateRef('label')
 const style = ref('')
 onMounted(() => {
-  const iWidth = parseInt(width) - 8 - (showRequireMark ? 14 : 0)
+  const paddingRight = !colon ? (!inline ? 12 : 8) : !inline ? 3 : 1
+  const iWidth = parseInt(width) - paddingRight - (showRequireMark ? 14 : 0)
   if (labelRef.value.offsetWidth > iWidth) {
     style.value = `width: ${iWidth}px; user-select: none; -webkit-user-select: none;`
   }

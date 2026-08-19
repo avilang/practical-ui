@@ -35923,13 +35923,14 @@ const co = /* @__PURE__ */ Object.assign({
     label: { type: String },
     width: { type: [Number, String] },
     showRequireMark: { type: Boolean },
-    colon: { type: Boolean }
+    colon: { type: Boolean },
+    inline: { type: Boolean }
   },
   setup(e) {
     const t = Ar("label"), n = I("");
     return kt(() => {
-      const o = parseInt(e.width) - 8 - (e.showRequireMark ? 14 : 0);
-      t.value.offsetWidth > o && (n.value = `width: ${o}px; user-select: none; -webkit-user-select: none;`);
+      const o = e.colon ? e.inline ? 1 : 3 : e.inline ? 8 : 12, i = parseInt(e.width) - o - (e.showRequireMark ? 14 : 0);
+      t.value.offsetWidth > i && (n.value = `width: ${i}px; user-select: none; -webkit-user-select: none;`);
     }), (o, i) => (ze(), yt("span", {
       ref: "label",
       class: wt(["p-form-item-label"]),
@@ -36451,6 +36452,7 @@ const co = /* @__PURE__ */ Object.assign({
                   label: B.label,
                   width: e.labelWidth,
                   colon: e.colon,
+                  inline: !1,
                   "show-require-mark": B.showRequireMark == null ? e.showRequireMark : !!B.showRequireMark
                 }, null, 8, ["label", "width", "colon", "show-require-mark"])
               ]),
@@ -36532,6 +36534,7 @@ const co = /* @__PURE__ */ Object.assign({
                     label: E.label,
                     width: e.labelWidth,
                     colon: e.colon,
+                    inline: !0,
                     "show-require-mark": E.showRequireMark == null ? e.showRequireMark : !!E.showRequireMark
                   }, null, 8, ["label", "width", "colon", "show-require-mark"])
                 ]),
