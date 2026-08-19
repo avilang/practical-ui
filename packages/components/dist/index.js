@@ -35928,7 +35928,7 @@ const co = /* @__PURE__ */ Object.assign({
   setup(e) {
     const t = Ar("label"), n = I("");
     return kt(() => {
-      const o = parseInt(e.width) - 10 - (e.showRequireMark ? 14 : 0);
+      const o = parseInt(e.width) - 8 - (e.showRequireMark ? 14 : 0);
       t.value.offsetWidth > o && (n.value = `width: ${o}px; user-select: none; -webkit-user-select: none;`);
     }), (o, i) => (ze(), yt("span", {
       ref: "label",

@@ -17,7 +17,7 @@ const { width, showRequireMark } = defineProps({
 const labelRef = useTemplateRef('label')
 const style = ref('')
 onMounted(() => {
-  const iWidth = parseInt(width) - 10 - (showRequireMark ? 14 : 0)
+  const iWidth = parseInt(width) - 8 - (showRequireMark ? 14 : 0)
   if (labelRef.value.offsetWidth > iWidth) {
     style.value = `width: ${iWidth}px; user-select: none; -webkit-user-select: none;`
   }
